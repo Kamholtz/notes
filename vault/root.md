@@ -2,7 +2,7 @@
 id: wn8PE1RhG0znK1alrGFYv
 title: Root
 desc: ''
-updated: 1643023663183
+updated: 1643023663272
 created: 1631901573363
 ---
 # Welcome to Dendron
@@ -17,4 +17,4 @@ Last updated: 2021.12.30
 
 Some text
 
-[[Another Note|root.another-note]]
+[[Another Note|another-note]]
