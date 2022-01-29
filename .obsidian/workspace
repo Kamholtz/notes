@@ -4,13 +4,14 @@
     "type": "split",
     "children": [
       {
-        "id": "527d8b6f51a90a68",
+        "id": "84de36c5ddd869e5",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
             "file": "vault/obsidian.setup.md",
-            "mode": "source"
+            "mode": "source",
+            "source": true
           }
         }
       }
@@ -18,87 +19,109 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "8b666dac8533eea3",
-    "type": "mobile-drawer",
+    "id": "572f04fd28e51647",
+    "type": "split",
     "children": [
       {
-        "id": "22aedbfc9ca6cd12",
-        "type": "leaf",
-        "state": {
-          "type": "file-explorer",
-          "state": {}
-        }
-      },
-      {
-        "id": "bfcfc8f73c35f16b",
-        "type": "leaf",
-        "state": {
-          "type": "search",
-          "state": {
-            "query": "",
-            "matchingCase": false,
-            "explainSearch": false,
-            "collapseAll": false,
-            "extraContext": false,
-            "sortOrder": "alphabetical"
+        "id": "ba588dc2634d16d7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fd7eefd1af00748d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "283b1fc43d9be268",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
           }
-        }
+        ]
       }
     ],
-    "currentTab": 0
+    "direction": "horizontal",
+    "width": 300
   },
   "right": {
-    "id": "0f09ef3d3cff2b9b",
-    "type": "mobile-drawer",
+    "id": "f6b38c69e187a123",
+    "type": "split",
     "children": [
       {
-        "id": "4e8383c18985e3a0",
-        "type": "leaf",
-        "state": {
-          "type": "backlink",
-          "state": {
-            "file": "vault/obsidian.setup.md",
-            "collapseAll": false,
-            "extraContext": false,
-            "sortOrder": "alphabetical",
-            "showSearch": false,
-            "searchQuery": "",
-            "backlinkCollapsed": false,
-            "unlinkedCollapsed": true
+        "id": "5c159b57462ea041",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7495b0ce2e561b4c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "vault/obsidian.setup.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "2afc928e7a0ffca6",
+            "type": "leaf",
+            "state": {
+              "type": "BC-matrix",
+              "state": {}
+            }
+          },
+          {
+            "id": "334f510906095f12",
+            "type": "leaf",
+            "state": {
+              "type": "BC-stats",
+              "state": {}
+            }
+          },
+          {
+            "id": "709a8ea008d3b57d",
+            "type": "leaf",
+            "state": {
+              "type": "BC-tree",
+              "state": {}
+            }
           }
-        }
-      },
-      {
-        "id": "5b8c571ac88ff8f1",
-        "type": "leaf",
-        "state": {
-          "type": "BC-matrix",
-          "state": {}
-        }
-      },
-      {
-        "id": "6a0d8b7bf232b8c0",
-        "type": "leaf",
-        "state": {
-          "type": "BC-stats",
-          "state": {}
-        }
-      },
-      {
-        "id": "2deb5adc15a871cc",
-        "type": "leaf",
-        "state": {
-          "type": "BC-tree",
-          "state": {}
-        }
+        ]
       }
     ],
-    "currentTab": 0
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
   },
-  "active": "527d8b6f51a90a68",
+  "active": "84de36c5ddd869e5",
   "lastOpenFiles": [
     "vault/obsidian.setup.md",
-    "vault/assets/0DD831C8-1EBB-4D11-B06D-B9A495CA328D.png",
-    "vault/3d-printing.filaments.petg.calibration.md"
+    "vault/assets/images/Pasted image 20220130085813.png",
+    "vault/assets/images/0DD831C8-1EBB-4D11-B06D-B9A495CA328D.png",
+    "vault/assets/images/2022-01-29-21-19-21.png",
+    "vault/assets/images/59E597FB-D7B7-41E1-829B-06F3400C0CC8.png",
+    "vault/test-note.md",
+    "vault/down of obsidian.setup.md",
+    "vault/Pasted image 20220130081936.png",
+    "assets/images/0DD831C8-1EBB-4D11-B06D-B9A495CA328D.png.md",
+    "vault/assets/0DD831C8-1EBB-4D11-B06D-B9A495CA328D.png"
   ]
 }

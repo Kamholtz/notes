@@ -1,5 +1,11 @@
 {
-  "attachmentFolderPath": "vault/assets",
+  "attachmentFolderPath": "vault/assets/images",
   "newFileLocation": "folder",
-  "newFileFolderPath": "vault"
+  "newFileFolderPath": "vault",
+  "legacyEditor": false,
+  "livePreview": false,
+  "useMarkdownLinks": true,
+  "vimMode": false,
+  "newLinkFormat": "relative",
+  "promptDelete": false
 }

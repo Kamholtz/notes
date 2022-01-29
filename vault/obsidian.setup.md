@@ -1,20 +1,49 @@
 
+## Files and Links
 
-## General
+- Where to create new notes
 
-Where to create new notes
+  ![](assets/images/Pasted%20image%2020220130092308.png)
 
-![](/assets/images/0DD831C8-1EBB-4D11-B06D-B9A495CA328D.png)
+- Where to store attachments/images
 
+  ![](assets/images/Pasted%20image%2020220130092423.png)
 
-where to store attachments
+- Relative links
+	- Using `Shortest path when possible` will result in pasted images being linked to incorrectly
+		- The image copied (corectly) into `assets/images` but the link will look like `![](img.png)` where there is no path specified. Dendron will not be able to resolve the image's location
 
+        ![](assets/images/Pasted%20image%2020220130092446.png)
 
-![](/assets/images/59E597FB-D7B7-41E1-829B-06F3400C0CC8.png)
-
-![](/assets/images/2022-01-29-21-19-21.png)
+- Use markdown links if you mostly add images, use wiki-links if you mostly write notes linking to other notes (this will be further addressed in the plugins section)
 
 
 ## Plugins
 
+### Wikilinks to MDLinks
+
+- To be explored...
+  - Desire to paste images with "markdown links" and create note links as "wiki links"
+
 ### Breadcrumbs
+
+#### Views
+
+##### Trail/Grid/Juggl
+- Enable showing trail view for `up` in `Limit Trail View to only show certain fields`
+
+  ![](assets/images/Pasted%20image%2020220130093924.png)
+
+- Specify `Index Notes(s)` as `root` (yet to see this actually take effect in trail-view)
+
+  ![](assets/images/Pasted%20image%2020220130094001.png)
+
+#### Alternative Hierarchies
+##### Dendron Notes
+- Enable `Add Dendron notes to graph`
+
+  ![](assets/images/Pasted%20image%2020220130094021.png)
+
+- Enable `Trim Dendron Note Names` (useful on mobile) and in "trail view"
+
+  ![](assets/images/Pasted%20image%2020220130094034.png)
