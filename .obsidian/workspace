@@ -1,0 +1,104 @@
+{
+  "main": {
+    "id": "6f647622b6bbf6a7",
+    "type": "split",
+    "children": [
+      {
+        "id": "527d8b6f51a90a68",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "vault/obsidian.setup.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8b666dac8533eea3",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "22aedbfc9ca6cd12",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {}
+        }
+      },
+      {
+        "id": "bfcfc8f73c35f16b",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "0f09ef3d3cff2b9b",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "4e8383c18985e3a0",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "vault/obsidian.setup.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "5b8c571ac88ff8f1",
+        "type": "leaf",
+        "state": {
+          "type": "BC-matrix",
+          "state": {}
+        }
+      },
+      {
+        "id": "6a0d8b7bf232b8c0",
+        "type": "leaf",
+        "state": {
+          "type": "BC-stats",
+          "state": {}
+        }
+      },
+      {
+        "id": "2deb5adc15a871cc",
+        "type": "leaf",
+        "state": {
+          "type": "BC-tree",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "active": "527d8b6f51a90a68",
+  "lastOpenFiles": [
+    "vault/obsidian.setup.md",
+    "vault/assets/0DD831C8-1EBB-4D11-B06D-B9A495CA328D.png",
+    "vault/3d-printing.filaments.petg.calibration.md"
+  ]
+}

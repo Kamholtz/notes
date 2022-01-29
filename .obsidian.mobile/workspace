@@ -1,0 +1,102 @@
+{
+  "main": {
+    "id": "c7764b2e4b48a16e",
+    "type": "split",
+    "children": [
+      {
+        "id": "9611397a670d3553",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "vault/obsidian.setup.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3a05579d01b30bdc",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "be54e35ed112dead",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {}
+        }
+      },
+      {
+        "id": "b65690ca45534721",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "1d911ec6107a2225",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "93585fb4d1a5ffb1",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "vault/obsidian.setup.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "137844fff5c7a98c",
+        "type": "leaf",
+        "state": {
+          "type": "BC-matrix",
+          "state": {}
+        }
+      },
+      {
+        "id": "43d0ff06989d6556",
+        "type": "leaf",
+        "state": {
+          "type": "BC-stats",
+          "state": {}
+        }
+      },
+      {
+        "id": "b44f348394836a0e",
+        "type": "leaf",
+        "state": {
+          "type": "BC-tree",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 1
+  },
+  "active": "9611397a670d3553",
+  "lastOpenFiles": [
+    "vault/obsidian.setup.md"
+  ]
+}
