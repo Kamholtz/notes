@@ -4,14 +4,14 @@
     "type": "split",
     "children": [
       {
-        "id": "84de36c5ddd869e5",
+        "id": "b6299ecb2c71c9ca",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
             "file": "vault/obsidian.setup.md",
-            "mode": "preview",
-            "source": true
+            "mode": "source",
+            "source": false
           }
         }
       }
@@ -111,7 +111,7 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "84de36c5ddd869e5",
+  "active": "b6299ecb2c71c9ca",
   "lastOpenFiles": [
     "vault/obsidian.setup.md",
     "vault/freecad.importing-and-editing-stl-files.md",
