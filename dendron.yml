@@ -11,7 +11,7 @@ site:
         - root
     siteRootDir: docs
     siteUrl: 'https://kamholtz.github.io'
-    assetsPrefix: /notes
+    # assetsPrefix: /notes
     usePrettyRefs: true
     title: Dendron
     description: Personal knowledge space
