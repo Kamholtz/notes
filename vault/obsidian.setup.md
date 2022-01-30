@@ -2,7 +2,7 @@
 id: OK438JlkQKGS75dmFKYfB
 title: Setup
 desc: ''
-updated: 1643509759582
+updated: 1643518450971
 created: 1643501302411
 ---
 
@@ -92,3 +92,4 @@ Relevant setings:
     - Shortcut is `ctrl + shift + L`
     - Is it possible to add shortcut to this command on toolbar?
 	    - Yes it is!
+    - Relevant FR: [Have separate &quot;Use Markdown links&quot; options for internal and external links](https://forum.obsidian.md/t/have-separate-use-markdown-links-options-for-internal-and-external-links/25527)
