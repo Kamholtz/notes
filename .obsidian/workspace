@@ -10,8 +10,7 @@
           "type": "markdown",
           "state": {
             "file": "vault/obsidian.setup.md",
-            "mode": "source",
-            "source": false
+            "mode": "source"
           }
         }
       }
@@ -46,7 +45,7 @@
         }
       }
     ],
-    "currentTab": 0
+    "currentTab": 1
   },
   "right": {
     "id": "7a9b12ac2e4c310b",
@@ -99,14 +98,14 @@
   "active": "b6299ecb2c71c9ca",
   "lastOpenFiles": [
     "vault/obsidian.setup.md",
+    "vault/ee.esp.32.dev-kit-c.md",
+    "vault/assets/images/2022-01-30-15-12-51.png",
     "vault/3d-printing.filaments.petg.calibration.md",
     "vault/assets/images/Pasted image 20220130085813.png",
     "vault/assets/images/0DD831C8-1EBB-4D11-B06D-B9A495CA328D.png",
     "vault/assets/images/2022-01-29-21-19-21.png",
     "vault/assets/images/59E597FB-D7B7-41E1-829B-06F3400C0CC8.png",
     "vault/test-note.md",
-    "vault/down of obsidian.setup.md",
-    "vault/Pasted image 20220130081936.png",
-    "assets/images/0DD831C8-1EBB-4D11-B06D-B9A495CA328D.png.md"
+    "vault/down of obsidian.setup.md"
   ]
 }

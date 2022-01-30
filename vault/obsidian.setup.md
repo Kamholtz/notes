@@ -73,7 +73,8 @@ Relevant setings:
   ![](assets/images/20220130094034.png)
 
 ## Outstanding Issues
-
+- [ ] Image links created in dendron start with `/assets`. They do not resolve in this vault within obsidian. This is likely due to root of the vault being one directory above all of the notes and the path starting with `/` being interpreted as absolute. 
+	- in contrast, obsidian creates links do not start with the slash and are thus relative 
 - [ ] Dendron front matter (e.g. id) isn't created, so need to fun `Dendron: Doctor` command within VSCode
 - [ ] Equivalent of `Dendron: Go Down` command in Obsidian
 - [x] Look into how to paste images with a custom name
