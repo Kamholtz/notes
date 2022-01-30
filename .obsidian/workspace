@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "vault/obsidian.setup.md",
+            "file": "vault/root.md",
             "mode": "source"
           }
         }
@@ -35,7 +35,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "",
+            "query": "Welcome",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -57,7 +57,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "vault/obsidian.setup.md",
+            "file": "vault/root.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -93,19 +93,19 @@
         }
       }
     ],
-    "currentTab": 1
+    "currentTab": 3
   },
   "active": "b6299ecb2c71c9ca",
   "lastOpenFiles": [
-    "vault/obsidian.setup.md",
+    "vault/root.md",
+    "vault/ee.md",
     "vault/ee.esp.32.dev-kit-c.md",
+    "vault/obsidian.setup.md",
     "vault/assets/images/2022-01-30-15-12-51.png",
     "vault/3d-printing.filaments.petg.calibration.md",
     "vault/assets/images/Pasted image 20220130085813.png",
     "vault/assets/images/0DD831C8-1EBB-4D11-B06D-B9A495CA328D.png",
     "vault/assets/images/2022-01-29-21-19-21.png",
-    "vault/assets/images/59E597FB-D7B7-41E1-829B-06F3400C0CC8.png",
-    "vault/test-note.md",
-    "vault/down of obsidian.setup.md"
+    "vault/assets/images/59E597FB-D7B7-41E1-829B-06F3400C0CC8.png"
   ]
 }
