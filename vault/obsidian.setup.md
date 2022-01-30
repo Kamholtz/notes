@@ -2,7 +2,7 @@
 id: OK438JlkQKGS75dmFKYfB
 title: Setup
 desc: ''
-updated: 1643539963211
+updated: 1643541017461
 created: 1643501302411
 ---
 
@@ -29,22 +29,28 @@ created: 1643501302411
 
 ### Wikilinks to MDLinks
 
-[agathauy/wikilinks-to-mdlinks-obsidian: An Obsidian md plugin which allows for the conversion of individually selected wikilinks to markdown links, and vice versa. (github.com)](https://github.com/agathauy/wikilinks-to-mdlinks-obsidian)
-
-- To be explored...
-  - Goal is to paste images as "markdown links" and create note links as "wiki links"
+- [x] Obsidian only allows ALL markdown links or ALL wikilinks while Dendron uses wiki links for notes and markdown links for images
+  - Need a plugin that can paste images with markdown links while continuing to use wikilinks for note links
+    - Could do manual conversation using: [GitHub - agathauy/wikilinks-to-mdlinks-obsidian: An Obsidian md plugin which allows for the conversion of individually selected wikilinks to markdown links, and vice versa.](https://github.com/agathauy/wikilinks-to-mdlinks-obsidian)
+    - Shortcut is `ctrl + shift + L`
+    - Is it possible to add shortcut to this command on toolbar?
+	    - Yes it is!
+    - Relevant FR: [Have separate &quot;Use Markdown links&quot; options for internal and external links](https://forum.obsidian.md/t/have-separate-use-markdown-links-options-for-internal-and-external-links/25527)
 
 ### Custom attachment location
 
-By default, pasting images from clipboard with Obsidian will create an image filename with spaces. Dendron (markdown in general?) does not support. The following plugin allows a filename to be specified:
+- Images with spaces in the name (represented as `%`) do not get displayed in Dendron. Obisidian creates filenames with spaces for pasted images by default
+  - Example: `![](assets/images/Pasted%20image%2020220130092423.png)`
+    - [File links with spaces · Issue #2228 · dendronhq/dendron](https://github.com/dendronhq/dendron/issues/2228)
+    - [Bug: Image Markdown fails with spaces and caps in name of file · Issue #200 · dendronhq/dendron](https://github.com/dendronhq/dendron/issues/200)
 
-[RainCat1998/obsidian-custom-attachment-location: Customize attachment location with variables($filename, $data, etc) like typora. (github.com)](https://github.com/RainCat1998/obsidian-custom-attachment-location)
+  - ~~Workaround: immediately rename the file within Obsidian to not have spaces~~
+    - ~~Obsidian will update the reference to the file~~
 
-Relevant setings:
+  - Use the following plugin to change the pasted image name format: [RainCat1998/obsidian-custom-attachment-location: Customize attachment location with variables($filename, $data, etc) like typora. (github.com)](https://github.com/RainCat1998/obsidian-custom-attachment-location)
 
-![assets/images/img-20220130121310253.png](assets/images/img-20220130121310253.png)
-
-
+    - Relevant setings:
+    ![assets/images/img-20220130121310253.png](assets/images/img-20220130121310253.png)
 
 ### Breadcrumbs
 
@@ -80,20 +86,3 @@ Relevant setings:
   - in contrast, obsidian creates links do not start with the slash and are thus relative
   - Images links in Obsidian were being prefixed with `/` due to a setting in `Dendron Paste Image` called `pasteImage.prefix="/"`
     - Changing it to `pasteImage.prefix=""` results in proper relative links that Obisidian is able to resolve
-- [x] Look into how to paste images with a custom name
-  - Resolved with
-  - Images with spaces in the name (represented as `%`) do not get displayed in Dendron. Obisidian creates filenames with spaces for pasted images by default
-  - Example: `![](assets/images/Pasted%20image%2020220130092423.png)`
-    - [File links with spaces · Issue #2228 · dendronhq/dendron](https://github.com/dendronhq/dendron/issues/2228)
-    - [Bug: Image Markdown fails with spaces and caps in name of file · Issue #200 · dendronhq/dendron](https://github.com/dendronhq/dendron/issues/200)
-
-  - Workaround: immediately rename the file within Obsidian to not have spaces
-    - Obsidian will update the reference to the file
-
-- [x] Obsidian only allows ALL markdown links or ALL wikilinks while Dendron uses wiki links for notes and markdown links for images
-  - Need a plugin that can paste images with markdown links while continuing to use wikilinks for note links
-    - Could do manual conversation using: [GitHub - agathauy/wikilinks-to-mdlinks-obsidian: An Obsidian md plugin which allows for the conversion of individually selected wikilinks to markdown links, and vice versa.](https://github.com/agathauy/wikilinks-to-mdlinks-obsidian)
-    - Shortcut is `ctrl + shift + L`
-    - Is it possible to add shortcut to this command on toolbar?
-	    - Yes it is!
-    - Relevant FR: [Have separate &quot;Use Markdown links&quot; options for internal and external links](https://forum.obsidian.md/t/have-separate-use-markdown-links-options-for-internal-and-external-links/25527)
