@@ -1,0 +1,7 @@
+{
+  "attachmentFolderPath": "vault/assets/images",
+  "pastedImageFileName": "img-${date}",
+  "dateTimeFormat": "YYYYMMDDHHmmssSSS",
+  "autoRenameFolder": true,
+  "autoRenameFiles": false
+}

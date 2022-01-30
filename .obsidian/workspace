@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "vault/3d-printing.filaments.petg.calibration.md",
-            "mode": "source",
+            "file": "vault/obsidian.setup.md",
+            "mode": "preview",
             "source": true
           }
         }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vault/3d-printing.filaments.petg.calibration.md",
+                "file": "vault/obsidian.setup.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,6 +113,7 @@
   },
   "active": "84de36c5ddd869e5",
   "lastOpenFiles": [
+    "vault/obsidian.setup.md",
     "vault/3d-printing.filaments.petg.calibration.md",
     "vault/3d-printing.design.snap-fit.md",
     "vault/3d-printing.md",
@@ -121,7 +122,6 @@
     "vault/assets/images/20220130094001.png",
     "vault/assets/images/20220130093924.png",
     "vault/assets/images/20220130092446.png",
-    "vault/assets/images/20220130092423.png",
-    "vault/assets/images/20220130092308.png"
+    "vault/assets/images/20220130092423.png"
   ]
 }

@@ -34,6 +34,18 @@ created: 1643501302411
 - To be explored...
   - Goal is to paste images as "markdown links" and create note links as "wiki links"
 
+### Custom attachment location
+
+By default, pasting images from clipboard with Obsidian will create an image filename with spaces. Dendron (markdown in general?) does not support. The following plugin allows a filename to be specified:
+
+[RainCat1998/obsidian-custom-attachment-location: Customize attachment location with variables($filename, $data, etc) like typora. (github.com)](https://github.com/RainCat1998/obsidian-custom-attachment-location)
+
+Relevant setings:
+
+![](assets/images/img-20220130121310253.png)
+
+
+
 ### Breadcrumbs
 
 #### Views
@@ -62,7 +74,8 @@ created: 1643501302411
 
 ## Outstanding Issues
 
-- [ ] Look into how to paste images with a custom name
+- [x] Look into how to paste images with a custom name
+  - Resolved with 
   - Images with spaces in the name (represented as `%`) do not get displayed in Dendron. Obisidian creates filenames with spaces for pasted images by default
   - Example: `![](assets/images/Pasted%20image%2020220130092423.png)`
     - [File links with spaces · Issue #2228 · dendronhq/dendron](https://github.com/dendronhq/dendron/issues/2228)
