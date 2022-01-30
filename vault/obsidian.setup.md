@@ -42,7 +42,7 @@ By default, pasting images from clipboard with Obsidian will create an image fil
 
 Relevant setings:
 
-![](assets/images/img-20220130121310253.png)
+![assets/images/img-20220130121310253.png](assets/images/img-20220130121310253.png)
 
 
 
