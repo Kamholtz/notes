@@ -1,8 +1,8 @@
 ---
 id: ggSUxa4V5V5e8G6976jGW
-title: EasyEda
+title: EasyEDA
 desc: ''
-updated: 1643527912839
+updated: 1643539680412
 created: 1643522667903
 ---
 

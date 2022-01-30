@@ -8,7 +8,7 @@ created: 1643519679127
 
 ## Sensors integrations
 
-Integration of [[ee.ds18b20]] in ESPHome:
+Integration of [[ee.sensors.ds18b20]] in ESPHome:
 
 
 Important points:
