@@ -10,8 +10,7 @@
           "type": "markdown",
           "state": {
             "file": "vault/obsidian.setup.md",
-            "mode": "preview",
-            "source": true
+            "mode": "preview"
           }
         }
       }
@@ -19,109 +18,94 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "572f04fd28e51647",
-    "type": "split",
+    "id": "3c2b898c3b4cb61f",
+    "type": "mobile-drawer",
     "children": [
       {
-        "id": "ba588dc2634d16d7",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "fd7eefd1af00748d",
-            "type": "leaf",
-            "state": {
-              "type": "file-explorer",
-              "state": {}
-            }
-          },
-          {
-            "id": "283b1fc43d9be268",
-            "type": "leaf",
-            "state": {
-              "type": "search",
-              "state": {
-                "query": "",
-                "matchingCase": false,
-                "explainSearch": false,
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical"
-              }
-            }
+        "id": "416e27da49435c1b",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {}
+        }
+      },
+      {
+        "id": "66825f177b3cfb55",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
           }
-        ]
+        }
       }
     ],
-    "direction": "horizontal",
-    "width": 300
+    "currentTab": 0
   },
   "right": {
-    "id": "f6b38c69e187a123",
-    "type": "split",
+    "id": "7a9b12ac2e4c310b",
+    "type": "mobile-drawer",
     "children": [
       {
-        "id": "5c159b57462ea041",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "7495b0ce2e561b4c",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "vault/obsidian.setup.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
-          },
-          {
-            "id": "2afc928e7a0ffca6",
-            "type": "leaf",
-            "state": {
-              "type": "BC-matrix",
-              "state": {}
-            }
-          },
-          {
-            "id": "334f510906095f12",
-            "type": "leaf",
-            "state": {
-              "type": "BC-stats",
-              "state": {}
-            }
-          },
-          {
-            "id": "709a8ea008d3b57d",
-            "type": "leaf",
-            "state": {
-              "type": "BC-tree",
-              "state": {}
-            }
+        "id": "1a4b6b43845cf201",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "vault/obsidian.setup.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
           }
-        ]
+        }
+      },
+      {
+        "id": "bb6e586a6adce548",
+        "type": "leaf",
+        "state": {
+          "type": "BC-matrix",
+          "state": {}
+        }
+      },
+      {
+        "id": "1088fb8a3e12ae44",
+        "type": "leaf",
+        "state": {
+          "type": "BC-stats",
+          "state": {}
+        }
+      },
+      {
+        "id": "2dcc1e18722759c8",
+        "type": "leaf",
+        "state": {
+          "type": "BC-tree",
+          "state": {}
+        }
       }
     ],
-    "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "currentTab": 1
   },
   "active": "84de36c5ddd869e5",
   "lastOpenFiles": [
     "vault/obsidian.setup.md",
-    "vault/freecad.importing-and-editing-stl-files.md",
     "vault/3d-printing.filaments.petg.calibration.md",
-    "vault/3d-printing.design.snap-fit.md",
-    "vault/3d-printing.md",
-    "vault/assets/images/20220130094034.png",
-    "vault/assets/images/20220130094021.png",
-    "vault/assets/images/20220130094001.png",
-    "vault/assets/images/20220130093924.png",
-    "vault/assets/images/20220130092446.png"
+    "vault/assets/images/Pasted image 20220130085813.png",
+    "vault/assets/images/0DD831C8-1EBB-4D11-B06D-B9A495CA328D.png",
+    "vault/assets/images/2022-01-29-21-19-21.png",
+    "vault/assets/images/59E597FB-D7B7-41E1-829B-06F3400C0CC8.png",
+    "vault/test-note.md",
+    "vault/down of obsidian.setup.md",
+    "vault/Pasted image 20220130081936.png",
+    "assets/images/0DD831C8-1EBB-4D11-B06D-B9A495CA328D.png.md"
   ]
 }
