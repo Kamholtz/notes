@@ -2,7 +2,7 @@
 id: OK438JlkQKGS75dmFKYfB
 title: Setup
 desc: ''
-updated: 1643518450971
+updated: 1643539963211
 created: 1643501302411
 ---
 
@@ -73,10 +73,13 @@ Relevant setings:
   ![](assets/images/20220130094034.png)
 
 ## Outstanding Issues
-- [ ] Image links created in dendron start with `/assets`. They do not resolve in this vault within obsidian. This is likely due to root of the vault being one directory above all of the notes and the path starting with `/` being interpreted as absolute. 
-	- in contrast, obsidian creates links do not start with the slash and are thus relative 
+
 - [ ] Dendron front matter (e.g. id) isn't created, so need to fun `Dendron: Doctor` command within VSCode
 - [ ] Equivalent of `Dendron: Go Down` command in Obsidian
+- [x] Image links created in Dendron start with `/assets`. They do not resolve in this vault within obsidian. This is likely due to root of the vault being one directory above all of the notes and the path starting with `/` being interpreted as absolute.
+  - in contrast, obsidian creates links do not start with the slash and are thus relative
+  - Images links in Obsidian were being prefixed with `/` due to a setting in `Dendron Paste Image` called `pasteImage.prefix="/"`
+    - Changing it to `pasteImage.prefix=""` results in proper relative links that Obisidian is able to resolve
 - [x] Look into how to paste images with a custom name
   - Resolved with
   - Images with spaces in the name (represented as `%`) do not get displayed in Dendron. Obisidian creates filenames with spaces for pasted images by default
@@ -87,7 +90,7 @@ Relevant setings:
   - Workaround: immediately rename the file within Obsidian to not have spaces
     - Obsidian will update the reference to the file
 
-- [ ] Obsidian only allows ALL markdown links or ALL wikilinks while Dendron uses wiki links for notes and markdown links for images
+- [x] Obsidian only allows ALL markdown links or ALL wikilinks while Dendron uses wiki links for notes and markdown links for images
   - Need a plugin that can paste images with markdown links while continuing to use wikilinks for note links
     - Could do manual conversation using: [GitHub - agathauy/wikilinks-to-mdlinks-obsidian: An Obsidian md plugin which allows for the conversion of individually selected wikilinks to markdown links, and vice versa.](https://github.com/agathauy/wikilinks-to-mdlinks-obsidian)
     - Shortcut is `ctrl + shift + L`
