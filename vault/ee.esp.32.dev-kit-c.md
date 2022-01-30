@@ -12,17 +12,17 @@ created: 1643519558230
 
 ## Pin layout
 
-![](/assets/images/2022-01-30-15-12-51.png)
+![](assets/images/2022-01-30-15-12-51.png)
 
 ## Dimensions
 
 ### Board
 
-![](/assets/images/2022-01-30-17-33-31.png)
+![](assets/images/2022-01-30-17-33-31.png)
 
 ### Pins
 
-![](/assets/images/2022-01-30-17-32-35.png)
+![](assets/images/2022-01-30-17-32-35.png)
 
 ## Power consumption
 
