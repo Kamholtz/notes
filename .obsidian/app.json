@@ -3,7 +3,7 @@
   "newFileLocation": "folder",
   "newFileFolderPath": "vault",
   "legacyEditor": false,
-  "livePreview": false,
+  "livePreview": true,
   "useMarkdownLinks": true,
   "vimMode": false,
   "newLinkFormat": "relative",

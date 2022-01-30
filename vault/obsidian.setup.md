@@ -74,6 +74,7 @@ Relevant setings:
 
 ## Outstanding Issues
 
+- [ ] Dendron front matter (e.g. id) isn't created, so need to fun `Dendron: Doctor` command within VSCode
 - [ ] Equivalent of `Dendron: Go Down` command in Obsidian
 - [x] Look into how to paste images with a custom name
   - Resolved with
@@ -85,7 +86,9 @@ Relevant setings:
   - Workaround: immediately rename the file within Obsidian to not have spaces
     - Obsidian will update the reference to the file
 
-- Obsidian only allows ALL markdown links or ALL wikilinks while Dendron uses wiki links for notes and markdown links for images
+- [ ] Obsidian only allows ALL markdown links or ALL wikilinks while Dendron uses wiki links for notes and markdown links for images
   - Need a plugin that can paste images with markdown links while continuing to use wikilinks for note links
     - Could do manual conversation using: [GitHub - agathauy/wikilinks-to-mdlinks-obsidian: An Obsidian md plugin which allows for the conversion of individually selected wikilinks to markdown links, and vice versa.](https://github.com/agathauy/wikilinks-to-mdlinks-obsidian)
+    - Shortcut is `ctrl + shift + L`
     - Is it possible to add shortcut to this command on toolbar?
+	    - Yes it is!
