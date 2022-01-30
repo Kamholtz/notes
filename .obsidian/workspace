@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "vault/obsidian.setup.md",
+            "file": "vault/3d-printing.filaments.petg.calibration.md",
             "mode": "source",
             "source": true
           }
@@ -69,7 +69,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "vault/obsidian.setup.md",
+                "file": "vault/3d-printing.filaments.petg.calibration.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,15 +113,15 @@
   },
   "active": "84de36c5ddd869e5",
   "lastOpenFiles": [
-    "vault/obsidian.setup.md",
-    "vault/assets/images/Pasted image 20220130085813.png",
-    "vault/assets/images/0DD831C8-1EBB-4D11-B06D-B9A495CA328D.png",
-    "vault/assets/images/2022-01-29-21-19-21.png",
-    "vault/assets/images/59E597FB-D7B7-41E1-829B-06F3400C0CC8.png",
-    "vault/test-note.md",
-    "vault/down of obsidian.setup.md",
-    "vault/Pasted image 20220130081936.png",
-    "assets/images/0DD831C8-1EBB-4D11-B06D-B9A495CA328D.png.md",
-    "vault/assets/0DD831C8-1EBB-4D11-B06D-B9A495CA328D.png"
+    "vault/3d-printing.filaments.petg.calibration.md",
+    "vault/3d-printing.design.snap-fit.md",
+    "vault/3d-printing.md",
+    "vault/assets/images/20220130094034.png",
+    "vault/assets/images/20220130094021.png",
+    "vault/assets/images/20220130094001.png",
+    "vault/assets/images/20220130093924.png",
+    "vault/assets/images/20220130092446.png",
+    "vault/assets/images/20220130092423.png",
+    "vault/assets/images/20220130092308.png"
   ]
 }
