@@ -2,7 +2,7 @@
 id: OK438JlkQKGS75dmFKYfB
 title: Setup
 desc: ''
-updated: 1643507634585
+updated: 1643509759582
 created: 1643501302411
 ---
 
@@ -74,8 +74,9 @@ Relevant setings:
 
 ## Outstanding Issues
 
+- [ ] Equivalent of `Dendron: Go Down` command in Obsidian
 - [x] Look into how to paste images with a custom name
-  - Resolved with 
+  - Resolved with
   - Images with spaces in the name (represented as `%`) do not get displayed in Dendron. Obisidian creates filenames with spaces for pasted images by default
   - Example: `![](assets/images/Pasted%20image%2020220130092423.png)`
     - [File links with spaces · Issue #2228 · dendronhq/dendron](https://github.com/dendronhq/dendron/issues/2228)
@@ -83,3 +84,8 @@ Relevant setings:
 
   - Workaround: immediately rename the file within Obsidian to not have spaces
     - Obsidian will update the reference to the file
+
+- Obsidian only allows ALL markdown links or ALL wikilinks while Dendron uses wiki links for notes and markdown links for images
+  - Need a plugin that can paste images with markdown links while continuing to use wikilinks for note links
+    - Could do manual conversation using: [GitHub - agathauy/wikilinks-to-mdlinks-obsidian: An Obsidian md plugin which allows for the conversion of individually selected wikilinks to markdown links, and vice versa.](https://github.com/agathauy/wikilinks-to-mdlinks-obsidian)
+    - Is it possible to add shortcut to this command on toolbar?
