@@ -1,8 +1,8 @@
 ---
 id: fe3d08bb-d6f0-4d4b-9a4d-3eae285c8f70
-title: Vscode
+title: VSCode
 desc: ''
-updated: 1616483632802
+updated: 1643628673416
 created: 1613968506296
 ---
 
