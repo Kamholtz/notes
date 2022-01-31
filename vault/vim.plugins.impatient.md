@@ -6,6 +6,7 @@ updated: 1643166050703
 created: 1643165226230
 ---
 
+
 [GitHub - lewis6991/impatient.nvim: Improve startup time for Neovim](https://github.com/lewis6991/impatient.nvim)
 
 

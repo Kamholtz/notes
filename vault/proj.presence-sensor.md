@@ -7,6 +7,7 @@ created: 1619427138041
 ---
 
 
+
 tradfri-client.js
 ```js
     connect(identity, psk) {

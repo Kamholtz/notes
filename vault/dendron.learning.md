@@ -5,6 +5,7 @@ desc: ''
 updated: 1615358908148
 created: 1614041547384
 ---
+
 ## Shortcuts
 
 - [ ] Determine what is bound to `ctrl + L` which interferes with using dendron's schema lookup

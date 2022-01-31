@@ -6,6 +6,7 @@ updated: 1643614896325
 created: 1643519558230
 ---
 
+
 ## Getting started guide
 
 [ESP32-DevKitC V4 Getting Started Guide - ESP32 -  &mdash; ESP-IDF Programming Guide latest documentation](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/hw-reference/esp32/get-started-devkitc.html)

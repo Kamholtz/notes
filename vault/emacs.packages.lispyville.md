@@ -1,10 +1,11 @@
 ---
 id: e75c468f-ccc0-4533-b9ef-22ce0f9b0ef5
 title: Lispyville
-desc: ""
+desc: ''
 updated: 1620457987525
 created: 1619348502245
 ---
+
 
 > lispyville.el’s main purpose is to provide a lisp-editing environment suited towards evil users. It can serve as a minimal layer on top of lispy-mode for better integration with evil, but it does not require use of lispy’s keybinding style. The provided commands allow for editing lisp in normal state and will work even without lispy-mode enabled. If you are just looking for a way to prevent evil’s operators from unbalancing parentheses, you can enable lispyville-mode in your configuration and just ignore the rest of its features.
 

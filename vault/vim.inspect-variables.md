@@ -8,6 +8,7 @@ created: 1641273543418
 
 
 
+
 [How do I inspect Vim variables?](https://stackoverflow.com/questions/9193066/how-do-i-inspect-vim-variables)
 
 ```vim

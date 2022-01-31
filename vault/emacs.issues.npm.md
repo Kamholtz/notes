@@ -5,6 +5,7 @@ desc: ''
 updated: 1619787636440
 created: 1619786966356
 ---
+
 ## Error
 
 > bash: /c/Program Files/nodejs/npm: /bin/sh^M: bad interpreter: No such file or directory

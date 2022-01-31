@@ -7,6 +7,7 @@ created: 1643522667903
 ---
 
 
+
 ## Enable snap to grid
 
 Select the canvas and enable `snap`

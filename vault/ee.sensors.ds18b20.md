@@ -6,5 +6,6 @@ updated: 1643527814136
 created: 1643519647683
 ---
 
+
 - Temperature sensor
 - 1-Wire

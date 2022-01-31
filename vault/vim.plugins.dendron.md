@@ -7,6 +7,7 @@ created: 1642908515283
 ---
 
 
+
 ## Thoughts on creating Dendron support in Neovim
 
 [2021-11-24 Office Hours](https://wiki.dendron.so/notes/6iPfPKI8nOwQLVF6KgfJU/)

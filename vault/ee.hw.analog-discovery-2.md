@@ -6,6 +6,7 @@ updated: 1623109211438
 created: 1623109145048
 ---
 
+
 [WARNING! Discovery BNC adapter board inputs are NOT differential](https://forum.digilentinc.com/topic/25-warning-discovery-bnc-adapter-board-inputs-are-not-differential/)
 
 [Analog Discovery 2 Grounding Help for Newbie](https://forum.digilentinc.com/topic/4268-analog-discovery-2-grounding-help-for-newbie/)

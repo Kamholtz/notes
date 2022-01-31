@@ -6,6 +6,7 @@ updated: 1620458806637
 created: 1620452489266
 ---
 
+
 ## Viewing logs
 
 `grep CRON /var/log/syslog`

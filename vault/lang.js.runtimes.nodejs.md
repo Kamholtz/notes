@@ -6,6 +6,7 @@ updated: 1619922384498
 created: 1619831200263
 ---
 
+
 ## Upgrading on Ubuntu
 
 [How to Update Node.js to Latest Version {Linux, Windows, and MacOS}](https://phoenixnap.com/kb/update-node-js-version)

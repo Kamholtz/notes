@@ -7,5 +7,6 @@
   "pasteImage.path": "${currentFileDir}/assets/images",
   "editor.snippetSuggestions": "inline",
 "editor.tabCompletion": "on",
-"markdown-preview-enhanced.enableWikiLinkSyntax": true
+"markdown-preview-enhanced.enableWikiLinkSyntax": true,
+"markdown-preview-enhanced.wikiLinkFileExtension": ".md"
 }

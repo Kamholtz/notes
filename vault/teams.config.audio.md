@@ -6,6 +6,7 @@ updated: 1631581378846
 created: 1617228794351
 ---
 
+
 ## Different channel for calls and general sound
 
 Audio settings for AirPods using the "hands-free" channel while Windows uses the "stero" channel for music.

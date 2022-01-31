@@ -6,6 +6,7 @@ updated: 1616561728102
 created: 1616472964162
 ---
 
+
 [TS/JS postfix completion - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ipatalas.vscode-postfix-ts)
 
 | Template        | Outcome                                                                      |

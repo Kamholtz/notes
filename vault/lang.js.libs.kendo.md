@@ -6,6 +6,7 @@ updated: 1616465049360
 created: 1616464550754
 ---
 
+
 ## Templates
 
 [Templates Overview | Kendo UI Templates | Kendo UI for jQuery](https://docs.telerik.com/kendo-ui/framework/templates/overview)

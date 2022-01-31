@@ -7,6 +7,7 @@ created: 1640906074219
 ---
 
 
+
 Overall guide with suggested keymaps, ui, telescope
 
 

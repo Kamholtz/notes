@@ -6,6 +6,7 @@ updated: 1620010678443
 created: 1620010628151
 ---
 
+
 ## Installing JDK on Ubuntu
 
 [[Ubuntu|os.ubuntu]]
