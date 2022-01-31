@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "vault/root.md",
+            "file": "vault/obsidian.setup.md",
             "mode": "source"
           }
         }
@@ -35,7 +35,7 @@
         "state": {
           "type": "search",
           "state": {
-            "query": "Welcome",
+            "query": "",
             "matchingCase": false,
             "explainSearch": false,
             "collapseAll": false,
@@ -45,7 +45,7 @@
         }
       }
     ],
-    "currentTab": 1
+    "currentTab": 0
   },
   "right": {
     "id": "7a9b12ac2e4c310b",
@@ -57,7 +57,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "vault/root.md",
+            "file": "vault/obsidian.setup.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -69,7 +69,7 @@
         }
       },
       {
-        "id": "bb6e586a6adce548",
+        "id": "e6df294c534ecee5",
         "type": "leaf",
         "state": {
           "type": "BC-matrix",
@@ -77,7 +77,7 @@
         }
       },
       {
-        "id": "1088fb8a3e12ae44",
+        "id": "dec4f8f5cf1625ec",
         "type": "leaf",
         "state": {
           "type": "BC-stats",
@@ -85,7 +85,7 @@
         }
       },
       {
-        "id": "2dcc1e18722759c8",
+        "id": "d74e3e60091f9d66",
         "type": "leaf",
         "state": {
           "type": "BC-tree",
@@ -97,15 +97,15 @@
   },
   "active": "b6299ecb2c71c9ca",
   "lastOpenFiles": [
-    "vault/root.md",
-    "vault/ee.md",
-    "vault/ee.esp.32.dev-kit-c.md",
     "vault/obsidian.setup.md",
-    "vault/assets/images/2022-01-30-15-12-51.png",
-    "vault/3d-printing.filaments.petg.calibration.md",
-    "vault/assets/images/Pasted image 20220130085813.png",
-    "vault/assets/images/0DD831C8-1EBB-4D11-B06D-B9A495CA328D.png",
-    "vault/assets/images/2022-01-29-21-19-21.png",
-    "vault/assets/images/59E597FB-D7B7-41E1-829B-06F3400C0CC8.png"
+    "vault/vim.lua.md",
+    "vault/proj.presence-sensor.md",
+    "vault/freecad.importing-and-editing-stl-files.md",
+    "vault/emacs.installation.md",
+    "vault/ee.easyeda.md",
+    "vault/ee.esp.32.dev-kit-c.md",
+    "vault/ee.hw.analog-discovery-2.md",
+    "vault/ee.hw.md",
+    "vault/root.md"
   ]
 }

@@ -62,7 +62,8 @@ created: 1643501302411
 
   ![](assets/images/20220130093924.png)
 
-- Specify `Index Notes(s)` as `root` (yet to see this actually take effect in trail-view)
+- ~~Specify `Index Notes(s)` as `root` (yet to see this actually take effect in trail-view)~~
+  - Do not specify `root`. It seems to prevent breadcrumbs trail view working even though other views will correctly show the up relationship
 
   ![](assets/images/20220130094001.png)
 
