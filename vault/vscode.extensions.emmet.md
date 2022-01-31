@@ -10,4 +10,4 @@ created: 1619068072607
 
 Add an entry to "Include Languages" as shown below:
 
-![](/assets/images/2021-04-22-15-08-12.png)
+![](assets/images/2021-04-22-15-08-12.png)

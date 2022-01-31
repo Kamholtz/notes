@@ -10,9 +10,9 @@ created: 1617228794351
 
 Audio settings for AirPods using the "hands-free" channel while Windows uses the "stero" channel for music.
 
-![Screenshot](/assets/images/2021-04-01-08-13-20.png)
+![Screenshot](assets/images/2021-04-01-08-13-20.png)
 
-![Screenshot](/assets/images/2021-04-01-08-14-29.png)
+![Screenshot](assets/images/2021-04-01-08-14-29.png)
 
 ## Adjust volume for teams
 
@@ -20,6 +20,6 @@ Audio settings for AirPods using the "hands-free" channel while Windows uses the
 
 > I found a way to turn the sound down on Windows. When you're on the Teams call, go into System > Sound > Advanced sound options (App volume and device preferences). You can then adjust the Teams volume slider.
 
-![](/assets/images/2021-09-14-11-02-07.png)
+![](assets/images/2021-09-14-11-02-07.png)
 
-![](/assets/images/2021-09-14-11-01-39.png)
+![](assets/images/2021-09-14-11-01-39.png)

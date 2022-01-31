@@ -9,7 +9,7 @@ created: 1627859162634
 ## Problem
 
 
-![](/assets/images/2021-08-02-09-06-06.png)
+![](assets/images/2021-08-02-09-06-06.png)
 
 ## Solution
 

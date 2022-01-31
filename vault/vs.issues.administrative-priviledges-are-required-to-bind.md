@@ -5,7 +5,7 @@ desc: ''
 updated: 1629419433275
 created: 1628557029622
 ---
-![](/assets/images/2021-08-10-10-57-12.png)
+![](assets/images/2021-08-10-10-57-12.png)
 
 ## Issue
 
@@ -17,4 +17,4 @@ created: 1628557029622
   - DevelopmentServerPort
   - IISUrl
 
-  ![](/assets/images/2021-08-20-10-29-03.png)
+  ![](assets/images/2021-08-20-10-29-03.png)
