@@ -13,7 +13,7 @@ site:
     siteUrl: 'https://kamholtz.github.io'
     assetsPrefix: /notes
     usePrettyRefs: true
-    title: Dendron
+    title: whomst'd've
     description: Personal knowledge space
     siteLastModified: true
     gh_edit_branch: main
