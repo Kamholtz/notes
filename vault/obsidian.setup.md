@@ -2,7 +2,7 @@
 id: OK438JlkQKGS75dmFKYfB
 title: Setup
 desc: ''
-updated: 1643541017461
+updated: 1643583308131
 created: 1643501302411
 ---
 
@@ -80,6 +80,7 @@ created: 1643501302411
 
 ## Outstanding Issues
 
+- [ ] My Dendron notes repo has a Dendron workspace as the root level to support publishing. One of its children is a `vault`. When checking out the notes on iOS it isn't possible to select the `vault` folder as root, so maybe iOS could checkout a the `vault` subdirectory instead of the root of the repo.
 - [ ] Dendron front matter (e.g. id) isn't created, so need to fun `Dendron: Doctor` command within VSCode
 - [ ] Equivalent of `Dendron: Go Down` command in Obsidian
 - [x] Image links created in Dendron start with `/assets`. They do not resolve in this vault within obsidian. This is likely due to root of the vault being one directory above all of the notes and the path starting with `/` being interpreted as absolute.
