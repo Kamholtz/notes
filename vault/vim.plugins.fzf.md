@@ -2,7 +2,7 @@
 id: 43rF3oyntG5gSYcFcPOID
 title: Fzf
 desc: ''
-updated: 1643889234990
+updated: 1643889548193
 created: 1640853235289
 ---
 
@@ -27,9 +27,25 @@ Workaround:
 let g:fzf_preview_window=''
 ```
 
-## Search upwards for .git
+## Search Files from first ancestor containing .git
 
-https://github.com/habamax/.vim/blob/e9312935fb915fd6bfc4436b70b300387445aef8/vimrc#L270-L275
+Search upwards from current path to an ancestor containing `.git` and then call `:Files` from that parent. Useful for searching through a large repo of many sub-projects, where one of the sub-projects is your current working directory (`:cd`).
+
+[.vim/vimrc at e9312935fb915fd6bfc4436b70b300387445aef8 · habamax/.vim](https://github.com/habamax/.vim/blob/e9312935fb915fd6bfc4436b70b300387445aef8/vimrc#L270-L275)
+Fennel equivalent
+
+```lisp
+(defn fzf-root []
+  (let [expanded (.. (vim.fn.expand "%:p:h") ";")
+        path (vim.fn.finddir ".git" expanded)
+        subbed (vim.fn.substitute path ".git" "" "")
+        result (vim.fn.fnamemodify subbed ":p:h")]
+
+      result))
+
+(autil.fn-bridge "s:fzf_root" "config.plugin.fzf" "fzf-root")
+(nvim.set_keymap :n :<leader>fu ":exe 'Files ' . <SID>fzf_root()<CR>" {:noremap true})
+```
 
 
 ## Using fd
