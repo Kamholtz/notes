@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "vault/obsidian.setup.md",
+            "file": "vault/vim.plugins.fzf.md",
             "mode": "source"
           }
         }
@@ -57,7 +57,7 @@
         "state": {
           "type": "backlink",
           "state": {
-            "file": "vault/obsidian.setup.md",
+            "file": "vault/vim.plugins.fzf.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -97,6 +97,7 @@
   },
   "active": "b6299ecb2c71c9ca",
   "lastOpenFiles": [
+    "vault/vim.plugins.fzf.md",
     "vault/obsidian.setup.md",
     "vault/vim.lua.md",
     "vault/proj.presence-sensor.md",
@@ -105,7 +106,6 @@
     "vault/ee.easyeda.md",
     "vault/ee.esp.32.dev-kit-c.md",
     "vault/ee.hw.analog-discovery-2.md",
-    "vault/ee.hw.md",
-    "vault/root.md"
+    "vault/ee.hw.md"
   ]
 }

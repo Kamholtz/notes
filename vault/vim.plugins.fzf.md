@@ -20,3 +20,14 @@ created: 1640853235289
 ```vim
 let g:fzf_preview_window=''
 ```
+
+## Search upwards for .git
+
+https://github.com/habamax/.vim/blob/e9312935fb915fd6bfc4436b70b300387445aef8/vimrc#L270-L275
+
+
+## Using fd
+
+
+## previewer on windows
+
