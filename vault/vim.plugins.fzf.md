@@ -47,6 +47,7 @@ Fennel equivalent
 (nvim.set_keymap :n :<leader>fu ":exe 'Files ' . <SID>fzf_root()<CR>" {:noremap true})
 ```
 
+- [ ] Make a similar command for calling `rg` from a parent `.git` directory 
 
 ## Using fd
 
