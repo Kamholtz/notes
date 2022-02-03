@@ -2,7 +2,7 @@
 id: 43rF3oyntG5gSYcFcPOID
 title: Fzf
 desc: ''
-updated: 1641337141890
+updated: 1643889234990
 created: 1640853235289
 ---
 
@@ -16,6 +16,12 @@ created: 1640853235289
 
 [r/vim - A problem with fzf](https://www.reddit.com/r/vim/comments/7ylwu3/a_problem_with_fzf/)
 
+
+## Skipping input bug
+
+[FZF terminal window does not seem to clear completely or have weird input behavior on windows · Issue #1011 · junegunn/fzf.vim](https://github.com/junegunn/fzf.vim/issues/1011)
+
+Workaround:
 
 ```vim
 let g:fzf_preview_window=''
