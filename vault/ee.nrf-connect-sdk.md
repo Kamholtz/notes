@@ -7,7 +7,9 @@ created: 1644029249936
 stub: true
 ---
 
+## Documentation
 
+[About the nRF Connect SDK &mdash; nRF Connect SDK 1.8.99 documentation](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/introduction.html#documentation-pages)
 ## Software Configuration
 
 
