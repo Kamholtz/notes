@@ -1,6 +1,5 @@
 {
-  "dendron.rootDir": ".",
-  "pasteImage.prefix": "/",
+"dendron.rootDir": ".",
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "editor.suggest.showSnippets": true,
   "files.autoSave": "onFocusChange",

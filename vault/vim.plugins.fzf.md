@@ -2,7 +2,7 @@
 id: 43rF3oyntG5gSYcFcPOID
 title: Fzf
 desc: ''
-updated: 1643889548193
+updated: 1644024231787
 created: 1640853235289
 ---
 
@@ -27,6 +27,9 @@ Workaround:
 let g:fzf_preview_window=''
 ```
 
+
+Maybe this is due to not having git command line installed on my work machine (whereas it is installed on my home machine).
+
 ## Search Files from first ancestor containing .git
 
 Search upwards from current path to an ancestor containing `.git` and then call `:Files` from that parent. Useful for searching through a large repo of many sub-projects, where one of the sub-projects is your current working directory (`:cd`).
@@ -47,7 +50,7 @@ Fennel equivalent
 (nvim.set_keymap :n :<leader>fu ":exe 'Files ' . <SID>fzf_root()<CR>" {:noremap true})
 ```
 
-- [ ] Make a similar command for calling `rg` from a parent `.git` directory 
+- [ ] Make a similar command for calling `rg` from a parent `.git` directory
 
 ## Using fd
 
