@@ -1,6 +1,6 @@
 ---
 id: sa5Ez4NJoJrT8nsc3Oefz
-title: Nrf Connect Sdk
+title: nRF Connect SDK
 desc: ''
 updated: 1644042323236
 created: 1644029249936

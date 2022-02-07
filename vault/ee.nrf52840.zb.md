@@ -133,8 +133,6 @@ Response:
 
 ![[CONFIG_ZIGBEE_CHANNEL_SELECTION_MODE_MULTI|ee.nrf-connect-sdk.kconfig#config_zigbee_channel_selection_mode_multi]]
 
-[[CONFIG_ZIGBEE_CHANNEL_SELECTION_MODE_SINGLE|ee.nrf-connect-sdk.kconfig#config_zigbee_channel_selection_mode_single]]
-
 [[ee.nrf-connect-sdk.kconfig]]
 
 - [Configuring Zigbee samples for other ecosystems &mdash; nRF Connect SDK 1.8.99 documentation](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/ug_zigbee_other_ecosystems.html#ug-zigbee-other-ecosystems)
