@@ -2,7 +2,7 @@
 id: t9ZP4Om5DuVpUMq9nDib1
 title: Impatient
 desc: ''
-updated: 1643166050703
+updated: 1644279506135
 created: 1643165226230
 ---
 
@@ -16,6 +16,7 @@ created: 1643165226230
 
 - Need to run ":PackerCompile" before  this can be used... you will see errors about not being able to find `packer_compiled` without doing this.
 
+[[vim.plugins.bqf]]
 ### Cache Packer's compiled file
 
 To get impatient to cache [[vim.plugins.packer]]'s compiled file we change the path used for packer's compilation:
