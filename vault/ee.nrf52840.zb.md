@@ -2,38 +2,18 @@
 id: 9MyAYKhCMZKoZjGva2vS3
 title: ZigBee
 desc: ''
-updated: 1644065189094
+updated: 1644492407255
 created: 1644029162376
 ---
 
-
-Creating [[ZigBee|ee.zb]] lightbulb to add to [[Home Assistant|ee.ha]]
+Creating [[ZigBee|ee.zb]] lightbulb to add to [[Home Assistant|ee.ha]] using the sample [[ee.nrf-connect-sdk.zb.samples.light-bulb]]
 
 Is the Sonoff ZBridge the right version?
 
 - [ ] ZB 3.0
 - [ ] Suports TC Link
 
-## Light Bulb Example
-
-[Zigbee: Light bulb &mdash; nRF Connect SDK 1.8.99 documentation](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/samples/zigbee/light_bulb/README.html#zigbee-light-bulb-sample)
-
-User interface
-
-- LED 1:
-  - Blinks to indicate that the main application thread is running.
-
-- LED 3:
-  - Turns on when the light bulb joins the network.
-
-- LED 4:
-  - Indicates the dimmable light option, that is changes to the light bulb brightness. It can be controlled by another Zigbee device in the network, for example a light switch. Blinks when the light bulb is in Identify mode.
-
-- Button 4:
-  - Sets the light bulb in Identify mode.
-
 ## Wireshark
-
 
 ### Configure for ZigBee Packet Sniffing
 
@@ -80,8 +60,7 @@ Look for a packet with this format:
 
 ![](assets/images/2022-02-05-18-15-15.png)
 
- - Resource + Image taken from: [Sniffing Philips Hue Zigbee traffic with Wireshark](https://www.hal9k.dk/sniffing-philips-hue-zigbee-traffic-with-wireshark/)
-
+- Resource + Image taken from: [Sniffing Philips Hue Zigbee traffic with Wireshark](https://www.hal9k.dk/sniffing-philips-hue-zigbee-traffic-with-wireshark/)
 
 ## Troubleshootiong
 
@@ -116,7 +95,6 @@ Response:
 
 [Zigbee router leaves network autonomously after few seconds - Nordic Q&amp;A - Nordic DevZone - Nordic DevZone](https://devzone.nordicsemi.com/f/nordic-q-a/83640/zigbee-router-leaves-network-autonomously-after-few-seconds)
 
-
 ## Configuring Zigbee samples to work with other ecosystems
 
 ![[Permanent SDK changes|ee.nrf-connect-sdk#permanent-sdk-changes]]
@@ -129,7 +107,6 @@ Response:
 > If you are connecting a Nordic Semiconductor’s device programmed with a Zigbee sample to a third-party Zigbee Coordinator, set the CONFIG_ZIGBEE_CHANNEL_SELECTION_MODE_MULTI Kconfig option for the Zigbee sample in nRF Connect SDK. This will allow your device to scan all channels to find the Coordinator’s Zigbee network.
 
 - Set device to communicate on all channels (or at least the one that the [[ee.zb.coordinator]]) uses
-
 
 ![[CONFIG_ZIGBEE_CHANNEL_SELECTION_MODE_MULTI|ee.nrf-connect-sdk.kconfig#config_zigbee_channel_selection_mode_multi]]
 

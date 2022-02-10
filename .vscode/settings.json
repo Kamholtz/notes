@@ -7,5 +7,6 @@
   "editor.snippetSuggestions": "inline",
 "editor.tabCompletion": "on",
 "markdown-preview-enhanced.enableWikiLinkSyntax": true,
-"markdown-preview-enhanced.wikiLinkFileExtension": ".md"
+"markdown-preview-enhanced.wikiLinkFileExtension": ".md",
+"pasteImage.prefix": ""
 }

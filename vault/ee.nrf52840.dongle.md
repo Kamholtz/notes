@@ -2,15 +2,35 @@
 id: UTyVZZrIY615EpsVASnyB
 title: Dongle
 desc: ''
-updated: 1644218399029
+updated: 1644493547953
 created: 1644056764210
 ---
 
+## Datasheet
+
+[https://infocenter.nordicsemi.com/pdf/nRF52840_Dongle_User_Guide_v1.0.pdf](https://infocenter.nordicsemi.com/pdf/nRF52840_Dongle_User_Guide_v1.0.pdf)
 
 ## Pinout
 
-
 ![](assets/images/2022-02-05-20-26-18.png)
+
+## Layout
+
+![](assets/images/2022-02-10-21-40-45.png)
+
+## Buttons and LEDs
+
+![](assets/images/2022-02-10-21-33-13.png)
+
+
+| Part | Description | GPIO |
+| ---- | ----------- | ---- |
+| SW1 | Button | P1.06 |
+| SW2 | Reset | P0.181 |
+| LD1 | Green | P0.06 |
+| LD2 | Red | P0.08 |
+| LD2 | Green | P1.09 |
+| LD2 | Blue | P0.12 |
 
 
 ## Zephyr Docs
