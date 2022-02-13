@@ -2,7 +2,7 @@
 id: UTyVZZrIY615EpsVASnyB
 title: Dongle
 desc: ''
-updated: 1644493547953
+updated: 1644728474138
 created: 1644056764210
 ---
 
@@ -26,12 +26,17 @@ created: 1644056764210
 | Part | Description | GPIO |
 | ---- | ----------- | ---- |
 | SW1 | Button | P1.06 |
-| SW2 | Reset | P0.181 |
+| SW2 | Reset | P0.18 (1) |
 | LD1 | Green | P0.06 |
 | LD2 | Red | P0.08 |
 | LD2 | Green | P1.09 |
 | LD2 | Blue | P0.12 |
 
+- What do the GPIO numbers mean?
+
+
+> 1) SW2 is also connected to P0.19, P0.21, P0.23, and P0.25. This is done to simplify PCB routing. These
+> GPIOs should not be used and should be left as input with no pull or be disconnected by firmware.
 
 ## Zephyr Docs
 
