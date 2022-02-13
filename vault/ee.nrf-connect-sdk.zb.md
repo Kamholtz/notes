@@ -2,7 +2,7 @@
 id: oMZ0UCDQcTWH0WcIN0Dpc
 title: ZigBee
 desc: ''
-updated: 1644493113392
+updated: 1644719842846
 created: 1644315955367
 ---
 
@@ -51,6 +51,7 @@ Next steps:
 - [ ] Change the name of the device for each build
 - [ ] Learn how to create overlays
 - [ ] USB logging
+  - This sample may be relevant `SDK\examples\peripherals\usbd_cdc_acm`
 - [ ] Create cmdline script for flashing the dongle
 
   ![[ee.nrfutil]]
@@ -60,3 +61,6 @@ Next steps:
 Configure this at some point to point to use the SDK:
 
 ![](assets/images/2022-02-09-21-26-05.png)
+
+
+For neovim: [[Creating compile_commands.json|vim.plugins.coc.clangd#creating-compile_commandsjson]]
