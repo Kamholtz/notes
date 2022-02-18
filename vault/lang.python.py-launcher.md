@@ -2,7 +2,7 @@
 id: UN5ygEfGQgASMxZdZ2426
 title: Py Launcher
 desc: ''
-updated: 1645182049788
+updated: 1645184860989
 created: 1645169083170
 ---
 
@@ -30,7 +30,6 @@ py -3.9
 ```batch
 py -3.9 -m pip freeze
 ```
-
 
 ## Set an alias
 

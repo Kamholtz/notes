@@ -2,7 +2,7 @@
 id: 4hqUGCEUyFhWBqlocNhLF
 title: Nrfutil
 desc: ''
-updated: 1645184551190
+updated: 1645184805229
 created: 1644491203985
 ---
 
@@ -78,6 +78,6 @@ Reference:
 
 ## Notes
 
-- Soft devices must be included
+- Soft devices must be included [Overview of SoftDevices for the nRF5 Series](https://infocenter.nordicsemi.com/topic/ug_gsg_ses/UG/gsg/softdevices.html)
   - Is there one for ZigBee?
     - There does not appear to be one for ZigBee, rather the ZBOSS binary is included in the build?
