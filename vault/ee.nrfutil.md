@@ -2,7 +2,7 @@
 id: 4hqUGCEUyFhWBqlocNhLF
 title: Nrfutil
 desc: ''
-updated: 1645184344150
+updated: 1645184551190
 created: 1644491203985
 ---
 
@@ -20,11 +20,9 @@ pip install nrfutil
 
 Example of usage with thread which is applicable to [[ee.nrf-connect-sdk.zb]]
 
-
-
 1. Reset the board into the Nordic bootloader by pressing the RESET button.
 
-  ![](assets/images/2022-02-18-21-36-10.png)
+  ![Dongle PCB](assets/images/2022-02-18-21-36-10.png)
 
 2. Compile a Zephyr application; we’ll use blinky.
 
@@ -58,7 +56,6 @@ Source:
 - [nRF52840 Dongle - Zephyr Project Documentation](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/boards/arm/nrf52840dongle_nrf52840/doc/index.html?highlight=nrfutil#option-1-using-the-built-in-bootloader-only)
 - [Thread tools - nRF Connect SDK 1.9.99 documentation](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/ug_thread_tools.html?highlight=nrfutil)
 
-
 ## Troubleshooting
 
 ### No moduled named 'constants'
@@ -78,7 +75,6 @@ py -3.8 -m pip install nrfutil
 Reference:
 
 ![[Use a commmand with a specific version e.g. pip|lang.python.py-launcher#use-a-commmand-with-a-specific-version-eg-pip]]
-
 
 ## Notes
 

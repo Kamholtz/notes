@@ -2,7 +2,7 @@
 id: UTyVZZrIY615EpsVASnyB
 title: Dongle
 desc: ''
-updated: 1644728474138
+updated: 1645184643499
 created: 1644056764210
 ---
 
@@ -47,3 +47,5 @@ created: 1644056764210
 ## Programming the dongle
 
 [How to use the NRF52840 Dongle (PCA10059) as development board](https://jimmywongiot.com/2019/10/25/how-to-use-the-nrf52840-dongle-pca10059-as-development-board/)
+
+![[Usage|ee.nrfutil#usage]]
