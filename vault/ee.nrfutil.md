@@ -2,7 +2,7 @@
 id: 4hqUGCEUyFhWBqlocNhLF
 title: Nrfutil
 desc: ''
-updated: 1645183273267
+updated: 1645184344150
 created: 1644491203985
 ---
 
@@ -18,29 +18,46 @@ pip install nrfutil
 
 ## Usage
 
-Example of usage with thread which is applicable to [[ee.nrf-connect-sdk.zb]] - [Thread tools - nRF Connect SDK 1.9.99 documentation](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/ug_thread_tools.html?highlight=nrfutil)
+Example of usage with thread which is applicable to [[ee.nrf-connect-sdk.zb]]
 
-> Generate the RCP firmware package:
 
-```batch
-nrfutil pkg generate --hw-version 52 --sd-req=0x00 \
- --application build/zephyr/zephyr.hex --application-version 1 build/zephyr/zephyr.zip
-```
 
-| Flag | Description | Mandatory |
-| ---- | ----------- | --------- |
-| `--hw-version 52` | Hardware version indicating this build is for the dongle | Yes |
-| `--sd-req=0x00` | Presumably this indicates no soft device is required | Yes |
+1. Reset the board into the Nordic bootloader by pressing the RESET button.
 
-> Connect the nRF52840 Dongle to the USB port.
+  ![](assets/images/2022-02-18-21-36-10.png)
 
-> Press the RESET button on the dongle to put it into the DFU mode. The LED on the dongle starts blinking red.
+2. Compile a Zephyr application; we’ll use blinky.
 
-> Install the RCP firmware package onto the dongle by running the following command, with /dev/ttyACM0 replaced with the device node name of your nRF52840 Dongle:
+  ```batch
+  west build -b nrf52840dongle_nrf52840 zephyr/samples/basic/blinky
+  ```
 
-```batch
- nrfutil dfu usb-serial -pkg build/zephyr/zephyr.zip -p /dev/ttyACM0
-```
+3. Package the application for the bootloader using nrfutil:
+
+  ```batch
+  nrfutil pkg generate --hw-version 52 --sd-req=0x00 \
+          --application build/zephyr/zephyr.hex \
+          --application-version 1 blinky.zip
+  ```
+
+  | Flag | Description | Mandatory |
+  | ---- | ----------- | --------- |
+  | `--hw-version 52` | Hardware version indicating this build is for the dongle | Yes |
+  | `--sd-req=0x00` | Presumably this indicates no soft device is required | Yes |
+  | `--application build/zephyr/zephyr.hex` | `.hex` file to be packaged` | Yes |
+  | `--application-version 1` | App version | No |
+
+4. Flash it onto the board. Note /dev/ttyACM0 is for Linux; it will be something like COMx on Windows, and something else on macOS.
+
+  ```batch
+  nrfutil dfu usb-serial -pkg blinky.zip -p /dev/ttyACM0
+  ```
+
+Source:
+
+- [nRF52840 Dongle - Zephyr Project Documentation](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/boards/arm/nrf52840dongle_nrf52840/doc/index.html?highlight=nrfutil#option-1-using-the-built-in-bootloader-only)
+- [Thread tools - nRF Connect SDK 1.9.99 documentation](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/ug_thread_tools.html?highlight=nrfutil)
+
 
 ## Troubleshooting
 
