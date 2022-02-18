@@ -2,15 +2,20 @@
 id: vn4QH8axQkezeOvv8cSG5
 title: ZigBee Home Automation
 desc: ''
-updated: 1645185682025
+updated: 1645187445231
 created: 1645185550463
 ---
 
+Tags:
 
 - [[ee.nrf52840.dongle]]
 - [[ee.nrf-connect-sdk]]
 
-### 2022.02.10 - Successfully created a dongle lightbulb router using an example project
+Goals:
+
+- Sensors + lighting to interface with [[ee.ha]] using [[ee.zb]]
+
+## 2022.02.10 - Successfully created a dongle lightbulb router using an example project
 
 Using the example code for a [[ee.zb.coordinator]] found in this thread [How to port the Zigbee Network Coordinator sample from the nRF52840DK to the nRF52840 dongle](https://devzone.nordicsemi.com/f/nordic-q-a/84072/how-to-port-the-zigbee-network-coordinator-sample-from-the-nrf52840dk-to-the-nrf52840-dongle) it was possible to modify it to use the code from [[ee.nrf-connect-sdk.zb.samples.light-bulb]].
  The Relevant commit can be found here [light_bulb_dongle can be built to create zigbee dongle with LEDs · Kamholtz/zb-lightbulb@3f964db](https://github.com/Kamholtz/zb-lightbulb/commit/3f964db20870d26157205e55fd1a7dc484374610)
@@ -26,6 +31,8 @@ Next steps:
   - [[Device Tree|ee.zephyr.device-tree]]
 - [ ] USB logging
   - This sample may be relevant `SDK\examples\peripherals\usbd_cdc_acm`
+- [ ] RTT
+  - [](https://devzone.nordicsemi.com/f/nordic-q-a/70628/adding-rtt-to-basic-nrf-connect-sdk-blinky-example-not-working-with-nrf5340dk)
 - [x] Create cmdline script for flashing the dongle
 
   ![[Usage|ee.nrfutil#usage]]
