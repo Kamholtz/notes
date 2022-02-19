@@ -2,13 +2,15 @@
 id: 4PuwOPO63AOwRwcaNwrUX
 title: Logging
 desc: ''
-updated: 1645260540613
+updated: 1645268910243
 created: 1645246995788
 ---
 
 ## RTT
 
 - Enabled with minimum config in this commit [Minimal config for RTT · Kamholtz/zb-lightbulb@019d5a1](https://github.com/Kamholtz/zb-lightbulb/commit/019d5a1a003afaa8745cb9480884b6c23e0c9b26)
+
+- Add to [[ee.zephyr.config.prj-conf]]:
 
   ```ini
   CONFIG_USE_SEGGER_RTT=y
@@ -28,4 +30,14 @@ created: 1645246995788
 
 - Investigation notes: [[RTT Investigation|ee.nrf-connect-sdk.logging.rtt-investigation]]
 
+## UART
 
+- Add to [[ee.zephyr.config.prj-conf]]:
+
+  ```ini
+  CONFIG_UART_CONSOLE=y
+  ```
+
+  - Notably, **enabling this prevents RTT from working**
+
+- [CONFIG_UART_CONSOLE &mdash; Kconfig reference](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/kconfig/CONFIG_UART_CONSOLE.html#config-uart-console)
