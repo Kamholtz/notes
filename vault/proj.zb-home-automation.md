@@ -2,7 +2,7 @@
 id: vn4QH8axQkezeOvv8cSG5
 title: ZigBee Home Automation
 desc: ''
-updated: 1645269353207
+updated: 1645275272150
 created: 1645185550463
 ---
 
@@ -43,6 +43,11 @@ Using the example code for a [[ee.zb.coordinator]] found in this thread [How to 
 
 ## Next steps
 
+- [ ] Button input
+  - interrupt on input pin
+- [ ] [[Occupancy Sensing|ee.zb.zcl#occupancy-sensing]]
+  - Should be similar to button input
+  - `ncs/v.18.0/nrfxlib/zboss/include/zcl/zb_zcl_occupancy_sensing.h`
 - [ ] Only illumate the LED that represents the lightbulb
   - Create a new cluster for indivial LEDs/PWM channels
 - [x] Enable and analyze PWM on a GPIO pin that can be used to switch power on an actual light
