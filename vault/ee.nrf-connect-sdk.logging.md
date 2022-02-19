@@ -2,7 +2,7 @@
 id: 4PuwOPO63AOwRwcaNwrUX
 title: Logging
 desc: ''
-updated: 1645259882244
+updated: 1645260540613
 created: 1645246995788
 ---
 
@@ -17,6 +17,8 @@ created: 1645246995788
   ```
 
   - Notably **UART had to be disabled**
+
+  - [[vscode.extensions.nrf-terminal]] seems to work intermittently for RTT and UART. I found it was best just to use [[ee.sw.j-link-rtt-viewer]] for RTT and [[ee.sw.putty]] for UART
 
 - Source: [Testing an application - nRF Connect SDK 1.9.99 documentation](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/gs_testing.html#how-to-use-rtt)
 
