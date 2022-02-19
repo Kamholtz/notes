@@ -2,7 +2,7 @@
 id: 4PuwOPO63AOwRwcaNwrUX
 title: Logging
 desc: ''
-updated: 1645259764814
+updated: 1645259882244
 created: 1645246995788
 ---
 
@@ -16,7 +16,9 @@ created: 1645246995788
   CONFIG_UART_CONSOLE=n
   ```
 
-- Source: [Testing an application &mdash; nRF Connect SDK 1.9.99 documentation](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/gs_testing.html#how-to-use-rtt)
+  - Notably **UART had to be disabled**
+
+- Source: [Testing an application - nRF Connect SDK 1.9.99 documentation](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/gs_testing.html#how-to-use-rtt)
 
 - Relevant Kconfig: [Logging in nRF Connect SDK - nRF Connect SDK 1.9.99 documentation](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/ug_logging.html#rtt)
 
