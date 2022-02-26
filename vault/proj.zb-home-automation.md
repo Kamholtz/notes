@@ -2,7 +2,7 @@
 id: vn4QH8axQkezeOvv8cSG5
 title: ZigBee Home Automation
 desc: ''
-updated: 1645275272150
+updated: 1645851805964
 created: 1645185550463
 ---
 
@@ -41,10 +41,15 @@ Using the example code for a [[ee.zb.coordinator]] found in this thread [How to 
 
 ![[Usage|ee.nrfutil#usage]]
 
+## Occupancy Sensor
+
+
+
 ## Next steps
 
 - [ ] Button input
   - interrupt on input pin
+  - [Button &mdash; Zephyr Project Documentation](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/samples/basic/button/README.html)
 - [ ] [[Occupancy Sensing|ee.zb.zcl#occupancy-sensing]]
   - Should be similar to button input
   - `ncs/v.18.0/nrfxlib/zboss/include/zcl/zb_zcl_occupancy_sensing.h`
@@ -54,3 +59,4 @@ Using the example code for a [[ee.zb.coordinator]] found in this thread [How to 
 - [ ] Change the name of the device for each build
 - [ ] Learn how to create overlays
   - [[Device Tree|ee.zephyr.device-tree]]
+- [ ] [GitHub - NordicPlayground/j-link-monitoring-mode-debugging](https://github.com/NordicPlayground/j-link-monitoring-mode-debugging/#monitor-mode-debugging-in-keil-%C2%B5vision5-and-segger-embedded-studio) [Monitor Mode Debugging - Revolutionize the way you debug BLE applications](https://devzone.nordicsemi.com/nordic/nordic-blog/b/blog/posts/monitor-mode-debugging---revolutionize-the-way-you-debug-ble-applications)
