@@ -2,7 +2,7 @@
 id: vn4QH8axQkezeOvv8cSG5
 title: ZigBee Home Automation
 desc: ''
-updated: 1645851805964
+updated: 1646538184712
 created: 1645185550463
 ---
 
@@ -41,9 +41,15 @@ Using the example code for a [[ee.zb.coordinator]] found in this thread [How to 
 
 ![[Usage|ee.nrfutil#usage]]
 
-## Occupancy Sensor
+## Occupancy Sensing
+
+[[proj.zb-home-automation.occupancy-sensing]]
 
 
+## On Off Switch
+
+
+[[proj.zb-home-automation.on-off-switch]]
 
 ## Next steps
 
