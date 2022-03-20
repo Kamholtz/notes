@@ -2,7 +2,7 @@
 id: f8d1DY9CTu0Pj8sKDV1mG
 title: Calibration
 desc: ''
-updated: 1644709277404
+updated: 1647668323039
 created: 1644662296801
 ---
 
@@ -31,3 +31,8 @@ created: 1644662296801
 - New flow rate = $0.95 \times 0.98 \approx 0.93$
 
 
+## 2022.03.19
+
+Setting recorded on printer:
+
+- [[3d-printing.config.live-z-offset]]: 0.20

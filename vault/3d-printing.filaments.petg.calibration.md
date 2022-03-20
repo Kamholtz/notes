@@ -2,7 +2,7 @@
 id: lb3E7iW8YH06g1GgP5Mf8
 title: Calibration
 desc: ''
-updated: 1647087706459
+updated: 1647691305750
 created: 1643099156249
 ---
 
@@ -58,3 +58,35 @@ Attempting to address under extrusions at beginning, blob at end
   - First layer/brim measured fairly close to correct height
   - No longer have gaps after travel (underextrusion at start)
   - Still seem to have blobs in some places
+
+  ## Flow rate
+
+  [[Flow Calibration Cube|3d-printing.calibration-tests#flow-calibration-cube]]
+
+
+- Measurements:
+  - 0.86
+  - 0.86
+  - 0.85
+  - 0.86
+
+- Ratio of expected wall thickness to actual wall thickness:
+  - $0.80/((0.86 +0.86 + 0.85 + 0.86)/4) = 0.93$
+- New flow rate = $0.93 \times 0.96 \approx 0.89$
+
+
+
+![](assets/images/2022-03-19-17-50-12.png)
+
+![](/assets/images/2022-03-19-17-50-22.png)
+
+![](/assets/images/2022-03-19-17-50-50.png)
+
+
+
+
+
+Regex for finding commands that don't end with a hotend index
+^M140 S\d+ +$
+
+$0T0
