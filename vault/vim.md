@@ -2,7 +2,7 @@
 id: 5acd228c-faa2-4c6c-8fed-6abd55a1e819
 title: VIM
 desc: ''
-updated: 1647086398385
+updated: 1647159488413
 created: 1613968417735
 ---
 
@@ -13,7 +13,15 @@ created: 1613968417735
 - [ ] How to prevent [[vim.plugins.project-nvim]] from throwing errors on finding root when opening a diff/fugitive buffer [GitHub - ahmedkhalf/project.nvim: The superior project management solution for neovim.](https://github.com/ahmedkhalf/project.nvim)
 
 - [ ] Open in Visual Studio from NVIM
-  - [ ] Try using vim dispatch to asyncronously open things in VS [GitHub - tpope/vim-dispatch: dispatch.vim: Asynchronous build and test dispatcher](https://github.com/tpope/vim-dispatch)
+  - Change file saving to use `aniseed.spit` instead of `:!` command
+
+  - [ ] Try using vim dispatch or plenary to asyncronously open things in VS [GitHub - tpope/vim-dispatch: dispatch.vim: Asynchronous build and test dispatcher](https://github.com/tpope/vim-dispatch)
+    - Could not get plenary to work, but plain [[Loop Uv|vim.loop-uv]] was possible (but more verbose and fiddly)
+
+- Determine why this happens with [[vim.plugins.vim-sexp-mappings-for-regular-people]] [barfage and slurpage not working · Issue #6 · tpope/vim-sexp-mappings-for-regular-people](https://github.com/tpope/vim-sexp-mappings-for-regular-people/issues/6)
+
+
+
 
 ## Plugins
 
