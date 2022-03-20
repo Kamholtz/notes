@@ -2,7 +2,7 @@
 id: lb3E7iW8YH06g1GgP5Mf8
 title: Calibration
 desc: ''
-updated: 1647745047087
+updated: 1647745088292
 created: 1643099156249
 ---
 
@@ -115,6 +115,10 @@ The gcode that super slicer produces isn't entirely compatible with the Adventur
   - Regex for finding commands that don't end with a hotend index
   - `^M140 S\d+ +$`
   - Replacement for adding the hotend index: $0T0
+
+
+
+[[3d-printing.config.live-z-offset]]: 0.44mm
 
 Overview:
 
