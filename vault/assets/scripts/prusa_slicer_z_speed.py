@@ -3,18 +3,6 @@ import re
 import sys
 import shutil
 
-src = sys.argv[1]
-src_file_parts = os.path.splitext(src)
-
-if src_file_parts[1] == '.gcode':
-    src_old = src
-    src = src_file_parts[0] + '.g'
-    os.rename(src_old, src)
-
-# Uncomment if you would like to create a backup file before processing
-bkp = src+'.bkp'
-shutil.copyfile(src, bkp)
-
 def replace_acc(src):
     with open(src, 'r') as src_file:
         content = src_file.read()
@@ -63,10 +51,10 @@ def write_out(src, out):
         res_file.write(out)
 
 
-def add_missing_suffix(line:str, cmd:str, suffix:str):
+def add_missing_suffix(line:str, cmd:str, suffix_re, suffix:str):
     stripped = line.strip()
 
-    if stripped.startswith(cmd) and not stripped.endswith(suffix):
+    if stripped.startswith(cmd) and suffix_re.search(stripped) == None:
         return stripped + " " + suffix
 
     return line
@@ -77,15 +65,17 @@ def replace_acceleration(line:str):
     return result
 
 def process_lines(src, out):
+    suffix_re = re.compile("T\d$")
+
     print("src: " + src + ", out: " + out)
     with open(src) as infile, open(out, 'w') as outfile:
         for line in infile:
 
             lines0 = replace_end_line_comments_in_line(line.strip())
-            lines1 = [add_missing_suffix(x, "M104", "T0") for x in lines0]
-            lines2 = [add_missing_suffix(x, "M140", "T0") for x in lines1]
-            lines3 = [add_missing_suffix(x, "M109", "T0") for x in lines2]
-            lines4 = [add_missing_suffix(x, "M190", "T0") for x in lines3]
+            lines1 = [add_missing_suffix(x, "M104", suffix_re, "T0") for x in lines0]
+            lines2 = [add_missing_suffix(x, "M140", suffix_re, "T0") for x in lines1]
+            lines3 = [add_missing_suffix(x, "M109", suffix_re, "T0") for x in lines2]
+            lines4 = [add_missing_suffix(x, "M190", suffix_re, "T0") for x in lines3]
             # lines5 = [replace_acceleration(x) for x in lines4]
 
             outlines = [x + "\n" for x in lines4]
@@ -96,14 +86,14 @@ def run (src):
 
     src_file_parts = os.path.splitext(src)
 
-    if src_file_parts[1] == '.gcode':
-        src_old = src
-        src = src_file_parts[0] + '.g'
-        os.rename(src_old, src)
+    # if src_file_parts[1] == '.gcode':
+    #     src_old = src
+    #     src = src_file_parts[0] + '.g'
+    #     os.rename(src_old, src)
 
-    # Uncomment if you would like to create a backup file before processing
-    bkp = src+'.bkp'
-    shutil.copyfile(src, bkp)
+    # # Uncomment if you would like to create a backup file before processing
+    # bkp = src+'.bkp'
+    # shutil.copyfile(src, bkp)
 
 
 
@@ -117,6 +107,7 @@ def run (src):
     process_lines(src, out_name)
 
 
+src = sys.argv[1]
 run(src)
 print("done")
 
