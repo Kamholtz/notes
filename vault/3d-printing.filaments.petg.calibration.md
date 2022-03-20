@@ -2,7 +2,7 @@
 id: lb3E7iW8YH06g1GgP5Mf8
 title: Calibration
 desc: ''
-updated: 1647691305750
+updated: 1647745047087
 created: 1643099156249
 ---
 
@@ -59,22 +59,45 @@ Attempting to address under extrusions at beginning, blob at end
   - No longer have gaps after travel (underextrusion at start)
   - Still seem to have blobs in some places
 
-  ## Flow rate
+## Attempt 5 - Flow rate
 
-  [[Flow Calibration Cube|3d-printing.calibration-tests#flow-calibration-cube]]
-
+Using the [[Flow Calibration Cube|3d-printing.calibration-tests#flow-calibration-cube]]
 
 - Measurements:
-  - 0.86
-  - 0.86
-  - 0.85
-  - 0.86
+
+  - 0.86 mm
+  - 0.86 mm
+  - 0.85 mm
+  - 0.86 mm
 
 - Ratio of expected wall thickness to actual wall thickness:
   - $0.80/((0.86 +0.86 + 0.85 + 0.86)/4) = 0.93$
 - New flow rate = $0.93 \times 0.96 \approx 0.89$
 
+The measured wall widths of the following print were:
 
+- 0.74 mm
+- 0.80 mm
+- 0.77 mm
+- 0.74 mm
+
+
+## Investigating SuperSlicer
+
+- [[3d-printing.slicer.super-slicer]]
+
+References:
+
+- [Has anybody successfully used Prusa Slicer with the FlashFor...](https://forum.prusaprinters.org/forum/prusaslicer/has-anybody-successfully-used-prusa-slicer-with-the-flashforge-adventurer-3/)
+  - Python post processing script
+  - Removing comments (verbose mode)
+- Post processing script for Flash Forge Creator Pro [Using PrusaSlicer (Slic3r) with the FlashForge Creator Pro](https://www.dr-lex.be/software/ffcp-slic3r-profiles.html#using)
+  - [FFCP-GCodeSnippets/make_fcp_x3g.pl at master · DrLex0/FFCP-GCodeSnippets](https://github.com/DrLex0/FFCP-GCodeSnippets/blob/master/make_fcp_x3g.pl)
+
+Super Slicer profile sourced from:
+
+- Adventurer 4 printer settings: [SUPERSLICER, SIMPLIFY3D, and CURA Setup For Adventurer 4](https://www.youtube.com/watch?v=QMkjMrHNxME)
+- PETG Filament settings: [Tips And Tricks For The Perfect PETG Settings - Things No One Else Tells You!](https://www.youtube.com/watch?v=FTos-G1QXeE)
 
 ![](assets/images/2022-03-19-17-50-12.png)
 
@@ -83,10 +106,37 @@ Attempting to address under extrusions at beginning, blob at end
 ![](/assets/images/2022-03-19-17-50-50.png)
 
 
+Teaching tech filament profiles: [SuperSlicer/filament at main · teachingtechYT/SuperSlicer](https://github.com/teachingtechYT/SuperSlicer/tree/main/filament)
+  - Also has printer profiles but none for flashforge
 
+The gcode that super slicer produces isn't entirely compatible with the Adventurer 4:
 
+- Temperature commands set the hotend index once but omit it afterwards
+  - Regex for finding commands that don't end with a hotend index
+  - `^M140 S\d+ +$`
+  - Replacement for adding the hotend index: $0T0
 
-Regex for finding commands that don't end with a hotend index
-^M140 S\d+ +$
+Overview:
 
-$0T0
+![](assets/images/2022-03-20-12-35-15.png)
+
+Flaws:
+
+![](assets/images/2022-03-20-12-36-12.png)
+
+Good intralayer in some spots
+
+![](assets/images/2022-03-20-12-42-33.png)
+
+Bottom left, end of print:
+
+![](assets/images/2022-03-20-12-42-12.png)
+
+Centre:
+
+![Centre](assets/images/2022-03-20-12-37-01.png)
+
+Super Slicer, second last step...
+
+![](assets/images/2022-03-20-12-40-56.png)
+
