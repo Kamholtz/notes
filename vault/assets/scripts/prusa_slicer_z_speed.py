@@ -72,13 +72,13 @@ def process_lines(src, out):
         for line in infile:
 
             lines0 = replace_end_line_comments_in_line(line.strip())
-            lines1 = [add_missing_suffix(x, "M104", suffix_re, "T0") for x in lines0]
-            lines2 = [add_missing_suffix(x, "M140", suffix_re, "T0") for x in lines1]
-            lines3 = [add_missing_suffix(x, "M109", suffix_re, "T0") for x in lines2]
-            lines4 = [add_missing_suffix(x, "M190", suffix_re, "T0") for x in lines3]
-            # lines5 = [replace_acceleration(x) for x in lines4]
+            # lines1 = [add_missing_suffix(x, "M104", suffix_re, "T0") for x in lines0]
+            # lines2 = [add_missing_suffix(x, "M140", suffix_re, "T0") for x in lines1]
+            # lines3 = [add_missing_suffix(x, "M109", suffix_re, "T0") for x in lines2]
+            # lines4 = [add_missing_suffix(x, "M190", suffix_re, "T0") for x in lines3]
+            # lines5 = [replace_acceleration(x) for x in lines0]
 
-            outlines = [x + "\n" for x in lines4]
+            outlines = [x + "\n" for x in lines0]
 
             outfile.writelines(outlines)
 
@@ -112,6 +112,6 @@ run(src)
 print("done")
 
 
-# if __name__ == "__main__":
+if __name__ == "__main__":
 
-#     run("C:\\Users\\carlk\\Downloads\\temp_calibration.g")
+    run("C:\\Users\\carlk\\Downloads\\cube.gcode")
