@@ -19,8 +19,11 @@ FiraCode NF [Nerd Fonts - Iconic font aggregator, glyphs/icons collection, &amp;
 
 ## Vim
 
+![[Initial Install|vim.initial-install]]
+
 - telescope-fzf-native [GitHub - nvim-telescope/telescope-fzf-native.nvim: FZF sorter for telescope written in c](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
   - Probably need mingw to compile
+  - used [Releases · mstorsjo/llvm-mingw](https://github.com/mstorsjo/llvm-mingw/releases) this time, which has `mingw32-make`
 - fzf (as above)
 - Python
 

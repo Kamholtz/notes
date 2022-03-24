@@ -2,7 +2,7 @@
 id: lb3E7iW8YH06g1GgP5Mf8
 title: Calibration
 desc: ''
-updated: 1647745088292
+updated: 1648035811306
 created: 1643099156249
 ---
 
@@ -144,3 +144,12 @@ Super Slicer, second last step...
 
 ![](assets/images/2022-03-20-12-40-56.png)
 
+
+## Increasing Extrusion Width
+
+- Increased the extrusion with from 111% to 125%
+
+Observations
+
+- Maybe slightly stronger but not markedly so
+- Still brittle enough to break while flexing the print
