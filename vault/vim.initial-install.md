@@ -6,11 +6,16 @@ updated: 1641269554734
 created: 1641195331001
 ---
 
-## Dependencies:
+## Dependencies
 
-Chadtree:
+### Python (for General + CHADTree)
 
-run the command
+- `pip install pynvim`
+
+### Chadtree
+
+Run the command
+
 - `CHADdeps`
 
 ### junegunn\fzf
@@ -24,6 +29,18 @@ Input being overwritten while typing quickly
 
 ### telescope-fzf-native
 
+[GitHub - nvim-telescope/telescope-fzf-native.nvim: FZF sorter for telescope written in c](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
+
+This needs to be built using something like mingw. There are two builds of Mingw that I have used for this plugin shown below.
+
+#### Option 1
+
+LLVM Mingw seems to be a newer version but I have not extensively tested the result of this build yet
+
+- [Releases · mstorsjo/llvm-mingw](https://github.com/mstorsjo/llvm-mingw/releases), which has `mingw32-make`
+
+#### Option 2
+
 Using make from `C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\mingw32-make.exe`
 
 ```bat
@@ -31,3 +48,52 @@ C:\Users\c.kamholtz\AppData\Local\nvim-data\site\pack\packer\start\telescope-fzf
 mkdir build
 gcc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll
 ```
+
+### Node
+
+- install with visual studio build tools
+
+![](/assets/images/2022-03-26-13-54-27.png)
+
+#### Install log
+
+> ====================================================
+> Tools for Node.js Native Modules Installation Script
+> ====================================================
+>
+> This script will install Python and the Visual Studio Build Tools, necessary
+> to compile Node.js native modules. Note that Chocolatey and required Windows
+> updates will also be installed.
+>
+> This will require about 3 Gb of free disk space, plus any space necessary to
+> install Windows updates. This will take a while to run.
+>
+> Please close all open programs for the duration of the installation. If the
+> installation fails, please ensure Windows is fully updated, reboot your
+> computer and try to run this again. This script can be found in the
+> Start menu under Node.js.
+>
+> You can close this window to stop now. Detailed instructions to install these
+> tools manually are available at https://github.com/nodejs/node-gyp#on-windows
+>
+> Press any key to continue . . .
+
+
+>
+> - chocolatey-dotnetfx.extension v1.0.1
+> - kb3033929 v1.0.5
+> - visualstudio2019buildtools v16.11.11.0
+> - python3 v3.10.4
+> - chocolatey-windowsupdate.extension v1.0.4
+> - vcredist140 v14.31.31103
+> - kb2999226 v1.0.20181019
+> - visualstudio-installer v2.0.2
+> - kb2919355 v1.0.20160915
+> - chocolatey-core.extension v1.3.5.1
+> - kb2919442 v1.0.20160915
+> - chocolatey-visualstudio.extension v1.10.0
+> - vcredist2015 v14.0.24215.20170201
+> - dotnetfx v4.8.0.20190930
+> - visualstudio2019-workload-vctools v1.0.1
+> - kb3035131 v1.0.3
+> - python v3.10.4
