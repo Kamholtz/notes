@@ -153,3 +153,8 @@ Observations
 
 - Maybe slightly stronger but not markedly so
 - Still brittle enough to break while flexing the print
+
+
+## Useful videos
+
+[Supercharge your PETG 3D prints with these tips](https://www.youtube.com/watch?v=T3Y0atseU9k)
