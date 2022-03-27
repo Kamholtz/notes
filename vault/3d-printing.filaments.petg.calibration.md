@@ -155,6 +155,22 @@ Observations
 - Still brittle enough to break while flexing the print
 
 
+## 2022.03.27
+
+- Began using [[3d-printing.slicer.flashprint]] again instead of [[3d-printing.slicer.super-slicer]] after experiencing frequent poor bed adhesion.
+- Also trialing use of gluestick for poor bed adhesion
+
+Observations
+
+- First layer sticks well. This could be attributed to:
+  - Use of raft (which was enabled by default)
+    - 4x the path width (1.6mm) and lower print speed (10m/s) for the bottom layer of the raft
+    ![flash print settings](/assets/images/2022-03-27-13-00-56.png)
+  -
+
+
+
+
 ## Useful videos
 
 [Supercharge your PETG 3D prints with these tips](https://www.youtube.com/watch?v=T3Y0atseU9k)
