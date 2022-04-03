@@ -14,3 +14,9 @@ created: 1648378300551
 - Related link: [About filament dryers](https://www.mytechfun.com/filament-dryers)
 
 Eibos Cyclopes seems to perform best but is very noisy
+
+## DIY
+
+Existing WiFi connected project with open source PCB
+
+- [GitHub - SasaKaranovic/DIY-Filament-Dryer: DIY WiFi Filament dryer](https://github.com/SasaKaranovic/DIY-Filament-Dryer)
