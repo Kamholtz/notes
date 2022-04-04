@@ -10,16 +10,19 @@ API Reference
 [API Reference - Expo Documentation](https://docs.expo.dev/versions/latest/)
 
 
-```bash
-npm install --global expo-cli
-```
+- expo-cli
 
-Clojure/Java: [[Install|lang.clj.install]]
+  ```bash
+  npm install --global expo-cli
+  ```
 
-shadow-cljs
+- Clojure/Java: [[Install|lang.clj.install]]
 
-- `yarn add --dev shadow-cljs`
-- [Getting Title at 28:02](https://shadow-cljs.github.io/docs/UsersGuide.html#_installation)
+- shadow-cljs
+  - `yarn add --dev shadow-cljs`
+  - [Shadow CLJS User&#8217;s Guide](https://shadow-cljs.github.io/docs/UsersGuide.html#_installation)
+
+- Expo go on iOS
 
 ## Limitations
 
