@@ -23,6 +23,8 @@ API Reference
   - [Shadow CLJS User&#8217;s Guide](https://shadow-cljs.github.io/docs/UsersGuide.html#_installation)
 
 - Expo go on iOS
+  - Try
+  - [Introduction - Expo Documentation](https://docs.expo.dev/development/introduction/)
 
 ## Limitations
 
