@@ -16,6 +16,13 @@ npm install --global expo-cli
 
 Clojure/Java: [[Install|lang.clj.install]]
 
+## Limitations
+
+[Limitations - Expo Documentation](https://docs.expo.dev/introduction/why-not-expo/)
+
+## Relevant Blog on Getting Started
+
+[Getting Title at 25:06](https://www.juxt.pro/blog/clojurescript-native-apps-2021)
 ## Template
 
 [create-expo-cljs-app](https://www.npmjs.com/package/create-expo-cljs-app)
