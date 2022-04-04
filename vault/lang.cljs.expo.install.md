@@ -19,6 +19,7 @@ Clojure/Java: [[Install|lang.clj.install]]
 ## Template
 
 [create-expo-cljs-app](https://www.npmjs.com/package/create-expo-cljs-app)
+- See instructions on page
 
 
 Success! Created bin-day at C:\Users\carlk\repos\bin-day
