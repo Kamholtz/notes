@@ -16,13 +16,18 @@ npm install --global expo-cli
 
 Clojure/Java: [[Install|lang.clj.install]]
 
+shadow-cljs
+
+- `yarn add --dev shadow-cljs`
+- [Getting Title at 28:02](https://shadow-cljs.github.io/docs/UsersGuide.html#_installation)
+
 ## Limitations
 
 [Limitations - Expo Documentation](https://docs.expo.dev/introduction/why-not-expo/)
 
 ## Relevant Blog on Getting Started
 
-[Getting Title at 25:06](https://www.juxt.pro/blog/clojurescript-native-apps-2021)
+[JUXT Blog - Writing Mobile apps in ClojureScript in 2021](https://www.juxt.pro/blog/clojurescript-native-apps-2021)
 ## Template
 
 [create-expo-cljs-app](https://www.npmjs.com/package/create-expo-cljs-app)
