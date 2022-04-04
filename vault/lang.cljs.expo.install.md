@@ -10,6 +10,13 @@ created: 1649066675383
 npm install --global expo-cli
 ```
 
+Java:
+[Semeru Runtimes Downloads](https://developer.ibm.com/languages/java/semeru-runtimes/downloads)
+
+11.0.14.1
+OpenJDK 11.0.14.1+1
+OpenJ9 0.30.1
+
 
 API Reference
 
