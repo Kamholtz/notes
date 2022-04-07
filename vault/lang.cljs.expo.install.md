@@ -36,7 +36,7 @@ API Reference
 
 By the same developer:
 
-- [Making a mobile app with ClojureScript in 2021 - Alex&#x27;s Blog](https://www.armincerf.com/2021/07/making-a-mobile-app-with-clojurescript-in-2021)
+- [Making a mobile app with ClojureScript in 2021 - Alex's Blog](https://www.armincerf.com/2021/07/making-a-mobile-app-with-clojurescript-in-2021)
 ## Template
 
 [create-expo-cljs-app](https://www.npmjs.com/package/create-expo-cljs-app)
