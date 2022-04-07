@@ -42,7 +42,7 @@ By the same developer:
 
 Health kit integration using EAS Build
 - [Apple HealthKit/Google Fit Data | Voters | Expo](https://expo.canny.io/feature-requests/p/apple-healthkitgoogle-fit-data)
-- [Getting Title at 37:28](https://docs.expo.dev/build/introduction/)
+- [EAS Build - Expo Documentation](https://docs.expo.dev/build/introduction/)
 
 ## Template
 
