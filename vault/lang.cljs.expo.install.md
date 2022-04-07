@@ -37,6 +37,13 @@ API Reference
 By the same developer:
 
 - [Making a mobile app with ClojureScript in 2021 - Alex's Blog](https://www.armincerf.com/2021/07/making-a-mobile-app-with-clojurescript-in-2021)
+
+## Features
+
+Health kit integration using EAS Build
+- [Apple HealthKit/Google Fit Data | Voters | Expo](https://expo.canny.io/feature-requests/p/apple-healthkitgoogle-fit-data)
+- [Getting Title at 37:28](https://docs.expo.dev/build/introduction/)
+
 ## Template
 
 [create-expo-cljs-app](https://www.npmjs.com/package/create-expo-cljs-app)
