@@ -30,7 +30,10 @@ API Reference
 
 [Limitations - Expo Documentation](https://docs.expo.dev/introduction/why-not-expo/)
 
-## Relevant Blog on Getting Started
+## Resources
+
+- [ClojureScript + React Native](https://cljsrn.org/)
+### Kalm Routines
 
 [JUXT Blog - Writing Mobile apps in ClojureScript in 2021](https://www.juxt.pro/blog/clojurescript-native-apps-2021)
 
