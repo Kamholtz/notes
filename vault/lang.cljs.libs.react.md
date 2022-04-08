@@ -10,6 +10,10 @@ created: 1649402877011
 
 ## Creating Reactive Components
 
+[Slack thread](https://clojurians.slack.com/archives/C073DKH9P/p1649401136457189)
+
+Issue: child component was not updating in response an event
+
 - `r/reactify-component`
 - `r/as-element`
 
