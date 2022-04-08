@@ -12,7 +12,7 @@ created: 1649402877011
 
 [Slack thread](https://clojurians.slack.com/archives/C073DKH9P/p1649401136457189)
 
-Issue: child component was not updating in response an event
+Issue: child component was not updating in response an event which changed data that the child component was subscribed to. Adding the subscription to the parent caused it to update in response to the event, however.
 
 - `r/reactify-component`
 - `r/as-element`
