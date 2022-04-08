@@ -37,6 +37,7 @@ API Reference
 ### Forum
 
 [Forums](https://forums.expo.dev/)
+
 ### Kalm Routines
 
 [JUXT Blog - Writing Mobile apps in ClojureScript in 2021](https://www.juxt.pro/blog/clojurescript-native-apps-2021)
@@ -44,6 +45,10 @@ API Reference
 By the same developer:
 
 - [Making a mobile app with ClojureScript in 2021 - Alex's Blog](https://www.armincerf.com/2021/07/making-a-mobile-app-with-clojurescript-in-2021)
+
+Videos of REPL + app development
+
+[Making a clojurescript mobile app in 2021](https://www.youtube.com/playlist?list=PLHwZuyvdryX34MXqiq9Jb_NaQE0bvgxgw)
 
 ## Features
 
