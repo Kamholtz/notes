@@ -38,6 +38,11 @@ API Reference
 
 [Forums](https://forums.expo.dev/)
 
+
+## js-interop
+
+[Getting Title at 27:20](https://github.com/applied-science/js-interop)
+
 ### Kalm Routines
 
 [JUXT Blog - Writing Mobile apps in ClojureScript in 2021](https://www.juxt.pro/blog/clojurescript-native-apps-2021)
