@@ -33,6 +33,10 @@ API Reference
 ## Resources
 
 - [ClojureScript + React Native](https://cljsrn.org/)
+
+### Forum
+
+[Forums](https://forums.expo.dev/)
 ### Kalm Routines
 
 [JUXT Blog - Writing Mobile apps in ClojureScript in 2021](https://www.juxt.pro/blog/clojurescript-native-apps-2021)
