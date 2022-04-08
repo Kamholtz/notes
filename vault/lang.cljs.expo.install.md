@@ -41,7 +41,7 @@ API Reference
 
 ## js-interop
 
-[Getting Title at 27:20](https://github.com/applied-science/js-interop)
+[GitHub - applied-science/js-interop: A JavaScript-interop library for ClojureScript.](https://github.com/applied-science/js-interop)
 
 ### Kalm Routines
 
