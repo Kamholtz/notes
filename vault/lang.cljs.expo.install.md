@@ -34,6 +34,10 @@ API Reference
 
 - [ClojureScript + React Native](https://cljsrn.org/)
 
+### CLJS cheat sheet
+
+![[lang.cljs.resources]]
+
 ### Forum
 
 [Forums](https://forums.expo.dev/)
