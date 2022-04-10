@@ -2,7 +2,7 @@
 id: ggshrd5md6uuzfwhexzdebo
 title: Notifications
 desc: ''
-updated: 1649588883949
+updated: 1649590965969
 created: 1649572582786
 ---
 
@@ -19,4 +19,4 @@ On iOS, permissions for sending notifications are a little more granular than th
 - 1) DENIED: The app isn't authorized to schedule or receive notifications
 - 2) AUTHORIZED: The app is authorized to schedule or receive notifications
 - 3) PROVISIONAL: The application is provisionally authorized to post noninterruptive user notifications
-- 4) EPHEMERAL: The app is authorized to schedule or receive notifications for a limited amount of time
+- 4) EPHEMERAL: The app is authorized to schedule or receive[[ notifications for a limited amount of time|lang.cljs.require-local-js-file]]
