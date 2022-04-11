@@ -2,7 +2,7 @@
 id: yrtsvo9ylwmcoz8svps5kko
 title: Install
 desc: ''
-updated: 1649066675383
+updated: 1649669623177
 created: 1649066675383
 ---
 API Reference
@@ -46,6 +46,13 @@ API Reference
 ## js-interop
 
 [GitHub - applied-science/js-interop: A JavaScript-interop library for ClojureScript.](https://github.com/applied-science/js-interop)
+
+
+## TSX
+
+> Developer tools running on http://localhost:19002
+> ? It looks like you're trying to use TypeScript but don't have the required dependencies installed. Would you like to
+> install typescript, @types/react, @types/react-native? » (Y/n)
 
 ### Kalm Routines
 
