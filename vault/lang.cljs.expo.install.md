@@ -2,7 +2,7 @@
 id: yrtsvo9ylwmcoz8svps5kko
 title: Install
 desc: ''
-updated: 1649669623177
+updated: 1650106637688
 created: 1649066675383
 ---
 API Reference
@@ -25,6 +25,26 @@ API Reference
 - Expo go on iOS
   - Try
   - [Introduction - Expo Documentation](https://docs.expo.dev/development/introduction/)
+
+## Disable hot reload
+
+Expo hot reload interferes with CLJS hot reload. Disable expo hot reload with the following steps:
+
+- Install expo webpack
+
+[@expo/webpack-config](https://www.npmjs.com/package/@expo/webpack-config)
+
+```bash
+expo customize:web
+```
+
+- Prevuous step will generate a `webpack.config.js` file. Add the following to the config:
+
+```js
+config.devServer.watchOptions.ignored = [/.*/];
+```
+
+- Used [initial setup · armincerf/kalm-mobile@ff1ecf7](https://github.com/armincerf/kalm-mobile/commit/ff1ecf72bf9028671964d6ee38ee42585692d3c1#diff-1fb26bc12ac780c7ad7325730ed09fc4c2c3d757c276c3dacc44bfe20faf166f) as a reference
 
 ## Limitations
 
