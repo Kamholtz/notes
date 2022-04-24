@@ -2,7 +2,7 @@
 id: 9MyAYKhCMZKoZjGva2vS3
 title: ZigBee
 desc: ''
-updated: 1644492407255
+updated: 1650760409185
 created: 1644029162376
 ---
 
@@ -21,6 +21,9 @@ Steps to configure here: [nRF Sniffer for 802.15.4](https://infocenter.nordicsem
 
 - Installation (WireShark, ZB Sniffer Plugin, Firmware for nRF board)
   - [Installing nRF Sniffer for 802.15.4](https://infocenter.nordicsemi.com/topic/ug_sniffer_802154/UG/sniffer_802154/installing_sniffer_802154.html)
+
+  - Install [[lang.python.packages.pyserial#errors]]
+    - See errors section if necessary
 
 - Adding keys
   - [Configuring Wireshark for nRF Sniffer for 802.15.4](https://infocenter.nordicsemi.com/topic/ug_sniffer_802154/UG/sniffer_802154/configuring_sniffer_802154.html)
