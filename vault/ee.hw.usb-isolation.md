@@ -2,7 +2,7 @@
 id: zj2dki01wcj6ydnlez69xjx
 title: Usb Isolation
 desc: ''
-updated: 1650876008984
+updated: 1650876242704
 created: 1650872872665
 ---
 
@@ -14,3 +14,4 @@ created: 1650872872665
   - Confirmed that USB-029H2-RP works with the analog discovery 2
     - [Amazon.com](https://www.amazon.com/HuMANDATA-USB-029H2-USB2-0-Isolator-Industrial-Grade/dp/B01FJBWC9Q/ref=sr_1_4?%252AVersion%252A=1&%252Aentries%252A=0&m=A2D3CNDMUB3UW1&qid=1650874978&s=merchant-items&sr=1-4)
 - [[ee.nrf52840]]
+  - USB 2
