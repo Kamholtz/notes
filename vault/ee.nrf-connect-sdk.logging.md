@@ -2,7 +2,7 @@
 id: 4PuwOPO63AOwRwcaNwrUX
 title: Logging
 desc: ''
-updated: 1645268910243
+updated: 1651154144147
 created: 1645246995788
 ---
 
@@ -41,3 +41,5 @@ created: 1645246995788
   - Notably, **enabling this prevents RTT from working**
 
 - [CONFIG_UART_CONSOLE &mdash; Kconfig reference](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/kconfig/CONFIG_UART_CONSOLE.html#config-uart-console)
+
+- Using the settings in the
