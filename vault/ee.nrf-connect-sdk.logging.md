@@ -2,7 +2,7 @@
 id: 4PuwOPO63AOwRwcaNwrUX
 title: Logging
 desc: ''
-updated: 1651145826669
+updated: 1651146473296
 created: 1645246995788
 ---
 
@@ -46,6 +46,6 @@ created: 1645246995788
 
 ## USB
 
-[Getting Title at 37:05](https://devzone.nordicsemi.com/f/nordic-q-a/68780/nrf-log-and-putty)
+[NRF LOG and putty - Nordic Q&amp;A - Nordic DevZone - Nordic DevZone](https://devzone.nordicsemi.com/f/nordic-q-a/68780/nrf-log-and-putty)
 
 [How to use the NRF52840 Dongle (PCA10059) as development board](https://jimmywongiot.com/2019/10/25/how-to-use-the-nrf52840-dongle-pca10059-as-development-board/)
