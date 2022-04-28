@@ -2,7 +2,7 @@
 id: 4PuwOPO63AOwRwcaNwrUX
 title: Logging
 desc: ''
-updated: 1651144661981
+updated: 1651145826669
 created: 1645246995788
 ---
 
@@ -43,3 +43,9 @@ created: 1645246995788
 - [CONFIG_UART_CONSOLE &mdash; Kconfig reference](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/kconfig/CONFIG_UART_CONSOLE.html#config-uart-console)
 
 - The default baud rate appears to be `115200` and and uses the COM port that appears on the USB port used to debug/and program via VSCode. Other UART settings were default as per KiTTY and PuTTY
+
+## USB
+
+[Getting Title at 37:05](https://devzone.nordicsemi.com/f/nordic-q-a/68780/nrf-log-and-putty)
+
+[How to use the NRF52840 Dongle (PCA10059) as development board](https://jimmywongiot.com/2019/10/25/how-to-use-the-nrf52840-dongle-pca10059-as-development-board/)
