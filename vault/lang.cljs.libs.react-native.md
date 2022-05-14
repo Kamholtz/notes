@@ -1,8 +1,8 @@
 ---
 id: bzx7q88mrdzt3ylj90e8b6v
-title: React
+title: React Native
 desc: ''
-updated: 1652490840370
+updated: 1652492505519
 created: 1649402877011
 ---
 
@@ -22,19 +22,40 @@ Issue: child component was not updating in response an event which changed data 
 > The explanation is that by wrapping the body of screen-main in r/as-element, you prevent it from being a part of the reactive context. Any reaction (subscriptions are reactions) used outside of a reactive context cannot trigger re-render.
 
 
-## Examples of Preserving Navigation Stack
+## Navigation Stack and State Persistence
 
-### Working
+### NavigationContainer onStateChange and initialState
 
-### References
+[NavigationContainer state persistence](https://reactnavigation.org/docs/state-persistence/) describes how to persist state in [[lang.js]]. The [[lang.cljs]] version using an atom is described in the following slack thread:
 
+[Clojurians Slack - NavigationContainer state persistence](https://clojurians.slack.com/archives/C0E1SN0NM/p1652439790706039?thread_ts=1652431961.516389&cid=C0E1SN0NM)
 
-#### Using NavigationContainer's resetRoot and getRootState
+> To persist nav state you could also pass `{:onStateChange on-state-change :initialState @state}` to `NavigationContainer`.
+> The code for persisting state could look like:
+
+```clojure
+ (defonce state (atom nil))
+
+ (defn- persist-state! [state-obj]
+    (js/Promise.
+     (fn [resolve _]
+       (reset! state state-obj)
+       (resolve true))))
+
+  (defn- on-state-change [state]
+    (persist-state! state))
+```
+
+> And for storing the ref, you could use `useNavigationContainerRef` hook to get the ref. (edited)
+
+### NavigationContainer's resetRoot and getRootState
 
 - Store the state using `getRootState`
 - Load it again when the app is reloaded with `resetRoot`
 
 [app-fx.cljs](https://gist.github.com/olivergeorge/981bc5135fa47253cba50fd125495d0b)
+
+### Other approaches I tried or researched
 
 #### AppContainer with persistNavigationState and loadNavigationState
 
@@ -46,7 +67,7 @@ From Clojurians slack:
 
 > I have a question related to ReactNavigation. I want to be able to reference the root navigator globally. In a regular React I can obtain the reference while rendering a component. How to do the same in CLJS/Reagent?
 
-```cljs
+```clojure
 ; Store navigator in app db
 ; Get the navigator from the NavaigationContainer using :ref
 (defn app-root []
@@ -71,8 +92,6 @@ From Clojurians slack:
                                       (update-in [:userInfo :siteRoles] (fn [v] (map #(keyword %) v))))))
      :navigate [(:root-navigator db) :Main]}
     ))
-
-
 ```
 
 ### Libraries for storing app state

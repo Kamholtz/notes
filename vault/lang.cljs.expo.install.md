@@ -88,7 +88,7 @@ Videos of REPL + app development
 
 ## Learning
 
-[[lang.cljs.libs.react]]
+[[lang.cljs.libs.react-native]]
 
 Wrapping
 
