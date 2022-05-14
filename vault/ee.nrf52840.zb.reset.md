@@ -2,9 +2,11 @@
 id: b9a4sws3874vwbdf9e87qgw
 title: Reset
 desc: ''
-updated: 1651149678555
+updated: 1652510090692
 created: 1651149582488
 ---
+
+Use the following to wipe the stored network settings on the dongle as it's not possible to wipe specific sections or all of flash using the bootloader
 
 `zb_bdb_reset_via_local_action()`
 

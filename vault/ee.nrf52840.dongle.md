@@ -2,7 +2,7 @@
 id: UTyVZZrIY615EpsVASnyB
 title: Dongle
 desc: ''
-updated: 1645184643499
+updated: 1652510133044
 created: 1644056764210
 ---
 
@@ -22,7 +22,6 @@ created: 1644056764210
 
 ![](assets/images/2022-02-10-21-33-13.png)
 
-
 | Part | Description | GPIO |
 | ---- | ----------- | ---- |
 | SW1 | Button | P1.06 |
@@ -39,7 +38,6 @@ created: 1644056764210
 > GPIOs should not be used and should be left as input with no pull or be disconnected by firmware.
 
 ## Zephyr Docs
-
 
 [[ee.zephyr]]
 [nRF52840 Dongle - Zephyr Project Documentation](https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/boards/arm/nrf52840dongle_nrf52840/doc/index.html)
