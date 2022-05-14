@@ -2,7 +2,7 @@
 id: bzx7q88mrdzt3ylj90e8b6v
 title: React
 desc: ''
-updated: 1652423791425
+updated: 1652490840370
 created: 1649402877011
 ---
 
@@ -22,7 +22,25 @@ Issue: child component was not updating in response an event which changed data 
 > The explanation is that by wrapping the body of screen-main in r/as-element, you prevent it from being a part of the reactive context. Any reaction (subscriptions are reactions) used outside of a reactive context cannot trigger re-render.
 
 
-## Preserving Navigation Stack
+## Examples of Preserving Navigation Stack
+
+### Working
+
+### References
+
+
+#### Using NavigationContainer's resetRoot and getRootState
+
+- Store the state using `getRootState`
+- Load it again when the app is reloaded with `resetRoot`
+
+[app-fx.cljs](https://gist.github.com/olivergeorge/981bc5135fa47253cba50fd125495d0b)
+
+#### AppContainer with persistNavigationState and loadNavigationState
+
+[cljs-react-native-starter/core.cljs at master · eihli/cljs-react-native-starter](https://github.com/eihli/cljs-react-native-starter/blob/master/src/example/core.cljs)
+
+#### Storing in re-frame DB (does not reload it though?)
 
 From Clojurians slack:
 
@@ -56,3 +74,12 @@ From Clojurians slack:
 
 
 ```
+
+### Libraries for storing app state
+
+I ultimately decided not to use any libraries/wrappers for storing state as it seemed like a lot of overhead to include another dependency
+
+- [GitHub - seantempesta/cljs-react-navigation: CLJS wrappers for react-navigation](https://github.com/seantempesta/cljs-react-navigation)
+
+- [GitHub - flexsurfer/rn-shadow-steroid: React Native with shadow-cljs on steroids](https://github.com/flexsurfer/rn-shadow-steroid)
+  - Blog post showing how to use `steroid` to perist navigation state [Confidence and Joy: React Native Development with ClojureScript and re-frame - HackMD](https://hackmd.io/@byc70E6fQy67hPMN0WM9_A/rJilnJxE8)
