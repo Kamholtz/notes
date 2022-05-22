@@ -2,9 +2,11 @@
 id: 2torquuzh3kpr666gisn7ir
 title: Solar Charging
 desc: ''
-updated: 1653187960632
+updated: 1653189184994
 created: 1653116476988
 ---
+
+## Power Path using a P-channel MOSFET
 
 [[ee.hw.tp4056]] and [[ee.hw.dw01A]] with power path using [[ee.hw.fqp27p06]].
 
@@ -17,9 +19,9 @@ created: 1653116476988
 
 - Discussion on when the solar voltage is somewhere between 0-5V, where the P-channel mosfet is still on
   - [Solar powered LIPO charger with power path - Page 1](https://www.eevblog.com/forum/projects/solar-powered-lipo-charger-with-power-path/)
-  - Andreas Spiess design is almost identical to that shown in the [[ee.hw.an1149]] datasheet
+  - Andreas Spiess design is almost identical to that shown in the [[ee.hw.mcp73837-li-ion-battery-charger]] application note
+  - ![[Application Note|ee.hw.mcp73837-li-ion-battery-charger#application-note]]
 
-    ![[ee.hw.an1149]]
 ## Related Discussions
 
 - [r/AskElectronics - Methods for charging and load sharing between solar panels and li-ion batteries?](https://www.reddit.com/r/AskElectronics/comments/kgujq9/methods_for_charging_and_load_sharing_between/)
@@ -34,10 +36,16 @@ created: 1653116476988
     - [[ee.hw.bq25606-buck-lipo-battery-charger]] (not specifically for solar or MPPT like)
     - [[ee.hw.stns01-li-ion-linear-battery-charger-with-ldo]] - Package and LDO make it unsuitable for my needs as the [[ee.nrf52840]] has an inbuilt DC converter so regulating twice would be inefficient
 
+    - Although [[ee.hw.tp4056]] and [[ee.hw.mcp73837-li-ion-battery-charger]] do not have an external current sense resistor, a power path can be created used the application not for the MCP73837 mentioned in [[Power Path using a P-channel MOSFET|ee.hw.solar-charging#power-path-using-a-p-channel-mosfet]]
+
   - > The reason for these precautions is that lithum-ion batteries do not like being float-charged (held at 4.2v while current asymptotes to zero) as it causes them to grow dendrites and stab themselves to a fiery death.
 
 ## To Continue With
 
+- Great Scott video [Electronic Basics #29: Solar Panel and Charge Controller](https://www.youtube.com/watch?v=sU-hSFFwSmo&t=2s)
 - A final year EE project
   - [My Final Year Project: NiMH Solar Battery Charger](https://www.youtube.com/watch?v=Oz_6qOgm4-g)
-  - [solar-charger-arduino-nano-v3/schematic.png at 06923ca40dcb1bf5046b793ef778ebeff19c3275 · hadefuwa/solar-charger-arduino-nano-v3](https://github.com/hadefuwa/solar-charger-arduino-nano-v3/blob/06923ca40dcb1bf5046b793ef778ebeff19c3275/schematic.png)
+    - [solar-charger-arduino-nano-v3/schematic.png at 06923ca40dcb1bf5046b793ef778ebeff19c3275 · hadefuwa/solar-charger-arduino-nano-v3](https://github.com/hadefuwa/solar-charger-arduino-nano-v3/blob/06923ca40dcb1bf5046b793ef778ebeff19c3275/schematic.png)
+
+- Google sheet with solar battery chargers [SolarBatteryChargers](https://docs.google.com/spreadsheets/d/1LVohmn0nc7Ttsbt9npN3JESeZj8wxoR_L95ZPLOyowU/edit#gid=0)
+  - Unsure where I found this...
