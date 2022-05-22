@@ -2,7 +2,7 @@
 id: 2torquuzh3kpr666gisn7ir
 title: Solar Charging
 desc: ''
-updated: 1653119852047
+updated: 1653187960632
 created: 1653116476988
 ---
 
@@ -15,6 +15,11 @@ created: 1653116476988
 - Source: [#383 Cheap and simple Solar Power for our small Projects (ESP32, ESP8266, Arduino)](https://www.youtube.com/watch?v=37kGva3NW8w)
 
 
+- Discussion on when the solar voltage is somewhere between 0-5V, where the P-channel mosfet is still on
+  - [Solar powered LIPO charger with power path - Page 1](https://www.eevblog.com/forum/projects/solar-powered-lipo-charger-with-power-path/)
+  - Andreas Spiess design is almost identical to that shown in the [[ee.hw.an1149]] datasheet
+
+    ![[ee.hw.an1149]]
 ## Related Discussions
 
 - [r/AskElectronics - Methods for charging and load sharing between solar panels and li-ion batteries?](https://www.reddit.com/r/AskElectronics/comments/kgujq9/methods_for_charging_and_load_sharing_between/)
@@ -25,6 +30,14 @@ created: 1653116476988
 
   - > Anything that lists 1) powerpath, 2) Vsys output, or 3) uses an external current sense resistor should work fine - so BQ25606, CN3791, STNS01 (if your phone's current draw is unusually low), but not TP4056 or MCP738xx.
 
-    - [[ee.hw.cn3791]]
+    - [[ee.hw.cn3791-solar-mppt-approx-charger]] (for solar with MPPT approximation)
+    - [[ee.hw.bq25606-buck-lipo-battery-charger]] (not specifically for solar or MPPT like)
+    - [[ee.hw.stns01-li-ion-linear-battery-charger-with-ldo]] - Package and LDO make it unsuitable for my needs as the [[ee.nrf52840]] has an inbuilt DC converter so regulating twice would be inefficient
 
   - > The reason for these precautions is that lithum-ion batteries do not like being float-charged (held at 4.2v while current asymptotes to zero) as it causes them to grow dendrites and stab themselves to a fiery death.
+
+## To Continue With
+
+- A final year EE project
+  - [My Final Year Project: NiMH Solar Battery Charger](https://www.youtube.com/watch?v=Oz_6qOgm4-g)
+  - [solar-charger-arduino-nano-v3/schematic.png at 06923ca40dcb1bf5046b793ef778ebeff19c3275 · hadefuwa/solar-charger-arduino-nano-v3](https://github.com/hadefuwa/solar-charger-arduino-nano-v3/blob/06923ca40dcb1bf5046b793ef778ebeff19c3275/schematic.png)

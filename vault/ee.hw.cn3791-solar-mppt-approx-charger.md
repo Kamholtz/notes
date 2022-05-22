@@ -1,6 +1,6 @@
 ---
 id: 80buocd0itxhhon5qj54imz
-title: Cn3791
+title: Cn3791 Solar Mppt Approx Charger
 desc: ''
 updated: 1653120128968
 created: 1653119852668
