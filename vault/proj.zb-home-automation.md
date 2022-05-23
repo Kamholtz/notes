@@ -2,7 +2,7 @@
 id: vn4QH8axQkezeOvv8cSG5
 title: ZigBee Home Automation
 desc: ''
-updated: 1646538184712
+updated: 1653220885881
 created: 1645185550463
 ---
 
@@ -66,3 +66,9 @@ Using the example code for a [[ee.zb.coordinator]] found in this thread [How to 
 - [ ] Learn how to create overlays
   - [[Device Tree|ee.zephyr.device-tree]]
 - [ ] [GitHub - NordicPlayground/j-link-monitoring-mode-debugging](https://github.com/NordicPlayground/j-link-monitoring-mode-debugging/#monitor-mode-debugging-in-keil-%C2%B5vision5-and-segger-embedded-studio) [Monitor Mode Debugging - Revolutionize the way you debug BLE applications](https://devzone.nordicsemi.com/nordic/nordic-blog/b/blog/posts/monitor-mode-debugging---revolutionize-the-way-you-debug-ble-applications)
+
+
+## Power Consumption
+
+- [Power consumption question - Nordic Q&amp;A - Nordic DevZone - Nordic DevZone](https://devzone.nordicsemi.com/f/nordic-q-a/30687/power-consumption-question)
+  - > turning the USART off after pushing out some startup messages reduces power consumption by around 1mA (ie. a lot). Use app_uart_close() to turn off
