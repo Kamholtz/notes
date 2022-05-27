@@ -2,7 +2,7 @@
 id: 2torquuzh3kpr666gisn7ir
 title: Solar Charging
 desc: ''
-updated: 1653189184994
+updated: 1653305971967
 created: 1653116476988
 ---
 
@@ -39,6 +39,11 @@ created: 1653116476988
     - Although [[ee.hw.tp4056]] and [[ee.hw.mcp73837-li-ion-battery-charger]] do not have an external current sense resistor, a power path can be created used the application not for the MCP73837 mentioned in [[Power Path using a P-channel MOSFET|ee.hw.solar-charging#power-path-using-a-p-channel-mosfet]]
 
   - > The reason for these precautions is that lithum-ion batteries do not like being float-charged (held at 4.2v while current asymptotes to zero) as it causes them to grow dendrites and stab themselves to a fiery death.
+
+## Solar Calculations
+
+[Solar Irradiance Calculator](http://www.solarelectricityhandbook.com/solar-irradiance.html)
+[Solar resource maps of Australia](https://solargis.com/maps-and-gis-data/download/australia)
 
 ## To Continue With
 
