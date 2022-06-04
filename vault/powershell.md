@@ -4,6 +4,5 @@ title: Powershell
 desc: ''
 updated: 1648258337591
 created: 1648258337591
-stub: true
 ---
 
