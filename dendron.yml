@@ -80,7 +80,7 @@ publishing:
     enableMermaid: true
     enablePrettyRefs: true
     enableKatex: true
-    assetsPrefix: notes
+    assetsPrefix: /notes
     copyAssets: true
     siteHierarchies:
         - root
