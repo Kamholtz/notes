@@ -2,7 +2,7 @@
 id: lnab25me8lq1jatowu29nr5
 title: Power Consumption
 desc: ''
-updated: 1656724054946
+updated: 1656745604146
 created: 1656722879364
 ---
 
@@ -21,6 +21,8 @@ reduce the power consumption for [[ee.zb.router]] and [[ee.zb.end-device]]
 
 ### What is the expected power consumption for the different modes
 
+### Sleepy end device
+
 - NRF Connect docs suggest it is possible to achieve `~1.8 uA` current draw for the MCUs mentioned below as a [[ee.zb.sleepy-end-device]]
   - Turn off UART by setting CONFIG_SERIAL to n.
   - For current measurements for the nRF52840 DK (PCA10056), the nRF52833 DK (PCA10100), or the nRF5340 (PCA10095), set SW6 to nRF ONLY position to get the desired results.
@@ -32,5 +34,6 @@ reduce the power consumption for [[ee.zb.router]] and [[ee.zb.end-device]]
 
 - Do pins maintain state?
 - is RAM lost?
+  - Suspect not because it's only the radio that needs to turn off
 
 ## Findings
