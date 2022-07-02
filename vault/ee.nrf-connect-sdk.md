@@ -4,7 +4,6 @@ title: nRF Connect SDK
 desc: ''
 updated: 1644042323236
 created: 1644029249936
-stub: true
 ---
 
 ## VSCode installation

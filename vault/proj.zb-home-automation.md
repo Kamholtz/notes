@@ -2,7 +2,7 @@
 id: vn4QH8axQkezeOvv8cSG5
 title: ZigBee Home Automation
 desc: ''
-updated: 1656745738923
+updated: 1656746797902
 created: 1645185550463
 ---
 
@@ -49,19 +49,6 @@ Using the example code for a [[ee.zb.coordinator]] found in this thread [How to 
 ## On Off Switch
 
 [[proj.zb-home-automation.on-off-switch]]
-
-2022.07.02
-
-- [ ] Try making a device that just consists of many buttons for controlling devices at home
-  - Reduce power consumption
-    - [ ] Change from router to end device
-      - Currently has `CONFIG_ZIGBEE_ROLE_ROUTER=y` in [[ee.zephyr.config.prj-conf]]... Find the end device equivalent
-    - [ ] Enable sleep end device [[ee.zb.sleepy-end-device]]
-    - [ ] Disbale UART and RTT
-    - [ ] Make a test apparatus for measuring power
-      - Many resistors in parallel - measure resistance (make is sub `1 ohm`)
-      - Connect in series with DUT
-      - Measure voltage over the resistor - start with multimeter
 
 ## Next steps
 
