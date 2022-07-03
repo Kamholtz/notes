@@ -2,7 +2,7 @@
 id: vn4QH8axQkezeOvv8cSG5
 title: ZigBee Home Automation
 desc: ''
-updated: 1656806016748
+updated: 1656828840355
 created: 1645185550463
 ---
 
@@ -66,23 +66,8 @@ Using the example code for a [[ee.zb.coordinator]] found in this thread [How to 
   - [[Device Tree|ee.zephyr.device-tree]]
 - [ ] [GitHub - NordicPlayground/j-link-monitoring-mode-debugging](https://github.com/NordicPlayground/j-link-monitoring-mode-debugging/#monitor-mode-debugging-in-keil-%C2%B5vision5-and-segger-embedded-studio) [Monitor Mode Debugging - Revolutionize the way you debug BLE applications](https://devzone.nordicsemi.com/nordic/nordic-blog/b/blog/posts/monitor-mode-debugging---revolutionize-the-way-you-debug-ble-applications)
 - [ ] Update to v2.0.0 of the nrf connect SDK
+  - [[Migration notes|ee.nrf-connect-sdk.v2-0-0#migration-notes]]
 
-> I: Unimplemented signal (signal: 54, status: 0)
-> I: Joined network successfully on reboot signal (Extended PAN ID: cccccccc9ca8cc84, PAN ID: 0x0c84)
-> I: Debounced
-> ASSERTION FAIL @ WEST_TOPDIR/nrf/lib/dk_buttons_and_leds/dk_buttons_and_leds.c:186
-> E: r0/a1:  0x00000004  r1/a2:  0x000000ba  r2/a3:  0x00000000
-> E: r3/a4:  0x20009ebd r12/ip:  0x00000000 r14/lr:  0x0000d51d
-> E:  xpsr:  0x61000016
-> E: s[ 0]:  0x00000000  s[ 1]:  0x00000000  s[ 2]:  0x00000000  s[ 3]:  0x00000000
-> E: s[ 4]:  0x00000000  s[ 5]:  0x00000000  s[ 6]:  0x00000000  s[ 7]:  0x00000000
-> E: s[ 8]:  0x00000000  s[ 9]:  0x00000000  s[10]:  0x00000000  s[11]:  0x00000000
-> E: s[12]:  0x00000000  s[13]:  0x00000000  s[14]:  0x00000000  s[15]:  0x00000000
-> E: fpscr:  0x00000000
-> E: Faulting instruction address (r15/pc): 0x0004d5fe
-> E: >>> ZEPHYR FATAL ERROR 4: Kernel panic on CPU 0
-> E: Fault during interrupt handling
->
 
 
 ## Power Consumption
