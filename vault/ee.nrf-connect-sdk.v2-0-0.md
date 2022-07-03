@@ -2,7 +2,7 @@
 id: dx3j6zht7bpvmddvvsdji36
 title: V2 0 0
 desc: ''
-updated: 1656829592859
+updated: 1656844207143
 created: 1656828716044
 ---
 
@@ -23,7 +23,8 @@ Required Action:
 
 ## Problems encountered
 
-Reboot occured when a GPIO interrupt was fired.
+### Reboot occured when a GPIO interrupt was fired.
+
 > I: Unimplemented signal (signal: 54, status: 0)
 > I: Joined network successfully on reboot signal (Extended PAN ID: cccccccc9ca8cc84, PAN ID: 0x0c84)
 > I: Debounced
@@ -41,6 +42,7 @@ Reboot occured when a GPIO interrupt was fired.
 > E: Fault during interrupt handling
 >
 
+Relevant code (`ASSERT_NO_MSG`)
 
 ```c
 static void button_pressed(const struct device *gpio_dev, struct gpio_callback *cb,
@@ -72,3 +74,8 @@ static void button_pressed(const struct device *gpio_dev, struct gpio_callback *
 }
 
 ```
+
+
+### Missing Zigbee HA files
+
+[Zigbee HA files are missing in v2.0.0 ZCL8 update - Nordic Q&amp;A - Nordic DevZone - Nordic DevZone](https://devzone.nordicsemi.com/f/nordic-q-a/88813/zigbee-ha-files-are-missing-in-v2-0-0-zcl8-update)
