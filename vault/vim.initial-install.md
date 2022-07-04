@@ -2,7 +2,7 @@
 id: v3K06639TokG0fDufJlPY
 title: Initial Install
 desc: ''
-updated: 1656932418389
+updated: 1656935405701
 created: 1641195331001
 ---
 
@@ -103,6 +103,7 @@ gcc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll
 
 Same as above for WSL2, Ubuntu
 
+```bash
   102  mv /mnt/c/Users/carlk/Downloads/nvim.appimage .
   104  sudo mv /mnt/c/Users/carlk/Downloads/nvim.appimage .
 
@@ -118,3 +119,25 @@ Same as above for WSL2, Ubuntu
 
   152  cd site/pack/packer/start/telescope-fzf-native.nvim/
   153  make
+```
+
+  Need this for treesitter or you will encounter `/usr/bin/ld: cannot find -lstdc++ `
+
+```bash
+  162  sudo apt install build-essential
+
+  174  sudo apt install python3-pip
+  175  pip3 install pynvim
+```
+
+Add the following to your `.bashrc`
+
+```bash
+alias python=python3
+alias nvim=nvim.appimage
+
+```
+
+### Configuring Git in WSL2
+
+[[For Windows|git.for-windows]]
