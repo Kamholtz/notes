@@ -2,7 +2,7 @@
 id: v3K06639TokG0fDufJlPY
 title: Initial Install
 desc: ''
-updated: 1641269554734
+updated: 1656932418389
 created: 1641195331001
 ---
 
@@ -97,3 +97,24 @@ gcc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll
 > - visualstudio2019-workload-vctools v1.0.1
 > - kb3035131 v1.0.3
 > - python v3.10.4
+
+
+## WSL2
+
+Same as above for WSL2, Ubuntu
+
+  102  mv /mnt/c/Users/carlk/Downloads/nvim.appimage .
+  104  sudo mv /mnt/c/Users/carlk/Downloads/nvim.appimage .
+
+  106  chmod u+x nvim.appimage && ./nvim.appimage
+  107  sudo chmod u+x nvim.appimage && ./nvim.appimage
+
+  131  python3 -m pip3 install pynvim
+
+  138  sudo apt-get install fzf
+  139  sudo apt-get install ripgrep
+  140  sudo apt-get install cmake
+  141  sudo apt-get install gcc
+
+  152  cd site/pack/packer/start/telescope-fzf-native.nvim/
+  153  make
