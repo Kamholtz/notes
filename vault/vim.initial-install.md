@@ -2,7 +2,7 @@
 id: v3K06639TokG0fDufJlPY
 title: Initial Install
 desc: ''
-updated: 1656935405701
+updated: 1657427120983
 created: 1641195331001
 ---
 
@@ -130,13 +130,14 @@ Same as above for WSL2, Ubuntu
   175  pip3 install pynvim
 ```
 
-Add the following to your `.bashrc`
+Add the following to your `.bashrc` to create an [[os.linux.cli.alias]] for `python` and `nvim.appimage`
 
 ```bash
 alias python=python3
 alias nvim=nvim.appimage
-
 ```
+
+Alternatively, setup a symbolic link with [[os.linux.cli.ln]] so that the `nvim` command is accessible within scripts. This is necessary for [[vim.plugins.conjure]] development
 
 ### Configuring Git in WSL2
 

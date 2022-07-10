@@ -40,7 +40,7 @@ created: 1620452489266
 
 
 
-It seems that if the output is not redirected somewhere then cronjob does not run. However this may have also been fixed by installing [[os.ubuntu.cli.postfix]]
+It seems that if the output is not redirected somewhere then cronjob does not run. However this may have also been fixed by installing [[os.linux.cli.postfix]]
 
 
 
