@@ -2,7 +2,7 @@
 id: v3K06639TokG0fDufJlPY
 title: Initial Install
 desc: ''
-updated: 1657427120983
+updated: 1657427463740
 created: 1641195331001
 ---
 
@@ -121,7 +121,7 @@ Same as above for WSL2, Ubuntu
   153  make
 ```
 
-  Need this for treesitter or you will encounter `/usr/bin/ld: cannot find -lstdc++ `
+Need this for treesitter or you will encounter `/usr/bin/ld: cannot find -lstdc++ `
 
 ```bash
   162  sudo apt install build-essential
@@ -138,6 +138,10 @@ alias nvim=nvim.appimage
 ```
 
 Alternatively, setup a symbolic link with [[os.linux.cli.ln]] so that the `nvim` command is accessible within scripts. This is necessary for [[vim.plugins.conjure]] development
+
+### FZF
+
+It seems that the version of `fzf` that comes with WSL's ubuntu is out of date (0.20.0) and seemingly does not work
 
 ### Configuring Git in WSL2
 
