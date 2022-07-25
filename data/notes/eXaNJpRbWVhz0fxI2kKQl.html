@@ -1,0 +1,169 @@
+<h1 id="occupancy-sensing"><a aria-hidden="true" class="anchor-heading icon-link" href="#occupancy-sensing"></a>Occupancy Sensing</h1>
+<h2 id="documentation"><a aria-hidden="true" class="anchor-heading icon-link" href="#documentation"></a>Documentation</h2>
+<ul>
+<li>
+<p>ZBOSS: <a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/zboss_api_doc/group___z_b___z_c_l___o_c_c_u_p_a_n_c_y___s_e_n_s_i_n_g.html">Developing with ZBOSS : ZCL Occupancy Sensing cluster</a></p>
+</li>
+<li>
+<p>NXP docs for their API, seems to be useful regardless of MCU as a cross reference, especially since occupancy sensing isn't really implemented by Nordic/ZBOSS: <a href="https://www.nxp.com/docs/en/user-guide/JN-UG-3076.pdf">https://www.nxp.com/docs/en/user-guide/JN-UG-3076.pdf</a></p>
+<p><img src="/notes/assets/images/2022-02-26-15-43-56.png" alt="Occupancy sensing cluster in NXP guide"></p>
+<ul>
+<li>
+<p>Useful for checking the dependencies of clusters e.g.</p>
+<p><img src="/notes/assets/images/2022-02-26-15-45-35.png"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="example-zigbee-traffic-for-philips-hue"><a aria-hidden="true" class="anchor-heading icon-link" href="#example-zigbee-traffic-for-philips-hue"></a>Example Zigbee Traffic for Philips Hue</h2>
+<p><img src="/notes/assets/images/2022-02-26-15-19-15.png"></p>
+<h2 id="zcl-specification"><a aria-hidden="true" class="anchor-heading icon-link" href="#zcl-specification"></a>ZCL Specification</h2>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Occupancy Sensing</span></div>
+<a href="/notes/notes/mN90xVXGdYAXVCAXL1odK" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p>No client or server commands, it declares its state using <a href="/notes/notes/fuUwSxzu2VFW1VJOwhffA">Attribute Reporting</a>, unlike <a href="/notes/notes/v4tkNsgXKagmePc9HM8F7">On Off</a> which has a few commands for doing so.</p>
+</div></div><p></p><p></p>
+<h2 id="adding-occupancy-sensing-implementation"><a aria-hidden="true" class="anchor-heading icon-link" href="#adding-occupancy-sensing-implementation"></a>Adding Occupancy Sensing Implementation</h2>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Adding Custom Cluster</span></div>
+<a href="/notes/notes/wbSh7wzAFYbQIoMHDbXBu" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p>Example of adding a custom cluster (a "shaker"):</p>
+<ul>
+<li><a href="https://devzone.nordicsemi.com/f/nordic-q-a/82371/unable-to-configure-attribute-reporting-on-custom-cluster/343367#343367">Unable to configure attribute reporting on custom cluster - Nordic Q&#x26;A - Nordic DevZone - Nordic DevZone</a></li>
+</ul>
+</div></div><p></p><p></p>
+<h3 id="investigating-forum-post"><a aria-hidden="true" class="anchor-heading icon-link" href="#investigating-forum-post"></a>Investigating Forum Post</h3>
+<p><a href="https://devzone.nordicsemi.com/f/nordic-q-a/60960/zigbee-occupancy-cluster-attribute-setting-gives-invalid-value-error">Zigbee Occupancy cluster attribute setting gives Invalid Value error - Nordic Q&#x26;A - Nordic DevZone - Nordic DevZone</a></p>
+<p>Whenever a customer wants to use it, than he has to define:</p>
+<ul>
+<li>
+<p>Sensor-specific attribute name, e.g.:</p>
+<pre class="language-c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ZB_ZCL_CLUSTER_ID_OCCUPANCY_SENSING_PIR</span> <span class="token expression">ZB_ZCL_CLUSTER_ID_OCCUPANCY_SENSING</span></span>
+</code></pre>
+</li>
+<li>
+<p>Sensor-specific attribute handlers, e.g.:</p>
+<pre class="language-c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span><span class="token expression">ZB_ZCL_CLUSTER_ID_OCCUPANCY_SENSING_PIR_SERVER_ROLE_INIT pir_sensor_init</span></span>
+</code></pre>
+</li>
+<li>
+<p>The init function has to pass the write attribute hook to the stack, e.g.:</p>
+<pre class="language-c"><code class="language-c"><span class="token function">zb_zcl_add_cluster_handlers</span><span class="token punctuation">(</span>ZB_ZCL_CLUSTER_ID_OCCUPANCY_SENSING_PIR<span class="token punctuation">,</span>
+                              ZB_ZCL_CLUSTER_SERVER_ROLE<span class="token punctuation">,</span>
+                              check_value_pir_sensor_server<span class="token punctuation">,</span>
+                              write_attr_pir_sensor_server_hook<span class="token punctuation">,</span>
+                              <span class="token punctuation">(</span><span class="token class-name">zb_zcl_cluster_handler_t</span><span class="token punctuation">)</span><span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>
+<p>Notice that in <code>zb_zcl_occupancy_sensing.h</code> these are not defined as null</p>
+<pre class="language-c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ZB_ZCL_CLUSTER_ID_OCCUPANCY_SENSING_SERVER_ROLE_INIT</span> <span class="token expression"><span class="token punctuation">(</span><span class="token class-name">zb_zcl_cluster_init_t</span><span class="token punctuation">)</span><span class="token constant">NULL</span></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">ZB_ZCL_CLUSTER_ID_OCCUPANCY_SENSING_CLIENT_ROLE_INIT</span> <span class="token expression"><span class="token punctuation">(</span><span class="token class-name">zb_zcl_cluster_init_t</span><span class="token punctuation">)</span><span class="token constant">NULL</span></span></span>
+</code></pre>
+</li>
+<li>
+<p>Further to this point has the following comment <code>zb_zcl_comon.h</code> regarding the <code>ZB_ZCL_CLUSTER_ID_*_SERVER_ROLE_INIT</code> and  <code>ZB_ZCL_CLUSTER_ID_*_SERVER_CLIENT_INIT</code> <code>#defines</code></p>
+</li>
+</ul>
+<pre class="language-c"><code class="language-c"><span class="token comment">/** @brief ZCL Cluster Init Handler. This handler is called on registering device context (@ref
+    ZB_AF_REGISTER_DEVICE_CTX). Initialization of the cluster should include @ref
+    zb_zcl_add_cluster_handlers call, if any of the cluster handlers are implemented.
+
+    Cluster Init handler is bound to the cluster declaration via ZB_ZCL_CLUSTER_DESC macro. Every
+    cluster should implement "&#x3C;cluster_id>_&#x3C;cluster_role>_INIT" macro, for example:
+    @code
+    #define ZB_ZCL_CLUSTER_ID_ON_OFF_SERVER_ROLE_INIT zb_zcl_on_off_init_server
+    #define ZB_ZCL_CLUSTER_ID_ON_OFF_CLIENT_ROLE_INIT zb_zcl_on_off_init_client
+    @endcode
+
+    If cluster does not have any initialization steps and does not need any cluster handlers,
+    Cluster Init handler may be NULL, for example:
+    @code
+    #define ZB_ZCL_CLUSTER_ID_OCCUPANCY_SENSING_SERVER_ROLE_INIT (zb_zcl_cluster_init_t)NULL
+    #define ZB_ZCL_CLUSTER_ID_OCCUPANCY_SENSING_CLIENT_ROLE_INIT (zb_zcl_cluster_init_t)NULL
+    @endcode
+*/</span>
+</code></pre>
+<ul>
+<li>
+<p>These are called in <code>ZB_ZCL_CLUSTER_DESC</code> for declaring the simple descriptor (<code>zboss_api_af.h</code>). See <code>cluster_id##_SERVER_ROLE_INIT</code> within the macro</p>
+<pre class="language-c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">ZB_ZCL_CLUSTER_DESC</span><span class="token expression"><span class="token punctuation">(</span>cluster_id<span class="token punctuation">,</span> attr_count<span class="token punctuation">,</span> attr_desc_list<span class="token punctuation">,</span> cluster_role_mask<span class="token punctuation">,</span> manuf_code<span class="token punctuation">)</span>         \c</span></span>
+<span class="token punctuation">{</span>                                                                                                          \<span class="token function">c</span>
+  <span class="token punctuation">(</span>cluster_id<span class="token punctuation">)</span><span class="token punctuation">,</span>                                                                                            \<span class="token function">c</span>
+  <span class="token punctuation">(</span>attr_count<span class="token punctuation">)</span><span class="token punctuation">,</span>                                                                                            \<span class="token function">c</span>
+  <span class="token punctuation">(</span>attr_desc_list<span class="token punctuation">)</span><span class="token punctuation">,</span>                                                                                        \<span class="token function">c</span>
+  <span class="token punctuation">(</span>cluster_role_mask<span class="token punctuation">)</span><span class="token punctuation">,</span>                                                                                     \<span class="token function">c</span>
+  <span class="token punctuation">(</span>manuf_code<span class="token punctuation">)</span><span class="token punctuation">,</span>                                                                                            \<span class="token function">c</span>
+  <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>cluster_role_mask<span class="token punctuation">)</span> <span class="token operator">==</span> ZB_ZCL_CLUSTER_SERVER_ROLE<span class="token punctuation">)</span> <span class="token operator">?</span> cluster_id##_SERVER_ROLE_INIT <span class="token operator">:</span> \<span class="token function">c</span>
+   <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>cluster_role_mask<span class="token punctuation">)</span> <span class="token operator">==</span> ZB_ZCL_CLUSTER_CLIENT_ROLE<span class="token punctuation">)</span> <span class="token operator">?</span> cluster_id##_CLIENT_ROLE_INIT <span class="token operator">:</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">)</span> \c
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="set_attr_descr_with-macro"><a aria-hidden="true" class="anchor-heading icon-link" href="#set_attr_descr_with-macro"></a>SET_ATTR_DESCR_WITH macro</h2>
+<p>Use of <code>ZB_SET_ATTR_DESCR_WITH_xxx</code> <code>#define</code>s found...</p>
+<ul>
+<li>
+<p><code>zb_zcl_common.h</code></p>
+<pre class="language-c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name function">ZB_ZCL_SET_ATTR_DESC</span><span class="token expression"><span class="token punctuation">(</span>attr_id<span class="token punctuation">,</span> data_ptr<span class="token punctuation">)</span> ZB_SET_ATTR_DESCR_WITH_</span><span class="token punctuation">##</span><span class="token expression"><span class="token function">attr_id</span><span class="token punctuation">(</span>data_ptr<span class="token punctuation">)</span><span class="token punctuation">,</span></span></span>
+</code></pre>
+</li>
+</ul>
+<h2 id="home-assistant-recognising-previous-devices-appearing-with-different-names"><a aria-hidden="true" class="anchor-heading icon-link" href="#home-assistant-recognising-previous-devices-appearing-with-different-names"></a>Home Assistant recognising previous devices appearing with different names</h2>
+<p>I would have thought this device record would have been deleted</p>
+<blockquote>
+<p><a href="Dimable_Light_v0.2">0x6093</a>: completed configuration
+<a href="Dimable_Light_v0.2">0x6093</a>: stored in registry: ZhaDeviceEntry(name='Nordic Dimable_Light_v0.1', ieee='f4:ce:36:71:26:ac:67:47', last_seen=1645960862.7940586)</p>
+</blockquote>
+<h2 id="device-signature-comparison-with-philips-device"><a aria-hidden="true" class="anchor-heading icon-link" href="#device-signature-comparison-with-philips-device"></a>Device Signature Comparison with Philips Device</h2>
+<p><a href="/notes/notes/6L3bHdZVlDEFMOrk4tKin">Device Signature</a></p>
+<h3 id="occupancy-attribute-reporting-appears-in-home-assistant"><a aria-hidden="true" class="anchor-heading icon-link" href="#occupancy-attribute-reporting-appears-in-home-assistant"></a>Occupancy Attribute Reporting appears in Home Assistant!</h3>
+<p>Have confirmed that occupancy attribute reporting works on first connection</p>
+<ul>
+<li>Commit: <a href="https://github.com/Kamholtz/zb-lightbulb/commit/0ce322e55144da43b0584d4284d5edf9fedc2236">Report occupancy on initialization (just like level and on off) · Kamholtz/zb-lightbulb@0ce322e</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Test</th><th>Success Criteria</th><th>Success?</th></tr></thead><tbody><tr><td>Reboot via push button</td><td>Device reconnects</td><td><code>true</code></td></tr><tr><td>Reboot via removing power cable</td><td>Device reconnects</td><td><code>true</code></td></tr></tbody></table>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/6L3bHdZVlDEFMOrk4tKin">Device Signature</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/vn4QH8axQkezeOvv8cSG5">ZigBee Home Automation</a></li>
+</ul>

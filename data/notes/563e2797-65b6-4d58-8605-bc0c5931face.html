@@ -1,0 +1,15 @@
+<h1 id="npm"><a aria-hidden="true" class="anchor-heading icon-link" href="#npm"></a>Npm</h1>
+<h2 id="error"><a aria-hidden="true" class="anchor-heading icon-link" href="#error"></a>Error</h2>
+<blockquote>
+<p>bash: /c/Program Files/nodejs/npm: /bin/sh^M: bad interpreter: No such file or directory</p>
+</blockquote>
+<h2 id="solution"><a aria-hidden="true" class="anchor-heading icon-link" href="#solution"></a>Solution</h2>
+<blockquote>
+<p>Not my solution, but this seemed to work for me. Appears that having the Windows folder structure in $PATH while using WSL2 was causing that parse error, but I'm not exactly sure why.</p>
+<p>Go to your user root (cd ~)
+Open .bashrc in your chosen editor (vi, nano, etc.)
+Append to the end of the file: PATH=<span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>e</mi><mi>c</mi><mi>h</mi><mi>o</mi><mi mathvariant="normal">"</mi></mrow><annotation encoding="application/x-tex">(echo "</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathnormal">ec</span><span class="mord mathnormal">h</span><span class="mord mathnormal">o</span><span class="mord">"</span></span></span></span></span>PATH" | sed -e 's/:\/mnt.*//g') # strip out problematic Windows %PATH%
+Close and re-open all terminal windows
+Source: <a href="https://hackmd.io/@badging/wsl2#Troubleshooting-PATH">https://hackmd.io/@badging/wsl2#Troubleshooting-PATH</a></p>
+</blockquote>
+<p><a href="https://stackoverflow.com/questions/39311147/cannot-run-npm-commands">Cannot run NPM Commands</a></p>

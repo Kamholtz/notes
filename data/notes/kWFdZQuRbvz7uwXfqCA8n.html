@@ -1,0 +1,58 @@
+<h1 id="nrf52840"><a aria-hidden="true" class="anchor-heading icon-link" href="#nrf52840"></a>Nrf52840</h1>
+<h2 id="datasheet"><a aria-hidden="true" class="anchor-heading icon-link" href="#datasheet"></a>Datasheet</h2>
+<p><a href="https://infocenter.nordicsemi.com/pdf/nRF52840_PS_v1.1.pdf">https://infocenter.nordicsemi.com/pdf/nRF52840_PS_v1.1.pdf</a></p>
+<h3 id="617-pwm"><a aria-hidden="true" class="anchor-heading icon-link" href="#617-pwm"></a>6.17 PWM</h3>
+<ul>
+<li>4 PWM Channels</li>
+<li>Can PWM be used on any GPIO?</li>
+</ul>
+<h4 id="pwm-zephyr-bindings"><a aria-hidden="true" class="anchor-heading icon-link" href="#pwm-zephyr-bindings"></a>PWM Zephyr Bindings</h4>
+<p><a href="/notes/notes/QbIzU99Iv6L01tKB2QbDb">Bindings</a></p>
+<p>The <code>chn-pin</code> (<code>n=0,1,2,3</code>) properties are a little confusing. As an example, the <a href="/notes/notes/CXH9VVDqIEHZvwL6XAckJ">Device Tree</a> for the dongle straightforwardly sets <code>ch0-pin = &#x3C; 0x8 ></code> to map channel 0 to to pin <code>P0.8</code>. In contrast, <code>ch1-pin = &#x3C; 0x29 ></code> maps to pin <code>P1.9</code>:</p>
+<pre class="language-js"><code class="language-js">    <span class="token literal-property property">pwm0</span><span class="token operator">:</span> pwm@4001c000 <span class="token punctuation">{</span>
+        compatible <span class="token operator">=</span> <span class="token string">"nordic,nrf-pwm"</span><span class="token punctuation">;</span>
+        reg <span class="token operator">=</span> <span class="token operator">&#x3C;</span> <span class="token number">0x4001c000</span> <span class="token number">0x1000</span> <span class="token operator">></span><span class="token punctuation">;</span>
+        interrupts <span class="token operator">=</span> <span class="token operator">&#x3C;</span> <span class="token number">0x1c</span> <span class="token number">0x1</span> <span class="token operator">></span><span class="token punctuation">;</span>
+        status <span class="token operator">=</span> <span class="token string">"okay"</span><span class="token punctuation">;</span>
+        label <span class="token operator">=</span> <span class="token string">"PWM_0"</span><span class="token punctuation">;</span>
+        #pwm<span class="token operator">-</span>cells <span class="token operator">=</span> <span class="token operator">&#x3C;</span> <span class="token number">0x1</span> <span class="token operator">></span><span class="token punctuation">;</span>
+        ch0<span class="token operator">-</span>pin <span class="token operator">=</span> <span class="token operator">&#x3C;</span> <span class="token number">0x8</span> <span class="token operator">></span><span class="token punctuation">;</span>
+        ch0<span class="token operator">-</span>inverted<span class="token punctuation">;</span>
+        ch1<span class="token operator">-</span>pin <span class="token operator">=</span> <span class="token operator">&#x3C;</span> <span class="token number">0x29</span> <span class="token operator">></span><span class="token punctuation">;</span>
+        ch1<span class="token operator">-</span>inverted<span class="token punctuation">;</span>
+        ch2<span class="token operator">-</span>pin <span class="token operator">=</span> <span class="token operator">&#x3C;</span> <span class="token number">0xc</span> <span class="token operator">></span><span class="token punctuation">;</span>
+        ch2<span class="token operator">-</span>inverted<span class="token punctuation">;</span>
+        phandle <span class="token operator">=</span> <span class="token operator">&#x3C;</span> <span class="token number">0x5</span> <span class="token operator">></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>The note on <code>ch0-pin</code> in <a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/reference/devicetree/bindings/pwm/nordic%2Cnrf-pwm.html#dtbinding-nordic-nrf-pwm">nordic,nrf-pwm - Zephyr Project Documentation</a> explains the difference in mappings:</p>
+<blockquote>
+<p>The channel 0 pin to use.</p>
+<p>For pins P0.0 through P0.31, use the pin number. For example,
+to use P0.16 for channel 0, set:</p>
+<p>ch0-pin = &#x3C;16>;</p>
+<p>For pins P1.0 through P1.31, add 32 to the pin number. For
+example, to use P1.2 for channel 0, set:</p>
+<p>ch0-pin = &#x3C;34>;  /<em> 32 + 2 </em>/</p>
+</blockquote>
+<h3 id="7-hardware-and-layout"><a aria-hidden="true" class="anchor-heading icon-link" href="#7-hardware-and-layout"></a>7 Hardware and layout</h3>
+<h4 id="71-pin-assignment"><a aria-hidden="true" class="anchor-heading icon-link" href="#71-pin-assignment"></a>7.1 Pin assignment</h4>
+<p>p 576</p>
+<h2 id="zephyr"><a aria-hidden="true" class="anchor-heading icon-link" href="#zephyr"></a>Zephyr</h2>
+<p><a href="/notes/notes/qoWNfMZ0oqJ0T3ag3HFaR">Zephyr</a></p>
+<h3 id="bindings-documentation"><a aria-hidden="true" class="anchor-heading icon-link" href="#bindings-documentation"></a>Bindings Documentation</h3>
+<p><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/reference/devicetree/bindings/pwm/nordic%2Cnrf-pwm.html#dtbinding-nordic-nrf-pwm">nordic,nrf-pwm - Zephyr Project Documentation</a></p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/HjwogFUd6N0ZqABEfP2QT">Dev Kit</a></li>
+<li><a href="/notes/notes/UTyVZZrIY615EpsVASnyB">Dongle</a></li>
+<li><a href="/notes/notes/9MyAYKhCMZKoZjGva2vS3">ZigBee</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/2torquuzh3kpr666gisn7ir">Solar Charging</a></li>
+<li><a href="/notes/notes/zj2dki01wcj6ydnlez69xjx">Usb Isolation</a></li>
+<li><a href="/notes/notes/lnab25me8lq1jatowu29nr5">Power Consumption</a></li>
+</ul>

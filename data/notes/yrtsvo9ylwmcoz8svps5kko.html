@@ -1,0 +1,112 @@
+<h1 id="install"><a aria-hidden="true" class="anchor-heading icon-link" href="#install"></a>Install</h1>
+<p>API Reference</p>
+<p><a href="https://docs.expo.dev/versions/latest/">API Reference - Expo Documentation</a></p>
+<ul>
+<li>
+<p>expo-cli</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --global expo-cli
+</code></pre>
+</li>
+<li>
+<p>Clojure/Java: <a href="/notes/notes/7ykub1hzou506knsdyx5pf9">Install</a></p>
+</li>
+<li>
+<p>shadow-cljs</p>
+<ul>
+<li><code>yarn add --dev shadow-cljs</code></li>
+<li><a href="https://shadow-cljs.github.io/docs/UsersGuide.html#_installation">Shadow CLJS User’s Guide</a></li>
+</ul>
+</li>
+<li>
+<p>Expo go on iOS</p>
+<ul>
+<li>Try</li>
+<li><a href="https://docs.expo.dev/development/introduction/">Introduction - Expo Documentation</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="disable-hot-reload"><a aria-hidden="true" class="anchor-heading icon-link" href="#disable-hot-reload"></a>Disable hot reload</h2>
+<p>Expo hot reload interferes with CLJS hot reload. Disable expo hot reload with the following steps:</p>
+<ul>
+<li>Install expo webpack</li>
+</ul>
+<p><a href="https://www.npmjs.com/package/@expo/webpack-config">@expo/webpack-config</a></p>
+<pre class="language-bash"><code class="language-bash">expo customize:web
+</code></pre>
+<ul>
+<li>Prevuous step will generate a <code>webpack.config.js</code> file. Add the following to the config:</li>
+</ul>
+<pre class="language-js"><code class="language-js">config<span class="token punctuation">.</span><span class="token property-access">devServer</span><span class="token punctuation">.</span><span class="token property-access">watchOptions</span><span class="token punctuation">.</span><span class="token property-access">ignored</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">.*</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>Used <a href="https://github.com/armincerf/kalm-mobile/commit/ff1ecf72bf9028671964d6ee38ee42585692d3c1#diff-1fb26bc12ac780c7ad7325730ed09fc4c2c3d757c276c3dacc44bfe20faf166f">initial setup · armincerf/kalm-mobile@ff1ecf7</a> as a reference</li>
+</ul>
+<h2 id="limitations"><a aria-hidden="true" class="anchor-heading icon-link" href="#limitations"></a>Limitations</h2>
+<p><a href="https://docs.expo.dev/introduction/why-not-expo/">Limitations - Expo Documentation</a></p>
+<h2 id="resources"><a aria-hidden="true" class="anchor-heading icon-link" href="#resources"></a>Resources</h2>
+<ul>
+<li><a href="https://cljsrn.org/">ClojureScript + React Native</a></li>
+</ul>
+<h3 id="cljs-cheat-sheet"><a aria-hidden="true" class="anchor-heading icon-link" href="#cljs-cheat-sheet"></a>CLJS cheat sheet</h3>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Resources</span></div>
+<a href="/notes/notes/bynl21c4tf1o4dbv22ls2lz" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="cheatsheet"><a aria-hidden="true" class="anchor-heading icon-link" href="#cheatsheet"></a>Cheatsheet</h2>
+<p><a href="https://cljs.info/cheatsheet/">ClojureScript Cheatsheet</a></p>
+</div></div><p></p><p></p>
+<h3 id="forum"><a aria-hidden="true" class="anchor-heading icon-link" href="#forum"></a>Forum</h3>
+<p><a href="https://forums.expo.dev/">Forums</a></p>
+<h2 id="js-interop"><a aria-hidden="true" class="anchor-heading icon-link" href="#js-interop"></a>js-interop</h2>
+<p><a href="https://github.com/applied-science/js-interop">GitHub - applied-science/js-interop: A JavaScript-interop library for ClojureScript.</a></p>
+<h2 id="tsx"><a aria-hidden="true" class="anchor-heading icon-link" href="#tsx"></a>TSX</h2>
+<blockquote>
+<p>Developer tools running on http://localhost:19002
+? It looks like you're trying to use TypeScript but don't have the required dependencies installed. Would you like to
+install typescript, <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">@types/react (Private)</a>, <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">@types/react-native (Private)</a>? » (Y/n)</p>
+</blockquote>
+<h3 id="kalm-routines"><a aria-hidden="true" class="anchor-heading icon-link" href="#kalm-routines"></a>Kalm Routines</h3>
+<p><a href="https://www.juxt.pro/blog/clojurescript-native-apps-2021">JUXT Blog - Writing Mobile apps in ClojureScript in 2021</a></p>
+<p>By the same developer:</p>
+<ul>
+<li><a href="https://www.armincerf.com/2021/07/making-a-mobile-app-with-clojurescript-in-2021">Making a mobile app with ClojureScript in 2021 - Alex's Blog</a></li>
+</ul>
+<p>Videos of REPL + app development</p>
+<p><a href="https://www.youtube.com/playlist?list=PLHwZuyvdryX34MXqiq9Jb_NaQE0bvgxgw">Making a clojurescript mobile app in 2021</a></p>
+<h2 id="learning"><a aria-hidden="true" class="anchor-heading icon-link" href="#learning"></a>Learning</h2>
+<p><a href="/notes/notes/bzx7q88mrdzt3ylj90e8b6v">React Native</a></p>
+<p>Wrapping</p>
+<h2 id="features"><a aria-hidden="true" class="anchor-heading icon-link" href="#features"></a>Features</h2>
+<p>Health kit integration using EAS Build</p>
+<ul>
+<li><a href="https://expo.canny.io/feature-requests/p/apple-healthkitgoogle-fit-data">Apple HealthKit/Google Fit Data | Voters | Expo</a></li>
+<li><a href="https://docs.expo.dev/build/introduction/">EAS Build - Expo Documentation</a></li>
+</ul>
+<h2 id="template"><a aria-hidden="true" class="anchor-heading icon-link" href="#template"></a>Template</h2>
+<p><a href="https://www.npmjs.com/package/create-expo-cljs-app">create-expo-cljs-app</a></p>
+<ul>
+<li>See instructions on page</li>
+</ul>
+<p>Success! Created bin-day at C:\Users\carlk\repos\bin-day
+Inside that directory, you can run several commands:</p>
+<pre class="language-bash"><code class="language-bash">  shadow-cljs <span class="token function">watch</span> app
+</code></pre>
+<p>Starts the shadow compiler.</p>
+<pre class="language-bash"><code class="language-bash">  <span class="token function">yarn</span> start
+</code></pre>
+<p>Starts the javascript bundler.</p>
+<p>Get started by:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">cd</span> bin-day
+shadow-cljs <span class="token function">watch</span> app
+</code></pre>
+<p>Then in another terminal session run:</p>
+<pre class="language-bash"><code class="language-bash">  <span class="token builtin class-name">cd</span> bin-day
+  <span class="token function">yarn</span> start
+</code></pre>
+<p>Then in the Expo Client Open this app.</p>
+<p><a href="https://github.com/jgoodhcg/create-expo-cljs-app#readme">GitHub - jgoodhcg/create-expo-cljs-app</a></p>

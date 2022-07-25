@@ -1,0 +1,35 @@
+<h1 id="pwm"><a aria-hidden="true" class="anchor-heading icon-link" href="#pwm"></a>Pwm</h1>
+<p>Source: <a href="https://medium.com/home-wireless/using-a-pwm-device-in-zephyr-7100d089f15c">Using a PWM Device in Zephyr</a></p>
+<h2 id="zephyrdevicetree-config-core-points"><a aria-hidden="true" class="anchor-heading icon-link" href="#zephyrdevicetree-config-core-points"></a>Zephyr/Devicetree config core points</h2>
+<ol>
+<li>
+<p>Channel-to-pin:</p>
+<pre class="language-json"><code class="language-json">&#x26;pwm0 <span class="token punctuation">{</span>
+  status = <span class="token string">"okay"</span>;
+  ch0-pin = &#x3C;<span class="token number">33</span>>;
+  ch0-inverted;
+ <span class="token punctuation">}</span>;
+</code></pre>
+</li>
+<li>
+<p>PWM definition, which matches the pin in the pin-to-channel config above:</p>
+<pre class="language-json"><code class="language-json">aliases <span class="token punctuation">{</span>
+    pwmsound = &#x26;pwm_dev0;
+<span class="token punctuation">}</span>;
+pwmdevs <span class="token punctuation">{</span>
+  compatible = <span class="token string">"pwm-leds"</span>;
+  pwm_dev0<span class="token operator">:</span> pwm_dev_0 <span class="token punctuation">{</span>
+   pwms = &#x3C;&#x26;pwm0 <span class="token number">33</span>>;
+  <span class="token punctuation">}</span>;
+ <span class="token punctuation">}</span>;
+</code></pre>
+</li>
+<li>
+<p>Enable PWM in project config <code>prj.conf</code></p>
+</li>
+</ol>
+<pre class="language-json"><code class="language-json">CONFIG_PWM=y
+</code></pre>
+<ol start="4">
+<li>Now the PWM channel-to-pin config can be referenced in code e.g. <code>DT_ALIAS()</code> or other</li>
+</ol>

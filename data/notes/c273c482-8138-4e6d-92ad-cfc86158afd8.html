@@ -1,0 +1,37 @@
+<h1 id="forever"><a aria-hidden="true" class="anchor-heading icon-link" href="#forever"></a>Forever</h1>
+<p><a href="https://www.npmjs.com/package/forever">forever</a></p>
+<h2 id="cli"><a aria-hidden="true" class="anchor-heading icon-link" href="#cli"></a>CLI</h2>
+<h3 id="starting-a-daemon"><a aria-hidden="true" class="anchor-heading icon-link" href="#starting-a-daemon"></a>Starting a Daemon</h3>
+<p>Using <code>start</code> as an argument for the CLI will start a daemon</p>
+<h3 id="viewing-all-running-forever-processes"><a aria-hidden="true" class="anchor-heading icon-link" href="#viewing-all-running-forever-processes"></a>Viewing all running 'forever' processes</h3>
+<p><code>forever list</code></p>
+<h3 id="stopping-daemons"><a aria-hidden="true" class="anchor-heading icon-link" href="#stopping-daemons"></a>Stopping Daemons</h3>
+<p><code>forever stop all</code>
+<code>forver stop MY_UID</code></p>
+<h3 id="configuration-file"><a aria-hidden="true" class="anchor-heading icon-link" href="#configuration-file"></a>Configuration file</h3>
+<p>Example</p>
+<blockquote>
+<p>.
+├── forever
+│   └── development.json
+└── index.js</p>
+<p>// forever/development.json
+{
+// Comments are supported
+"uid": "app",
+"append": true,
+"watch": true,
+"script": "index.js",
+"sourceDir": "/home/myuser/app",
+"logFile": "/home/myuser/logs/forever.log",
+"outFile": "/home/myuser/logs/out.log",
+"errFile": "/home/myuser/logs/error.log"
+}</p>
+</blockquote>
+<p>Which can be used like so:</p>
+<pre class="language-bash"><code class="language-bash">forever start ./forever/development.json
+</code></pre>
+<h4 id="parameters"><a aria-hidden="true" class="anchor-heading icon-link" href="#parameters"></a>Parameters</h4>
+<h5 id="uid"><a aria-hidden="true" class="anchor-heading icon-link" href="#uid"></a>uid</h5>
+<p>This will be the name of the process. It can be used in commands such as...</p>
+<p><code>forever stop MY_UID</code></p>

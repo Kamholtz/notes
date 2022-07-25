@@ -1,0 +1,17 @@
+<h1 id="telescope"><a aria-hidden="true" class="anchor-heading icon-link" href="#telescope"></a>Telescope</h1>
+<h2 id="slowness-and-freezing"><a aria-hidden="true" class="anchor-heading icon-link" href="#slowness-and-freezing"></a>Slowness and Freezing</h2>
+<p>Consider disabling treesitter in the preview window if telescope is freezing nvim</p>
+<p><a href="https://github.com/nvim-telescope/telescope.nvim/issues/1379">Telescope live_grep freezes nvim sometimes · Issue #1379 · nvim-telescope/telescope.nvim</a></p>
+<pre class="language-lua"><code class="language-lua">telescope<span class="token punctuation">.</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	defaults <span class="token operator">=</span> <span class="token punctuation">{</span>
+   		preview <span class="token operator">=</span> <span class="token punctuation">{</span>
+   			treesitter <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">,</span>
+   		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+   <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/ejF9eBQcLOdE1FAc32yZ9">Treesitter</a></li>
+</ul>

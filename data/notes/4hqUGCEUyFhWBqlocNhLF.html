@@ -1,0 +1,116 @@
+<h1 id="nrfutil"><a aria-hidden="true" class="anchor-heading icon-link" href="#nrfutil"></a>Nrfutil</h1>
+<p><a href="https://devzone.nordicsemi.com/guides/short-range-guides/b/getting-started/posts/nrf52840-dongle-programming-tutorial">nRF52840 Dongle Programming Tutorial</a></p>
+<h2 id="install"><a aria-hidden="true" class="anchor-heading icon-link" href="#install"></a>Install</h2>
+<ul>
+<li><strong>Run as admin</strong></li>
+</ul>
+<pre class="language-bash"><code class="language-bash">pip <span class="token function">install</span> nrfutil
+</code></pre>
+<h2 id="usage"><a aria-hidden="true" class="anchor-heading icon-link" href="#usage"></a>Usage</h2>
+<p>Example of usage with thread which is applicable to <a href="/notes/notes/oMZ0UCDQcTWH0WcIN0Dpc">ZigBee</a></p>
+<ol>
+<li>
+<p>Reset the board into the Nordic bootloader by pressing the RESET button.</p>
+<p><img src="/notes/assets/images/2022-02-18-21-36-10.png" alt="Dongle PCB"></p>
+</li>
+<li>
+<p>Compile a Zephyr application; we’ll use blinky.</p>
+<pre class="language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">west</span> build <span class="token parameter attr-name">-b</span> nrf52840dongle_nrf52840 zephyr/samples/basic<span class="token parameter attr-name">/blinky</span></span>
+</code></pre>
+</li>
+<li>
+<p>Package the application for the bootloader using nrfutil:</p>
+<pre class="language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">nrfutil</span> pkg generate <span class="token parameter attr-name">--hw-version</span> <span class="token number">52</span> <span class="token parameter attr-name">--sd-req</span>=0x00 \</span>
+        --application build/zephyr/zephyr.hex \
+        --application-version 1 blinky.zip
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Flag</th><th>Description</th><th>Mandatory</th></tr></thead><tbody><tr><td><code>--hw-version 52</code></td><td>Hardware version indicating this build is for the dongle</td><td>Yes</td></tr><tr><td><code>--sd-req=0x00</code></td><td>Presumably this indicates no soft device is required</td><td>Yes</td></tr><tr><td><code>--application build/zephyr/zephyr.hex</code></td><td><code>.hex</code> file to be packaged`</td><td>Yes</td></tr><tr><td><code>--application-version 1</code></td><td>App version</td><td>No</td></tr></tbody></table>
+</li>
+<li>
+<p>Flash it onto the board. Note /dev/ttyACM0 is for Linux; it will be something like COMx on Windows, and something else on macOS.</p>
+<pre class="language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">nrfutil</span> dfu usb-serial -pkg blinky.zip <span class="token parameter attr-name">-p</span> /dev/ttyACM0</span>
+</code></pre>
+</li>
+</ol>
+<p>Source:</p>
+<ul>
+<li><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/boards/arm/nrf52840dongle_nrf52840/doc/index.html?highlight=nrfutil#option-1-using-the-built-in-bootloader-only">nRF52840 Dongle - Zephyr Project Documentation</a></li>
+<li><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/ug_thread_tools.html?highlight=nrfutil">Thread tools - nRF Connect SDK 1.9.99 documentation</a></li>
+</ul>
+<h2 id="troubleshooting"><a aria-hidden="true" class="anchor-heading icon-link" href="#troubleshooting"></a>Troubleshooting</h2>
+<h3 id="no-moduled-named-constants"><a aria-hidden="true" class="anchor-heading icon-link" href="#no-moduled-named-constants"></a>No moduled named 'constants'</h3>
+<blockquote>
+<p>ModuleNotFoundError: No module named 'constants'</p>
+</blockquote>
+<p><a href="https://devzone.nordicsemi.com/f/nordic-q-a/65889/nrfutil-modulenotfounderror-no-module-named-constants">nrfutil ModuleNotFoundError: No module named constants - Nordic Q&#x26;A - Nordic DevZone - Nordic DevZone</a></p>
+<ul>
+<li>Python 3.8.6 seems to be a compatible version</li>
+</ul>
+<p><strong>Solution</strong>: install using python 3.8 with <a href="/notes/notes/UN5ygEfGQgASMxZdZ2426">Py Launcher</a></p>
+<pre class="language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">py</span> <span class="token number">-3</span>.<span class="token number">8</span> <span class="token parameter attr-name">-m</span> pip install nrfutil</span>
+</code></pre>
+<p>Reference:</p>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Py Launcher</span></div>
+<a href="/notes/notes/UN5ygEfGQgASMxZdZ2426" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="use-a-commmand-with-a-specific-version-eg-pip"><a aria-hidden="true" class="anchor-heading icon-link" href="#use-a-commmand-with-a-specific-version-eg-pip"></a>Use a commmand with a specific version e.g. pip</h2>
+<pre class="language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">py</span> <span class="token number">-3</span>.<span class="token number">9</span> <span class="token parameter attr-name">-m</span> pip freeze</span>
+</code></pre>
+<h2 id="set-an-alias"><a aria-hidden="true" class="anchor-heading icon-link" href="#set-an-alias"></a>Set an alias</h2>
+<pre class="language-ps1"><code class="language-ps1">Set-Alias -Name &#x3C;new_command_name> -Value python3
+</code></pre></div></div><p></p><p></p>
+<h2 id="notes"><a aria-hidden="true" class="anchor-heading icon-link" href="#notes"></a>Notes</h2>
+<ul>
+<li>Soft devices must be included <a href="https://infocenter.nordicsemi.com/topic/ug_gsg_ses/UG/gsg/softdevices.html">Overview of SoftDevices for the nRF5 Series</a>
+<ul>
+<li>Is there one for ZigBee?
+<ul>
+<li>There does not appear to be one for ZigBee, rather the ZBOSS binary is included in the build?</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/vn4QH8axQkezeOvv8cSG5">ZigBee Home Automation</a></li>
+<li><a href="/notes/notes/UTyVZZrIY615EpsVASnyB">Dongle</a></li>
+<li><a href="/notes/notes/fy4hr46wqzzi13qwknqktmg">Fresh Install</a></li>
+</ul>

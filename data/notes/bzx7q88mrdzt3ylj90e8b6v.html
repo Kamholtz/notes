@@ -1,0 +1,96 @@
+<h1 id="react-native"><a aria-hidden="true" class="anchor-heading icon-link" href="#react-native"></a>React Native</h1>
+<h2 id="creating-reactive-components"><a aria-hidden="true" class="anchor-heading icon-link" href="#creating-reactive-components"></a>Creating Reactive Components</h2>
+<p><a href="https://clojurians.slack.com/archives/C073DKH9P/p1649401136457189">Slack thread</a></p>
+<p>Issue: child component was not updating in response an event which changed data that the child component was subscribed to. Adding the subscription to the parent caused it to update in response to the event, however.</p>
+<ul>
+<li><code>r/reactify-component</code></li>
+<li><code>r/as-element</code></li>
+</ul>
+<blockquote>
+<p>As to your issue, I'm 90% certain that it'll be fixed when you replace (paper/withTheme screen-main) with (paper/withTheme (r/reactify-component)) and remove the call to r/as-element from within screen-main.</p>
+<p>The explanation is that by wrapping the body of screen-main in r/as-element, you prevent it from being a part of the reactive context. Any reaction (subscriptions are reactions) used outside of a reactive context cannot trigger re-render.</p>
+</blockquote>
+<h2 id="navigation-stack-and-state-persistence"><a aria-hidden="true" class="anchor-heading icon-link" href="#navigation-stack-and-state-persistence"></a>Navigation Stack and State Persistence</h2>
+<h3 id="navigationcontainer-onstatechange-and-initialstate"><a aria-hidden="true" class="anchor-heading icon-link" href="#navigationcontainer-onstatechange-and-initialstate"></a>NavigationContainer onStateChange and initialState</h3>
+<p><a href="https://reactnavigation.org/docs/state-persistence/">NavigationContainer state persistence</a> describes how to persist state in <a href="/notes/notes/v28awlfsz2x05oteb3mzr4p">JS</a>. The <a href="/notes/notes/d386bb46-7fe4-4b90-bf11-7b00157117a8">ClojureScript</a> version using an atom is described in the following slack thread:</p>
+<p><a href="https://clojurians.slack.com/archives/C0E1SN0NM/p1652439790706039?thread_ts=1652431961.516389&#x26;cid=C0E1SN0NM">Clojurians Slack - NavigationContainer state persistence</a></p>
+<blockquote>
+<p>To persist nav state you could also pass <code>{:onStateChange on-state-change :initialState @state}</code> to <code>NavigationContainer</code>.
+The code for persisting state could look like:</p>
+</blockquote>
+<pre class="language-clojure"><code class="language-clojure"> <span class="token punctuation">(</span><span class="token keyword">defonce</span> state <span class="token punctuation">(</span><span class="token function">atom</span> <span class="token boolean">nil</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+ <span class="token punctuation">(</span><span class="token keyword">defn-</span> persist-state! <span class="token punctuation">[</span>state-obj<span class="token punctuation">]</span>
+    <span class="token punctuation">(</span><span class="token function">js/Promise.</span>
+     <span class="token punctuation">(</span><span class="token keyword">fn</span> <span class="token punctuation">[</span>resolve _<span class="token punctuation">]</span>
+       <span class="token punctuation">(</span><span class="token function">reset!</span> state state-obj<span class="token punctuation">)</span>
+       <span class="token punctuation">(</span><span class="token keyword">resolve</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+  <span class="token punctuation">(</span><span class="token keyword">defn-</span> on-state-change <span class="token punctuation">[</span>state<span class="token punctuation">]</span>
+    <span class="token punctuation">(</span><span class="token function">persist-state!</span> state<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>And for storing the ref, you could use <code>useNavigationContainerRef</code> hook to get the ref. (edited)</p>
+</blockquote>
+<h3 id="navigationcontainers-resetroot-and-getrootstate"><a aria-hidden="true" class="anchor-heading icon-link" href="#navigationcontainers-resetroot-and-getrootstate"></a>NavigationContainer's resetRoot and getRootState</h3>
+<ul>
+<li>Store the state using <code>getRootState</code></li>
+<li>Load it again when the app is reloaded with <code>resetRoot</code></li>
+</ul>
+<p><a href="https://gist.github.com/olivergeorge/981bc5135fa47253cba50fd125495d0b">app-fx.cljs</a></p>
+<h3 id="other-approaches-i-tried-or-researched"><a aria-hidden="true" class="anchor-heading icon-link" href="#other-approaches-i-tried-or-researched"></a>Other approaches I tried or researched</h3>
+<h4 id="appcontainer-with-persistnavigationstate-and-loadnavigationstate"><a aria-hidden="true" class="anchor-heading icon-link" href="#appcontainer-with-persistnavigationstate-and-loadnavigationstate"></a>AppContainer with persistNavigationState and loadNavigationState</h4>
+<p><a href="https://github.com/eihli/cljs-react-native-starter/blob/master/src/example/core.cljs">cljs-react-native-starter/core.cljs at master · eihli/cljs-react-native-starter</a></p>
+<h4 id="storing-in-re-frame-db-does-not-reload-it-though"><a aria-hidden="true" class="anchor-heading icon-link" href="#storing-in-re-frame-db-does-not-reload-it-though"></a>Storing in re-frame DB (does not reload it though?)</h4>
+<p>From Clojurians slack:</p>
+<blockquote>
+<p>I have a question related to ReactNavigation. I want to be able to reference the root navigator globally. In a regular React I can obtain the reference while rendering a component. How to do the same in CLJS/Reagent?</p>
+</blockquote>
+<pre class="language-clojure"><code class="language-clojure"><span class="token comment">; Store navigator in app db</span>
+<span class="token comment">; Get the navigator from the NavaigationContainer using :ref</span>
+<span class="token punctuation">(</span><span class="token keyword">defn</span> app-root <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">[</span><span class="token symbol">:></span> appnav/central-app-switch <span class="token punctuation">{</span><span class="token symbol">:ref</span> <span class="token punctuation">(</span><span class="token keyword">fn</span> <span class="token punctuation">[</span>this<span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token function">dispatch</span> <span class="token punctuation">[</span><span class="token symbol">:set-root-navigator</span> this<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+<span class="token comment">; Effect for navigating</span>
+<span class="token punctuation">(</span><span class="token function">reg-fx</span>
+  <span class="token symbol">:navigate</span>
+  <span class="token punctuation">(</span><span class="token keyword">fn</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>root-navigator route params<span class="token punctuation">]</span><span class="token punctuation">]</span>
+    <span class="token punctuation">(</span><span class="token function">.dispatch</span> root-navigator <span class="token punctuation">(</span><span class="token function">navactions/navigate-to</span> route params<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment">; Handler that triggers the effect above</span>
+<span class="token punctuation">(</span><span class="token function">reg-event-fx</span>
+  <span class="token symbol">:handle-login-success</span>
+  validate-spec
+  <span class="token punctuation">(</span><span class="token keyword">fn</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token symbol">:keys</span> <span class="token punctuation">[</span>db<span class="token punctuation">]</span><span class="token punctuation">}</span> <span class="token punctuation">[</span>_ session-info<span class="token punctuation">]</span><span class="token punctuation">]</span>
+    <span class="token punctuation">(</span><span class="token keyword">println</span> db<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span><span class="token symbol">:db</span> <span class="token punctuation">(</span><span class="token keyword">-></span> db
+         <span class="token punctuation">(</span><span class="token function">assoc-in</span> <span class="token punctuation">[</span><span class="token symbol">:dcn-session</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token keyword">-></span> session-info
+                                      <span class="token punctuation">(</span><span class="token function">update-in</span> <span class="token punctuation">[</span><span class="token symbol">:userInfo</span> <span class="token symbol">:gender</span><span class="token punctuation">]</span> keyword<span class="token punctuation">)</span>
+                                      <span class="token punctuation">(</span><span class="token function">update-in</span> <span class="token punctuation">[</span><span class="token symbol">:userInfo</span> <span class="token symbol">:siteRoles</span><span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token keyword">fn</span> <span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token keyword">map</span> <span class="token operator">#</span><span class="token punctuation">(</span><span class="token keyword">keyword</span> %<span class="token punctuation">)</span> v<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+     <span class="token symbol">:navigate</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token symbol">:root-navigator</span> db<span class="token punctuation">)</span> <span class="token symbol">:Main</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="libraries-for-storing-app-state"><a aria-hidden="true" class="anchor-heading icon-link" href="#libraries-for-storing-app-state"></a>Libraries for storing app state</h3>
+<p>I ultimately decided not to use any libraries/wrappers for storing state as it seemed like a lot of overhead to include another dependency</p>
+<ul>
+<li>
+<p><a href="https://github.com/seantempesta/cljs-react-navigation">GitHub - seantempesta/cljs-react-navigation: CLJS wrappers for react-navigation</a></p>
+</li>
+<li>
+<p><a href="https://github.com/flexsurfer/rn-shadow-steroid">GitHub - flexsurfer/rn-shadow-steroid: React Native with shadow-cljs on steroids</a></p>
+<ul>
+<li>Blog post showing how to use <code>steroid</code> to perist navigation state <a href="https://hackmd.io/@byc70E6fQy67hPMN0WM9_A/rJilnJxE8">Confidence and Joy: React Native Development with ClojureScript and re-frame - HackMD</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/afqyaa93vuy4pz1mzhjn26v">Issues</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/yrtsvo9ylwmcoz8svps5kko">Install</a></li>
+</ul>

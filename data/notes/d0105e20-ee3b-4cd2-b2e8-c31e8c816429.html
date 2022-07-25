@@ -1,0 +1,12 @@
+<h1 id="installing-custom-packages"><a aria-hidden="true" class="anchor-heading icon-link" href="#installing-custom-packages"></a>Installing custom packages</h1>
+<h2 id="using-setuptools"><a aria-hidden="true" class="anchor-heading icon-link" href="#using-setuptools"></a>Using setuptools</h2>
+<p>Run the following command on <code>setup.py</code>:</p>
+<pre class="language-bash"><code class="language-bash">python setup.py develop
+</code></pre>
+<p>Where <code>setup.py</code> consists of:</p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> setuptools
+setuptools<span class="token punctuation">.</span>setup<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"custom_packages"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Where "custom_packages" is a folder containing a locally developed package with an <code>__init__.py</code> file. The folder is in the same directory as the <code>setup.py</code> file.</p>
+<h3 id="example"><a aria-hidden="true" class="anchor-heading icon-link" href="#example"></a>Example</h3>
+<p><a href="gtd%5Cresources%5Cscripts%5Csetup.py">Setup.py for custom packages</a></p>

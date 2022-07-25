@@ -1,0 +1,16 @@
+<h1 id="require"><a aria-hidden="true" class="anchor-heading icon-link" href="#require"></a>Require</h1>
+<h2 id="the-ns-macro-converts-require-to-require"><a aria-hidden="true" class="anchor-heading icon-link" href="#the-ns-macro-converts-require-to-require"></a>The ns macro converts :require to require</h2>
+<blockquote>
+<p>Requiring
+As for require statements, I'm assuming you found the former in the form of:</p>
+</blockquote>
+<pre class="language-clojure"><code class="language-clojure"><span class="token punctuation">(</span><span class="token keyword">ns</span> my.namespace
+    <span class="token punctuation">(</span><span class="token symbol">:require</span> <span class="token punctuation">[</span>clojure.set <span class="token symbol">:as</span> set<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+</code></pre>
+<blockquote>
+<p>ns is a macro that will transform the :require expression into the latter form you described:</p>
+</blockquote>
+<pre class="language-clojure"><code class="language-clojure"><span class="token punctuation">(</span><span class="token function">require</span> '<span class="token punctuation">[</span>clojure.set <span class="token symbol">:as</span> set<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p><a href="https://stackoverflow.com/questions/9810841/clojure-loading-dependencies-at-the-repl">Clojure : loading dependencies at the REPL</a></p>

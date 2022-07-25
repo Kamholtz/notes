@@ -1,0 +1,14 @@
+<h1 id="posh-git"><a aria-hidden="true" class="anchor-heading icon-link" href="#posh-git"></a>Posh-git</h1>
+<p>CLI too for providing a nicer git command line experience (with colours, command line status, etc)</p>
+<h2 id="install"><a aria-hidden="true" class="anchor-heading icon-link" href="#install"></a>Install</h2>
+<p>Don't bother using choco. Instead just install the Powershell modulle</p>
+<p>From <a href="https://github.com/dahlbyk/posh-git">dahlbyk/posh-git</a>:</p>
+<pre class="language-powershell"><code class="language-powershell">PowerShellGet\<span class="token function">Install-Module</span> posh-git <span class="token operator">-</span>Scope CurrentUser <span class="token operator">-</span>AllowPrerelease <span class="token operator">-</span>Force
+</code></pre>
+<p>Command I actually ran because <code>-AllowPrerelease</code> was not recognised and we actually want the module accessible by all users (i.e. Admin and regular user account). See <a href="https://docs.microsoft.com/en-us/powershell/module/powershellget/install-module?view=powershell-7.1">Install-Module (PowerShellGet) - PowerShell</a> for more information.</p>
+<pre class="language-powershell"><code class="language-powershell">PowerShellGet\<span class="token function">Install-Module</span> posh-git <span class="token operator">-</span>Scope AllUsers  <span class="token operator">-</span>Force
+</code></pre>
+<h2 id="automatically-load-for-profile"><a aria-hidden="true" class="anchor-heading icon-link" href="#automatically-load-for-profile"></a>Automatically load for profile</h2>
+<p>To make the module load each time a powershell session is opened, use:</p>
+<pre class="language-powershell"><code class="language-powershell"><span class="token function">Add-PoshGitToProfile</span>
+</code></pre>

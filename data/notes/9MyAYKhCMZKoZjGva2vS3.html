@@ -1,0 +1,154 @@
+<h1 id="zigbee"><a aria-hidden="true" class="anchor-heading icon-link" href="#zigbee"></a>ZigBee</h1>
+<p>Creating <a href="/notes/notes/kBryy4smtoo9wbq4OkkrN">ZigBee</a> lightbulb to add to <a href="/notes/notes/OHeZb86UIV80gjx6YQp1K">Home Assistant</a> using the sample <a href="/notes/notes/OQJOzo1H5iE4ymWdBfZBG">Light Bulb</a></p>
+<p>Is the Sonoff ZBridge the right version?</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> ZB 3.0</li>
+<li class="task-list-item"><input type="checkbox" disabled> Suports TC Link</li>
+</ul>
+<h2 id="wireshark"><a aria-hidden="true" class="anchor-heading icon-link" href="#wireshark"></a>Wireshark</h2>
+<h3 id="configure-for-zigbee-packet-sniffing"><a aria-hidden="true" class="anchor-heading icon-link" href="#configure-for-zigbee-packet-sniffing"></a>Configure for ZigBee Packet Sniffing</h3>
+<p>Steps to configure here: <a href="https://infocenter.nordicsemi.com/topic/ug_sniffer_802154/UG/sniffer_802154/intro_802154.html">nRF Sniffer for 802.15.4</a></p>
+<ul>
+<li>
+<p>Installation (WireShark, ZB Sniffer Plugin, Firmware for nRF board)</p>
+<ul>
+<li>
+<p><a href="https://infocenter.nordicsemi.com/topic/ug_sniffer_802154/UG/sniffer_802154/installing_sniffer_802154.html">Installing nRF Sniffer for 802.15.4</a></p>
+</li>
+<li>
+<p>Install <a href="/notes/notes/iznzpf31seb5g2hvo9cv599#errors">Pyserial</a></p>
+<ul>
+<li>See errors section if necessary</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Adding keys</p>
+<ul>
+<li><a href="https://infocenter.nordicsemi.com/topic/ug_sniffer_802154/UG/sniffer_802154/configuring_sniffer_802154.html">Configuring Wireshark for nRF Sniffer for 802.15.4</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="adding-keys"><a aria-hidden="true" class="anchor-heading icon-link" href="#adding-keys"></a>Adding Keys</h3>
+<p>Edit > Preferences</p>
+<ul>
+<li>Protocols > ZigBee</li>
+</ul>
+<p><img src="/notes/assets/images/2022-02-05-17-15-14.png"></p>
+<h3 id="filtercolour-a-conversation"><a aria-hidden="true" class="anchor-heading icon-link" href="#filtercolour-a-conversation"></a>Filter/Colour a conversation</h3>
+<p>Right click on part of conversation:</p>
+<p><img src="/notes/assets/images/2022-02-05-17-37-02.png"></p>
+<h3 id="filter-bar"><a aria-hidden="true" class="anchor-heading icon-link" href="#filter-bar"></a>Filter bar</h3>
+<h4 id="filter-by-source-and-destination"><a aria-hidden="true" class="anchor-heading icon-link" href="#filter-by-source-and-destination"></a>Filter by Source and Destination</h4>
+<p><code>zbee_nwk.dst == 0xd6a3 || zbee_nwk.src == 0xd6a3</code></p>
+<h3 id="acquiring-a-network-key"><a aria-hidden="true" class="anchor-heading icon-link" href="#acquiring-a-network-key"></a>Acquiring a network key</h3>
+<p>Look for a packet with this format:</p>
+<ul>
+<li>
+<p>Transport Key</p>
+<ul>
+<li>ZigBee Application Support Layer Command
+<ul>
+<li>Zigbee Security Header
+<ul>
+<li>Command Frame: Transport Key
+<ul>
+<li>Key Type: Standard Network Key (0x01)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Relevant filter: <code>zbee_aps.cmd.key_type == 0x01</code></p>
+</li>
+</ul>
+<p><img src="/notes/assets/images/2022-02-05-18-15-15.png"></p>
+<ul>
+<li>Resource + Image taken from: <a href="https://www.hal9k.dk/sniffing-philips-hue-zigbee-traffic-with-wireshark/">Sniffing Philips Hue Zigbee traffic with Wireshark</a></li>
+</ul>
+<h2 id="troubleshootiong"><a aria-hidden="true" class="anchor-heading icon-link" href="#troubleshootiong"></a>Troubleshootiong</h2>
+<h2 id="incompatibility-between-zigbee-30-and-zigbee-home-automation"><a aria-hidden="true" class="anchor-heading icon-link" href="#incompatibility-between-zigbee-30-and-zigbee-home-automation"></a>Incompatibility between Zigbee 3.0 and Zigbee Home Automation</h2>
+<p>Problem:</p>
+<blockquote>
+<p>Network steering was not successful (status: -1)</p>
+</blockquote>
+<p>Response:</p>
+<blockquote>
+<p>I'm sorry, being new to the world of Zigbee I was not aware about the <strong>incompatibility between Zigbee 3.0 and Zigbee Home Automation</strong>. Zigbee HA uses its own Zigbee stack called zigpy, and in order to connect to their network our device must support and be compatible with zigpy. There is some more information about this on Home Assistant's page about Zigbee here, where they also list Zigbee radio modules that are compatible with zigpy, and ZBOSS is not listed there.</p>
+<p>There is also a discussion here about a zigpy radio library for ZBOSS, but I do not think they have a solution yet.</p>
+</blockquote>
+<p><a href="https://devzone.nordicsemi.com/f/nordic-q-a/75186/join-non-nrf-network/310375#310375">Join Non-NRF Network? - Nordic Q&#x26;A - Nordic DevZone - Nordic DevZone</a></p>
+<p><a href="/notes/notes/d5HL9VYkKY8H1Wi6BrAE4">Zigbee Home Automation</a></p>
+<p><a href="/notes/notes/2QSA0PFIk6NnrO92pEjaq">Sonoff Zigbee Bridge</a></p>
+<h3 id="routerend-device-leaves-network"><a aria-hidden="true" class="anchor-heading icon-link" href="#routerend-device-leaves-network"></a>Router/End device leaves network</h3>
+<blockquote>
+<p>The TC link key exchange procedure is a feature of revision R21 and later of the Zigbee stack (so Zigbee 3.0). However, the coordinator is a legacy device (stack revision of R20 or earlier), and does not support TC link key exchange. The same is true for the Sonoff SNZB-02, which is why it is able to join the network successfully.</p>
+<p>One possible solution is to use zb_bdb_set_legacy_device_support(1) to enable legacy support on the nRF52840. Be aware that we do not recommend setting this on router devices, as it will disable TC link key exchange and will make it so the device is not compliant with Zigbee R21 or later. This is a workaround, and the cleanest solution would be to have a coordinator that is a certified R21 or R22 Zigbee device with support for TC link key exchange.</p>
+</blockquote>
+<p><img src="/notes/assets/images/2022-02-05-17-38-51.png"></p>
+<p><a href="https://devzone.nordicsemi.com/f/nordic-q-a/83640/zigbee-router-leaves-network-autonomously-after-few-seconds">Zigbee router leaves network autonomously after few seconds - Nordic Q&#x26;A - Nordic DevZone - Nordic DevZone</a></p>
+<h2 id="configuring-zigbee-samples-to-work-with-other-ecosystems"><a aria-hidden="true" class="anchor-heading icon-link" href="#configuring-zigbee-samples-to-work-with-other-ecosystems"></a>Configuring Zigbee samples to work with other ecosystems</h2>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">nRF Connect SDK</span></div>
+<a href="/notes/notes/sa5Ez4NJoJrT8nsc3Oefz" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h3 id="permanent-sdk-changes"><a aria-hidden="true" class="anchor-heading icon-link" href="#permanent-sdk-changes"></a>Permanent SDK changes</h3>
+<ul>
+<li>Modify <code>.prj.conf</code></li>
+</ul>
+<p><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/gs_modifying.html#changing-the-configuration-permanently">Modifying an application — nRF Connect SDK 1.8.99 documentation</a></p>
+</div></div><p></p><p></p>
+<blockquote>
+<p>Zigbee samples in nRF Connect SDK use the centralized type of Zigbee network</p>
+</blockquote>
+<ul>
+<li>Zigbee Coordinator acts as Trust Center
+<ul>
+<li>Only the Trust Center can issue encryption keys + allow <a href="/notes/notes/jKbtjNabEIIrXYnB18GGx">Router</a>s and <a href="/notes/notes/1IupcDqSw4sPt9AzXGGYO">End Device</a>s into the network</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>If you are connecting a Nordic Semiconductor’s device programmed with a Zigbee sample to a third-party Zigbee Coordinator, set the CONFIG_ZIGBEE_CHANNEL_SELECTION_MODE_MULTI Kconfig option for the Zigbee sample in nRF Connect SDK. This will allow your device to scan all channels to find the Coordinator’s Zigbee network.</p>
+</blockquote>
+<ul>
+<li>Set device to communicate on all channels (or at least the one that the <a href="/notes/notes/WqOZsAI3OSs35eCaPkUQ0">Coordinator</a>) uses</li>
+</ul>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Kconfig</span></div>
+<a href="/notes/notes/lZ3SyNmXi3KmBqIayl430" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="config_zigbee_channel_selection_mode_multi"><a aria-hidden="true" class="anchor-heading icon-link" href="#config_zigbee_channel_selection_mode_multi"></a>CONFIG_ZIGBEE_CHANNEL_SELECTION_MODE_MULTI</h2>
+<ul>
+<li>Use this to make zigbee examples work with other zigbee coordinators (other than NRF ones)</li>
+</ul>
+<p>"Zigbee uses a group of channels specified by bitwise mask"</p>
+<p><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/kconfig/CONFIG_ZIGBEE_CHANNEL_SELECTION_MODE_MULTI.html#std-kconfig-CONFIG_ZIGBEE_CHANNEL_SELECTION_MODE_MULTI">CONFIG_ZIGBEE_CHANNEL_SELECTION_MODE_MULTI — Kconfig reference</a></p>
+<h2 id="config_zigbee_channel_selection_mode_single"><a aria-hidden="true" class="anchor-heading icon-link" href="#config_zigbee_channel_selection_mode_single"></a>CONFIG_ZIGBEE_CHANNEL_SELECTION_MODE_SINGLE</h2>
+<p><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/kconfig/CONFIG_ZIGBEE_CHANNEL_SELECTION_MODE_SINGLE.html#std-kconfig-CONFIG_ZIGBEE_CHANNEL_SELECTION_MODE_SINGLE">CONFIG_ZIGBEE_CHANNEL_SELECTION_MODE_SINGLE — Kconfig reference</a></p>
+</div></div><p></p><p></p>
+<p><a href="/notes/notes/lZ3SyNmXi3KmBqIayl430">Kconfig</a></p>
+<ul>
+<li><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/ug_zigbee_other_ecosystems.html#ug-zigbee-other-ecosystems">Configuring Zigbee samples for other ecosystems — nRF Connect SDK 1.8.99 documentation</a></li>
+</ul>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/lnab25me8lq1jatowu29nr5">Power Consumption</a></li>
+<li><a href="/notes/notes/b9a4sws3874vwbdf9e87qgw">Reset</a></li>
+</ol>

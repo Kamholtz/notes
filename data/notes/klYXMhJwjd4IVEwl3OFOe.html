@@ -1,0 +1,20 @@
+<h1 id="esphome"><a aria-hidden="true" class="anchor-heading icon-link" href="#esphome"></a>ESPHome</h1>
+<h2 id="sensors-integrations"><a aria-hidden="true" class="anchor-heading icon-link" href="#sensors-integrations"></a>Sensors integrations</h2>
+<p>Integration of <a href="/notes/notes/l6qtaN9h8krxFm167tI40">ds18b20</a> in ESPHome:</p>
+<p>Important points:</p>
+<ul>
+<li>Need to get the address of the individual sensor + specify in ESPHome config
+<ul>
+<li>How to acquire addresses: <a href="https://esphome.io/components/sensor/dallas.html#dallas-getting-ids">Dallas Temperature Sensor</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="configuration"><a aria-hidden="true" class="anchor-heading icon-link" href="#configuration"></a>Configuration</h2>
+<p>General</p>
+<ul>
+<li>Pins in config are "board pins" not "mcu pins"</li>
+</ul>
+<p>ESP8266</p>
+<ul>
+<li>Board type: <code>nodemcu</code></li>
+</ul>

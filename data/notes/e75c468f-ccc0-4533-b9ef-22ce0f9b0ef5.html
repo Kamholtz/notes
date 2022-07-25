@@ -1,0 +1,228 @@
+<h1 id="lispyville"><a aria-hidden="true" class="anchor-heading icon-link" href="#lispyville"></a>Lispyville</h1>
+<blockquote>
+<p>lispyville.el’s main purpose is to provide a lisp-editing environment suited towards evil users. It can serve as a minimal layer on top of lispy-mode for better integration with evil, but it does not require use of lispy’s keybinding style. The provided commands allow for editing lisp in normal state and will work even without lispy-mode enabled. If you are just looking for a way to prevent evil’s operators from unbalancing parentheses, you can enable lispyville-mode in your configuration and just ignore the rest of its features.</p>
+</blockquote>
+<p><a href="https://github.com/noctuid/lispyville">noctuid/lispyville</a></p>
+<h2 id="doom-emacs-lispyville-config"><a aria-hidden="true" class="anchor-heading icon-link" href="#doom-emacs-lispyville-config"></a>Doom Emacs Lispyville config</h2>
+<pre class="language-elisp"><code class="language-elisp"><span class="token punctuation">(</span><span class="token car">use-package!</span> lispyville
+  <span class="token lisp-property property">:when</span> <span class="token punctuation">(</span><span class="token car">featurep!</span> <span class="token lisp-property property">:editor</span> evil<span class="token punctuation">)</span>
+  <span class="token lisp-property property">:hook</span> <span class="token punctuation">(</span><span class="token car">lispy-mode</span> <span class="token punctuation">.</span> lispyville-mode<span class="token punctuation">)</span>
+  <span class="token lisp-property property">:init</span>
+  <span class="token punctuation">(</span><span class="token keyword">setq</span> lispyville-key-theme
+        <span class="token punctuation">'(</span><span class="token punctuation">(</span><span class="token car">operators</span> normal<span class="token punctuation">)</span>
+          c-w
+          <span class="token punctuation">(</span><span class="token car">prettify</span> insert<span class="token punctuation">)</span>
+          <span class="token punctuation">(</span><span class="token car">atom-movement</span> <span class="token boolean">t</span><span class="token punctuation">)</span>
+          slurp/barf-lispy
+          additional
+          additional-insert<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token lisp-property property">:config</span>
+  <span class="token punctuation">(</span><span class="token car">lispyville-set-key-theme</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="relevant-shortcuts"><a aria-hidden="true" class="anchor-heading icon-link" href="#relevant-shortcuts"></a>Relevant shortcuts</h3>
+<h4 id="operators-normal"><a aria-hidden="true" class="anchor-heading icon-link" href="#operators-normal"></a>Operators Normal</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>key</th><th>command</th></tr></thead><tbody><tr><td>[remap evil-yank]</td><td>lispyville-yank</td></tr><tr><td>[remap evil-delete]</td><td>lispyville-delete</td></tr><tr><td>[remap evil-change]</td><td>lispyville-change</td></tr><tr><td>[remap evil-yank-line]</td><td>lispyville-yank-line</td></tr><tr><td>[remap evil-delete-line]</td><td>lispyville-delete-line</td></tr><tr><td>[remap evil-change-line]</td><td>lispyville-change-line</td></tr><tr><td>[remap evil-delete-char]</td><td>lispyville-delete-char-or-splice</td></tr><tr><td>[remap evil-delete-backward-char]</td><td>lispyville-delete-char-or-splice-backwards</td></tr><tr><td>[remap evil-substitute]</td><td>lispyville-substitute</td></tr><tr><td>[remap evil-change-whole-line]</td><td>lispyville-change-whole-line</td></tr><tr><td>[remap evil-join]</td><td>lispyville-join</td></tr></tbody></table>
+<h4 id="c-w"><a aria-hidden="true" class="anchor-heading icon-link" href="#c-w"></a>c-w</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>key</th><th>command</th></tr></thead><tbody><tr><td>[remap evil-delete-backward-word]</td><td>lispyville-delete-backward-word</td></tr></tbody></table>
+<h4 id="preffify-insert"><a aria-hidden="true" class="anchor-heading icon-link" href="#preffify-insert"></a>Preffify Insert</h4>
+<p>Will prettify when making changes in insert mode. Note that prettify won't be triggered when changes are made from normal mode e.g. deleting a line.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>key</th><th>command</th></tr></thead><tbody><tr><td>[remap evil-indent]</td><td>lispyville-prettify</td></tr></tbody></table>
+<h4 id="atom-movement"><a aria-hidden="true" class="anchor-heading icon-link" href="#atom-movement"></a>Atom Movement</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>key</th><th>command</th></tr></thead><tbody><tr><td>[remap evil-forward-WORD-begin]</td><td>lispyville-forward-atom-begin</td></tr><tr><td>[remap evil-forward-WORD-end]</td><td>lispyville-forward-atom-end</td></tr><tr><td>[remap evil-backward-WORD-begin]</td><td>lispyville-backward-atom-begin</td></tr><tr><td>[remap evil-backward-WORD-end]</td><td>lispyville-backward-atom-end</td></tr></tbody></table>
+<h4 id="slurpbarf"><a aria-hidden="true" class="anchor-heading icon-link" href="#slurpbarf"></a>Slurp/Barf</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>key</th><th>command</th></tr></thead><tbody><tr><td>></td><td>lispyville-slurp</td></tr><tr><td>&#x3C;</td><td>lispyville-barf</td></tr></tbody></table>
+<h4 id="additional"><a aria-hidden="true" class="anchor-heading icon-link" href="#additional"></a>Additional</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>key</th><th>command</th></tr></thead><tbody><tr><td>M-j</td><td>lispyville-drag-forward</td></tr><tr><td>M-k</td><td>lispyville-drag-backward</td></tr><tr><td>M-J</td><td>lispy-join</td></tr><tr><td>M-s</td><td>lispy-splice</td></tr><tr><td>M-S</td><td>lispy-split</td></tr><tr><td>M-r</td><td>lispy-raise-sexp</td></tr><tr><td>M-R</td><td>lispyville-raise-list</td></tr><tr><td>M-t</td><td>transpose-sexps</td></tr><tr><td>M-v</td><td>lispy-convolute-sexp</td></tr></tbody></table>
+<h4 id="additional-insert"><a aria-hidden="true" class="anchor-heading icon-link" href="#additional-insert"></a>Additional Insert</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>key</th><th>command</th></tr></thead><tbody><tr><td>M-i</td><td>lispyville-insert-at-beginning-of-list</td></tr><tr><td>M-a</td><td>lispyville-insert-at-end-of-list</td></tr><tr><td>M-o</td><td>lispyville-open-below-list</td></tr><tr><td>M-O</td><td>lispyville-open-above-list</td></tr></tbody></table>

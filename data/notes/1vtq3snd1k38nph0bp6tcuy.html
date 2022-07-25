@@ -1,0 +1,9 @@
+<h1 id="nvim-python-repl"><a aria-hidden="true" class="anchor-heading icon-link" href="#nvim-python-repl"></a>Nvim Python Repl</h1>
+<p>I changed the python repl command from <code>ipython</code> to be the following because I couldn't not find where <code>ipython</code> was meant to be installed. It does not appear to be in the scripts folder</p>
+<p><code>nvim-python-repl.lua</code></p>
+<pre class="language-lua"><code class="language-lua">M<span class="token punctuation">.</span>repls <span class="token operator">=</span> <span class="token punctuation">{</span>
+    python <span class="token operator">=</span> <span class="token string">"python -m IPython"</span><span class="token punctuation">,</span> <span class="token operator">#</span> Use to be <span class="token string">"ipython"</span>
+    scala <span class="token operator">=</span> <span class="token string">"amm"</span><span class="token punctuation">,</span>
+    lua <span class="token operator">=</span> <span class="token string">"ilua"</span>
+<span class="token punctuation">}</span>
+</code></pre>

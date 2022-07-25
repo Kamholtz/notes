@@ -1,0 +1,8 @@
+<h1 id="bqf"><a aria-hidden="true" class="anchor-heading icon-link" href="#bqf"></a>BQF</h1>
+<h2 id="using-with-fennel"><a aria-hidden="true" class="anchor-heading icon-link" href="#using-with-fennel"></a>Using with fennel</h2>
+<p>This plugin does not seem to work immediately with fennel when loaded with packer. Errors indicated that despite being installed, BQF was not loaded into cache and thus wasn't acccessible when <code>require('bqf')</code> was called. Checking <a href="/notes/notes/WTOayRgwzPoZLdjbNvJgA">Packer Status</a> showed that BQF was not yet loaded. Simply opening quickfix with <code>:copen</code> loads the plugin (which was verified in <code>packer status</code>). At this point <code>require('bqf')</code> will work and <a href="/notes/notes/UgAMWwAnXSxvC0PQ9zZve">Packer Compile</a> can be called. From this point on, when <code>nvim</code> is run it <code>bqf</code> will be loaded correctly.</p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/t9ZP4Om5DuVpUMq9nDib1">Impatient</a></li>
+</ul>

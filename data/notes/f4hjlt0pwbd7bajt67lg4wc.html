@@ -1,0 +1,20 @@
+<h1 id="alias"><a aria-hidden="true" class="anchor-heading icon-link" href="#alias"></a>Alias</h1>
+<h2 id="limitations"><a aria-hidden="true" class="anchor-heading icon-link" href="#limitations"></a>Limitations</h2>
+<p>Aliases cannot be exported</p>
+<blockquote>
+<p>Aliases can't be exported so they're not available in shell scripts in which they aren't defined. In other words, if you define them in ~/.bashrc they're not available to your_script.sh (unless you source ~/.bashrc in the script, which I wouldn't recommend but there are ways to do this properly).</p>
+</blockquote>
+<ul>
+<li>Source: <a href="https://unix.stackexchange.com/questions/1496/why-doesnt-my-bash-script-recognize-aliases">Why doesn't my Bash script recognize aliases?</a></li>
+</ul>
+<h3 id="alternative"><a aria-hidden="true" class="anchor-heading icon-link" href="#alternative"></a>Alternative</h3>
+<p>Create a symbolic link with <a href="/notes/notes/9s0yr9symzfbpiwarcq9r6p">Ln</a>. This will be accessible from scripts</p>
+<h2 id="examples"><a aria-hidden="true" class="anchor-heading icon-link" href="#examples"></a>Examples</h2>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">alias</span> <span class="token assign-left variable">python</span><span class="token operator">=</span>python3
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">nvim</span><span class="token operator">=</span>nvim.appimage
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/v3K06639TokG0fDufJlPY">Initial Install</a></li>
+</ul>

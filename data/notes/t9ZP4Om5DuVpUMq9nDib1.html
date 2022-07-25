@@ -1,0 +1,54 @@
+<h1 id="impatient"><a aria-hidden="true" class="anchor-heading icon-link" href="#impatient"></a>Impatient</h1>
+<p><a href="https://github.com/lewis6991/impatient.nvim">GitHub - lewis6991/impatient.nvim: Improve startup time for Neovim</a></p>
+<h2 id="installation"><a aria-hidden="true" class="anchor-heading icon-link" href="#installation"></a>Installation</h2>
+<h3 id="common-errors"><a aria-hidden="true" class="anchor-heading icon-link" href="#common-errors"></a>Common errors</h3>
+<ul>
+<li>Need to run ":PackerCompile" before  this can be used... you will see errors about not being able to find <code>packer_compiled</code> without doing this.</li>
+</ul>
+<p><a href="/notes/notes/yKQ1xm5NmPYUeka4Ka8t8">BQF</a></p>
+<h3 id="cache-packers-compiled-file"><a aria-hidden="true" class="anchor-heading icon-link" href="#cache-packers-compiled-file"></a>Cache Packer's compiled file</h3>
+<p>To get impatient to cache <a href="/notes/notes/codbGOq5X6zWOGfhG2Z7O">Packer</a>'s compiled file we change the path used for packer's compilation:</p>
+<ul>
+<li>
+<p>Fennel does not like mixing associating and sequential tables, so you will need to create the <code>spec</code> parameter for <code>packer.startup</code> manually in the <code>use</code> command from <code>Olical</code>:</p>
+<ul>
+<li>
+<p><a href="https://github.com/wbthomason/packer.nvim#the-startup-function">GitHub - wbthomason/packer.nvim: A use-package inspired plugin manager for Neovim. Uses native packages, supports Luarocks dependencies, written in Lua, allows for expressive config</a></p>
+<ul>
+<li>The form we want is:</li>
+</ul>
+<pre class="language-lua"><code class="language-lua">packer<span class="token punctuation">.</span><span class="token function">startup</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> use <span class="token string">'tjdevries/colorbuddy.vim'</span> <span class="token keyword">end</span><span class="token punctuation">,</span> config <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token punctuation">...</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li>
+<p>this can be done with <code>aniseed.core.assoc</code></p>
+<pre class="language-lisp"><code class="language-lisp"><span class="token punctuation">(</span><span class="token car">defn-</span> use <span class="token punctuation">[</span>...<span class="token punctuation">]</span>
+<span class="token string">"Iterates through the arguments as pairs and calls packer's use function for
+each of them. Works around Fennel not liking mixed associative and sequential
+tables as well."</span>
+<span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>pkgs <span class="token punctuation">[</span>...<span class="token punctuation">]</span>
+        spec-func
+        <span class="token punctuation">(</span><span class="token car">fn</span> <span class="token punctuation">[</span>use<span class="token punctuation">]</span>
+        <span class="token punctuation">(</span><span class="token keyword">for</span> <span class="token punctuation">[</span>i <span class="token number">1</span> <span class="token punctuation">(</span><span class="token car">a</span>.count pkgs<span class="token punctuation">)</span> 2<span class="token punctuation">]</span>
+            <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>name <span class="token punctuation">(</span>. pkgs i<span class="token punctuation">)</span>
+                opts <span class="token punctuation">(</span>. pkgs <span class="token punctuation">(</span><span class="token car">+</span> i <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+            <span class="token punctuation">(</span><span class="token car">-</span>?> <span class="token punctuation">(</span>. opts <span class="token lisp-property property">:mod</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token car">safe-require-plugin-config</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">(</span><span class="token car">use</span> <span class="token punctuation">(</span><span class="token car">a</span>.assoc opts <span class="token number">1</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+        spec-config {<span class="token lisp-property property">:config</span> {<span class="token lisp-property property">:compile_path</span> <span class="token punctuation">(</span>.. <span class="token punctuation">(</span><span class="token car">vim</span>.fn.stdpath <span class="token string">"config"</span><span class="token punctuation">)</span> <span class="token string">"/lua/packer_compiled.lua"</span><span class="token punctuation">)</span>}}
+        spec <span class="token punctuation">(</span><span class="token car">a</span>.assoc spec-config <span class="token number">1</span> spec-func<span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+    <span class="token comment">;(print (vim.inspect spec))</span>
+    <span class="token punctuation">(</span><span class="token car">packer</span>.startup spec<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token boolean">nil</span><span class="token punctuation">)</span>
+</code></pre>
+<p>the result for the spec <code>param</code> is something like</p>
+<pre class="language-lisp"><code class="language-lisp">{function <span class="token punctuation">(</span><span class="token punctuation">)</span> use <span class="token quoted-symbol variable symbol">'some/plugin</span>' end, {<span class="token lisp-property property">:config</span> {<span class="token lisp-property property">:compile_path</span> <span class="token string">"compile/path/"</span>}}}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>It would seem that the main slow down is due to loading sessions and failing to find some files due to different home-dirs (which we don't really want if loading nvim without params)</li>
+</ul>

@@ -1,0 +1,31 @@
+<h1 id="python"><a aria-hidden="true" class="anchor-heading icon-link" href="#python"></a>Python</h1>
+<p>A python client does not exist yet. I tried implementing one using the <a href="/notes/notes/5pwahznstlwy6121godj0r7">Hy</a> client as a base but have not had success.</p>
+<p>The major issue I encountered is that the python process spawned does not seem response. <a href="https://github.com/search?q=uv.spawn%28%22python%22%29&#x26;type=code">Search results for uv.spawn("python"...)</a> are very siilar to what is done in Conjure.</p>
+<p>Some relevant information:</p>
+<ul>
+<li><a href="https://github.com/Olical/conjure/issues/134">Initial Python client support · Issue #134 · Olical/conjure</a></li>
+</ul>
+<h2 id="setting-up-dev-environment"><a aria-hidden="true" class="anchor-heading icon-link" href="#setting-up-dev-environment"></a>Setting up dev environment</h2>
+<ul>
+<li>Make sure python is installed</li>
+<li>Install the treesitter grammar for python in, otherwise the form evaluations won't work and there will not be an error
+<ul>
+<li><code>TSInstall python</code></li>
+</ul>
+</li>
+<li>Install IPython
+<ul>
+<li><code>python3 -m pip install IPython</code></li>
+</ul>
+</li>
+<li>Install matplot lib
+<ul>
+<li><code>python3 -m pip install matplotlib</code></li>
+<li>Note that this will not work in <a href="/notes/notes/pswie0by1v5cbqyy6137hf1">WSL2</a>. You will see the following error
+<blockquote>
+<p>UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.↵</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>

@@ -1,0 +1,64 @@
+<h1 id="logging"><a aria-hidden="true" class="anchor-heading icon-link" href="#logging"></a>Logging</h1>
+<h2 id="rtt"><a aria-hidden="true" class="anchor-heading icon-link" href="#rtt"></a>RTT</h2>
+<ul>
+<li>
+<p>Enabled with minimum config in this commit <a href="https://github.com/Kamholtz/zb-lightbulb/commit/019d5a1a003afaa8745cb9480884b6c23e0c9b26">Minimal config for RTT · Kamholtz/zb-lightbulb@019d5a1</a></p>
+</li>
+<li>
+<p>Add to <a href="/notes/notes/FnVXfzVSya2rq8rXPbHZB">prj.conf</a>:</p>
+<pre class="language-ini"><code class="language-ini"><span class="token key attr-name">CONFIG_USE_SEGGER_RTT</span><span class="token punctuation">=</span><span class="token value attr-value">y</span>
+<span class="token key attr-name">CONFIG_RTT_CONSOLE</span><span class="token punctuation">=</span><span class="token value attr-value">y</span>
+<span class="token key attr-name">CONFIG_UART_CONSOLE</span><span class="token punctuation">=</span><span class="token value attr-value">n</span>
+</code></pre>
+<ul>
+<li>
+<p>Notably <strong>UART had to be disabled</strong></p>
+</li>
+<li>
+<p><a href="/notes/notes/xCRQWLvuBjmthCAuFXKiF">nRF Terminal</a> seems to work intermittently for RTT and UART. I found it was best just to use <a href="/notes/notes/Jn4SXYH5LESpLLzVkMvNs">J-Link RTT Viewer</a> for RTT and <a href="/notes/notes/l1iTY9hcouZ5uj8CgNc3a">Putty</a> for UART</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Source: <a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/gs_testing.html#how-to-use-rtt">Testing an application - nRF Connect SDK 1.9.99 documentation</a></p>
+</li>
+<li>
+<p>Relevant Kconfig: <a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/ug_logging.html#rtt">Logging in nRF Connect SDK - nRF Connect SDK 1.9.99 documentation</a></p>
+</li>
+<li>
+<p>Logging API - <a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/reference/logging/index.html#logging-api">Logging - Zephyr Project Documentation</a></p>
+</li>
+<li>
+<p>Investigation notes: <a href="/notes/notes/UwCj174JMQAwxCujn63EM">RTT Investigation</a></p>
+</li>
+</ul>
+<h2 id="uart"><a aria-hidden="true" class="anchor-heading icon-link" href="#uart"></a>UART</h2>
+<ul>
+<li>
+<p>Add to <a href="/notes/notes/FnVXfzVSya2rq8rXPbHZB">prj.conf</a>:</p>
+<pre class="language-ini"><code class="language-ini"><span class="token key attr-name">CONFIG_UART_CONSOLE</span><span class="token punctuation">=</span><span class="token value attr-value">y</span>
+</code></pre>
+<ul>
+<li>Notably, <strong>enabling this prevents RTT from working</strong></li>
+</ul>
+</li>
+<li>
+<p><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/kconfig/CONFIG_UART_CONSOLE.html#config-uart-console">CONFIG_UART_CONSOLE — Kconfig reference</a></p>
+</li>
+<li>
+<p>The default baud rate appears to be <code>115200</code> and and uses the COM port that appears on the USB port used to debug/and program via VSCode. Other UART settings were default as per KiTTY and PuTTY</p>
+</li>
+</ul>
+<h2 id="usb"><a aria-hidden="true" class="anchor-heading icon-link" href="#usb"></a>USB</h2>
+<p><a href="https://devzone.nordicsemi.com/f/nordic-q-a/68780/nrf-log-and-putty">NRF LOG and putty - Nordic Q&#x26;A - Nordic DevZone - Nordic DevZone</a></p>
+<p><a href="https://jimmywongiot.com/2019/10/25/how-to-use-the-nrf52840-dongle-pca10059-as-development-board/">How to use the NRF52840 Dongle (PCA10059) as development board</a></p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/UwCj174JMQAwxCujn63EM">RTT Investigation</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/vn4QH8axQkezeOvv8cSG5">ZigBee Home Automation</a></li>
+</ul>

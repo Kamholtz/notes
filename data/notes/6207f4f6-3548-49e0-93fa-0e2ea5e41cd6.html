@@ -1,0 +1,8 @@
+<h1 id="repl"><a aria-hidden="true" class="anchor-heading icon-link" href="#repl"></a>Repl</h1>
+<h2 id="switching-namespace"><a aria-hidden="true" class="anchor-heading icon-link" href="#switching-namespace"></a>Switching namespace</h2>
+<p>Use <code>(ns xxx)</code> where <code>xxx</code> is the name space you want to change to. Note that while the function returns <code>nil</code> the promp on the repl will now match the namespace name to indicate that you have changed</p>
+<pre class="language-clj"><code class="language-clj">server> (ns server.main)
+;; => nil
+server.main> (main!)
+App loaded!
+</code></pre>

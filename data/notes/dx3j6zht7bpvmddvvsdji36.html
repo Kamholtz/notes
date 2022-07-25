@@ -1,0 +1,67 @@
+<h1 id="v2-0-0"><a aria-hidden="true" class="anchor-heading icon-link" href="#v2-0-0"></a>V2 0 0</h1>
+<h2 id="known-issues"><a aria-hidden="true" class="anchor-heading icon-link" href="#known-issues"></a>Known Issues</h2>
+<p><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/2.0.0/nrf/known_issues.html">Known issues — nRF Connect SDK 2.0.0 documentation</a></p>
+<h2 id="migration-notes"><a aria-hidden="true" class="anchor-heading icon-link" href="#migration-notes"></a>Migration notes</h2>
+<p><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/migration/migration_guide_1.x_to_2.x.html">Migration notes for nRF Connect SDK v2.0.0 — nRF Connect SDK 2.0.99 documentation</a></p>
+<p>Required Action:</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" checked disabled> pwms properties in devicetree nodes must be extended with two more cells (with period and flags) and now they need to specify PWM channels, not pin numbers.</li>
+<li class="task-list-item"><input type="checkbox" disabled> Calls to the deprecated pwm_pin_set_cycles function must be replaced with calls to the pwm_set_cycles() function.</li>
+<li class="task-list-item"><input type="checkbox" disabled> Calls to the deprecated pwm_pin_set_usec and pwm_pin_set_nsec functions must be replaced with calls to the pwm_set() function with the period and pulse values wrapped in the PWM_USEC macro or the PWM_NSEC macro, respectively.</li>
+</ul>
+<h2 id="problems-encountered"><a aria-hidden="true" class="anchor-heading icon-link" href="#problems-encountered"></a>Problems encountered</h2>
+<h3 id="reboot-occured-when-a-gpio-interrupt-was-fired"><a aria-hidden="true" class="anchor-heading icon-link" href="#reboot-occured-when-a-gpio-interrupt-was-fired"></a>Reboot occured when a GPIO interrupt was fired.</h3>
+<blockquote>
+<p>I: Unimplemented signal (signal: 54, status: 0)
+I: Joined network successfully on reboot signal (Extended PAN ID: cccccccc9ca8cc84, PAN ID: 0x0c84)
+I: Debounced
+ASSERTION FAIL @ WEST_TOPDIR/nrf/lib/dk_buttons_and_leds/dk_buttons_and_leds.c:186
+E: r0/a1:  0x00000004  r1/a2:  0x000000ba  r2/a3:  0x00000000
+E: r3/a4:  0x20009ebd r12/ip:  0x00000000 r14/lr:  0x0000d51d
+E:  xpsr:  0x61000016
+E: s[ 0]:  0x00000000  s[ 1]:  0x00000000  s[ 2]:  0x00000000  s[ 3]:  0x00000000
+E: s[ 4]:  0x00000000  s[ 5]:  0x00000000  s[ 6]:  0x00000000  s[ 7]:  0x00000000
+E: s[ 8]:  0x00000000  s[ 9]:  0x00000000  s[10]:  0x00000000  s[11]:  0x00000000
+E: s[12]:  0x00000000  s[13]:  0x00000000  s[14]:  0x00000000  s[15]:  0x00000000
+E: fpscr:  0x00000000
+E: Faulting instruction address (r15/pc): 0x0004d5fe
+E: >>> ZEPHYR FATAL ERROR 4: Kernel panic on CPU 0
+E: Fault during interrupt handling</p>
+</blockquote>
+<p>Relevant code (<code>ASSERT_NO_MSG</code>)</p>
+<pre class="language-c"><code class="language-c"><span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">button_pressed</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">struct</span> <span class="token class-name">device</span> <span class="token operator">*</span>gpio_dev<span class="token punctuation">,</span> <span class="token keyword">struct</span> <span class="token class-name">gpio_callback</span> <span class="token operator">*</span>cb<span class="token punctuation">,</span>
+		    <span class="token class-name">uint32_t</span> pins<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token class-name">k_spinlock_key_t</span> key <span class="token operator">=</span> <span class="token function">k_spin_lock</span><span class="token punctuation">(</span><span class="token operator">&#x26;</span>lock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">/* Disable GPIO interrupt */</span>
+	<span class="token keyword">int</span> err <span class="token operator">=</span> <span class="token function">callback_ctrl</span><span class="token punctuation">(</span>false<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token function">LOG_ERR</span><span class="token punctuation">(</span><span class="token string">"Cannot disable callbacks"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token keyword">switch</span> <span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">case</span> STATE_WAITING<span class="token operator">:</span>
+		state <span class="token operator">=</span> STATE_SCANNING<span class="token punctuation">;</span>
+		<span class="token function">k_work_reschedule</span><span class="token punctuation">(</span><span class="token operator">&#x26;</span>buttons_scan<span class="token punctuation">,</span> <span class="token function">K_MSEC</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">case</span> STATE_SCANNING<span class="token operator">:</span>
+	<span class="token keyword">default</span><span class="token operator">:</span>
+		<span class="token comment">/* Invalid state */</span>
+		<span class="token function">__ASSERT_NO_MSG</span><span class="token punctuation">(</span>false<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">break</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token function">k_spin_unlock</span><span class="token punctuation">(</span><span class="token operator">&#x26;</span>lock<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre>
+<h3 id="missing-zigbee-ha-files"><a aria-hidden="true" class="anchor-heading icon-link" href="#missing-zigbee-ha-files"></a>Missing Zigbee HA files</h3>
+<p><a href="https://devzone.nordicsemi.com/f/nordic-q-a/88813/zigbee-ha-files-are-missing-in-v2-0-0-zcl8-update">Zigbee HA files are missing in v2.0.0 ZCL8 update - Nordic Q&#x26;A - Nordic DevZone - Nordic DevZone</a></p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/vn4QH8axQkezeOvv8cSG5">ZigBee Home Automation</a></li>
+</ul>

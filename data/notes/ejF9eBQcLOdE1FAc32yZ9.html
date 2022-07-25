@@ -1,0 +1,50 @@
+<h1 id="treesitter"><a aria-hidden="true" class="anchor-heading icon-link" href="#treesitter"></a>Treesitter</h1>
+<h2 id="errors"><a aria-hidden="true" class="anchor-heading icon-link" href="#errors"></a>Errors</h2>
+<p>In use with <a href="/notes/notes/N2y2B01sEn8RCAOIRckoW">Telescope</a></p>
+<p><code>Telescope treesitter</code></p>
+<pre><code>[telescope] [WARN  21:20:56] ...ck\packer\start\telescope.nvim/lua/telescope/pickers.lua:467: Finder failed with msg:  ...ck\packer\start\telescope.nvim/lua/telescope/sorters.lua:596: table index is nil
+</code></pre>
+<h2 id="troubleshooting"><a aria-hidden="true" class="anchor-heading icon-link" href="#troubleshooting"></a>Troubleshooting</h2>
+<h3 id="cheahealth"><a aria-hidden="true" class="anchor-heading icon-link" href="#cheahealth"></a>Cheahealth</h3>
+<p><code>:checkheath nvim_treesitter</code></p>
+<h3 id="get-parser-paths"><a aria-hidden="true" class="anchor-heading icon-link" href="#get-parser-paths"></a>Get Parser Paths</h3>
+<p><code>:echo nvim_get_runtime_file('parser', v:true)</code></p>
+<h2 id="query-error-invalid-node-type-at-position"><a aria-hidden="true" class="anchor-heading icon-link" href="#query-error-invalid-node-type-at-position"></a>query error: invalid node type at position</h2>
+<p><a href="https://github.com/nvim-treesitter/nvim-treesitter#i-get-query-error-invalid-node-type-at-position">GitHub - nvim-treesitter/nvim-treesitter: Nvim Treesitter configurations and abstraction layer</a></p>
+<blockquote>
+<p>query error: invalid node type at position</p>
+</blockquote>
+<p>I was seeing this error in header files within a C project. Using <code>:set filetype?</code> indicated that the the file was being recognised as C++ instead of C. This is remedied by configuring filetype detection as <code>c.doxygen</code>:</p>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Filetypes</span></div>
+<a href="/notes/notes/yf8d4qvk9xuqytu2nb2eh5y" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h3 id="vim-recognising-header-files-as-c-instead-of-c"><a aria-hidden="true" class="anchor-heading icon-link" href="#vim-recognising-header-files-as-c-instead-of-c"></a>Vim recognising header files as C++ instead of C</h3>
+<p><a href="https://www.reddit.com/r/neovim/comments/orfpcd/question_does_the_c_parser_from_nvimtreesitter/">r/neovim - [Question] Does the C parser from nvim-treesitter parse header files?</a></p>
+<blockquote>
+<p>Check whether Neovim is setting the filetype to cpp instead of c.</p>
+<p>If it's setting it to cpp you probably want to write let <code>g:c_syntax_for_h = 1</code> in your config. See :help c.vim.</p>
+</blockquote>
+<h3 id="filetype-detection-for-h-files-as-c-with-doxygen"><a aria-hidden="true" class="anchor-heading icon-link" href="#filetype-detection-for-h-files-as-c-with-doxygen"></a>Filetype detection for .h files as C with Doxygen</h3>
+<p>Useful points from <a href="https://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/">Using Vim as C/C++ IDE</a></p>
+<ul>
+<li>Filetype detection:</li>
+</ul>
+<pre class="language-vim"><code class="language-vim">augroup project
+  <span class="token builtin">autocmd</span><span class="token operator">!</span>
+  <span class="token builtin">autocmd</span> BufRead<span class="token punctuation">,</span>BufNewFile <span class="token operator">*</span><span class="token operator">.</span><span class="token keyword">h</span><span class="token punctuation">,</span><span class="token operator">*</span><span class="token operator">.</span><span class="token keyword">c</span> <span class="token keyword">set</span> <span class="token keyword">filetype</span><span class="token operator">=</span><span class="token keyword">c</span><span class="token operator">.</span>doxygen
+augroup END
+</code></pre>
+<ul>
+<li>This will trigger for ALL <code>.h</code> files. There is likely a way to set this on a per project basis with a per project config. I have not investigated this yet.</li>
+</ul></div></div><p></p><p></p>
+<p>I was still receiving the same <code>invalid node type</code> error from a <code>cpp</code> parser despite the <code>:set filetype?</code> now returning <code>c.doxygen</code>. Uninstalling the <code>cpp</code> parser was the (immediate) solution to this problem.</p>
+<ul>
+<li><code>:TSUninstall cpp</code> is meant to do this, but the <code>cpp parser</code> remained active</li>
+<li>I found I had to remove <code>cpp.so</code> from <code>C:\Users\{user}\AppData\Local\nvim-data\site\pack\packer\start\nvim-treesitter\parser</code> manually.</li>
+</ul>

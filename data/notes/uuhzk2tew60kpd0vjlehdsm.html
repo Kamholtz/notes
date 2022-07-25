@@ -1,0 +1,19 @@
+<h1 id="for-windows"><a aria-hidden="true" class="anchor-heading icon-link" href="#for-windows"></a>For Windows</h1>
+<h2 id="download"><a aria-hidden="true" class="anchor-heading icon-link" href="#download"></a>Download</h2>
+<p><a href="https://github.com/git-for-windows/git/releases">Releases · git-for-windows/git</a></p>
+<h2 id="share-credentials-between-windows-and-wsl"><a aria-hidden="true" class="anchor-heading icon-link" href="#share-credentials-between-windows-and-wsl"></a>Share credentials between Windows and WSL</h2>
+<p>I encountered difficulty entering Github token via the WSL2 terminal. It was easier to to use <a href="/notes/notes/fi38y7w33vwm5nnvqem45g6">Git Credential Manager</a> to share the credentials that have already been entered in Windows.</p>
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git">Get started using Git on WSL</a></p>
+<blockquote>
+<p>It is recommended to install the latest Git for Windows in order to share credentials &#x26; settings between WSL and the Windows host.</p>
+</blockquote>
+<blockquote>
+<p>If GIT installed is >= v2.36.1</p>
+</blockquote>
+<pre class="language-bash"><code class="language-bash"><span class="token function">git</span> config --global credential.helper <span class="token string">"/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager-core.exe"</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/v3K06639TokG0fDufJlPY">Initial Install</a></li>
+</ul>

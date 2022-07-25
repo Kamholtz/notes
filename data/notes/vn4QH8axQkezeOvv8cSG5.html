@@ -1,0 +1,285 @@
+<h1 id="zigbee-home-automation"><a aria-hidden="true" class="anchor-heading icon-link" href="#zigbee-home-automation"></a>ZigBee Home Automation</h1>
+<p>Related:</p>
+<ul>
+<li><a href="/notes/notes/UTyVZZrIY615EpsVASnyB">Dongle</a></li>
+<li><a href="/notes/notes/sa5Ez4NJoJrT8nsc3Oefz">nRF Connect SDK</a></li>
+</ul>
+<p>Goals:</p>
+<ul>
+<li>Sensors + lighting to interface with <a href="/notes/notes/OHeZb86UIV80gjx6YQp1K">Home Assistant</a> using <a href="/notes/notes/kBryy4smtoo9wbq4OkkrN">ZigBee</a></li>
+</ul>
+<h2 id="20220210---successfully-created-a-dongle-lightbulb-router-using-an-example-project"><a aria-hidden="true" class="anchor-heading icon-link" href="#20220210---successfully-created-a-dongle-lightbulb-router-using-an-example-project"></a>2022.02.10 - Successfully created a dongle lightbulb router using an example project</h2>
+<p>Using the example code for a <a href="/notes/notes/WqOZsAI3OSs35eCaPkUQ0">Coordinator</a> found in this thread <a href="https://devzone.nordicsemi.com/f/nordic-q-a/84072/how-to-port-the-zigbee-network-coordinator-sample-from-the-nrf52840dk-to-the-nrf52840-dongle">How to port the Zigbee Network Coordinator sample from the nRF52840DK to the nRF52840 dongle</a> it was possible to modify it to use the code from <a href="/notes/notes/OQJOzo1H5iE4ymWdBfZBG">Light Bulb</a>.
+The Relevant commit can be found here <a href="https://github.com/Kamholtz/zb-lightbulb/commit/3f964db20870d26157205e55fd1a7dc484374610">light_bulb_dongle can be built to create zigbee dongle with LEDs · Kamholtz/zb-lightbulb@3f964db</a></p>
+<ul>
+<li><a href="https://devzone.nordicsemi.com/cfs-file/__key/communityserver-discussions-components-files/4/network_5F00_coordinator_5F00_dongle.zip">Dongle Coordinator Example Download</a></li>
+<li><a href="https://devzone.nordicsemi.com/cfs-file/__key/communityserver-discussions-components-files/4/network_5F00_coordinator_5F00_shell_5F00_dongle.zip">Dongle Coordinator with Shell Download</a></li>
+</ul>
+<h2 id="usb-logging"><a aria-hidden="true" class="anchor-heading icon-link" href="#usb-logging"></a>USB logging</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Need to test on <a href="/notes/notes/UTyVZZrIY615EpsVASnyB">Dongle</a></li>
+<li>This sample may be relevant <code>SDK\examples\peripherals\usbd_cdc_acm</code></li>
+</ul>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Logging</span></div>
+<a href="/notes/notes/4PuwOPO63AOwRwcaNwrUX" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="uart"><a aria-hidden="true" class="anchor-heading icon-link" href="#uart"></a>UART</h2>
+<ul>
+<li>
+<p>Add to <a href="/notes/notes/FnVXfzVSya2rq8rXPbHZB">prj.conf</a>:</p>
+<pre class="language-ini"><code class="language-ini"><span class="token key attr-name">CONFIG_UART_CONSOLE</span><span class="token punctuation">=</span><span class="token value attr-value">y</span>
+</code></pre>
+<ul>
+<li>Notably, <strong>enabling this prevents RTT from working</strong></li>
+</ul>
+</li>
+<li>
+<p><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/kconfig/CONFIG_UART_CONSOLE.html#config-uart-console">CONFIG_UART_CONSOLE — Kconfig reference</a></p>
+</li>
+<li>
+<p>The default baud rate appears to be <code>115200</code> and and uses the COM port that appears on the USB port used to debug/and program via VSCode. Other UART settings were default as per KiTTY and PuTTY</p>
+</li>
+</ul>
+<h2 id="usb"><a aria-hidden="true" class="anchor-heading icon-link" href="#usb"></a>USB</h2>
+<p><a href="https://devzone.nordicsemi.com/f/nordic-q-a/68780/nrf-log-and-putty">NRF LOG and putty - Nordic Q&#x26;A - Nordic DevZone - Nordic DevZone</a></p>
+<p><a href="https://jimmywongiot.com/2019/10/25/how-to-use-the-nrf52840-dongle-pca10059-as-development-board/">How to use the NRF52840 Dongle (PCA10059) as development board</a></p></div></div><p></p><p></p>
+<h2 id="rtt"><a aria-hidden="true" class="anchor-heading icon-link" href="#rtt"></a>RTT</h2>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Logging</span></div>
+<a href="/notes/notes/4PuwOPO63AOwRwcaNwrUX" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="rtt-1"><a aria-hidden="true" class="anchor-heading icon-link" href="#rtt-1"></a>RTT</h2>
+<ul>
+<li>
+<p>Enabled with minimum config in this commit <a href="https://github.com/Kamholtz/zb-lightbulb/commit/019d5a1a003afaa8745cb9480884b6c23e0c9b26">Minimal config for RTT · Kamholtz/zb-lightbulb@019d5a1</a></p>
+</li>
+<li>
+<p>Add to <a href="/notes/notes/FnVXfzVSya2rq8rXPbHZB">prj.conf</a>:</p>
+<pre class="language-ini"><code class="language-ini"><span class="token key attr-name">CONFIG_USE_SEGGER_RTT</span><span class="token punctuation">=</span><span class="token value attr-value">y</span>
+<span class="token key attr-name">CONFIG_RTT_CONSOLE</span><span class="token punctuation">=</span><span class="token value attr-value">y</span>
+<span class="token key attr-name">CONFIG_UART_CONSOLE</span><span class="token punctuation">=</span><span class="token value attr-value">n</span>
+</code></pre>
+<ul>
+<li>
+<p>Notably <strong>UART had to be disabled</strong></p>
+</li>
+<li>
+<p><a href="/notes/notes/xCRQWLvuBjmthCAuFXKiF">nRF Terminal</a> seems to work intermittently for RTT and UART. I found it was best just to use <a href="/notes/notes/Jn4SXYH5LESpLLzVkMvNs">J-Link RTT Viewer</a> for RTT and <a href="/notes/notes/l1iTY9hcouZ5uj8CgNc3a">Putty</a> for UART</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Source: <a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/gs_testing.html#how-to-use-rtt">Testing an application - nRF Connect SDK 1.9.99 documentation</a></p>
+</li>
+<li>
+<p>Relevant Kconfig: <a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/ug_logging.html#rtt">Logging in nRF Connect SDK - nRF Connect SDK 1.9.99 documentation</a></p>
+</li>
+<li>
+<p>Logging API - <a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/reference/logging/index.html#logging-api">Logging - Zephyr Project Documentation</a></p>
+</li>
+<li>
+<p>Investigation notes: <a href="/notes/notes/UwCj174JMQAwxCujn63EM">RTT Investigation</a></p>
+</li>
+</ul>
+<h2 id="uart-1"><a aria-hidden="true" class="anchor-heading icon-link" href="#uart-1"></a>UART</h2>
+<ul>
+<li>
+<p>Add to <a href="/notes/notes/FnVXfzVSya2rq8rXPbHZB">prj.conf</a>:</p>
+<pre class="language-ini"><code class="language-ini"><span class="token key attr-name">CONFIG_UART_CONSOLE</span><span class="token punctuation">=</span><span class="token value attr-value">y</span>
+</code></pre>
+<ul>
+<li>Notably, <strong>enabling this prevents RTT from working</strong></li>
+</ul>
+</li>
+<li>
+<p><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/kconfig/CONFIG_UART_CONSOLE.html#config-uart-console">CONFIG_UART_CONSOLE — Kconfig reference</a></p>
+</li>
+<li>
+<p>The default baud rate appears to be <code>115200</code> and and uses the COM port that appears on the USB port used to debug/and program via VSCode. Other UART settings were default as per KiTTY and PuTTY</p>
+</li>
+</ul>
+<h2 id="usb-1"><a aria-hidden="true" class="anchor-heading icon-link" href="#usb-1"></a>USB</h2>
+<p><a href="https://devzone.nordicsemi.com/f/nordic-q-a/68780/nrf-log-and-putty">NRF LOG and putty - Nordic Q&#x26;A - Nordic DevZone - Nordic DevZone</a></p>
+<p><a href="https://jimmywongiot.com/2019/10/25/how-to-use-the-nrf52840-dongle-pca10059-as-development-board/">How to use the NRF52840 Dongle (PCA10059) as development board</a></p></div></div><p></p><p></p>
+<h2 id="create-cmdline-script-for-flashing-the-dongle"><a aria-hidden="true" class="anchor-heading icon-link" href="#create-cmdline-script-for-flashing-the-dongle"></a>Create cmdline script for flashing the dongle</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Still need to make script, but now have the commands to do so:</li>
+</ul>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Nrfutil</span></div>
+<a href="/notes/notes/4hqUGCEUyFhWBqlocNhLF" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="usage"><a aria-hidden="true" class="anchor-heading icon-link" href="#usage"></a>Usage</h2>
+<p>Example of usage with thread which is applicable to <a href="/notes/notes/oMZ0UCDQcTWH0WcIN0Dpc">ZigBee</a></p>
+<ol>
+<li>
+<p>Reset the board into the Nordic bootloader by pressing the RESET button.</p>
+<p><img src="/notes/assets/images/2022-02-18-21-36-10.png" alt="Dongle PCB"></p>
+</li>
+<li>
+<p>Compile a Zephyr application; we’ll use blinky.</p>
+<pre class="language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">west</span> build <span class="token parameter attr-name">-b</span> nrf52840dongle_nrf52840 zephyr/samples/basic<span class="token parameter attr-name">/blinky</span></span>
+</code></pre>
+</li>
+<li>
+<p>Package the application for the bootloader using nrfutil:</p>
+<pre class="language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">nrfutil</span> pkg generate <span class="token parameter attr-name">--hw-version</span> <span class="token number">52</span> <span class="token parameter attr-name">--sd-req</span>=0x00 \</span>
+        --application build/zephyr/zephyr.hex \
+        --application-version 1 blinky.zip
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Flag</th><th>Description</th><th>Mandatory</th></tr></thead><tbody><tr><td><code>--hw-version 52</code></td><td>Hardware version indicating this build is for the dongle</td><td>Yes</td></tr><tr><td><code>--sd-req=0x00</code></td><td>Presumably this indicates no soft device is required</td><td>Yes</td></tr><tr><td><code>--application build/zephyr/zephyr.hex</code></td><td><code>.hex</code> file to be packaged`</td><td>Yes</td></tr><tr><td><code>--application-version 1</code></td><td>App version</td><td>No</td></tr></tbody></table>
+</li>
+<li>
+<p>Flash it onto the board. Note /dev/ttyACM0 is for Linux; it will be something like COMx on Windows, and something else on macOS.</p>
+<pre class="language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">nrfutil</span> dfu usb-serial -pkg blinky.zip <span class="token parameter attr-name">-p</span> /dev/ttyACM0</span>
+</code></pre>
+</li>
+</ol>
+<p>Source:</p>
+<ul>
+<li><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/boards/arm/nrf52840dongle_nrf52840/doc/index.html?highlight=nrfutil#option-1-using-the-built-in-bootloader-only">nRF52840 Dongle - Zephyr Project Documentation</a></li>
+<li><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/ug_thread_tools.html?highlight=nrfutil">Thread tools - nRF Connect SDK 1.9.99 documentation</a></li>
+</ul>
+<h2 id="troubleshooting"><a aria-hidden="true" class="anchor-heading icon-link" href="#troubleshooting"></a>Troubleshooting</h2>
+<h3 id="no-moduled-named-constants"><a aria-hidden="true" class="anchor-heading icon-link" href="#no-moduled-named-constants"></a>No moduled named 'constants'</h3>
+<blockquote>
+<p>ModuleNotFoundError: No module named 'constants'</p>
+</blockquote>
+<p><a href="https://devzone.nordicsemi.com/f/nordic-q-a/65889/nrfutil-modulenotfounderror-no-module-named-constants">nrfutil ModuleNotFoundError: No module named constants - Nordic Q&#x26;A - Nordic DevZone - Nordic DevZone</a></p>
+<ul>
+<li>Python 3.8.6 seems to be a compatible version</li>
+</ul>
+<p><strong>Solution</strong>: install using python 3.8 with <a href="/notes/notes/UN5ygEfGQgASMxZdZ2426">Py Launcher</a></p>
+<pre class="language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">py</span> <span class="token number">-3</span>.<span class="token number">8</span> <span class="token parameter attr-name">-m</span> pip install nrfutil</span>
+</code></pre>
+<p>Reference:</p>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Py Launcher</span></div>
+<a href="/notes/notes/UN5ygEfGQgASMxZdZ2426" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="use-a-commmand-with-a-specific-version-eg-pip"><a aria-hidden="true" class="anchor-heading icon-link" href="#use-a-commmand-with-a-specific-version-eg-pip"></a>Use a commmand with a specific version e.g. pip</h2>
+<pre class="language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">py</span> <span class="token number">-3</span>.<span class="token number">9</span> <span class="token parameter attr-name">-m</span> pip freeze</span>
+</code></pre>
+<h2 id="set-an-alias"><a aria-hidden="true" class="anchor-heading icon-link" href="#set-an-alias"></a>Set an alias</h2>
+<pre class="language-ps1"><code class="language-ps1">Set-Alias -Name &#x3C;new_command_name> -Value python3
+</code></pre></div></div><p></p><p></p>
+<h2 id="notes"><a aria-hidden="true" class="anchor-heading icon-link" href="#notes"></a>Notes</h2>
+<ul>
+<li>Soft devices must be included <a href="https://infocenter.nordicsemi.com/topic/ug_gsg_ses/UG/gsg/softdevices.html">Overview of SoftDevices for the nRF5 Series</a>
+<ul>
+<li>Is there one for ZigBee?
+<ul>
+<li>There does not appear to be one for ZigBee, rather the ZBOSS binary is included in the build?</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></div><p></p><p></p>
+<h2 id="occupancy-sensing"><a aria-hidden="true" class="anchor-heading icon-link" href="#occupancy-sensing"></a>Occupancy Sensing</h2>
+<p><a href="/notes/notes/eXaNJpRbWVhz0fxI2kKQl">Occupancy Sensing</a></p>
+<h2 id="on-off-switch"><a aria-hidden="true" class="anchor-heading icon-link" href="#on-off-switch"></a>On Off Switch</h2>
+<p><a href="/notes/notes/oBfzI1lAvoh15EkLluGjY">On off Switch</a></p>
+<h2 id="next-steps"><a aria-hidden="true" class="anchor-heading icon-link" href="#next-steps"></a>Next steps</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Button input
+<ul>
+<li>interrupt on input pin</li>
+<li><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/zephyr/samples/basic/button/README.html">Button — Zephyr Project Documentation</a></li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled> <a href="/notes/notes/CGRWmyzQCwkxeCfAMDXyv#occupancy-sensing">Occupancy Sensing</a>
+<ul>
+<li>Should be similar to button input</li>
+<li><code>ncs/v.18.0/nrfxlib/zboss/include/zcl/zb_zcl_occupancy_sensing.h</code></li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled> Only illumate the LED that represents the lightbulb
+<ul>
+<li>Create a new cluster for indivial LEDs/PWM channels</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Enable and analyze PWM on a GPIO pin that can be used to switch power on an actual light</li>
+<li class="task-list-item"><input type="checkbox" disabled> Change the name of the device for each build</li>
+<li class="task-list-item"><input type="checkbox" disabled> Learn how to create overlays
+<ul>
+<li><a href="/notes/notes/CXH9VVDqIEHZvwL6XAckJ">Device Tree</a></li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled> <a href="https://github.com/NordicPlayground/j-link-monitoring-mode-debugging/#monitor-mode-debugging-in-keil-%C2%B5vision5-and-segger-embedded-studio">GitHub - NordicPlayground/j-link-monitoring-mode-debugging</a> <a href="https://devzone.nordicsemi.com/nordic/nordic-blog/b/blog/posts/monitor-mode-debugging---revolutionize-the-way-you-debug-ble-applications">Monitor Mode Debugging - Revolutionize the way you debug BLE applications</a></li>
+<li class="task-list-item"><input type="checkbox" disabled> Update to v2.0.0 of the nrf connect SDK
+<ul>
+<li><a href="/notes/notes/dx3j6zht7bpvmddvvsdji36#migration-notes">Migration notes</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="power-consumption"><a aria-hidden="true" class="anchor-heading icon-link" href="#power-consumption"></a>Power Consumption</h2>
+<ul>
+<li><a href="https://devzone.nordicsemi.com/f/nordic-q-a/30687/power-consumption-question">Power consumption question - Nordic Q&#x26;A - Nordic DevZone - Nordic DevZone</a>
+<ul>
+<li>
+<blockquote>
+<p>turning the USART off after pushing out some startup messages reduces power consumption by around 1mA (ie. a lot). Use app_uart_close() to turn off</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/r1j5fvnodd4545sbq8zqsgp">Dimmable Light</a></li>
+<li><a href="/notes/notes/eXaNJpRbWVhz0fxI2kKQl">Occupancy Sensing</a></li>
+<li><a href="/notes/notes/oBfzI1lAvoh15EkLluGjY">On off Switch</a></li>
+</ol>

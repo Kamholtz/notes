@@ -1,0 +1,54 @@
+<h1 id="power-consumption"><a aria-hidden="true" class="anchor-heading icon-link" href="#power-consumption"></a>Power Consumption</h1>
+<h2 id="goals"><a aria-hidden="true" class="anchor-heading icon-link" href="#goals"></a>Goals</h2>
+<p>reduce the power consumption for <a href="/notes/notes/jKbtjNabEIIrXYnB18GGx">Router</a> and <a href="/notes/notes/1IupcDqSw4sPt9AzXGGYO">End Device</a></p>
+<h2 id="questions"><a aria-hidden="true" class="anchor-heading icon-link" href="#questions"></a>Questions</h2>
+<h3 id="what-kind-of-devices-can-be-sleepy-end-devices"><a aria-hidden="true" class="anchor-heading icon-link" href="#what-kind-of-devices-can-be-sleepy-end-devices"></a>What kind of devices can be sleepy end devices</h3>
+<ul>
+<li>lights</li>
+<li>switches?</li>
+</ul>
+<h3 id="what-is-the-expected-power-consumption-for-the-different-modes"><a aria-hidden="true" class="anchor-heading icon-link" href="#what-is-the-expected-power-consumption-for-the-different-modes"></a>What is the expected power consumption for the different modes</h3>
+<h3 id="sleepy-end-device"><a aria-hidden="true" class="anchor-heading icon-link" href="#sleepy-end-device"></a>Sleepy end device</h3>
+<ul>
+<li>NRF Connect docs suggest it is possible to achieve <code>~1.8 uA</code> current draw for the MCUs mentioned below as a <a href="/notes/notes/w2s4g435s5xp7dlb8dv9aon">Sleepy End Device</a>
+<ul>
+<li>Turn off UART by setting CONFIG_SERIAL to n.</li>
+<li>For current measurements for the nRF52840 DK (PCA10056), the nRF52833 DK (PCA10100), or the nRF5340 (PCA10095), set SW6 to nRF ONLY position to get the desired results.</li>
+<li>Enable the <code>CONFIG_RAM_POWER_DOWN_LIBRARY</code> Kconfig option.</li>
+</ul>
+</li>
+<li>For this feature to work, make sure to call the <code>zb_set_rx_on_when_idle()</code> ZBOSS API, as described in Configuring sleepy behavior for end devices in the ZBOSS documentation</li>
+<li><a href="http://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/ug_zigbee_configuring.html#power-saving-during-sleep">Configuring Zigbee in nRF Connect SDK — nRF Connect SDK 2.0.99 documentation</a></li>
+</ul>
+<h3 id="what-happens-during-sleepy-end-device-behaviour-for-the-nrf52840"><a aria-hidden="true" class="anchor-heading icon-link" href="#what-happens-during-sleepy-end-device-behaviour-for-the-nrf52840"></a>What happens during <a href="/notes/notes/dv1cp7kcj760dht09piu3pj">Sleepy End Device</a> behaviour for the <a href="/notes/notes/kWFdZQuRbvz7uwXfqCA8n">Nrf52840</a>?</h3>
+<ul>
+<li>Do pins maintain state?</li>
+<li>is RAM lost?
+<ul>
+<li>Suspect not because it's only the radio that needs to turn off</li>
+</ul>
+</li>
+</ul>
+<h2 id="findings"><a aria-hidden="true" class="anchor-heading icon-link" href="#findings"></a>Findings</h2>
+<h2 id="experiments"><a aria-hidden="true" class="anchor-heading icon-link" href="#experiments"></a>Experiments</h2>
+<p>2022.07.02</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Try making a device that just consists of many buttons for controlling devices at home</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Determine baseline current consumption with existing firmware on dongle
+<ul>
+<li><a href="https://github.com/Kamholtz/zb-lightbulb/commit/23fec578e07bc78841b3462d8552846983d1e72d">Commenting out printing · Kamholtz/zb-lightbulb@23fec57</a> had a <code>7.1mA</code> consumption with all LEDs off</li>
+<li>Reduce power consumption
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Change from router to end device
+<ul>
+<li>Currently has <code>CONFIG_ZIGBEE_ROLE_ROUTER=y</code> in <a href="/notes/notes/FnVXfzVSya2rq8rXPbHZB">prj.conf</a>... Find the end device equivalent</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled> Enable sleep end device <a href="/notes/notes/w2s4g435s5xp7dlb8dv9aon">Sleepy End Device</a></li>
+<li class="task-list-item"><input type="checkbox" disabled> Disbale UART and RTT</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Make a test apparatus for measuring power</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>

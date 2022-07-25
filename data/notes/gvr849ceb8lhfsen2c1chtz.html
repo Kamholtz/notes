@@ -1,0 +1,13 @@
+<h1 id="lspconfig"><a aria-hidden="true" class="anchor-heading icon-link" href="#lspconfig"></a>Lspconfig</h1>
+<h2 id="defining-project-specific-settings"><a aria-hidden="true" class="anchor-heading icon-link" href="#defining-project-specific-settings"></a>Defining Project Specific Settings</h2>
+<p><a href="https://github.com/neovim/nvim-lspconfig/wiki/Project-local-settings">Project local settings · neovim/nvim-lspconfig Wiki</a></p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> nvim_lsp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'lspconfig'</span><span class="token punctuation">)</span>
+
+nvim_lsp<span class="token punctuation">.</span>rust_analyzer<span class="token punctuation">.</span><span class="token function">setup</span> <span class="token punctuation">{</span>
+  on_init <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>client<span class="token punctuation">)</span>
+    client<span class="token punctuation">.</span>config<span class="token punctuation">.</span>settings<span class="token punctuation">.</span>xxx <span class="token operator">=</span> <span class="token string">"yyyy"</span>
+    client<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token string">"workspace/didChangeConfiguration"</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token keyword">true</span>
+  <span class="token keyword">end</span>
+<span class="token punctuation">}</span>
+</code></pre>

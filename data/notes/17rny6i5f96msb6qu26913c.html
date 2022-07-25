@@ -1,0 +1,6 @@
+<h1 id="csharp-ls"><a aria-hidden="true" class="anchor-heading icon-link" href="#csharp-ls"></a>Csharp Ls</h1>
+<blockquote>
+<p>LSP[csharp_ls][Log] csharp-ls: msbuildWorkspace.Diagnostics: [Failure] Msbuild failed when processing the file 'C:\Users\carlk\source\repos\xxx\xxx.csproj' with message: The imported project "C:\Program Files\dotnet\sdk\6.0.201\Microsoft\VisualStudio\v17.0\WebApplications\Microsoft.WebApplication.targets" was not found. Confirm that the expression in the Import declaration "C:\Program Files\dotnet\sdk\6.0.201\Microsoft\VisualStudio\v17.0\WebApplications\Microsoft.WebApplication.targets" is correct, and that the file exists on disk.  C:\Users\carlk\source\repos\xxx\xxx.csproj</p>
+</blockquote>
+<p>BuildTools is missing <code>WebApplications\Microsoft.WebApplication.targets</code> it seems
+-<a href="https://stackoverflow.com/questions/3980909/microsoft-webapplication-targets-was-not-found-on-the-build-server-whats-your">Microsoft.WebApplication.targets was not found, on the build server. What's your solution?</a></p>

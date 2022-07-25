@@ -1,0 +1,47 @@
+<h1 id="dap"><a aria-hidden="true" class="anchor-heading icon-link" href="#dap"></a>Dap</h1>
+<p>Overall guide with suggested keymaps, ui, telescope</p>
+<p><a href="https://alpha2phi.medium.com/neovim-dap-enhanced-ebc730ff498b">Neovim DAP Enhanced</a></p>
+<h2 id="installation"><a aria-hidden="true" class="anchor-heading icon-link" href="#installation"></a>Installation</h2>
+<p><a href="https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation">Debug Adapter installation · mfussenegger/nvim-dap Wiki</a></p>
+<blockquote>
+<p>build vscode-chrome-debug</p>
+<p>git clone <a href="https://github.com/Microsoft/vscode-chrome-debug">https://github.com/Microsoft/vscode-chrome-debug</a>
+cd ./vscode-chrome-debug
+npm install
+npm run build
+add the adapter cfg:</p>
+</blockquote>
+<p>Notice that the path to vscode-chrome-debug needs to be set</p>
+<pre class="language-lua"><code class="language-lua">dap<span class="token punctuation">.</span>adapters<span class="token punctuation">.</span>chrome <span class="token operator">=</span> <span class="token punctuation">{</span>
+    type <span class="token operator">=</span> <span class="token string">"executable"</span><span class="token punctuation">,</span>
+    command <span class="token operator">=</span> <span class="token string">"node"</span><span class="token punctuation">,</span>
+    args <span class="token operator">=</span> <span class="token punctuation">{</span>os<span class="token punctuation">.</span><span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"HOME"</span><span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">"/path/to/vscode-chrome-debug/out/src/chromeDebug.js"</span><span class="token punctuation">}</span> <span class="token comment">-- TODO adjust</span>
+<span class="token punctuation">}</span>
+
+dap<span class="token punctuation">.</span>configurations<span class="token punctuation">.</span>javascriptreact <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token comment">-- change this to javascript if needed</span>
+    <span class="token punctuation">{</span>
+        type <span class="token operator">=</span> <span class="token string">"chrome"</span><span class="token punctuation">,</span>
+        request <span class="token operator">=</span> <span class="token string">"attach"</span><span class="token punctuation">,</span>
+        program <span class="token operator">=</span> <span class="token string">"${file}"</span><span class="token punctuation">,</span>
+        cwd <span class="token operator">=</span> vim<span class="token punctuation">.</span>fn<span class="token punctuation">.</span><span class="token function">getcwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        sourceMaps <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+        protocol <span class="token operator">=</span> <span class="token string">"inspector"</span><span class="token punctuation">,</span>
+        port <span class="token operator">=</span> <span class="token number">9222</span><span class="token punctuation">,</span>
+        webRoot <span class="token operator">=</span> <span class="token string">"${workspaceFolder}"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+dap<span class="token punctuation">.</span>configurations<span class="token punctuation">.</span>typescriptreact <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token comment">-- change to typescript if needed</span>
+    <span class="token punctuation">{</span>
+        type <span class="token operator">=</span> <span class="token string">"chrome"</span><span class="token punctuation">,</span>
+        request <span class="token operator">=</span> <span class="token string">"attach"</span><span class="token punctuation">,</span>
+        program <span class="token operator">=</span> <span class="token string">"${file}"</span><span class="token punctuation">,</span>
+        cwd <span class="token operator">=</span> vim<span class="token punctuation">.</span>fn<span class="token punctuation">.</span><span class="token function">getcwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        sourceMaps <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+        protocol <span class="token operator">=</span> <span class="token string">"inspector"</span><span class="token punctuation">,</span>
+        port <span class="token operator">=</span> <span class="token number">9222</span><span class="token punctuation">,</span>
+        webRoot <span class="token operator">=</span> <span class="token string">"${workspaceFolder}"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre>

@@ -1,0 +1,60 @@
+<h1 id="ltspice"><a aria-hidden="true" class="anchor-heading icon-link" href="#ltspice"></a>Ltspice</h1>
+<h2 id="how-to-include-an-external-subckt"><a aria-hidden="true" class="anchor-heading icon-link" href="#how-to-include-an-external-subckt"></a>How to include an external subckt</h2>
+<h3 id="including-the-subckt-directly-as-a-directive"><a aria-hidden="true" class="anchor-heading icon-link" href="#including-the-subckt-directly-as-a-directive"></a>Including the subckt directly as a directive</h3>
+<p><a href="https://www.eevblog.com/forum/beginners/zener-diodes-in-ltspice/">ZENER DIODES IN LTSPICE - Page 1</a></p>
+<ul>
+<li>See posts by "Jay_Diddy_B"</li>
+</ul>
+<p>Note that the following passage taken from the above link is actually modified
+to indicate the correct way to change the prefix as shown in bold</p>
+<blockquote>
+<p>The Diodes Inc model was included in a large file with all their Zener diodes. I cut out the one that was needed and pasted it into a SPICE directive.</p>
+<p>I drew the schematic in LTspice the normal way and included any zener diode from the library of parts. You do this to get the right symbol.</p>
+<p>A diode can be defined as an intrinsic diode which has the SPICE prefix D. In
+the case the diode was defined by a .SUBCIRCUIT statement, so the SPICE prefix
+has to be changed from 'D' to 'X'. <em>Ctrl + Right click</em> on the diode and change
+the Prefix to X. Change Value to match the name of the subcircuit.</p>
+</blockquote>
+<p>** Including the library file
+Create a directive that contains a ".lib" refernce to the file containing the
+subckt.</p>
+<p>e.g.</p>
+<pre class="language-bash"><code class="language-bash">.lib <span class="token string">"C:\Users\Carl\Google Drive<span class="token entity" title="\e">\e</span>lectronics<span class="token entity" title="\e">\e</span>xtra_models\zener.lib"</span>
+</code></pre>
+<p>Where the file it references contains text similar to the following:</p>
+<p>[[file:resources/personal/electronics/ltspice/example.lib][Example .lib file]]</p>
+<pre><code>=========================================================================================================
+
+[BZX84C3V3]
+,*SRC=BZX84C3V3;DI_BZX84C3V3;Diodes;Zener &#x3C;=10V; 3.30V  0.350W   Diodes Inc.
+,*SYM=HZEN
+.SUBCKT DI_BZX84C3V3  1 2
+,*        Terminals    A   K
+D1 1 2 DF
+DZ 3 1 DR
+VZ 2 3 0.799
+.MODEL DF D ( IS=43.7p RS=35.2 N=1.10
++ CJO=127p VJ=0.750 M=0.330 TT=50.1n )
+.MODEL DR D ( IS=8.74f RS=79.5 N=3.00 )
+.ENDS
+
+=========================================================================================================
+
+[BZX84C3V6]
+,*SRC=BZX84C3V6;DI_BZX84C3V6;Diodes;Zener &#x3C;=10V; 3.60V  0.350W   Diodes Inc.
+,*SYM=HZEN
+.SUBCKT DI_BZX84C3V6  1 2
+,*        Terminals    A   K
+D1 1 2 DF
+DZ 3 1 DR
+VZ 2 3 1.12
+.MODEL DF D ( IS=40.1p RS=34.9 N=1.10
++ CJO=112p VJ=0.750 M=0.330 TT=50.1n )
+.MODEL DR D ( IS=8.01f RS=74.5 N=3.00 )
+.ENDS
+
+=========================================================================================================
+</code></pre>
+<p>As described in the above section "Including the subckt directly as a
+directive", a subckt can be referenced by changing the prefix of the symbol to
+'X' and changing the value to the name of the subckt itself</p>

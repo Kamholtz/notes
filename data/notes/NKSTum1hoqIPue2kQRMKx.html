@@ -1,0 +1,88 @@
+<h1 id="device-signature"><a aria-hidden="true" class="anchor-heading icon-link" href="#device-signature"></a>Device Signature</h1>
+<h2 id="tradfri-remote-2-button-device-signature"><a aria-hidden="true" class="anchor-heading icon-link" href="#tradfri-remote-2-button-device-signature"></a>Tradfri Remote 2 Button device signature</h2>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"node_descriptor"</span><span class="token operator">:</span> <span class="token string">"NodeDescriptor(logical_type=&#x3C;LogicalType.EndDevice: 2>, complex_descriptor_available=0, user_descriptor_available=0, reserved=0, aps_flags=0, frequency_band=&#x3C;FrequencyBand.Freq2400MHz: 8>, mac_capability_flags=&#x3C;MACCapabilityFlags.AllocateAddress: 128>, manufacturer_code=4476, maximum_buffer_size=82, maximum_incoming_transfer_size=82, server_mask=11264, maximum_outgoing_transfer_size=82, descriptor_capability_field=&#x3C;DescriptorCapability.NONE: 0>, *allocate_address=True, *is_alternate_pan_coordinator=False, *is_coordinator=False, *is_end_device=True, *is_full_function_device=False, *is_mains_powered=False, *is_receiver_on_when_idle=False, *is_router=False, *is_security_capable=False)"</span><span class="token punctuation">,</span>
+  <span class="token property">"endpoints"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"1"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"profile_id"</span><span class="token operator">:</span> <span class="token number">260</span><span class="token punctuation">,</span>
+      <span class="token property">"device_type"</span><span class="token operator">:</span> <span class="token string">"0x0820"</span><span class="token punctuation">,</span> <span class="token comment">// Non colour controller (HA device)</span>
+      <span class="token property">"in_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"0x0000"</span><span class="token punctuation">,</span> <span class="token comment">// Basic</span>
+        <span class="token string">"0x0001"</span><span class="token punctuation">,</span> <span class="token comment">// Power config</span>
+        <span class="token string">"0x0003"</span><span class="token punctuation">,</span> <span class="token comment">// Identify</span>
+        <span class="token string">"0x0009"</span><span class="token punctuation">,</span> <span class="token comment">// Alarms</span>
+        <span class="token string">"0x0020"</span><span class="token punctuation">,</span> <span class="token comment">// Poll Control</span>
+        <span class="token string">"0x1000"</span><span class="token punctuation">,</span> <span class="token comment">// Touch link</span>
+        <span class="token string">"0xfc7c"</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"out_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"0x0003"</span><span class="token punctuation">,</span> <span class="token comment">// Identify</span>
+        <span class="token string">"0x0004"</span><span class="token punctuation">,</span> <span class="token comment">// Groups</span>
+        <span class="token string">"0x0006"</span><span class="token punctuation">,</span> <span class="token comment">// On off</span>
+        <span class="token string">"0x0008"</span><span class="token punctuation">,</span> <span class="token comment">// Level control</span>
+        <span class="token string">"0x0019"</span><span class="token punctuation">,</span> <span class="token comment">// OTA</span>
+        <span class="token string">"0x0102"</span><span class="token punctuation">,</span> <span class="token comment">// Window covering</span>
+        <span class="token string">"0x1000"</span> <span class="token comment">// Touchlink</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"manufacturer"</span><span class="token operator">:</span> <span class="token string">"IKEA of Sweden"</span><span class="token punctuation">,</span>
+  <span class="token property">"model"</span><span class="token operator">:</span> <span class="token string">"TRADFRI on/off switch"</span><span class="token punctuation">,</span>
+  <span class="token property">"class"</span><span class="token operator">:</span> <span class="token string">"zhaquirks.ikea.twobtnremote.IkeaTradfriRemote2Btn"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="tradfri-5-button-remote"><a aria-hidden="true" class="anchor-heading icon-link" href="#tradfri-5-button-remote"></a>Tradfri 5 button Remote</h2>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"node_descriptor"</span><span class="token operator">:</span> <span class="token string">"NodeDescriptor(logical_type=&#x3C;LogicalType.EndDevice: 2>, complex_descriptor_available=0, user_descriptor_available=0, reserved=0, aps_flags=0, frequency_band=&#x3C;FrequencyBand.Freq2400MHz: 8>, mac_capability_flags=&#x3C;MACCapabilityFlags.AllocateAddress: 128>, manufacturer_code=4476, maximum_buffer_size=82, maximum_incoming_transfer_size=82, server_mask=11264, maximum_outgoing_transfer_size=82, descriptor_capability_field=&#x3C;DescriptorCapability.NONE: 0>, *allocate_address=True, *is_alternate_pan_coordinator=False, *is_coordinator=False, *is_end_device=True, *is_full_function_device=False, *is_mains_powered=False, *is_receiver_on_when_idle=False, *is_router=False, *is_security_capable=False)"</span><span class="token punctuation">,</span>
+  <span class="token property">"endpoints"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"1"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"profile_id"</span><span class="token operator">:</span> <span class="token number">260</span><span class="token punctuation">,</span>
+      <span class="token property">"device_type"</span><span class="token operator">:</span> <span class="token string">"0x0820"</span><span class="token punctuation">,</span>
+      <span class="token property">"in_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"0x0000"</span><span class="token punctuation">,</span> <span class="token comment">// Basic</span>
+        <span class="token string">"0x0001"</span><span class="token punctuation">,</span> <span class="token comment">// Power config</span>
+        <span class="token string">"0x0003"</span><span class="token punctuation">,</span> <span class="token comment">// Identify</span>
+        <span class="token string">"0x0020"</span><span class="token punctuation">,</span> <span class="token comment">// Poll Control</span>
+        <span class="token string">"0x1000"</span><span class="token punctuation">,</span> <span class="token comment">// Touch link</span>
+        <span class="token string">"0xfc7c"</span> <span class="token comment">//</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"out_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"0x0003"</span><span class="token punctuation">,</span> <span class="token comment">// Identify</span>
+        <span class="token string">"0x0004"</span><span class="token punctuation">,</span> <span class="token comment">// Groups</span>
+        <span class="token string">"0x0005"</span><span class="token punctuation">,</span> <span class="token comment">// Scenes</span>
+        <span class="token string">"0x0006"</span><span class="token punctuation">,</span> <span class="token comment">// On off</span>
+        <span class="token string">"0x0008"</span><span class="token punctuation">,</span> <span class="token comment">// Level Control</span>
+        <span class="token string">"0x0019"</span><span class="token punctuation">,</span> <span class="token comment">// OTA</span>
+        <span class="token string">"0x1000"</span> <span class="token comment">// Touchlink</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"manufacturer"</span><span class="token operator">:</span> <span class="token string">"IKEA of Sweden"</span><span class="token punctuation">,</span>
+  <span class="token property">"model"</span><span class="token operator">:</span> <span class="token string">"TRADFRI remote control"</span><span class="token punctuation">,</span>
+  <span class="token property">"class"</span><span class="token operator">:</span> <span class="token string">"zhaquirks.ikea.fivebtnremotezha.IkeaTradfriRemote1"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="dut"><a aria-hidden="true" class="anchor-heading icon-link" href="#dut"></a>DUT</h2>
+<pre class="language-json"><code class="language-json"><span class="token property">"node_descriptor"</span><span class="token operator">:</span> <span class="token string">"NodeDescriptor(logical_type=&#x3C;LogicalType.Router: 1>, complex_descriptor_available=0, user_descriptor_available=0, reserved=0, aps_flags=0, frequency_band=&#x3C;FrequencyBand.Freq2400MHz: 8>, mac_capability_flags=&#x3C;MACCapabilityFlags.AllocateAddress|RxOnWhenIdle|MainsPowered|FullFunctionDevice: 142>, manufacturer_code=4660, maximum_buffer_size=108, maximum_incoming_transfer_size=1621, server_mask=11264, maximum_outgoing_transfer_size=1621, descriptor_capability_field=&#x3C;DescriptorCapability.NONE: 0>, *allocate_address=True, *is_alternate_pan_coordinator=False, *is_coordinator=False, *is_end_device=False, *is_full_function_device=True, *is_mains_powered=True, *is_receiver_on_when_idle=True, *is_router=True, *is_security_capable=False)"</span><span class="token punctuation">,</span>
+
+    <span class="token property">"12"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"profile_id"</span><span class="token operator">:</span> <span class="token number">260</span><span class="token punctuation">,</span>
+      <span class="token property">"device_type"</span><span class="token operator">:</span> <span class="token string">"0x0000"</span><span class="token punctuation">,</span> <span class="token comment">// On off switch x</span>
+      <span class="token property">"in_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"0x0000"</span><span class="token punctuation">,</span> <span class="token comment">// Basic x</span>
+        <span class="token string">"0x0003"</span><span class="token punctuation">,</span> <span class="token comment">// Identify x</span>
+        <span class="token string">"0x0007"</span> <span class="token comment">// On off switch config</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"out_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"0x0003"</span><span class="token punctuation">,</span> <span class="token comment">// Identify x</span>
+        <span class="token string">"0x0004"</span><span class="token punctuation">,</span> <span class="token comment">// Groups x</span>
+        <span class="token string">"0x0005"</span><span class="token punctuation">,</span> <span class="token comment">// Scenes</span>
+        <span class="token string">"0x0006"</span> <span class="token comment">// On off x</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/oBfzI1lAvoh15EkLluGjY">On off Switch</a></li>
+</ul>

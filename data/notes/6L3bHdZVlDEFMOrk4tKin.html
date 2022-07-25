@@ -1,0 +1,96 @@
+<h1 id="device-signature"><a aria-hidden="true" class="anchor-heading icon-link" href="#device-signature"></a>Device Signature</h1>
+<h2 id="objective"><a aria-hidden="true" class="anchor-heading icon-link" href="#objective"></a>Objective</h2>
+<p>Perform a comparison between the Philips occupancy sensor and my device.</p>
+<h2 id="results"><a aria-hidden="true" class="anchor-heading icon-link" href="#results"></a>Results</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" checked disabled> Have been able to rule out that device signature being incorrect. The DUT has the sample configuration as the Philips hue, bar some extraneous clusters that I am not yet planning to use. Comparison is below:</li>
+</ul>
+<h3 id="dut"><a aria-hidden="true" class="anchor-heading icon-link" href="#dut"></a>DUT</h3>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"node_descriptor"</span><span class="token operator">:</span> <span class="token string">"NodeDescriptor(logical_type=&#x3C;LogicalType.Router: 1>, complex_descriptor_available=0, user_descriptor_available=0, reserved=0, aps_flags=0, frequency_band=&#x3C;FrequencyBand.Freq2400MHz: 8>, mac_capability_flags=&#x3C;MACCapabilityFlags.AllocateAddress|RxOnWhenIdle|MainsPowered|FullFunctionDevice: 142>, manufacturer_code=4660, maximum_buffer_size=108, maximum_incoming_transfer_size=1621, server_mask=11264, maximum_outgoing_transfer_size=1621, descriptor_capability_field=&#x3C;DescriptorCapability.NONE: 0>, *allocate_address=True, *is_alternate_pan_coordinator=False, *is_coordinator=False, *is_end_device=False, *is_full_function_device=True, *is_mains_powered=True, *is_receiver_on_when_idle=True, *is_router=True, *is_security_capable=False)"</span><span class="token punctuation">,</span>
+  <span class="token property">"endpoints"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"10"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"profile_id"</span><span class="token operator">:</span> <span class="token number">260</span><span class="token punctuation">,</span>
+      <span class="token property">"device_type"</span><span class="token operator">:</span> <span class="token string">"0x0101"</span><span class="token punctuation">,</span>
+      <span class="token property">"in_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"0x0000"</span><span class="token punctuation">,</span>
+        <span class="token string">"0x0003"</span><span class="token punctuation">,</span>
+        <span class="token string">"0x0004"</span><span class="token punctuation">,</span>
+        <span class="token string">"0x0005"</span><span class="token punctuation">,</span>
+        <span class="token string">"0x0006"</span><span class="token punctuation">,</span>
+        <span class="token string">"0x0008"</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"out_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"11"</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token comment">// Arbitrarily chosen endpoint ID</span>
+      <span class="token property">"profile_id"</span><span class="token operator">:</span> <span class="token number">260</span><span class="token punctuation">,</span> <span class="token comment">// Home automation profile ID</span>
+      <span class="token property">"device_type"</span><span class="token operator">:</span> <span class="token string">"0x0107"</span><span class="token punctuation">,</span> <span class="token comment">// Device type of occupancy sensor</span>
+      <span class="token property">"in_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"0x0000"</span><span class="token punctuation">,</span> <span class="token comment">// Basic</span>
+        <span class="token string">"0x0003"</span><span class="token punctuation">,</span> <span class="token comment">// Identify</span>
+        <span class="token string">"0x0406"</span>  <span class="token comment">// Occupancy</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"out_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"242"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"profile_id"</span><span class="token operator">:</span> <span class="token number">41440</span><span class="token punctuation">,</span>
+      <span class="token property">"device_type"</span><span class="token operator">:</span> <span class="token string">"0x0061"</span><span class="token punctuation">,</span>
+      <span class="token property">"in_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"out_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"0x0021"</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"manufacturer"</span><span class="token operator">:</span> <span class="token string">"Nordic"</span><span class="token punctuation">,</span>
+  <span class="token property">"model"</span><span class="token operator">:</span> <span class="token string">"Dimable_Light_v0.2"</span><span class="token punctuation">,</span>
+  <span class="token property">"class"</span><span class="token operator">:</span> <span class="token string">"zigpy.device.Device"</span>
+<span class="token punctuation">}</span>
+
+
+</code></pre>
+<h3 id="philips-hue"><a aria-hidden="true" class="anchor-heading icon-link" href="#philips-hue"></a>Philips Hue</h3>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"node_descriptor"</span><span class="token operator">:</span> <span class="token string">"NodeDescriptor(logical_type=&#x3C;LogicalType.EndDevice: 2>, complex_descriptor_available=0, user_descriptor_available=0, reserved=0, aps_flags=0, frequency_band=&#x3C;FrequencyBand.Freq2400MHz: 8>, mac_capability_flags=&#x3C;MACCapabilityFlags.AllocateAddress: 128>, manufacturer_code=4107, maximum_buffer_size=89, maximum_incoming_transfer_size=63, server_mask=0, maximum_outgoing_transfer_size=63, descriptor_capability_field=&#x3C;DescriptorCapability.NONE: 0>, *allocate_address=True, *is_alternate_pan_coordinator=False, *is_coordinator=False, *is_end_device=True, *is_full_function_device=False, *is_mains_powered=False, *is_receiver_on_when_idle=False, *is_router=False, *is_security_capable=False)"</span><span class="token punctuation">,</span>
+  <span class="token property">"endpoints"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"1"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"profile_id"</span><span class="token operator">:</span> <span class="token number">49246</span><span class="token punctuation">,</span>
+      <span class="token property">"device_type"</span><span class="token operator">:</span> <span class="token string">"0x0850"</span><span class="token punctuation">,</span>
+      <span class="token property">"in_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"0x0000"</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"out_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"0x0000"</span><span class="token punctuation">,</span>
+        <span class="token string">"0x0003"</span><span class="token punctuation">,</span>
+        <span class="token string">"0x0004"</span><span class="token punctuation">,</span>
+        <span class="token string">"0x0005"</span><span class="token punctuation">,</span>
+        <span class="token string">"0x0006"</span><span class="token punctuation">,</span>
+        <span class="token string">"0x0008"</span><span class="token punctuation">,</span>
+        <span class="token string">"0x0300"</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">"2"</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token comment">// Arbitrarily chosen endpoint ID</span>
+      <span class="token property">"profile_id"</span><span class="token operator">:</span> <span class="token number">260</span><span class="token punctuation">,</span> <span class="token comment">// Home automation profile ID (x)</span>
+      <span class="token property">"device_type"</span><span class="token operator">:</span> <span class="token string">"0x0107"</span><span class="token punctuation">,</span> <span class="token comment">// Device type of occupancy sensor (x)</span>
+      <span class="token property">"in_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"0x0000"</span><span class="token punctuation">,</span> <span class="token comment">// Basic (x)</span>
+        <span class="token string">"0x0001"</span><span class="token punctuation">,</span> <span class="token comment">// Power config</span>
+        <span class="token string">"0x0003"</span><span class="token punctuation">,</span> <span class="token comment">// Identify (x)</span>
+        <span class="token string">"0x0400"</span><span class="token punctuation">,</span> <span class="token comment">// Illuminance</span>
+        <span class="token string">"0x0402"</span><span class="token punctuation">,</span> <span class="token comment">// Tempearture measurement</span>
+        <span class="token string">"0x0406"</span> <span class="token comment">// Occupancy (x)</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"out_clusters"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"0x0019"</span> <span class="token comment">// OTA Upgrade</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"manufacturer"</span><span class="token operator">:</span> <span class="token string">"Philips"</span><span class="token punctuation">,</span>
+  <span class="token property">"model"</span><span class="token operator">:</span> <span class="token string">"SML001"</span><span class="token punctuation">,</span>
+  <span class="token property">"class"</span><span class="token operator">:</span> <span class="token string">"zhaquirks.philips.motion.PhilipsMotion"</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/eXaNJpRbWVhz0fxI2kKQl">Occupancy Sensing</a></li>
+</ul>

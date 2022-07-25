@@ -1,0 +1,38 @@
+<h1 id="dendron"><a aria-hidden="true" class="anchor-heading icon-link" href="#dendron"></a>Dendron</h1>
+<h2 id="thoughts-on-creating-dendron-support-in-neovim"><a aria-hidden="true" class="anchor-heading icon-link" href="#thoughts-on-creating-dendron-support-in-neovim"></a>Thoughts on creating Dendron support in Neovim</h2>
+<p><a href="https://wiki.dendron.so/notes/6iPfPKI8nOwQLVF6KgfJU/">2021-11-24 Office Hours</a></p>
+<p><a href="https://www.youtube.com/watch?v=LuoD8ibOazE">Dendron Office Hours | 2021-11-24</a></p>
+<p>33:30 Q&#x26;A: Dendron's Client/Server Design vs. Pure CLI</p>
+<ul>
+<li>Dendron uses a client/server architecture (express server) but it does not yet support LSP
+<ul>
+<li>Could use <a href="https://github.com/neovim/node-client">GitHub - neovim/node-client: Nvim Node.js client and plugin host</a> to communicate with the server? Could maybe just for the client part of dendron</li>
+<li>LSP is planned, at which point SOME of the features could be accessed by biult in LSP or coc
+<ul>
+<li>Creating a coc-plugin
+<ul>
+<li><a href="https://samroeca.com/coc-plugin.html">How to write a coc.nvim extension | Sam's world</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>There is also a CLI but that would involve parsing strings from pipes or something like that</li>
+</ul>
+<p>Someone's early work on CLI integration</p>
+<p><a href="https://github.com/icedwater/vimdendron/blob/main/dendron.vim">vimdendron/dendron.vim at main · icedwater/vimdendron</a></p>
+<h2 id="rendering-on-markdown"><a aria-hidden="true" class="anchor-heading icon-link" href="#rendering-on-markdown"></a>Rendering on markdown</h2>
+<ul>
+<li>
+<p>Markdown preview via coc</p>
+<ul>
+<li>
+<p><a href="https://github.com/weirongxu/coc-markdown-preview-enhanced">GitHub - weirongxu/coc-markdown-preview-enhanced: Markdown Preview Enhanced for coc.nvim</a></p>
+</li>
+<li>
+<p>It uses webview: <a href="https://github.com/weirongxu/coc-webview">GitHub - weirongxu/coc-webview: Using an external browser to support the webview in coc.nvim.</a></p>
+</li>
+</ul>
+</li>
+</ul>

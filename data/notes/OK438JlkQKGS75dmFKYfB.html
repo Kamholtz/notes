@@ -1,0 +1,119 @@
+<h1 id="setup"><a aria-hidden="true" class="anchor-heading icon-link" href="#setup"></a>Setup</h1>
+<h2 id="files-and-links"><a aria-hidden="true" class="anchor-heading icon-link" href="#files-and-links"></a>Files and Links</h2>
+<ul>
+<li>
+<p>Where to create new notes</p>
+<p><img src="/notes/assets/images/20220130092308.png"></p>
+</li>
+<li>
+<p>Where to store attachments/images</p>
+<p><img src="/notes/assets/images/20220130092423.png"></p>
+</li>
+<li>
+<p>Relative links</p>
+<ul>
+<li>
+<p>Using <code>Shortest path when possible</code> will result in pasted images being linked to incorrectly</p>
+<ul>
+<li>The image will be copied (corectly) into <code>assets/images</code> but the link will look like <code>![](img.png)</code> where there is no path specified. Dendron will not be able to resolve the image's location</li>
+</ul>
+<p><img src="/notes/assets/images/20220130092446.png"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Use markdown links if you mostly add images, use wiki-links if you mostly write notes linking to other notes (this will be further addressed in the plugins section)</p>
+</li>
+</ul>
+<h2 id="plugins"><a aria-hidden="true" class="anchor-heading icon-link" href="#plugins"></a>Plugins</h2>
+<h3 id="wikilinks-to-mdlinks"><a aria-hidden="true" class="anchor-heading icon-link" href="#wikilinks-to-mdlinks"></a>Wikilinks to MDLinks</h3>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" checked disabled> Obsidian only allows ALL markdown links or ALL wikilinks while Dendron uses wiki links for notes and markdown links for images
+<ul>
+<li>Need a plugin that can paste images with markdown links while continuing to use wikilinks for note links
+<ul>
+<li>Could do manual conversation using: <a href="https://github.com/agathauy/wikilinks-to-mdlinks-obsidian">GitHub - agathauy/wikilinks-to-mdlinks-obsidian: An Obsidian md plugin which allows for the conversion of individually selected wikilinks to markdown links, and vice versa.</a></li>
+<li>Shortcut is <code>ctrl + shift + L</code></li>
+<li>Is it possible to add shortcut to this command on toolbar?
+<ul>
+<li>Yes it is!</li>
+</ul>
+</li>
+<li>Relevant FR: <a href="https://forum.obsidian.md/t/have-separate-use-markdown-links-options-for-internal-and-external-links/25527">Have separate "Use Markdown links" options for internal and external links</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="custom-attachment-location"><a aria-hidden="true" class="anchor-heading icon-link" href="#custom-attachment-location"></a>Custom attachment location</h3>
+<ul>
+<li>
+<p>Images with spaces in the name (represented as <code>%</code>) do not get displayed in Dendron. Obisidian creates filenames with spaces for pasted images by default</p>
+<ul>
+<li>
+<p>Example: <code>![](assets/images/Pasted%20image%2020220130092423.png)</code></p>
+<ul>
+<li><a href="https://github.com/dendronhq/dendron/issues/2228">File links with spaces · Issue #2228 · dendronhq/dendron</a></li>
+<li><a href="https://github.com/dendronhq/dendron/issues/200">Bug: Image Markdown fails with spaces and caps in name of file · Issue #200 · dendronhq/dendron</a></li>
+</ul>
+</li>
+<li>
+<p><del>Workaround: immediately rename the file within Obsidian to not have spaces</del></p>
+<ul>
+<li><del>Obsidian will update the reference to the file</del></li>
+</ul>
+</li>
+<li>
+<p>Use the following plugin to change the pasted image name format: <a href="https://github.com/RainCat1998/obsidian-custom-attachment-location">RainCat1998/obsidian-custom-attachment-location: Customize attachment location with variables($filename, $data, etc) like typora. (github.com)</a></p>
+<ul>
+<li>Relevant setings:
+<img src="/notes/assets/images/img-20220130121310253.png" alt="assets/images/img-20220130121310253.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="breadcrumbs"><a aria-hidden="true" class="anchor-heading icon-link" href="#breadcrumbs"></a>Breadcrumbs</h3>
+<h4 id="views"><a aria-hidden="true" class="anchor-heading icon-link" href="#views"></a>Views</h4>
+<h5 id="trailgridjuggl"><a aria-hidden="true" class="anchor-heading icon-link" href="#trailgridjuggl"></a>Trail/Grid/Juggl</h5>
+<ul>
+<li>
+<p>Enable showing trail view for <code>up</code> in <code>Limit Trail View to only show certain fields</code></p>
+<p><img src="/notes/assets/images/20220130093924.png"></p>
+</li>
+<li>
+<p><del>Specify <code>Index Notes(s)</code> as <code>root</code> (yet to see this actually take effect in trail-view)</del></p>
+<ul>
+<li>Do not specify <code>root</code>. It seems to prevent breadcrumbs trail view working even though other views will correctly show the up relationship</li>
+</ul>
+<p><img src="/notes/assets/images/20220130094001.png"></p>
+</li>
+</ul>
+<h4 id="alternative-hierarchies"><a aria-hidden="true" class="anchor-heading icon-link" href="#alternative-hierarchies"></a>Alternative Hierarchies</h4>
+<h5 id="dendron-notes"><a aria-hidden="true" class="anchor-heading icon-link" href="#dendron-notes"></a>Dendron Notes</h5>
+<ul>
+<li>
+<p>Enable <code>Add Dendron notes to graph</code></p>
+<p><img src="/notes/assets/images/20220130094021.png"></p>
+</li>
+<li>
+<p>Enable <code>Trim Dendron Note Names</code> (useful on mobile) and in "trail view"</p>
+<p><img src="/notes/assets/images/20220130094034.png"></p>
+</li>
+</ul>
+<h2 id="outstanding-issues"><a aria-hidden="true" class="anchor-heading icon-link" href="#outstanding-issues"></a>Outstanding Issues</h2>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> My Dendron notes repo has a Dendron workspace as the root level to support publishing. One of its children is a <code>vault</code>. When checking out the notes on iOS it isn't possible to select the <code>vault</code> folder as root, so maybe iOS could checkout a the <code>vault</code> subdirectory instead of the root of the repo.</li>
+<li class="task-list-item"><input type="checkbox" disabled> Dendron front matter (e.g. id) isn't created, so need to fun <code>Dendron: Doctor</code> command within VSCode</li>
+<li class="task-list-item"><input type="checkbox" disabled> Equivalent of <code>Dendron: Go Down</code> command in Obsidian</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Image links created in Dendron start with <code>/assets</code>. They do not resolve in this vault within obsidian. This is likely due to root of the vault being one directory above all of the notes and the path starting with <code>/</code> being interpreted as absolute.
+<ul>
+<li>in contrast, obsidian creates links do not start with the slash and are thus relative</li>
+<li>Images links in Obsidian were being prefixed with <code>/</code> due to a setting in <code>Dendron Paste Image</code> called <code>pasteImage.prefix="/"</code>
+<ul>
+<li>Changing it to <code>pasteImage.prefix=""</code> results in proper relative links that Obisidian is able to resolve</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>

@@ -1,0 +1,78 @@
+<h1 id="quirks"><a aria-hidden="true" class="anchor-heading icon-link" href="#quirks"></a>Quirks</h1>
+<p>Components of a quirk</p>
+<ul>
+<li>Signature - To identify and apply the correct quirk</li>
+<li>Replacement - To allow Zigpy and ZHA to correctly work with the device</li>
+<li>device_automation_triggers - To let the Home Assistant Device Automation engine and users interact with the device</li>
+</ul>
+<h2 id="example-of-tradfri-5-button-remote-quirk"><a aria-hidden="true" class="anchor-heading icon-link" href="#example-of-tradfri-5-button-remote-quirk"></a>Example of Tradfri 5 Button Remote Quirk</h2>
+<p><a href="https://github.com/zigpy/zha-device-handlers/blob/dev/zhaquirks/ikea/fivebtnremotezha.py">zha-device-handlers/fivebtnremotezha.py at dev · zigpy/zha-device-handlers</a></p>
+<h3 id="device_automation_triggers"><a aria-hidden="true" class="anchor-heading icon-link" href="#device_automation_triggers"></a>device_automation_triggers</h3>
+<pre class="language-python"><code class="language-python"> device_automation_triggers <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">(</span>SHORT_PRESS<span class="token punctuation">,</span> TURN_ON<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> <span class="token comment"># Indicates the text the user will see in the triggers UI</span>
+            <span class="token comment"># Uniquely match the event</span>
+            COMMAND<span class="token punctuation">:</span> COMMAND_TOGGLE<span class="token punctuation">,</span> <span class="token comment"># Command ID for the specific cluster</span>
+            CLUSTER_ID<span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token comment"># On off cluster ID</span>
+            ENDPOINT_ID<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token comment"># Arbitrary endpoint ID - this limits the flexibility of creating custom zigbee devices without also generating a custom quirk for each endpoint</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span>LONG_PRESS<span class="token punctuation">,</span> TURN_ON<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            COMMAND<span class="token punctuation">:</span> COMMAND_RELEASE<span class="token punctuation">,</span> <span class="token comment"># Not sure which command this is, the scenes cluster doesn't specify a command named "release"</span>
+            CLUSTER_ID<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token comment"># scenes</span>
+            ENDPOINT_ID<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            ARGS<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span>SHORT_PRESS<span class="token punctuation">,</span> DIM_UP<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            COMMAND<span class="token punctuation">:</span> COMMAND_STEP_ON_OFF<span class="token punctuation">,</span>
+            CLUSTER_ID<span class="token punctuation">:</span> <span class="token number">8</span><span class="token punctuation">,</span>
+            ENDPOINT_ID<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            ARGS<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">43</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment"># Argument for the command</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span>LONG_PRESS<span class="token punctuation">,</span> DIM_UP<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            COMMAND<span class="token punctuation">:</span> COMMAND_MOVE_ON_OFF<span class="token punctuation">,</span>
+            CLUSTER_ID<span class="token punctuation">:</span> <span class="token number">8</span><span class="token punctuation">,</span>
+            ENDPOINT_ID<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            ARGS<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">83</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span>SHORT_PRESS<span class="token punctuation">,</span> DIM_DOWN<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            COMMAND<span class="token punctuation">:</span> COMMAND_STEP<span class="token punctuation">,</span>
+            CLUSTER_ID<span class="token punctuation">:</span> <span class="token number">8</span><span class="token punctuation">,</span>
+            ENDPOINT_ID<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            ARGS<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">43</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span>LONG_PRESS<span class="token punctuation">,</span> DIM_DOWN<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            COMMAND<span class="token punctuation">:</span> COMMAND_MOVE<span class="token punctuation">,</span>
+            CLUSTER_ID<span class="token punctuation">:</span> <span class="token number">8</span><span class="token punctuation">,</span>
+            ENDPOINT_ID<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            ARGS<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">83</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span>SHORT_PRESS<span class="token punctuation">,</span> LEFT<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            COMMAND<span class="token punctuation">:</span> COMMAND_PRESS<span class="token punctuation">,</span>
+            CLUSTER_ID<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+            ENDPOINT_ID<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            ARGS<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">257</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span>LONG_PRESS<span class="token punctuation">,</span> LEFT<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            COMMAND<span class="token punctuation">:</span> COMMAND_HOLD<span class="token punctuation">,</span>
+            CLUSTER_ID<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+            ENDPOINT_ID<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            ARGS<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">3329</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span>SHORT_PRESS<span class="token punctuation">,</span> RIGHT<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            COMMAND<span class="token punctuation">:</span> COMMAND_PRESS<span class="token punctuation">,</span>
+            CLUSTER_ID<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+            ENDPOINT_ID<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            ARGS<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">256</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span>LONG_PRESS<span class="token punctuation">,</span> RIGHT<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+            COMMAND<span class="token punctuation">:</span> COMMAND_HOLD<span class="token punctuation">,</span>
+            CLUSTER_ID<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+            ENDPOINT_ID<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            ARGS<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">3328</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/oBfzI1lAvoh15EkLluGjY">On off Switch</a></li>
+</ul>

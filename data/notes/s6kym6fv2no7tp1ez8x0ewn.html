@@ -1,0 +1,26 @@
+<h1 id="vim-chrome-devtools"><a aria-hidden="true" class="anchor-heading icon-link" href="#vim-chrome-devtools"></a>Vim Chrome Devtools</h1>
+<p><a href="https://github.com/carlosrocha/vim-chrome-devtools">GitHub - carlosrocha/vim-chrome-devtools: Neovim integration with Chrome DevTools</a></p>
+<p>I have not succeeded on getting this to work on windows yet, but the following steps seem to be in the right direction</p>
+<h2 id="installation-on-windows"><a aria-hidden="true" class="anchor-heading icon-link" href="#installation-on-windows"></a>Installation on Windows</h2>
+<p>The install script in the installation folder, <code>install.sh</code> does not work on windows. Perhaps in WSL, but I could not get that to work either. The script contains:</p>
+<p>Root installation folder: <code>C:\Users\xxx\AppData\Local\nvim-data\site\pack\packer\start\vim-chrome-devtools</code></p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> --prefix<span class="token operator">=</span>rplugin/node/vim-chrome-devtools <span class="token function">install</span> <span class="token operator">&#x26;&#x26;</span> <span class="token function">npm</span> --prefix<span class="token operator">=</span>rplugin/node/vim-chrome-devtools run build
+</code></pre>
+<p>Which seems to just install and build the remote plugin in the <code>--prefix</code> folder. Simply running this from the root installation folder did not work. Seemingly the <code>--prefix</code> option did not apply and <code>&#x26;&#x26;</code> was not recognised in powershell. I did the following steps instead:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">cd</span> rplugin/node/vim-chrome-devtools
+<span class="token function">npm</span> <span class="token function">install</span>
+<span class="token function">npm</span> run build
+<span class="token function">npm</span> <span class="token function">install</span> -g neovim
+</code></pre>
+<p>I subsequently ran <code>:UpdateRemotePlugins</code> in neovim</p>
+<h2 id="launching-an-edge-instance-with-a-debugging-port"><a aria-hidden="true" class="anchor-heading icon-link" href="#launching-an-edge-instance-with-a-debugging-port"></a>Launching an Edge instance with a debugging port</h2>
+<pre class="language-bash"><code class="language-bash">C:<span class="token punctuation">\</span>Program Files <span class="token punctuation">(</span>x86<span class="token punctuation">)</span><span class="token punctuation">\</span>Microsoft<span class="token punctuation">\</span>Edge<span class="token punctuation">\</span>Application<span class="token operator">></span> .<span class="token punctuation">\</span>msedge.exe --remote-debugging-port<span class="token operator">=</span><span class="token number">9222</span>
+</code></pre>
+<ul>
+<li>Perhaps this really only works with <code>Chrome</code> and not just browsers using the chrome engine.
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" checked disabled> Tested on chrome instead. I did not receive an error about the connection being rejected on <code>:ChromeDevToolsConnect</code> but also did not see confirmation</li>
+<li><code>C:\Program Files\Google\Chrome\Application> .\chrome.exe --remote-debugging-port=9222</code></li>
+</ul>
+</li>
+</ul>

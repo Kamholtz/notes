@@ -1,0 +1,15 @@
+<h1 id="apt-fix-broken-install"><a aria-hidden="true" class="anchor-heading icon-link" href="#apt-fix-broken-install"></a>Apt Fix Broken Install</h1>
+<p>Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+You might want to run 'apt --fix-broken install' to correct these.
+The following packages have unmet dependencies:
+emacs25 : Depends: emacs25-common but it is not installed
+E: Unmet dependencies. Try 'apt --fix-broken install' with no packages (or specify a solution).</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">sudo</span> dpkg -i --force-overwrite /var/cache/apt/archives/emacs27-common_27.1~1.git86d8d76aa3-kk2+18.04_all.deb <span class="token operator">&#x26;&#x26;</span> <span class="token function">sudo</span> <span class="token function">apt-get</span> -f <span class="token function">install</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/3f4d3007-34ed-4813-90c3-f51ffff12f82">Installation</a></li>
+</ul>

@@ -1,0 +1,14 @@
+<h1 id="getting-started"><a aria-hidden="true" class="anchor-heading icon-link" href="#getting-started"></a>Getting Started</h1>
+<h2 id="browser--nodejs-target"><a aria-hidden="true" class="anchor-heading icon-link" href="#browser--nodejs-target"></a>Browser + NodeJs Target</h2>
+<p><a href="https://jiyinyiyong.medium.com/a-beginner-guide-to-compile-clojurescript-with-shadow-cljs-26369190b786">A beginner guide to compile ClojureScript with shadow-cljs</a></p>
+<p><a href="https://shadow-cljs.github.io/docs/UsersGuide.html#js-deps">Shadow CLJS User’s Guide</a></p>
+<h3 id="issues"><a aria-hidden="true" class="anchor-heading icon-link" href="#issues"></a>Issues</h3>
+<blockquote>
+<p>No available JS runtime.
+See <a href="https://shadow-cljs.github.io/docs/UsersGuide.html#repl-troubleshootingNo">https://shadow-cljs.github.io/docs/UsersGuide.html#repl-troubleshootingNo</a> available JS runtime.</p>
+</blockquote>
+<p>Make sure you connect to the running app with the following. If you don't, the JS runtime will not be available.</p>
+<pre class="language-bash"><code class="language-bash">shadow-cljs <span class="token function">watch</span> app
+<span class="token comment"># in another terminal</span>
+<span class="token function">node</span> target/main.js
+</code></pre>

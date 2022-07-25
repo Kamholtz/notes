@@ -1,0 +1,672 @@
+<h1 id="vim"><a aria-hidden="true" class="anchor-heading icon-link" href="#vim"></a>VIM</h1>
+<h2 id="todo"><a aria-hidden="true" class="anchor-heading icon-link" href="#todo"></a>ToDo</h2>
+<ul class="contains-task-list">
+<li class="task-list-item">
+<p><input type="checkbox" disabled> How to prevent <a href="/notes/notes/kr1lrawq1ne5bjq7yyvxus4">Project Nvim</a> from throwing errors on finding root when opening a diff/fugitive buffer <a href="https://github.com/ahmedkhalf/project.nvim">GitHub - ahmedkhalf/project.nvim: The superior project management solution for neovim.</a></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" checked disabled> Open in Visual Studio from NVIM</p>
+<ul class="contains-task-list">
+<li>
+<p>Change file saving to use <code>aniseed.spit</code> instead of <code>:!</code> command</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled> Try using vim dispatch or plenary to asyncronously open things in VS <a href="https://github.com/tpope/vim-dispatch">GitHub - tpope/vim-dispatch: dispatch.vim: Asynchronous build and test dispatcher</a></p>
+<ul>
+<li>Could not get plenary to work, but plain <a href="/notes/notes/s3ibshdy8z3ang12arl3teq">Loop Uv</a> was possible (but more verbose and fiddly)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Determine why this happens with <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">vim.plugins.vim-sexp-mappings-for-regular-people (Private)</a> <a href="https://github.com/tpope/vim-sexp-mappings-for-regular-people/issues/6">barfage and slurpage not working · Issue #6 · tpope/vim-sexp-mappings-for-regular-people</a></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled> Try replacing auto-session with <a href="https://github.com/jedrzejboczar/possession.nvim">GitHub - jedrzejboczar/possession.nvim: Flexible session management for Neovim.</a></p>
+</li>
+<li>
+<p>A way to set cursor position on commandline <a href="https://stackoverflow.com/questions/13511084/vim-set-cursor-position-in-command-line">VIM set cursor position in Command Line</a></p>
+</li>
+</ul>
+<h2 id="plugins"><a aria-hidden="true" class="anchor-heading icon-link" href="#plugins"></a>Plugins</h2>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Abolish</span></div>
+<a href="/notes/notes/18c0a328-c14e-4c8f-af70-c307866d9360" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="coersion"><a aria-hidden="true" class="anchor-heading icon-link" href="#coersion"></a>Coersion</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Operation</th><th>Command</th></tr></thead><tbody><tr><td>Kebab case</td><td><code>crk</code></td></tr></tbody></table>
+</div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">BQF</span></div>
+<a href="/notes/notes/yKQ1xm5NmPYUeka4Ka8t8" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="using-with-fennel"><a aria-hidden="true" class="anchor-heading icon-link" href="#using-with-fennel"></a>Using with fennel</h2>
+<p>This plugin does not seem to work immediately with fennel when loaded with packer. Errors indicated that despite being installed, BQF was not loaded into cache and thus wasn't acccessible when <code>require('bqf')</code> was called. Checking <a href="/notes/notes/WTOayRgwzPoZLdjbNvJgA">Packer Status</a> showed that BQF was not yet loaded. Simply opening quickfix with <code>:copen</code> loads the plugin (which was verified in <code>packer status</code>). At this point <code>require('bqf')</code> will work and <a href="/notes/notes/UgAMWwAnXSxvC0PQ9zZve">Packer Compile</a> can be called. From this point on, when <code>nvim</code> is run it <code>bqf</code> will be loaded correctly.</p>
+</div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Coc</span></div>
+<a href="/notes/notes/Vp6KhJahXsNNsM0pdfZm4" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div>
+</div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Clangd</span></div>
+<a href="/notes/notes/1Kag9iDQD0sVnvP4NTrLi" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="prerequisites"><a aria-hidden="true" class="anchor-heading icon-link" href="#prerequisites"></a>Prerequisites</h2>
+<p>Install clangd which is in llvm:</p>
+<p><a href="https://llvm.org/">The LLVM Compiler Infrastructure Project</a></p>
+<ul>
+<li>Successfully using v13.0.0 on Windows (though not all definitions can be found in the project I was testing with...)</li>
+<li>Make sure it is added to path during installation</li>
+</ul>
+<h2 id="creating-compile_commandsjson"><a aria-hidden="true" class="anchor-heading icon-link" href="#creating-compile_commandsjson"></a>Creating compile_commands.json</h2>
+<p>The following is taken from my own comments on this gist:</p>
+<p><a href="https://gist.github.com/neta540/9e65261be52d6cd4d6c17399b78d34bb">PlatformIO-vim.md</a></p>
+<p>Clangd require a compilation database<a href="https://clangd.llvm.org/config#compilationdatabase">Configuration</a>.</p>
+<p>I am guessing everyone here has likely moved to ccls. I personally could not get ccls working on windows. I found that you can get platformio to generate a <code>compile_commands.json</code> file for you using the following command:</p>
+<pre class="language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">pio</span> run <span class="token parameter attr-name">-t</span> compiledb</span>
+</code></pre>
+<p>This uses the target param <code>-t</code> to create the <code>compile_commands.json</code>. Could possibly specify the target in <code>platform.ini</code> file</p>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Targets</span></div>
+<a href="/notes/notes/CI0VR2ZzHRTz7VEpyqPH7" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="settings-targets-in-platformioini"><a aria-hidden="true" class="anchor-heading icon-link" href="#settings-targets-in-platformioini"></a>Settings targets in platformio.ini</h2>
+<pre class="language-ini"><code class="language-ini"><span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">env:upload_and_monitor</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">targets</span> <span class="token punctuation">=</span> <span class="token value attr-value">upload, monitor</span>
+</code></pre></div></div><p></p><p></p>
+<p>By default the <code>compile_commands.json</code> file ends up in a directory that clangd will not detect. In my case it was <code>/.pio/build/nodemcuv2</code>. There is a <code>:CocConfig</code> param for clangd called <code>compilationDatabasePath</code> but that did not seem to work for me (config found here: <a href="https://github.com/clangd/coc-clangd#configurations">GitHub - clangd/coc-clangd: clangd extension for coc.nvim</a>), so I used the work around detailed in <a href="https://docs.platformio.org/en/latest/integration/compile_commands.html">Compilation database compile_commands.json — PlatformIO latest documentation</a> which uses a python script to change the where the <code>compile_commands.json</code> is created.</p>
+<p><code>platformio.ini:</code></p>
+<pre class="language-ini"><code class="language-ini"><span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">env:myenv</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">platform</span> <span class="token punctuation">=</span> <span class="token value attr-value">...</span>
+<span class="token key attr-name">board</span> <span class="token punctuation">=</span> <span class="token value attr-value">...</span>
+<span class="token key attr-name">extra_scripts</span> <span class="token punctuation">=</span> <span class="token value attr-value">post:extra_script.py</span>
+</code></pre>
+<p><code>extra_script.py:</code></p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> os
+Import<span class="token punctuation">(</span><span class="token string">"env"</span><span class="token punctuation">)</span>
+
+env<span class="token punctuation">.</span>Replace<span class="token punctuation">(</span>COMPILATIONDB_PATH<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">"$PROJECT_DIR"</span><span class="token punctuation">,</span> <span class="token string">"compile_commands.json"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+</code></pre>
+<p><del>There is also a <code>--compile-commands-dir</code> option for <code>clangd</code> which might be worth investigating.</del></p>
+<h2 id="detecting-compile_commandsjson-with-clangd"><a aria-hidden="true" class="anchor-heading icon-link" href="#detecting-compile_commandsjson-with-clangd"></a>Detecting compile_commands.json with clangd</h2>
+<p><a href="https://github.com/clangd/coc-clangd/issues/77">Would coc-clangd find compilation database under current directory or parent path ? · Issue #77 · clangd/coc-clangd</a></p>
+<p>I can now confirm that the following <code>:CocLocalConfg</code> will detect the <code>compile_commands.json</code> file in the specified directory using <code>clangd.args</code> and <code>--compile-commands-dir</code>:</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"languageserver"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"clangd"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"command"</span><span class="token operator">:</span> <span class="token string">"clangd"</span><span class="token punctuation">,</span>
+      <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"--background-index"</span><span class="token punctuation">,</span> <span class="token string">"--compile-commands-dir"</span><span class="token punctuation">,</span> <span class="token string">".pio/build/nodemcuv2"</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"rootPatterns"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"compile_flags.txt"</span><span class="token punctuation">,</span>
+        <span class="token string">"compile_commands.json"</span><span class="token punctuation">,</span>
+        <span class="token string">".vim/"</span><span class="token punctuation">,</span>
+        <span class="token string">".git/"</span><span class="token punctuation">,</span>
+        <span class="token string">".hg/"</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"filetypes"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"cpp"</span><span class="token punctuation">,</span> <span class="token string">"objc"</span><span class="token punctuation">,</span> <span class="token string">"objcpp"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="per-file-compilation-database"><a aria-hidden="true" class="anchor-heading icon-link" href="#per-file-compilation-database"></a>Per-file compilation database</h2>
+<p><a href="https://github.com/clangd/coc-clangd/issues/182">Add the possibility to specify per-file compilation database path · Issue #182 · clangd/coc-clangd</a></p></div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Xml</span></div>
+<a href="/notes/notes/sbAxWwgTaQJiZP9J30kRQ" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p>Set environment variable <code>JAVA_HOME=C:\Users\c.kamholtz\bin\openjdk\</code></p>
+<p>Could not manage to find java JDK using coc-config.json</p>
+</div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Conjure</span></div>
+<a href="/notes/notes/t71luhqewy42u3a3qeemgsw" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div>
+</div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Hy</span></div>
+<a href="/notes/notes/5pwahznstlwy6121godj0r7" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p>Plugin to recognise hy filetypes is needed for conjure to detect hy files:</p>
+<p><a href="https://github.com/hylang/vim-hy">GitHub - hylang/vim-hy: Vim files and plugins for Hy</a></p>
+<ul>
+<li>Install the python neovim client <code>pip3 install pynvim</code> (or just <code>pip</code> if <code>python</code> itself is aliased to <code>python3</code>)</li>
+<li>Check that hy is installed with <code>:python import hy</code></li>
+<li>Make sure python scripts are available from path <code>C:\Users\xxx\AppData\Roaming\Python\Python310\Scripts\</code> as that is where <code>hy.exe</code> is located</li>
+</ul>
+</div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Python</span></div>
+<a href="/notes/notes/kshyhpkohl8klsjrwbj6bhm" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p>A python client does not exist yet. I tried implementing one using the <a href="/notes/notes/5pwahznstlwy6121godj0r7">Hy</a> client as a base but have not had success.</p>
+<p>The major issue I encountered is that the python process spawned does not seem response. <a href="https://github.com/search?q=uv.spawn%28%22python%22%29&#x26;type=code">Search results for uv.spawn("python"...)</a> are very siilar to what is done in Conjure.</p>
+<p>Some relevant information:</p>
+<ul>
+<li><a href="https://github.com/Olical/conjure/issues/134">Initial Python client support · Issue #134 · Olical/conjure</a></li>
+</ul>
+<h2 id="setting-up-dev-environment"><a aria-hidden="true" class="anchor-heading icon-link" href="#setting-up-dev-environment"></a>Setting up dev environment</h2>
+<ul>
+<li>Make sure python is installed</li>
+<li>Install the treesitter grammar for python in, otherwise the form evaluations won't work and there will not be an error
+<ul>
+<li><code>TSInstall python</code></li>
+</ul>
+</li>
+<li>Install IPython
+<ul>
+<li><code>python3 -m pip install IPython</code></li>
+</ul>
+</li>
+<li>Install matplot lib
+<ul>
+<li><code>python3 -m pip install matplotlib</code></li>
+<li>Note that this will not work in <a href="/notes/notes/pswie0by1v5cbqyy6137hf1">WSL2</a>. You will see the following error
+<blockquote>
+<p>UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.↵</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Dap</span></div>
+<a href="/notes/notes/GN76f6hs3wdwVO4xJAfEQ" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p>Overall guide with suggested keymaps, ui, telescope</p>
+<p><a href="https://alpha2phi.medium.com/neovim-dap-enhanced-ebc730ff498b">Neovim DAP Enhanced</a></p>
+<h2 id="installation"><a aria-hidden="true" class="anchor-heading icon-link" href="#installation"></a>Installation</h2>
+<p><a href="https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation">Debug Adapter installation · mfussenegger/nvim-dap Wiki</a></p>
+<blockquote>
+<p>build vscode-chrome-debug</p>
+<p>git clone <a href="https://github.com/Microsoft/vscode-chrome-debug">https://github.com/Microsoft/vscode-chrome-debug</a>
+cd ./vscode-chrome-debug
+npm install
+npm run build
+add the adapter cfg:</p>
+</blockquote>
+<p>Notice that the path to vscode-chrome-debug needs to be set</p>
+<pre class="language-lua"><code class="language-lua">dap<span class="token punctuation">.</span>adapters<span class="token punctuation">.</span>chrome <span class="token operator">=</span> <span class="token punctuation">{</span>
+    type <span class="token operator">=</span> <span class="token string">"executable"</span><span class="token punctuation">,</span>
+    command <span class="token operator">=</span> <span class="token string">"node"</span><span class="token punctuation">,</span>
+    args <span class="token operator">=</span> <span class="token punctuation">{</span>os<span class="token punctuation">.</span><span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"HOME"</span><span class="token punctuation">)</span> <span class="token operator">..</span> <span class="token string">"/path/to/vscode-chrome-debug/out/src/chromeDebug.js"</span><span class="token punctuation">}</span> <span class="token comment">-- TODO adjust</span>
+<span class="token punctuation">}</span>
+
+dap<span class="token punctuation">.</span>configurations<span class="token punctuation">.</span>javascriptreact <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token comment">-- change this to javascript if needed</span>
+    <span class="token punctuation">{</span>
+        type <span class="token operator">=</span> <span class="token string">"chrome"</span><span class="token punctuation">,</span>
+        request <span class="token operator">=</span> <span class="token string">"attach"</span><span class="token punctuation">,</span>
+        program <span class="token operator">=</span> <span class="token string">"${file}"</span><span class="token punctuation">,</span>
+        cwd <span class="token operator">=</span> vim<span class="token punctuation">.</span>fn<span class="token punctuation">.</span><span class="token function">getcwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        sourceMaps <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+        protocol <span class="token operator">=</span> <span class="token string">"inspector"</span><span class="token punctuation">,</span>
+        port <span class="token operator">=</span> <span class="token number">9222</span><span class="token punctuation">,</span>
+        webRoot <span class="token operator">=</span> <span class="token string">"${workspaceFolder}"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+dap<span class="token punctuation">.</span>configurations<span class="token punctuation">.</span>typescriptreact <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token comment">-- change to typescript if needed</span>
+    <span class="token punctuation">{</span>
+        type <span class="token operator">=</span> <span class="token string">"chrome"</span><span class="token punctuation">,</span>
+        request <span class="token operator">=</span> <span class="token string">"attach"</span><span class="token punctuation">,</span>
+        program <span class="token operator">=</span> <span class="token string">"${file}"</span><span class="token punctuation">,</span>
+        cwd <span class="token operator">=</span> vim<span class="token punctuation">.</span>fn<span class="token punctuation">.</span><span class="token function">getcwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        sourceMaps <span class="token operator">=</span> <span class="token keyword">true</span><span class="token punctuation">,</span>
+        protocol <span class="token operator">=</span> <span class="token string">"inspector"</span><span class="token punctuation">,</span>
+        port <span class="token operator">=</span> <span class="token number">9222</span><span class="token punctuation">,</span>
+        webRoot <span class="token operator">=</span> <span class="token string">"${workspaceFolder}"</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Dendron</span></div>
+<a href="/notes/notes/cAD0INalu1NbwRP1DNeIz" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="thoughts-on-creating-dendron-support-in-neovim"><a aria-hidden="true" class="anchor-heading icon-link" href="#thoughts-on-creating-dendron-support-in-neovim"></a>Thoughts on creating Dendron support in Neovim</h2>
+<p><a href="https://wiki.dendron.so/notes/6iPfPKI8nOwQLVF6KgfJU/">2021-11-24 Office Hours</a></p>
+<p><a href="https://www.youtube.com/watch?v=LuoD8ibOazE">Dendron Office Hours | 2021-11-24</a></p>
+<p>33:30 Q&#x26;A: Dendron's Client/Server Design vs. Pure CLI</p>
+<ul>
+<li>Dendron uses a client/server architecture (express server) but it does not yet support LSP
+<ul>
+<li>Could use <a href="https://github.com/neovim/node-client">GitHub - neovim/node-client: Nvim Node.js client and plugin host</a> to communicate with the server? Could maybe just for the client part of dendron</li>
+<li>LSP is planned, at which point SOME of the features could be accessed by biult in LSP or coc
+<ul>
+<li>Creating a coc-plugin
+<ul>
+<li><a href="https://samroeca.com/coc-plugin.html">How to write a coc.nvim extension | Sam's world</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>There is also a CLI but that would involve parsing strings from pipes or something like that</li>
+</ul>
+<p>Someone's early work on CLI integration</p>
+<p><a href="https://github.com/icedwater/vimdendron/blob/main/dendron.vim">vimdendron/dendron.vim at main · icedwater/vimdendron</a></p>
+<h2 id="rendering-on-markdown"><a aria-hidden="true" class="anchor-heading icon-link" href="#rendering-on-markdown"></a>Rendering on markdown</h2>
+<ul>
+<li>
+<p>Markdown preview via coc</p>
+<ul>
+<li>
+<p><a href="https://github.com/weirongxu/coc-markdown-preview-enhanced">GitHub - weirongxu/coc-markdown-preview-enhanced: Markdown Preview Enhanced for coc.nvim</a></p>
+</li>
+<li>
+<p>It uses webview: <a href="https://github.com/weirongxu/coc-webview">GitHub - weirongxu/coc-webview: Using an external browser to support the webview in coc.nvim.</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Fzf</span></div>
+<a href="/notes/notes/43rF3oyntG5gSYcFcPOID" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="send-to-quickfix"><a aria-hidden="true" class="anchor-heading icon-link" href="#send-to-quickfix"></a>Send to quickfix</h2>
+<blockquote>
+<p>Try this:</p>
+<p>After searching, use alt-a to select all results and then hit enter. All matches will then be in the quick fix list. You can use :cn and :cp to cycle between them</p>
+</blockquote>
+<p><a href="https://www.reddit.com/r/vim/comments/7ylwu3/a_problem_with_fzf/">r/vim - A problem with fzf</a></p>
+<h2 id="skipping-input-bug"><a aria-hidden="true" class="anchor-heading icon-link" href="#skipping-input-bug"></a>Skipping input bug</h2>
+<p><a href="https://github.com/junegunn/fzf.vim/issues/1011">FZF terminal window does not seem to clear completely or have weird input behavior on windows · Issue #1011 · junegunn/fzf.vim</a></p>
+<p>Workaround:</p>
+<pre class="language-vim"><code class="language-vim"><span class="token keyword">let</span> g<span class="token punctuation">:</span>fzf_preview_window<span class="token operator">=</span><span class="token string">''</span>
+</code></pre>
+<p>Maybe this is due to not having git command line installed on my work machine (whereas it is installed on my home machine).</p>
+<h2 id="search-files-from-first-ancestor-containing-git"><a aria-hidden="true" class="anchor-heading icon-link" href="#search-files-from-first-ancestor-containing-git"></a>Search Files from first ancestor containing .git</h2>
+<p>Search upwards from current path to an ancestor containing <code>.git</code> and then call <code>:Files</code> from that parent. Useful for searching through a large repo of many sub-projects, where one of the sub-projects is your current working directory (<code>:cd</code>).</p>
+<p><a href="https://github.com/habamax/.vim/blob/e9312935fb915fd6bfc4436b70b300387445aef8/vimrc#L270-L275">.vim/vimrc at e9312935fb915fd6bfc4436b70b300387445aef8 · habamax/.vim</a>
+Fennel equivalent</p>
+<pre class="language-lisp"><code class="language-lisp"><span class="token punctuation">(</span><span class="token car">defn</span> fzf-root <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>expanded <span class="token punctuation">(</span>.. <span class="token punctuation">(</span><span class="token car">vim</span>.fn.expand <span class="token string">"%:p:h"</span><span class="token punctuation">)</span> <span class="token string">";"</span><span class="token punctuation">)</span>
+        path <span class="token punctuation">(</span><span class="token car">vim</span>.fn.finddir <span class="token string">".git"</span> expanded<span class="token punctuation">)</span>
+        subbed <span class="token punctuation">(</span><span class="token car">vim</span>.fn.substitute path <span class="token string">".git"</span> <span class="token string">""</span> <span class="token string">""</span><span class="token punctuation">)</span>
+        result <span class="token punctuation">(</span><span class="token car">vim</span>.fn.fnamemodify subbed <span class="token string">":p:h"</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+      result<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token car">autil</span>.fn-bridge <span class="token string">"s:fzf_root"</span> <span class="token string">"config.plugin.fzf"</span> <span class="token string">"fzf-root"</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token car">nvim</span>.set_keymap <span class="token lisp-property property">:n</span> <span class="token lisp-property property">:&#x3C;leader>fu</span> <span class="token string">":exe 'Files ' . &#x3C;SID>fzf_root()&#x3C;CR>"</span> {<span class="token lisp-property property">:noremap</span> true}<span class="token punctuation">)</span>
+</code></pre>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Make a similar command for calling <code>rg</code> from a parent <code>.git</code> directory</li>
+</ul>
+<h2 id="using-fd"><a aria-hidden="true" class="anchor-heading icon-link" href="#using-fd"></a>Using fd</h2>
+<h2 id="previewer-on-windows"><a aria-hidden="true" class="anchor-heading icon-link" href="#previewer-on-windows"></a>previewer on windows</h2></div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Impatient</span></div>
+<a href="/notes/notes/t9ZP4Om5DuVpUMq9nDib1" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p><a href="https://github.com/lewis6991/impatient.nvim">GitHub - lewis6991/impatient.nvim: Improve startup time for Neovim</a></p>
+<h2 id="installation-1"><a aria-hidden="true" class="anchor-heading icon-link" href="#installation-1"></a>Installation</h2>
+<h3 id="common-errors"><a aria-hidden="true" class="anchor-heading icon-link" href="#common-errors"></a>Common errors</h3>
+<ul>
+<li>Need to run ":PackerCompile" before  this can be used... you will see errors about not being able to find <code>packer_compiled</code> without doing this.</li>
+</ul>
+<p><a href="/notes/notes/yKQ1xm5NmPYUeka4Ka8t8">BQF</a></p>
+<h3 id="cache-packers-compiled-file"><a aria-hidden="true" class="anchor-heading icon-link" href="#cache-packers-compiled-file"></a>Cache Packer's compiled file</h3>
+<p>To get impatient to cache <a href="/notes/notes/codbGOq5X6zWOGfhG2Z7O">Packer</a>'s compiled file we change the path used for packer's compilation:</p>
+<ul>
+<li>
+<p>Fennel does not like mixing associating and sequential tables, so you will need to create the <code>spec</code> parameter for <code>packer.startup</code> manually in the <code>use</code> command from <code>Olical</code>:</p>
+<ul>
+<li>
+<p><a href="https://github.com/wbthomason/packer.nvim#the-startup-function">GitHub - wbthomason/packer.nvim: A use-package inspired plugin manager for Neovim. Uses native packages, supports Luarocks dependencies, written in Lua, allows for expressive config</a></p>
+<ul>
+<li>The form we want is:</li>
+</ul>
+<pre class="language-lua"><code class="language-lua">packer<span class="token punctuation">.</span><span class="token function">startup</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> use <span class="token string">'tjdevries/colorbuddy.vim'</span> <span class="token keyword">end</span><span class="token punctuation">,</span> config <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token punctuation">...</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li>
+<p>this can be done with <code>aniseed.core.assoc</code></p>
+<pre class="language-lisp"><code class="language-lisp"><span class="token punctuation">(</span><span class="token car">defn-</span> use <span class="token punctuation">[</span>...<span class="token punctuation">]</span>
+<span class="token string">"Iterates through the arguments as pairs and calls packer's use function for
+each of them. Works around Fennel not liking mixed associative and sequential
+tables as well."</span>
+<span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>pkgs <span class="token punctuation">[</span>...<span class="token punctuation">]</span>
+        spec-func
+        <span class="token punctuation">(</span><span class="token car">fn</span> <span class="token punctuation">[</span>use<span class="token punctuation">]</span>
+        <span class="token punctuation">(</span><span class="token keyword">for</span> <span class="token punctuation">[</span>i <span class="token number">1</span> <span class="token punctuation">(</span><span class="token car">a</span>.count pkgs<span class="token punctuation">)</span> 2<span class="token punctuation">]</span>
+            <span class="token punctuation">(</span><span class="token keyword">let</span> <span class="token punctuation">[</span>name <span class="token punctuation">(</span>. pkgs i<span class="token punctuation">)</span>
+                opts <span class="token punctuation">(</span>. pkgs <span class="token punctuation">(</span><span class="token car">+</span> i <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+            <span class="token punctuation">(</span><span class="token car">-</span>?> <span class="token punctuation">(</span>. opts <span class="token lisp-property property">:mod</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token car">safe-require-plugin-config</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">(</span><span class="token car">use</span> <span class="token punctuation">(</span><span class="token car">a</span>.assoc opts <span class="token number">1</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+        spec-config {<span class="token lisp-property property">:config</span> {<span class="token lisp-property property">:compile_path</span> <span class="token punctuation">(</span>.. <span class="token punctuation">(</span><span class="token car">vim</span>.fn.stdpath <span class="token string">"config"</span><span class="token punctuation">)</span> <span class="token string">"/lua/packer_compiled.lua"</span><span class="token punctuation">)</span>}}
+        spec <span class="token punctuation">(</span><span class="token car">a</span>.assoc spec-config <span class="token number">1</span> spec-func<span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+    <span class="token comment">;(print (vim.inspect spec))</span>
+    <span class="token punctuation">(</span><span class="token car">packer</span>.startup spec<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token boolean">nil</span><span class="token punctuation">)</span>
+</code></pre>
+<p>the result for the spec <code>param</code> is something like</p>
+<pre class="language-lisp"><code class="language-lisp">{function <span class="token punctuation">(</span><span class="token punctuation">)</span> use <span class="token quoted-symbol variable symbol">'some/plugin</span>' end, {<span class="token lisp-property property">:config</span> {<span class="token lisp-property property">:compile_path</span> <span class="token string">"compile/path/"</span>}}}
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>It would seem that the main slow down is due to loading sessions and failing to find some files due to different home-dirs (which we don't really want if loading nvim without params)</li>
+</ul></div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Lspconfig</span></div>
+<a href="/notes/notes/gvr849ceb8lhfsen2c1chtz" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="defining-project-specific-settings"><a aria-hidden="true" class="anchor-heading icon-link" href="#defining-project-specific-settings"></a>Defining Project Specific Settings</h2>
+<p><a href="https://github.com/neovim/nvim-lspconfig/wiki/Project-local-settings">Project local settings · neovim/nvim-lspconfig Wiki</a></p>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> nvim_lsp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'lspconfig'</span><span class="token punctuation">)</span>
+
+nvim_lsp<span class="token punctuation">.</span>rust_analyzer<span class="token punctuation">.</span><span class="token function">setup</span> <span class="token punctuation">{</span>
+  on_init <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>client<span class="token punctuation">)</span>
+    client<span class="token punctuation">.</span>config<span class="token punctuation">.</span>settings<span class="token punctuation">.</span>xxx <span class="token operator">=</span> <span class="token string">"yyyy"</span>
+    client<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token string">"workspace/didChangeConfiguration"</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token keyword">true</span>
+  <span class="token keyword">end</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Nvim Python Repl</span></div>
+<a href="/notes/notes/1vtq3snd1k38nph0bp6tcuy" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p>I changed the python repl command from <code>ipython</code> to be the following because I couldn't not find where <code>ipython</code> was meant to be installed. It does not appear to be in the scripts folder</p>
+<p><code>nvim-python-repl.lua</code></p>
+<pre class="language-lua"><code class="language-lua">M<span class="token punctuation">.</span>repls <span class="token operator">=</span> <span class="token punctuation">{</span>
+    python <span class="token operator">=</span> <span class="token string">"python -m IPython"</span><span class="token punctuation">,</span> <span class="token operator">#</span> Use to be <span class="token string">"ipython"</span>
+    scala <span class="token operator">=</span> <span class="token string">"amm"</span><span class="token punctuation">,</span>
+    lua <span class="token operator">=</span> <span class="token string">"ilua"</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Packer</span></div>
+<a href="/notes/notes/codbGOq5X6zWOGfhG2Z7O" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div>
+</div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Compile</span></div>
+<a href="/notes/notes/UgAMWwAnXSxvC0PQ9zZve" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div>
+</div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Status</span></div>
+<a href="/notes/notes/WTOayRgwzPoZLdjbNvJgA" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div>
+</div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Plenary</span></div>
+<a href="/notes/notes/5k1xzkje6bti6oi6liubfbe" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div>
+</div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Plug</span></div>
+<a href="/notes/notes/3a9f3a38-7cdf-434d-8bae-79e41fc129f6" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="setup"><a aria-hidden="true" class="anchor-heading icon-link" href="#setup"></a>Setup</h2>
+<p><a href="https://github.com/junegunn/vim-plug/issues/633">How am I supposed to user vim-plug with Windows - PowerShell? · Issue #633 · junegunn/vim-plug</a></p>
+<blockquote>
+<p>Neovim doesn't load files in ~\vimfiles\autoload, the installation instruction for Windows was written when Neovim didn't officially support Windows. I suppose plug.vim should be placed under ~\AppData\Local\nvim\autoload. <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">@justinmk (Private)</a>, can you confirm this?</p>
+</blockquote>
+<p>e.g.</p>
+<pre class="language-vim"><code class="language-vim"><span class="token keyword">call</span> plug#<span class="token function">begin</span><span class="token punctuation">(</span><span class="token string">'~/AppData/Local/nvim/autoload'</span><span class="token punctuation">)</span>
+</code></pre></div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Project Nvim</span></div>
+<a href="/notes/notes/kr1lrawq1ne5bjq7yyvxus4" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div>
+</div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Surround</span></div>
+<a href="/notes/notes/e2761dcf-cdc9-4f37-9ce8-4b45344bcfdf" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p><a href="https://github.com/tpope/vim-surround">https://github.com/tpope/vim-surround</a></p>
+<h2 id="examples"><a aria-hidden="true" class="anchor-heading icon-link" href="#examples"></a>Examples</h2>
+<h3 id="surround-a-word-with-brackets"><a aria-hidden="true" class="anchor-heading icon-link" href="#surround-a-word-with-brackets"></a>Surround a word with brackets</h3>
+<blockquote>
+<p>Hello world!</p>
+</blockquote>
+<p>Now with the cursor on "Hello", press ysiw] (iw is a text object).</p>
+<blockquote>
+<p>[Hello] world!</p>
+</blockquote>
+</div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Telescope</span></div>
+<a href="/notes/notes/N2y2B01sEn8RCAOIRckoW" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="slowness-and-freezing"><a aria-hidden="true" class="anchor-heading icon-link" href="#slowness-and-freezing"></a>Slowness and Freezing</h2>
+<p>Consider disabling treesitter in the preview window if telescope is freezing nvim</p>
+<p><a href="https://github.com/nvim-telescope/telescope.nvim/issues/1379">Telescope live_grep freezes nvim sometimes · Issue #1379 · nvim-telescope/telescope.nvim</a></p>
+<pre class="language-lua"><code class="language-lua">telescope<span class="token punctuation">.</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	defaults <span class="token operator">=</span> <span class="token punctuation">{</span>
+   		preview <span class="token operator">=</span> <span class="token punctuation">{</span>
+   			treesitter <span class="token operator">=</span> <span class="token keyword">false</span><span class="token punctuation">,</span>
+   		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+   <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Treesitter</span></div>
+<a href="/notes/notes/ejF9eBQcLOdE1FAc32yZ9" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="errors"><a aria-hidden="true" class="anchor-heading icon-link" href="#errors"></a>Errors</h2>
+<p>In use with <a href="/notes/notes/N2y2B01sEn8RCAOIRckoW">Telescope</a></p>
+<p><code>Telescope treesitter</code></p>
+<pre><code>[telescope] [WARN  21:20:56] ...ck\packer\start\telescope.nvim/lua/telescope/pickers.lua:467: Finder failed with msg:  ...ck\packer\start\telescope.nvim/lua/telescope/sorters.lua:596: table index is nil
+</code></pre>
+<h2 id="troubleshooting"><a aria-hidden="true" class="anchor-heading icon-link" href="#troubleshooting"></a>Troubleshooting</h2>
+<h3 id="cheahealth"><a aria-hidden="true" class="anchor-heading icon-link" href="#cheahealth"></a>Cheahealth</h3>
+<p><code>:checkheath nvim_treesitter</code></p>
+<h3 id="get-parser-paths"><a aria-hidden="true" class="anchor-heading icon-link" href="#get-parser-paths"></a>Get Parser Paths</h3>
+<p><code>:echo nvim_get_runtime_file('parser', v:true)</code></p>
+<h2 id="query-error-invalid-node-type-at-position"><a aria-hidden="true" class="anchor-heading icon-link" href="#query-error-invalid-node-type-at-position"></a>query error: invalid node type at position</h2>
+<p><a href="https://github.com/nvim-treesitter/nvim-treesitter#i-get-query-error-invalid-node-type-at-position">GitHub - nvim-treesitter/nvim-treesitter: Nvim Treesitter configurations and abstraction layer</a></p>
+<blockquote>
+<p>query error: invalid node type at position</p>
+</blockquote>
+<p>I was seeing this error in header files within a C project. Using <code>:set filetype?</code> indicated that the the file was being recognised as C++ instead of C. This is remedied by configuring filetype detection as <code>c.doxygen</code>:</p>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Filetypes</span></div>
+<a href="/notes/notes/yf8d4qvk9xuqytu2nb2eh5y" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h3 id="vim-recognising-header-files-as-c-instead-of-c"><a aria-hidden="true" class="anchor-heading icon-link" href="#vim-recognising-header-files-as-c-instead-of-c"></a>Vim recognising header files as C++ instead of C</h3>
+<p><a href="https://www.reddit.com/r/neovim/comments/orfpcd/question_does_the_c_parser_from_nvimtreesitter/">r/neovim - [Question] Does the C parser from nvim-treesitter parse header files?</a></p>
+<blockquote>
+<p>Check whether Neovim is setting the filetype to cpp instead of c.</p>
+<p>If it's setting it to cpp you probably want to write let <code>g:c_syntax_for_h = 1</code> in your config. See :help c.vim.</p>
+</blockquote>
+<h3 id="filetype-detection-for-h-files-as-c-with-doxygen"><a aria-hidden="true" class="anchor-heading icon-link" href="#filetype-detection-for-h-files-as-c-with-doxygen"></a>Filetype detection for .h files as C with Doxygen</h3>
+<p>Useful points from <a href="https://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/">Using Vim as C/C++ IDE</a></p>
+<ul>
+<li>Filetype detection:</li>
+</ul>
+<pre class="language-vim"><code class="language-vim">augroup project
+  <span class="token builtin">autocmd</span><span class="token operator">!</span>
+  <span class="token builtin">autocmd</span> BufRead<span class="token punctuation">,</span>BufNewFile <span class="token operator">*</span><span class="token operator">.</span><span class="token keyword">h</span><span class="token punctuation">,</span><span class="token operator">*</span><span class="token operator">.</span><span class="token keyword">c</span> <span class="token keyword">set</span> <span class="token keyword">filetype</span><span class="token operator">=</span><span class="token keyword">c</span><span class="token operator">.</span>doxygen
+augroup END
+</code></pre>
+<ul>
+<li>This will trigger for ALL <code>.h</code> files. There is likely a way to set this on a per project basis with a per project config. I have not investigated this yet.</li>
+</ul></div></div><p></p><p></p>
+<p>I was still receiving the same <code>invalid node type</code> error from a <code>cpp</code> parser despite the <code>:set filetype?</code> now returning <code>c.doxygen</code>. Uninstalling the <code>cpp</code> parser was the (immediate) solution to this problem.</p>
+<ul>
+<li><code>:TSUninstall cpp</code> is meant to do this, but the <code>cpp parser</code> remained active</li>
+<li>I found I had to remove <code>cpp.so</code> from <code>C:\Users\{user}\AppData\Local\nvim-data\site\pack\packer\start\nvim-treesitter\parser</code> manually.</li>
+</ul>
+</div></div><p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Vim Chrome Devtools</span></div>
+<a href="/notes/notes/s6kym6fv2no7tp1ez8x0ewn" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><p><a href="https://github.com/carlosrocha/vim-chrome-devtools">GitHub - carlosrocha/vim-chrome-devtools: Neovim integration with Chrome DevTools</a></p>
+<p>I have not succeeded on getting this to work on windows yet, but the following steps seem to be in the right direction</p>
+<h2 id="installation-on-windows"><a aria-hidden="true" class="anchor-heading icon-link" href="#installation-on-windows"></a>Installation on Windows</h2>
+<p>The install script in the installation folder, <code>install.sh</code> does not work on windows. Perhaps in WSL, but I could not get that to work either. The script contains:</p>
+<p>Root installation folder: <code>C:\Users\xxx\AppData\Local\nvim-data\site\pack\packer\start\vim-chrome-devtools</code></p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> --prefix<span class="token operator">=</span>rplugin/node/vim-chrome-devtools <span class="token function">install</span> <span class="token operator">&#x26;&#x26;</span> <span class="token function">npm</span> --prefix<span class="token operator">=</span>rplugin/node/vim-chrome-devtools run build
+</code></pre>
+<p>Which seems to just install and build the remote plugin in the <code>--prefix</code> folder. Simply running this from the root installation folder did not work. Seemingly the <code>--prefix</code> option did not apply and <code>&#x26;&#x26;</code> was not recognised in powershell. I did the following steps instead:</p>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">cd</span> rplugin/node/vim-chrome-devtools
+<span class="token function">npm</span> <span class="token function">install</span>
+<span class="token function">npm</span> run build
+<span class="token function">npm</span> <span class="token function">install</span> -g neovim
+</code></pre>
+<p>I subsequently ran <code>:UpdateRemotePlugins</code> in neovim</p>
+<h2 id="launching-an-edge-instance-with-a-debugging-port"><a aria-hidden="true" class="anchor-heading icon-link" href="#launching-an-edge-instance-with-a-debugging-port"></a>Launching an Edge instance with a debugging port</h2>
+<pre class="language-bash"><code class="language-bash">C:<span class="token punctuation">\</span>Program Files <span class="token punctuation">(</span>x86<span class="token punctuation">)</span><span class="token punctuation">\</span>Microsoft<span class="token punctuation">\</span>Edge<span class="token punctuation">\</span>Application<span class="token operator">></span> .<span class="token punctuation">\</span>msedge.exe --remote-debugging-port<span class="token operator">=</span><span class="token number">9222</span>
+</code></pre>
+<ul>
+<li>Perhaps this really only works with <code>Chrome</code> and not just browsers using the chrome engine.
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" checked disabled> Tested on chrome instead. I did not receive an error about the connection being rejected on <code>:ChromeDevToolsConnect</code> but also did not see confirmation</li>
+<li><code>C:\Program Files\Google\Chrome\Application> .\chrome.exe --remote-debugging-port=9222</code></li>
+</ul>
+</li>
+</ul></div></div><p></p><p></p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/yf8d4qvk9xuqytu2nb2eh5y">Filetypes</a></li>
+<li><a href="/notes/notes/v3K06639TokG0fDufJlPY">Initial Install</a></li>
+<li><a href="/notes/notes/NR1vdRqmJgPbFhckxYAHT">Inspect Variables</a></li>
+<li><a href="/notes/notes/s3ibshdy8z3ang12arl3teq">Loop Uv</a></li>
+<li><a href="/notes/notes/1lsb30t94xtt5cfilic2unz">Lsp</a></li>
+<li><a href="/notes/notes/16pFSaVDJ73yQKf4gEsDt">Lua</a></li>
+<li><a href="/notes/notes/54osu8fu7soq5lhlwtzvt5u">Mode</a></li>
+<li><a href="/notes/notes/h5ir8n4b876oitztzmwst3k">Neovim Remote</a></li>
+<li><a href="/notes/notes/xipPzfq2l1PQQOIZllYav">Plugins</a></li>
+<li><a href="/notes/notes/sEZOms465tRctZI0qDU4c">Regex</a></li>
+</ol>

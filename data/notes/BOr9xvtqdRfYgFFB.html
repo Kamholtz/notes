@@ -1,0 +1,8 @@
+<h1 id="port-is-already-being-used"><a aria-hidden="true" class="anchor-heading icon-link" href="#port-is-already-being-used"></a>Port Is Already Being Used</h1>
+<h2 id="problem"><a aria-hidden="true" class="anchor-heading icon-link" href="#problem"></a>Problem</h2>
+<p><img src="/notes/assets/images/2021-08-02-09-06-06.png"></p>
+<h2 id="solution"><a aria-hidden="true" class="anchor-heading icon-link" href="#solution"></a>Solution</h2>
+<p><a href="https://stackoverflow.com/questions/34898901/iis-express-web-server-port-is-in-use">IIS Express Web Server Port Is In Use</a></p>
+<p>Run in powershell as <strong>admin</strong>:</p>
+<pre class="language-ps1"><code class="language-ps1">netsh http add iplisten ipaddress=::
+</code></pre>

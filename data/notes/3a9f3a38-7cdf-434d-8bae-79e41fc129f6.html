@@ -1,0 +1,9 @@
+<h1 id="plug"><a aria-hidden="true" class="anchor-heading icon-link" href="#plug"></a>Plug</h1>
+<h2 id="setup"><a aria-hidden="true" class="anchor-heading icon-link" href="#setup"></a>Setup</h2>
+<p><a href="https://github.com/junegunn/vim-plug/issues/633">How am I supposed to user vim-plug with Windows - PowerShell? · Issue #633 · junegunn/vim-plug</a></p>
+<blockquote>
+<p>Neovim doesn't load files in ~\vimfiles\autoload, the installation instruction for Windows was written when Neovim didn't officially support Windows. I suppose plug.vim should be placed under ~\AppData\Local\nvim\autoload. <a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">@justinmk (Private)</a>, can you confirm this?</p>
+</blockquote>
+<p>e.g.</p>
+<pre class="language-vim"><code class="language-vim"><span class="token keyword">call</span> plug#<span class="token function">begin</span><span class="token punctuation">(</span><span class="token string">'~/AppData/Local/nvim/autoload'</span><span class="token punctuation">)</span>
+</code></pre>

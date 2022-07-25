@@ -1,0 +1,33 @@
+<h1 id="filetypes"><a aria-hidden="true" class="anchor-heading icon-link" href="#filetypes"></a>Filetypes</h1>
+<h2 id="list-of-filetypes"><a aria-hidden="true" class="anchor-heading icon-link" href="#list-of-filetypes"></a>List of filetypes</h2>
+<p><a href="https://github.com/vim/vim/blob/master/runtime/filetype.vim">vim/filetype.vim at master · vim/vim</a></p>
+<h2 id="get-the-filetype"><a aria-hidden="true" class="anchor-heading icon-link" href="#get-the-filetype"></a>Get the filetype</h2>
+<p><code>:set filetype?</code></p>
+<p><code>echo &#x26;filetype</code></p>
+<h2 id="set-the-filetype"><a aria-hidden="true" class="anchor-heading icon-link" href="#set-the-filetype"></a>Set the filetype</h2>
+<p><code>:set filetype=cpp</code></p>
+<h2 id="cc"><a aria-hidden="true" class="anchor-heading icon-link" href="#cc"></a>C/C++</h2>
+<h3 id="vim-recognising-header-files-as-c-instead-of-c"><a aria-hidden="true" class="anchor-heading icon-link" href="#vim-recognising-header-files-as-c-instead-of-c"></a>Vim recognising header files as C++ instead of C</h3>
+<p><a href="https://www.reddit.com/r/neovim/comments/orfpcd/question_does_the_c_parser_from_nvimtreesitter/">r/neovim - [Question] Does the C parser from nvim-treesitter parse header files?</a></p>
+<blockquote>
+<p>Check whether Neovim is setting the filetype to cpp instead of c.</p>
+<p>If it's setting it to cpp you probably want to write let <code>g:c_syntax_for_h = 1</code> in your config. See :help c.vim.</p>
+</blockquote>
+<h3 id="filetype-detection-for-h-files-as-c-with-doxygen"><a aria-hidden="true" class="anchor-heading icon-link" href="#filetype-detection-for-h-files-as-c-with-doxygen"></a>Filetype detection for .h files as C with Doxygen</h3>
+<p>Useful points from <a href="https://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/">Using Vim as C/C++ IDE</a></p>
+<ul>
+<li>Filetype detection:</li>
+</ul>
+<pre class="language-vim"><code class="language-vim">augroup project
+  <span class="token builtin">autocmd</span><span class="token operator">!</span>
+  <span class="token builtin">autocmd</span> BufRead<span class="token punctuation">,</span>BufNewFile <span class="token operator">*</span><span class="token operator">.</span><span class="token keyword">h</span><span class="token punctuation">,</span><span class="token operator">*</span><span class="token operator">.</span><span class="token keyword">c</span> <span class="token keyword">set</span> <span class="token keyword">filetype</span><span class="token operator">=</span><span class="token keyword">c</span><span class="token operator">.</span>doxygen
+augroup END
+</code></pre>
+<ul>
+<li>This will trigger for ALL <code>.h</code> files. There is likely a way to set this on a per project basis with a per project config. I have not investigated this yet.</li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/ejF9eBQcLOdE1FAc32yZ9">Treesitter</a></li>
+</ul>

@@ -1,0 +1,12 @@
+<h1 id="notifications"><a aria-hidden="true" class="anchor-heading icon-link" href="#notifications"></a>Notifications</h1>
+<p><a href="https://docs.expo.dev/versions/v40.0.0/sdk/notifications/#setnotificationhandlerhandler-notificationhandler--null-void">Notifications - Expo Documentation</a></p>
+<h2 id="interpreting-the-ios-permissions-response"><a aria-hidden="true" class="anchor-heading icon-link" href="#interpreting-the-ios-permissions-response"></a>Interpreting the iOS permissions response</h2>
+<p><a href="https://docs.expo.dev/versions/latest/sdk/notifications/#interpreting-the-ios-permissions-response">Notifications - Expo Documentation</a></p>
+<p>On iOS, permissions for sending notifications are a little more granular than they are on Android. Because of this, you should rely on the NotificationPermissionsStatus's ios.status field, instead of the root status field. This value will be one of the following, accessible under Notifications.IosAuthorizationStatus:</p>
+<ul>
+<li>0) NOT_DETERMINED: The user hasn't yet made a choice about whether the app is allowed to schedule notifications</li>
+<li>1) DENIED: The app isn't authorized to schedule or receive notifications</li>
+<li>2) AUTHORIZED: The app is authorized to schedule or receive notifications</li>
+<li>3) PROVISIONAL: The application is provisionally authorized to post noninterruptive user notifications</li>
+<li>4) EPHEMERAL: The app is authorized to schedule or receive<a href="/notes/notes/g1hdi46pf8plpddg5gt2wgy">notifications for a limited amount of time</a></li>
+</ul>

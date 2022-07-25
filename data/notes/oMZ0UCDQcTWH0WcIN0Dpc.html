@@ -1,0 +1,58 @@
+<h1 id="zigbee"><a aria-hidden="true" class="anchor-heading icon-link" href="#zigbee"></a>ZigBee</h1>
+<h2 id="getting-started-with-zigbee"><a aria-hidden="true" class="anchor-heading icon-link" href="#getting-started-with-zigbee"></a>Getting Started with ZigBee</h2>
+<p><a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/ug_zigbee_adding_clusters.html#ug-zigee-adding-clusters">Adding ZCL clusters to application; nRF Connect SDK 1.8.99 documentation</a></p>
+<ul>
+<li>Uses the template found here - <a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/samples/zigbee/template/README.html#zigbee-template-sample">Zigbee: Template; nRF Connect SDK 1.8.99 documentation</a>
+<ul>
+<li>Contains sample code to download
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Try the sample code for the coordinator and change to router</li>
+<li class="task-list-item"><input type="checkbox" disabled> Also try the CLI example</li>
+</ul>
+</li>
+<li>Contains explanation of project changes to accomodate building for the dongle</li>
+</ul>
+</li>
+</ul>
+<h2 id="porting-nrf52840-dk-projects-to-the-dongle"><a aria-hidden="true" class="anchor-heading icon-link" href="#porting-nrf52840-dk-projects-to-the-dongle"></a>Porting nRF52840 DK projects to the dongle</h2>
+<ul>
+<li><a href="/notes/notes/HjwogFUd6N0ZqABEfP2QT">Dev Kit</a> to <a href="/notes/notes/UTyVZZrIY615EpsVASnyB">Dongle</a></li>
+</ul>
+<p><a href="https://devzone.nordicsemi.com/f/nordic-q-a/84072/how-to-port-the-zigbee-network-coordinator-sample-from-the-nrf52840dk-to-the-nrf52840-dongle">How to port the Zigbee Network Coordinator sample from the nRF52840DK to the nRF52840 dongle</a>
+DK based projects do not work on the dongle by default</p>
+<ul>
+<li>Create an overlay to provide access to necessary peripherals
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Check for this in blinky project for dongle</li>
+</ul>
+</li>
+<li>Create partitions for MBR and the bootloader on the Dongle <a href="https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/scripts/partition_manager/partition_manager.html">Partition Manager; nRF Connect SDK 1.8.99 documentation</a>
+<ul class="contains-task-list">
+<li>They are <strong>not</strong> necessary on the DK and thus likely aren't included in those projects</li>
+<li class="task-list-item"><input type="checkbox" disabled> Check for this in blinky project for dongle</li>
+</ul>
+</li>
+</ul>
+<p>Compare build logs between both projects</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> is <code>pm.yml</code> actually being used</li>
+<li class="task-list-item"><input type="checkbox" disabled> Does ZBOSS get included</li>
+<li class="task-list-item"><input type="checkbox" disabled> Are the overlays merged?</li>
+</ul>
+<h2 id="intellisense-for-the-projectsdk"><a aria-hidden="true" class="anchor-heading icon-link" href="#intellisense-for-the-projectsdk"></a>Intellisense for the Project/SDK</h2>
+<p>Configure this at some point to point to use the SDK:</p>
+<p><img src="/notes/assets/images/2022-02-09-21-26-05.png"></p>
+<p>For neovim: <a href="/notes/notes/1Kag9iDQD0sVnvP4NTrLi#creating-compile_commandsjson">Creating compile_commands.json</a></p>
+<hr>
+<strong>Children</strong>
+<ol>
+<li><a href="/notes/notes/wbSh7wzAFYbQIoMHDbXBu">Adding Custom Cluster</a></li>
+<li><a href="/notes/notes/cuopifdgfito5r569iqik4q">Apps</a></li>
+<li><a href="/notes/notes/O20auXgHQQBacglaTdrWr">Samples</a></li>
+<li><a href="/notes/notes/dv1cp7kcj760dht09piu3pj">Sleepy End Device</a></li>
+</ol>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/4hqUGCEUyFhWBqlocNhLF">Nrfutil</a></li>
+</ul>

@@ -1,0 +1,71 @@
+<h1 id="clangd"><a aria-hidden="true" class="anchor-heading icon-link" href="#clangd"></a>Clangd</h1>
+<h2 id="prerequisites"><a aria-hidden="true" class="anchor-heading icon-link" href="#prerequisites"></a>Prerequisites</h2>
+<p>Install clangd which is in llvm:</p>
+<p><a href="https://llvm.org/">The LLVM Compiler Infrastructure Project</a></p>
+<ul>
+<li>Successfully using v13.0.0 on Windows (though not all definitions can be found in the project I was testing with...)</li>
+<li>Make sure it is added to path during installation</li>
+</ul>
+<h2 id="creating-compile_commandsjson"><a aria-hidden="true" class="anchor-heading icon-link" href="#creating-compile_commandsjson"></a>Creating compile_commands.json</h2>
+<p>The following is taken from my own comments on this gist:</p>
+<p><a href="https://gist.github.com/neta540/9e65261be52d6cd4d6c17399b78d34bb">PlatformIO-vim.md</a></p>
+<p>Clangd require a compilation database<a href="https://clangd.llvm.org/config#compilationdatabase">Configuration</a>.</p>
+<p>I am guessing everyone here has likely moved to ccls. I personally could not get ccls working on windows. I found that you can get platformio to generate a <code>compile_commands.json</code> file for you using the following command:</p>
+<pre class="language-batch"><code class="language-batch"><span class="token command"><span class="token keyword">pio</span> run <span class="token parameter attr-name">-t</span> compiledb</span>
+</code></pre>
+<p>This uses the target param <code>-t</code> to create the <code>compile_commands.json</code>. Could possibly specify the target in <code>platform.ini</code> file</p>
+<p></p><p></p><div class="portal-container">
+<div class="portal-head">
+<div class="portal-backlink">
+<div class="portal-title">From <span class="portal-text-title">Targets</span></div>
+<a href="/notes/notes/CI0VR2ZzHRTz7VEpyqPH7" class="portal-arrow">Go to text <span class="right-arrow">→</span></a>
+</div>
+</div>
+<div id="portal-parent-anchor" class="portal-parent" markdown="1">
+<div class="portal-parent-fader-top"></div>
+<div class="portal-parent-fader-bottom"></div><h2 id="settings-targets-in-platformioini"><a aria-hidden="true" class="anchor-heading icon-link" href="#settings-targets-in-platformioini"></a>Settings targets in platformio.ini</h2>
+<pre class="language-ini"><code class="language-ini"><span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">env:upload_and_monitor</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">targets</span> <span class="token punctuation">=</span> <span class="token value attr-value">upload, monitor</span>
+</code></pre></div></div><p></p><p></p>
+<p>By default the <code>compile_commands.json</code> file ends up in a directory that clangd will not detect. In my case it was <code>/.pio/build/nodemcuv2</code>. There is a <code>:CocConfig</code> param for clangd called <code>compilationDatabasePath</code> but that did not seem to work for me (config found here: <a href="https://github.com/clangd/coc-clangd#configurations">GitHub - clangd/coc-clangd: clangd extension for coc.nvim</a>), so I used the work around detailed in <a href="https://docs.platformio.org/en/latest/integration/compile_commands.html">Compilation database compile_commands.json — PlatformIO latest documentation</a> which uses a python script to change the where the <code>compile_commands.json</code> is created.</p>
+<p><code>platformio.ini:</code></p>
+<pre class="language-ini"><code class="language-ini"><span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">env:myenv</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">platform</span> <span class="token punctuation">=</span> <span class="token value attr-value">...</span>
+<span class="token key attr-name">board</span> <span class="token punctuation">=</span> <span class="token value attr-value">...</span>
+<span class="token key attr-name">extra_scripts</span> <span class="token punctuation">=</span> <span class="token value attr-value">post:extra_script.py</span>
+</code></pre>
+<p><code>extra_script.py:</code></p>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> os
+Import<span class="token punctuation">(</span><span class="token string">"env"</span><span class="token punctuation">)</span>
+
+env<span class="token punctuation">.</span>Replace<span class="token punctuation">(</span>COMPILATIONDB_PATH<span class="token operator">=</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token string">"$PROJECT_DIR"</span><span class="token punctuation">,</span> <span class="token string">"compile_commands.json"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+</code></pre>
+<p><del>There is also a <code>--compile-commands-dir</code> option for <code>clangd</code> which might be worth investigating.</del></p>
+<h2 id="detecting-compile_commandsjson-with-clangd"><a aria-hidden="true" class="anchor-heading icon-link" href="#detecting-compile_commandsjson-with-clangd"></a>Detecting compile_commands.json with clangd</h2>
+<p><a href="https://github.com/clangd/coc-clangd/issues/77">Would coc-clangd find compilation database under current directory or parent path ? · Issue #77 · clangd/coc-clangd</a></p>
+<p>I can now confirm that the following <code>:CocLocalConfg</code> will detect the <code>compile_commands.json</code> file in the specified directory using <code>clangd.args</code> and <code>--compile-commands-dir</code>:</p>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"languageserver"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"clangd"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"command"</span><span class="token operator">:</span> <span class="token string">"clangd"</span><span class="token punctuation">,</span>
+      <span class="token property">"args"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"--background-index"</span><span class="token punctuation">,</span> <span class="token string">"--compile-commands-dir"</span><span class="token punctuation">,</span> <span class="token string">".pio/build/nodemcuv2"</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"rootPatterns"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">"compile_flags.txt"</span><span class="token punctuation">,</span>
+        <span class="token string">"compile_commands.json"</span><span class="token punctuation">,</span>
+        <span class="token string">".vim/"</span><span class="token punctuation">,</span>
+        <span class="token string">".git/"</span><span class="token punctuation">,</span>
+        <span class="token string">".hg/"</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">"filetypes"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"c"</span><span class="token punctuation">,</span> <span class="token string">"cpp"</span><span class="token punctuation">,</span> <span class="token string">"objc"</span><span class="token punctuation">,</span> <span class="token string">"objcpp"</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="per-file-compilation-database"><a aria-hidden="true" class="anchor-heading icon-link" href="#per-file-compilation-database"></a>Per-file compilation database</h2>
+<p><a href="https://github.com/clangd/coc-clangd/issues/182">Add the possibility to specify per-file compilation database path · Issue #182 · clangd/coc-clangd</a></p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/oMZ0UCDQcTWH0WcIN0Dpc">ZigBee</a></li>
+</ul>

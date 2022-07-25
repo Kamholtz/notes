@@ -1,0 +1,189 @@
+<h1 id="calibration"><a aria-hidden="true" class="anchor-heading icon-link" href="#calibration"></a>Calibration</h1>
+<ul>
+<li>Based off default PETG profile in Flash Print</li>
+<li>Height of 0.15mm in offset is to take into account the tape on the build platform</li>
+</ul>
+<p><a href="https://www.thingiverse.com/thing:1363023/files">Test your 3D printer! v3 by ctrlV</a></p>
+<h2 id="attempt-1"><a aria-hidden="true" class="anchor-heading icon-link" href="#attempt-1"></a>Attempt #1</h2>
+<ul>
+<li>Changes
+<ul>
+<li>100% extrusion ratio</li>
+<li>0.2mm layer height</li>
+<li>0.3mm first layer</li>
+<li>rather high z offset (~0.5mm in total)</li>
+</ul>
+</li>
+</ul>
+<h2 id="attempt-2"><a aria-hidden="true" class="anchor-heading icon-link" href="#attempt-2"></a>Attempt #2</h2>
+<ul>
+<li>Changes
+<ul>
+<li>Reduced layer height to 0.1mm</li>
+<li>First layer height of 0.28</li>
+</ul>
+</li>
+</ul>
+<h2 id="attempt-3"><a aria-hidden="true" class="anchor-heading icon-link" href="#attempt-3"></a>Attempt #3</h2>
+<ul>
+<li>First layer height of 0.28mm (reduction of 0.02)
+<ul>
+<li>Based purely off other people’s profiles, no real reasoning behind it</li>
+</ul>
+</li>
+<li>Adjusted the z-offset live, settled on about 0.15mm + 0.26mm = 0.41mm
+<ul>
+<li>This was the lowest offset I could use without colliding with existing filament resulting in build up around the nozzle</li>
+</ul>
+</li>
+</ul>
+<p>Under extruded at the beginning of each layer or after travel without extrusion</p>
+<p>Over extruded at the end before retraction</p>
+<p>Layer height seemed perfect</p>
+<h2 id="attempt-4"><a aria-hidden="true" class="anchor-heading icon-link" href="#attempt-4"></a>Attempt #4</h2>
+<p>Attempting to address under extrusions at beginning, blob at end</p>
+<p><a href="https://3dprinting.stackexchange.com/a/10710">Under extrusion when starting outer wall</a></p>
+<ul>
+<li>
+<p>Increase travel speed</p>
+</li>
+<li>
+<p>Increase retraction distance and speed</p>
+</li>
+<li>
+<p>Increase acceleration</p>
+</li>
+<li>
+<p>What is extra restart length</p>
+</li>
+<li>
+<p>Disable only retract when crossing outline</p>
+</li>
+<li>
+<p>Changes</p>
+<ul>
+<li>Added extra retract length 0.1</li>
+<li>Increased retract speed to 40mm/S (increase of 5mm/s)</li>
+</ul>
+</li>
+<li>
+<p>Outcomes</p>
+<ul>
+<li>First layer/brim measured fairly close to correct height</li>
+<li>No longer have gaps after travel (underextrusion at start)</li>
+<li>Still seem to have blobs in some places</li>
+</ul>
+</li>
+</ul>
+<h2 id="attempt-5---flow-rate"><a aria-hidden="true" class="anchor-heading icon-link" href="#attempt-5---flow-rate"></a>Attempt 5 - Flow rate</h2>
+<p>Using the <a href="/notes/notes/G0thhpWtk1hmstcWS1qcX#flow-calibration-cube">Flow Calibration Cube</a></p>
+<ul>
+<li>
+<p>Measurements:</p>
+<ul>
+<li>0.86 mm</li>
+<li>0.86 mm</li>
+<li>0.85 mm</li>
+<li>0.86 mm</li>
+</ul>
+</li>
+<li>
+<p>Ratio of expected wall thickness to actual wall thickness:</p>
+<ul>
+<li><span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.80</mn><mi mathvariant="normal">/</mi><mo stretchy="false">(</mo><mo stretchy="false">(</mo><mn>0.86</mn><mo>+</mo><mn>0.86</mn><mo>+</mo><mn>0.85</mn><mo>+</mo><mn>0.86</mn><mo stretchy="false">)</mo><mi mathvariant="normal">/</mi><mn>4</mn><mo stretchy="false">)</mo><mo>=</mo><mn>0.93</mn></mrow><annotation encoding="application/x-tex">0.80/((0.86 +0.86 + 0.85 + 0.86)/4) = 0.93</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0.80/</span><span class="mopen">((</span><span class="mord">0.86</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.86</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.85</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0.86</span><span class="mclose">)</span><span class="mord">/4</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.93</span></span></span></span></span></li>
+</ul>
+</li>
+<li>
+<p>New flow rate = <span class="math math-inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.93</mn><mo>×</mo><mn>0.96</mn><mo>≈</mo><mn>0.89</mn></mrow><annotation encoding="application/x-tex">0.93 \times 0.96 \approx 0.89</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">0.93</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.96</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.89</span></span></span></span></span></p>
+</li>
+</ul>
+<p>The measured wall widths of the following print were:</p>
+<ul>
+<li>0.74 mm</li>
+<li>0.80 mm</li>
+<li>0.77 mm</li>
+<li>0.74 mm</li>
+</ul>
+<h2 id="investigating-superslicer"><a aria-hidden="true" class="anchor-heading icon-link" href="#investigating-superslicer"></a>Investigating SuperSlicer</h2>
+<ul>
+<li><a href="/notes/notes/zj2auasqk2jsf2ia8221913">Super Slicer</a></li>
+</ul>
+<p>References:</p>
+<ul>
+<li><a href="https://forum.prusaprinters.org/forum/prusaslicer/has-anybody-successfully-used-prusa-slicer-with-the-flashforge-adventurer-3/">Has anybody successfully used Prusa Slicer with the FlashFor...</a>
+<ul>
+<li>Python post processing script</li>
+<li>Removing comments (verbose mode)</li>
+</ul>
+</li>
+<li>Post processing script for Flash Forge Creator Pro <a href="https://www.dr-lex.be/software/ffcp-slic3r-profiles.html#using">Using PrusaSlicer (Slic3r) with the FlashForge Creator Pro</a>
+<ul>
+<li><a href="https://github.com/DrLex0/FFCP-GCodeSnippets/blob/master/make_fcp_x3g.pl">FFCP-GCodeSnippets/make_fcp_x3g.pl at master · DrLex0/FFCP-GCodeSnippets</a></li>
+</ul>
+</li>
+</ul>
+<p>Super Slicer profile sourced from:</p>
+<ul>
+<li>Adventurer 4 printer settings: <a href="https://www.youtube.com/watch?v=QMkjMrHNxME">SUPERSLICER, SIMPLIFY3D, and CURA Setup For Adventurer 4</a></li>
+<li>PETG Filament settings: <a href="https://www.youtube.com/watch?v=FTos-G1QXeE">Tips And Tricks For The Perfect PETG Settings - Things No One Else Tells You!</a></li>
+</ul>
+<p><img src="/notes/assets/images/2022-03-19-17-50-12.png"></p>
+<p><img src="/notes/assets/images/2022-03-19-17-50-22.png"></p>
+<p><img src="/notes/assets/images/2022-03-19-17-50-50.png"></p>
+<p>Teaching tech filament profiles: <a href="https://github.com/teachingtechYT/SuperSlicer/tree/main/filament">SuperSlicer/filament at main · teachingtechYT/SuperSlicer</a></p>
+<ul>
+<li>Also has printer profiles but none for flashforge</li>
+</ul>
+<p>The gcode that super slicer produces isn't entirely compatible with the Adventurer 4:</p>
+<ul>
+<li>Temperature commands set the hotend index once but omit it afterwards
+<ul>
+<li>Regex for finding commands that don't end with a hotend index</li>
+<li><code>^M140 S\d+ +$</code></li>
+<li>Replacement for adding the hotend index: $0T0</li>
+</ul>
+</li>
+</ul>
+<p><a href="/notes/notes/7chm4nb7aow9qtjzwx6dtn8">Live Z Offset</a>: 0.44mm</p>
+<p>Overview:</p>
+<p><img src="/notes/assets/images/2022-03-20-12-35-15.png"></p>
+<p>Flaws:</p>
+<p><img src="/notes/assets/images/2022-03-20-12-36-12.png"></p>
+<p>Good intralayer in some spots</p>
+<p><img src="/notes/assets/images/2022-03-20-12-42-33.png"></p>
+<p>Bottom left, end of print:</p>
+<p><img src="/notes/assets/images/2022-03-20-12-42-12.png"></p>
+<p>Centre:</p>
+<p><img src="/notes/assets/images/2022-03-20-12-37-01.png" alt="Centre"></p>
+<p>Super Slicer, second last step...</p>
+<p><img src="/notes/assets/images/2022-03-20-12-40-56.png"></p>
+<h2 id="increasing-extrusion-width"><a aria-hidden="true" class="anchor-heading icon-link" href="#increasing-extrusion-width"></a>Increasing Extrusion Width</h2>
+<ul>
+<li>Increased the extrusion with from 111% to 125%</li>
+</ul>
+<p>Observations</p>
+<ul>
+<li>Maybe slightly stronger but not markedly so</li>
+<li>Still brittle enough to break while flexing the print</li>
+</ul>
+<h2 id="20220327"><a aria-hidden="true" class="anchor-heading icon-link" href="#20220327"></a>2022.03.27</h2>
+<ul>
+<li>Began using <a href="/notes/notes/ynvk3jcxuyoesunuk0wmqcy">Flashprint</a> again instead of <a href="/notes/notes/zj2auasqk2jsf2ia8221913">Super Slicer</a> after experiencing frequent poor bed adhesion.</li>
+<li>Also trialing use of gluestick for poor bed adhesion</li>
+</ul>
+<p>Observations</p>
+<ul>
+<li>First layer sticks well. This could be attributed to:
+<ul>
+<li>Use of raft (which was enabled by default)
+<ul>
+<li>4x the path width (1.6mm) and lower print speed (10m/s) for the bottom layer of the raft
+<img src="/notes/assets/images/2022-03-27-13-00-56.png" alt="flash print settings"></li>
+</ul>
+</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h2 id="useful-videos"><a aria-hidden="true" class="anchor-heading icon-link" href="#useful-videos"></a>Useful videos</h2>
+<p><a href="https://www.youtube.com/watch?v=T3Y0atseU9k">Supercharge your PETG 3D prints with these tips</a></p>

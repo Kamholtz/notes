@@ -1,0 +1,24 @@
+<h1 id="react-native-picker-select"><a aria-hidden="true" class="anchor-heading icon-link" href="#react-native-picker-select"></a>React Native Picker Select</h1>
+<h2 id="issues"><a aria-hidden="true" class="anchor-heading icon-link" href="#issues"></a>Issues</h2>
+<h3 id="tried-to-register-two-views-with-the-same-name"><a aria-hidden="true" class="anchor-heading icon-link" href="#tried-to-register-two-views-with-the-same-name"></a>Tried to register two views with the same name</h3>
+<p><code>react-native-picker-select</code> depends on an old version of <a href="/notes/notes/n2cyi1h7pfhfla7ctbnv7ca">React Native Picker Picker</a> and so it needs to be forced to use the latest version to prevent having two version of the same control being registered</p>
+<p>See: <a href="https://github.com/lawnstarter/react-native-picker-select/issues/403">Invariant Violation: Tried to register two views with the same name RNCPicker · Issue #403 · lawnstarter/react-native-picker-select</a></p>
+<p>NPM solution:</p>
+<pre class="language-json"><code class="language-json">  <span class="token property">"overrides"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"react-native-picker-select"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"@react-native-picker/picker"</span><span class="token operator">:</span> <span class="token string">"2.2.1"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre>
+<p>Yarn solution</p>
+<pre class="language-json"><code class="language-json">  <span class="token property">"overrides"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"react-native-picker-select"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"@react-native-picker/picker"</span><span class="token operator">:</span> <span class="token string">"2.2.1"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/pj4s7z3qb7fagvxyjehr64l">Tried to Register Two Views with the Same Name</a></li>
+</ul>

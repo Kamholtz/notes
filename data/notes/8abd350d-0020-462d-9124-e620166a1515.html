@@ -1,0 +1,48 @@
+<h1 id="nodejs"><a aria-hidden="true" class="anchor-heading icon-link" href="#nodejs"></a>Nodejs</h1>
+<h2 id="upgrading-on-ubuntu"><a aria-hidden="true" class="anchor-heading icon-link" href="#upgrading-on-ubuntu"></a>Upgrading on Ubuntu</h2>
+<p><a href="https://phoenixnap.com/kb/update-node-js-version">How to Update Node.js to Latest Version {Linux, Windows, and MacOS}</a></p>
+<ol>
+<li>Start by updating the package repository with the command:</li>
+</ol>
+<pre class="language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> update
+</code></pre>
+<ol start="2">
+<li>Download the following dependencies by typing:</li>
+</ol>
+<pre class="language-bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> build-essential checkinstall libssl-dev
+</code></pre>
+<ol start="3">
+<li>Install NVM using the curl command:</li>
+</ol>
+<pre class="language-bash"><code class="language-bash"><span class="token function">curl</span> -o- https://raw.githubusercontent.com/creationix/nvm/v0.35.1/install.sh <span class="token operator">|</span> <span class="token function">bash</span>
+</code></pre>
+<ol start="4">
+<li>
+<p>Close and reopen the terminal.</p>
+</li>
+<li>
+<p>Then, verify if you have successfully installed NVM:</p>
+</li>
+</ol>
+<pre class="language-bash"><code class="language-bash">nvm --version
+check nvm version to update Node.js
+</code></pre>
+<ol start="6">
+<li>Before upgrading Node.js, check which version you have running on the system:</li>
+</ol>
+<pre class="language-bash"><code class="language-bash">nvm <span class="token function">ls</span>
+</code></pre>
+<ol start="7">
+<li>Now you can check for newly available releases with:</li>
+</ol>
+<pre class="language-bash"><code class="language-bash">nvm ls-remote
+</code></pre>
+<p>see a list of all available Node.js versions</p>
+<ol start="8">
+<li>To install the latest version, use the nvm command with the specific Node.js version:</li>
+</ol>
+<pre><code>nvm install [version.number]
+</code></pre>
+<p>e.g.</p>
+<pre><code>nvm install v14.16.1
+</code></pre>

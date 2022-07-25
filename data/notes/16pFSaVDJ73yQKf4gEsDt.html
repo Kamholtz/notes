@@ -1,0 +1,38 @@
+<h1 id="lua"><a aria-hidden="true" class="anchor-heading icon-link" href="#lua"></a>Lua</h1>
+<h2 id="dap"><a aria-hidden="true" class="anchor-heading icon-link" href="#dap"></a>DAP</h2>
+<p><a href="https://github.com/jbyuki/one-small-step-for-vimkind">GitHub - jbyuki/one-small-step-for-vimkind: Debug adapter for Neovim plugins</a></p>
+<h2 id="general"><a aria-hidden="true" class="anchor-heading icon-link" href="#general"></a>General</h2>
+<p><a href="https://www.reddit.com/r/neovim/comments/muxuc3/difference_between_the_various_vim_apis/">Difference between the various VIM APIs</a></p>
+<blockquote>
+<p><code>vim.cmd</code>: Invokes an Ex command (the ":" commands, Vimscript statements). Example:</p>
+</blockquote>
+<p><code>vim.cmd('echo 42')</code></p>
+<blockquote>
+<p>same value as vim.api.nvim_command.</p>
+<p>vim.fn: Invokes vim-function or user-function {func} with arguments {...}.</p>
+<p>To call autoload functions, use the syntax: ></p>
+</blockquote>
+<p><code>vim.fn['some#function']({...})</code></p>
+<blockquote>
+<p>Unlike <code>vim.api.nvim_call_function</code> this converts directly between Vim</p>
+<p>objects and Lua objects. If the Vim function returns a float, it will</p>
+<p>be represented directly as a Lua number. Empty lists and dictionaries</p>
+<p>both are represented by an empty table.</p>
+</blockquote>
+<p><code>vim.api.nvim_command</code>: same value as vim.cmd.</p>
+<blockquote>
+<p><code>vim.api.nvim_exec</code>: This function evaluates a chunk of Vimscript code. It takes in a string containing the source code to execute and a boolean to determine whether the output of the code should be returned by the function (you can then store the output in a variable, for example).</p>
+</blockquote>
+<pre class="language-lua"><code class="language-lua"><span class="token keyword">local</span> result <span class="token operator">=</span> vim<span class="token punctuation">.</span>api<span class="token punctuation">.</span><span class="token function">nvim_exec</span><span class="token punctuation">(</span>
+<span class="token string">[[
+let mytext = 'hello world'
+
+function! MyFunction(text)
+echo a:text
+endfunction
+
+call MyFunction(mytext)
+]]</span><span class="token punctuation">,</span>
+<span class="token keyword">true</span><span class="token punctuation">)</span>
+<span class="token function">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token comment">-- 'hello world'</span>
+</code></pre>

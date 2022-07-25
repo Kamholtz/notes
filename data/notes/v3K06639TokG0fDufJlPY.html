@@ -1,0 +1,117 @@
+<h1 id="initial-install"><a aria-hidden="true" class="anchor-heading icon-link" href="#initial-install"></a>Initial Install</h1>
+<h2 id="dependencies"><a aria-hidden="true" class="anchor-heading icon-link" href="#dependencies"></a>Dependencies</h2>
+<h3 id="python-for-general--chadtree"><a aria-hidden="true" class="anchor-heading icon-link" href="#python-for-general--chadtree"></a>Python (for General + CHADTree)</h3>
+<ul>
+<li><code>pip install pynvim</code></li>
+</ul>
+<h3 id="chadtree"><a aria-hidden="true" class="anchor-heading icon-link" href="#chadtree"></a>Chadtree</h3>
+<p>Run the command</p>
+<ul>
+<li><code>CHADdeps</code></li>
+</ul>
+<h3 id="junegunnfzf"><a aria-hidden="true" class="anchor-heading icon-link" href="#junegunnfzf"></a>junegunn\fzf</h3>
+<ul>
+<li>fzf
+<ul>
+<li><code>fzf#install()</code></li>
+<li>this has been added to fzf.fnl so it should now install automatically</li>
+</ul>
+</li>
+</ul>
+<p>Input being overwritten while typing quickly
+<a href="https://github.com/junegunn/fzf.vim/issues/1011">https://github.com/junegunn/fzf.vim/issues/1011</a></p>
+<h3 id="telescope-fzf-native"><a aria-hidden="true" class="anchor-heading icon-link" href="#telescope-fzf-native"></a>telescope-fzf-native</h3>
+<p><a href="https://github.com/nvim-telescope/telescope-fzf-native.nvim">GitHub - nvim-telescope/telescope-fzf-native.nvim: FZF sorter for telescope written in c</a></p>
+<p>This needs to be built using something like mingw. There are two builds of Mingw that I have used for this plugin shown below.</p>
+<h4 id="option-1"><a aria-hidden="true" class="anchor-heading icon-link" href="#option-1"></a>Option 1</h4>
+<p>LLVM Mingw seems to be a newer version but I have not extensively tested the result of this build yet</p>
+<ul>
+<li><a href="https://github.com/mstorsjo/llvm-mingw/releases">Releases · mstorsjo/llvm-mingw</a>, which has <code>mingw32-make</code></li>
+</ul>
+<h4 id="option-2"><a aria-hidden="true" class="anchor-heading icon-link" href="#option-2"></a>Option 2</h4>
+<p>Using make from <code>C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\mingw32-make.exe</code></p>
+<pre class="language-bat"><code class="language-bat">C:\Users\c.kamholtz\AppData\Local\nvim-data\site\pack\packer\start\telescope-fzf-native.nvim [main ≡]> mingw32-make.exe
+mkdir build
+gcc -O3 -Wall -Werror -fpic -std=gnu99 -shared src/fzf.c -o build/libfzf.dll
+</code></pre>
+<h3 id="node"><a aria-hidden="true" class="anchor-heading icon-link" href="#node"></a>Node</h3>
+<ul>
+<li>install with visual studio build tools</li>
+</ul>
+<p><img src="/notes/assets/images/2022-03-26-13-54-27.png"></p>
+<h4 id="install-log"><a aria-hidden="true" class="anchor-heading icon-link" href="#install-log"></a>Install log</h4>
+<blockquote>
+<p>====================================================</p>
+<h1 id="tools-for-nodejs-native-modules-installation-script"><a aria-hidden="true" class="anchor-heading icon-link" href="#tools-for-nodejs-native-modules-installation-script"></a>Tools for Node.js Native Modules Installation Script</h1>
+<p>This script will install Python and the Visual Studio Build Tools, necessary
+to compile Node.js native modules. Note that Chocolatey and required Windows
+updates will also be installed.</p>
+<p>This will require about 3 Gb of free disk space, plus any space necessary to
+install Windows updates. This will take a while to run.</p>
+<p>Please close all open programs for the duration of the installation. If the
+installation fails, please ensure Windows is fully updated, reboot your
+computer and try to run this again. This script can be found in the
+Start menu under Node.js.</p>
+<p>You can close this window to stop now. Detailed instructions to install these
+tools manually are available at <a href="https://github.com/nodejs/node-gyp#on-windows">https://github.com/nodejs/node-gyp#on-windows</a></p>
+<p>Press any key to continue . . .</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>chocolatey-dotnetfx.extension v1.0.1</li>
+<li>kb3033929 v1.0.5</li>
+<li>visualstudio2019buildtools v16.11.11.0</li>
+<li>python3 v3.10.4</li>
+<li>chocolatey-windowsupdate.extension v1.0.4</li>
+<li>vcredist140 v14.31.31103</li>
+<li>kb2999226 v1.0.20181019</li>
+<li>visualstudio-installer v2.0.2</li>
+<li>kb2919355 v1.0.20160915</li>
+<li>chocolatey-core.extension v1.3.5.1</li>
+<li>kb2919442 v1.0.20160915</li>
+<li>chocolatey-visualstudio.extension v1.10.0</li>
+<li>vcredist2015 v14.0.24215.20170201</li>
+<li>dotnetfx v4.8.0.20190930</li>
+<li>visualstudio2019-workload-vctools v1.0.1</li>
+<li>kb3035131 v1.0.3</li>
+<li>python v3.10.4</li>
+</ul>
+</blockquote>
+<h2 id="wsl2"><a aria-hidden="true" class="anchor-heading icon-link" href="#wsl2"></a>WSL2</h2>
+<p>Same as above for WSL2, Ubuntu</p>
+<pre class="language-bash"><code class="language-bash">  <span class="token number">102</span>  <span class="token function">mv</span> /mnt/c/Users/carlk/Downloads/nvim.appimage <span class="token builtin class-name">.</span>
+  <span class="token number">104</span>  <span class="token function">sudo</span> <span class="token function">mv</span> /mnt/c/Users/carlk/Downloads/nvim.appimage <span class="token builtin class-name">.</span>
+
+  <span class="token number">106</span>  <span class="token function">chmod</span> u+x nvim.appimage <span class="token operator">&#x26;&#x26;</span> ./nvim.appimage
+  <span class="token number">107</span>  <span class="token function">sudo</span> <span class="token function">chmod</span> u+x nvim.appimage <span class="token operator">&#x26;&#x26;</span> ./nvim.appimage
+
+  <span class="token number">131</span>  python3 -m pip3 <span class="token function">install</span> pynvim
+
+  <span class="token number">138</span>  <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> fzf
+  <span class="token number">139</span>  <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> ripgrep
+  <span class="token number">140</span>  <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> cmake
+  <span class="token number">141</span>  <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> gcc
+
+  <span class="token number">152</span>  <span class="token builtin class-name">cd</span> site/pack/packer/start/telescope-fzf-native.nvim/
+  <span class="token number">153</span>  <span class="token function">make</span>
+</code></pre>
+<p>Need this for treesitter or you will encounter <code>/usr/bin/ld: cannot find -lstdc++ </code></p>
+<pre class="language-bash"><code class="language-bash">  <span class="token number">162</span>  <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> build-essential
+
+  <span class="token number">174</span>  <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> python3-pip
+  <span class="token number">175</span>  pip3 <span class="token function">install</span> pynvim
+</code></pre>
+<p>Add the following to your <code>.bashrc</code> to create an <a href="/notes/notes/f4hjlt0pwbd7bajt67lg4wc">Alias</a> for <code>python</code> and <code>nvim.appimage</code></p>
+<pre class="language-bash"><code class="language-bash"><span class="token builtin class-name">alias</span> <span class="token assign-left variable">python</span><span class="token operator">=</span>python3
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">nvim</span><span class="token operator">=</span>nvim.appimage
+</code></pre>
+<p>Alternatively, setup a symbolic link with <a href="/notes/notes/9s0yr9symzfbpiwarcq9r6p">Ln</a> so that the <code>nvim</code> command is accessible within scripts. This is necessary for <a href="/notes/notes/t71luhqewy42u3a3qeemgsw">Conjure</a> development</p>
+<h3 id="fzf"><a aria-hidden="true" class="anchor-heading icon-link" href="#fzf"></a>FZF</h3>
+<p>It seems that the version of <code>fzf</code> that comes with WSL's ubuntu is out of date (0.20.0) and seemingly does not work</p>
+<h3 id="configuring-git-in-wsl2"><a aria-hidden="true" class="anchor-heading icon-link" href="#configuring-git-in-wsl2"></a>Configuring Git in WSL2</h3>
+<p><a href="/notes/notes/uuhzk2tew60kpd0vjlehdsm">For Windows</a></p>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/fy4hr46wqzzi13qwknqktmg">Fresh Install</a></li>
+</ul>

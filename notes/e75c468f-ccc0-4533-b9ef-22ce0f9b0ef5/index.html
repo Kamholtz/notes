@@ -1,0 +1,228 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><link rel="icon" href="/favicon.ico"/><title>Lispyville</title><meta name="robots" content="index,follow"/><meta name="googlebot" content="index,follow"/><meta name="description" content="Personal knowledge space"/><meta property="og:title" content="Lispyville"/><meta property="og:description" content="Personal knowledge space"/><meta property="og:url" content="https://kamholtz.github.io/notes/notes/e75c468f-ccc0-4533-b9ef-22ce0f9b0ef5/"/><meta property="og:type" content="article"/><meta property="article:published_time" content="4/25/2021"/><meta property="article:modified_time" content="5/8/2021"/><link rel="canonical" href="https://kamholtz.github.io/notes/notes/e75c468f-ccc0-4533-b9ef-22ce0f9b0ef5/"/><meta name="next-head-count" content="14"/><link rel="preload" href="/notes/_next/static/css/3092aab0aa1f4483.css" as="style"/><link rel="stylesheet" href="/notes/_next/static/css/3092aab0aa1f4483.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/notes/_next/static/chunks/polyfills-5cd94c89d3acac5f.js"></script><script src="/notes/_next/static/chunks/webpack-9598d1b7297c7767.js" defer=""></script><script src="/notes/_next/static/chunks/framework-bb5c596eafb42b22.js" defer=""></script><script src="/notes/_next/static/chunks/main-0d50381774b20f5a.js" defer=""></script><script src="/notes/_next/static/chunks/pages/_app-639b01fffdc48b4b.js" defer=""></script><script src="/notes/_next/static/chunks/155-3a6c02d7e042edb7.js" defer=""></script><script src="/notes/_next/static/chunks/373-9c38fabb487d5920.js" defer=""></script><script src="/notes/_next/static/chunks/pages/notes/%5Bid%5D-b20175c77adb354a.js" defer=""></script><script src="/notes/_next/static/kBUqGaMzZHk_Y8dfP2rlV/_buildManifest.js" defer=""></script><script src="/notes/_next/static/kBUqGaMzZHk_Y8dfP2rlV/_ssgManifest.js" defer=""></script><script src="/notes/_next/static/kBUqGaMzZHk_Y8dfP2rlV/_middlewareManifest.js" defer=""></script></head><body><div id="__next" data-reactroot=""><section class="ant-layout" style="width:100%;min-height:100%"><header class="ant-layout-header" style="position:fixed;isolation:isolate;z-index:1;width:100%;border-bottom:1px solid #d4dadf;height:64px;padding:0 24px 0 2px"><div class="ant-row ant-row-center" style="max-width:992px;justify-content:space-between;margin:0 auto"><div style="display:flex" class="ant-col ant-col-xs-20 ant-col-sm-4"></div><div class="ant-col gutter-row ant-col-xs-0 ant-col-sm-20 ant-col-md-20 ant-col-lg-19"><div class="ant-select ant-select-lg ant-select-auto-complete ant-select-single ant-select-allow-clear ant-select-show-search" style="width:100%"><div class="ant-select-selector"><span class="ant-select-selection-search"><input type="search" autoComplete="off" class="ant-select-selection-search-input" role="combobox" aria-haspopup="listbox" aria-owns="undefined_list" aria-autocomplete="list" aria-controls="undefined_list" aria-activedescendant="undefined_list_0" value=""/></span><span class="ant-select-selection-placeholder">For full text search please use the &#x27;?&#x27; prefix. e.g. ? Onboarding</span></div></div></div><div style="display:none;align-items:center;justify-content:center" class="ant-col ant-col-xs-4 ant-col-sm-4 ant-col-md-0 ant-col-lg-0"><span role="img" aria-label="menu" style="font-size:24px" tabindex="-1" class="anticon anticon-menu"><svg viewBox="64 64 896 896" focusable="false" data-icon="menu" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path></svg></span></div></div></header><section class="ant-layout site-layout" style="margin-top:64px"><section class="ant-layout site-layout" style="flex-direction:row"><section class="ant-layout site-layout-sidebar" style="flex:0 0 auto;width:calc(max((100% - 992px) / 2, 0px) + 200px);min-width:200px;padding-left:calc((100% - 992px) / 2)"><aside class="ant-layout-sider ant-layout-sider-dark" style="position:fixed;overflow:auto;height:calc(100vh - 64px);flex:0 0 200px;max-width:200px;min-width:200px;width:200px"><div class="ant-layout-sider-children"></div></aside></section><section class="ant-layout side-layout-main" style="max-width:1200px;display:initial"><main class="ant-layout-content main-content" role="main" style="padding:0 24px"><div class="ant-row"><div class="ant-col ant-col-24"><div class="ant-row" style="margin-left:-10px;margin-right:-10px"><div style="padding-left:10px;padding-right:10px" class="ant-col ant-col-xs-24 ant-col-md-18"><div><h1 id="lispyville"><a aria-hidden="true" class="anchor-heading icon-link" href="#lispyville"></a>Lispyville</h1>
+<blockquote>
+<p>lispyville.el’s main purpose is to provide a lisp-editing environment suited towards evil users. It can serve as a minimal layer on top of lispy-mode for better integration with evil, but it does not require use of lispy’s keybinding style. The provided commands allow for editing lisp in normal state and will work even without lispy-mode enabled. If you are just looking for a way to prevent evil’s operators from unbalancing parentheses, you can enable lispyville-mode in your configuration and just ignore the rest of its features.</p>
+</blockquote>
+<p><a href="https://github.com/noctuid/lispyville">noctuid/lispyville</a></p>
+<h2 id="doom-emacs-lispyville-config"><a aria-hidden="true" class="anchor-heading icon-link" href="#doom-emacs-lispyville-config"></a>Doom Emacs Lispyville config</h2>
+<pre class="language-elisp"><code class="language-elisp"><span class="token punctuation">(</span><span class="token car">use-package!</span> lispyville
+  <span class="token lisp-property property">:when</span> <span class="token punctuation">(</span><span class="token car">featurep!</span> <span class="token lisp-property property">:editor</span> evil<span class="token punctuation">)</span>
+  <span class="token lisp-property property">:hook</span> <span class="token punctuation">(</span><span class="token car">lispy-mode</span> <span class="token punctuation">.</span> lispyville-mode<span class="token punctuation">)</span>
+  <span class="token lisp-property property">:init</span>
+  <span class="token punctuation">(</span><span class="token keyword">setq</span> lispyville-key-theme
+        <span class="token punctuation">'(</span><span class="token punctuation">(</span><span class="token car">operators</span> normal<span class="token punctuation">)</span>
+          c-w
+          <span class="token punctuation">(</span><span class="token car">prettify</span> insert<span class="token punctuation">)</span>
+          <span class="token punctuation">(</span><span class="token car">atom-movement</span> <span class="token boolean">t</span><span class="token punctuation">)</span>
+          slurp/barf-lispy
+          additional
+          additional-insert<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token lisp-property property">:config</span>
+  <span class="token punctuation">(</span><span class="token car">lispyville-set-key-theme</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="relevant-shortcuts"><a aria-hidden="true" class="anchor-heading icon-link" href="#relevant-shortcuts"></a>Relevant shortcuts</h3>
+<h4 id="operators-normal"><a aria-hidden="true" class="anchor-heading icon-link" href="#operators-normal"></a>Operators Normal</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>key</th><th>command</th></tr></thead><tbody><tr><td>[remap evil-yank]</td><td>lispyville-yank</td></tr><tr><td>[remap evil-delete]</td><td>lispyville-delete</td></tr><tr><td>[remap evil-change]</td><td>lispyville-change</td></tr><tr><td>[remap evil-yank-line]</td><td>lispyville-yank-line</td></tr><tr><td>[remap evil-delete-line]</td><td>lispyville-delete-line</td></tr><tr><td>[remap evil-change-line]</td><td>lispyville-change-line</td></tr><tr><td>[remap evil-delete-char]</td><td>lispyville-delete-char-or-splice</td></tr><tr><td>[remap evil-delete-backward-char]</td><td>lispyville-delete-char-or-splice-backwards</td></tr><tr><td>[remap evil-substitute]</td><td>lispyville-substitute</td></tr><tr><td>[remap evil-change-whole-line]</td><td>lispyville-change-whole-line</td></tr><tr><td>[remap evil-join]</td><td>lispyville-join</td></tr></tbody></table>
+<h4 id="c-w"><a aria-hidden="true" class="anchor-heading icon-link" href="#c-w"></a>c-w</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>key</th><th>command</th></tr></thead><tbody><tr><td>[remap evil-delete-backward-word]</td><td>lispyville-delete-backward-word</td></tr></tbody></table>
+<h4 id="preffify-insert"><a aria-hidden="true" class="anchor-heading icon-link" href="#preffify-insert"></a>Preffify Insert</h4>
+<p>Will prettify when making changes in insert mode. Note that prettify won't be triggered when changes are made from normal mode e.g. deleting a line.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>key</th><th>command</th></tr></thead><tbody><tr><td>[remap evil-indent]</td><td>lispyville-prettify</td></tr></tbody></table>
+<h4 id="atom-movement"><a aria-hidden="true" class="anchor-heading icon-link" href="#atom-movement"></a>Atom Movement</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>key</th><th>command</th></tr></thead><tbody><tr><td>[remap evil-forward-WORD-begin]</td><td>lispyville-forward-atom-begin</td></tr><tr><td>[remap evil-forward-WORD-end]</td><td>lispyville-forward-atom-end</td></tr><tr><td>[remap evil-backward-WORD-begin]</td><td>lispyville-backward-atom-begin</td></tr><tr><td>[remap evil-backward-WORD-end]</td><td>lispyville-backward-atom-end</td></tr></tbody></table>
+<h4 id="slurpbarf"><a aria-hidden="true" class="anchor-heading icon-link" href="#slurpbarf"></a>Slurp/Barf</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>key</th><th>command</th></tr></thead><tbody><tr><td>></td><td>lispyville-slurp</td></tr><tr><td>&#x3C;</td><td>lispyville-barf</td></tr></tbody></table>
+<h4 id="additional"><a aria-hidden="true" class="anchor-heading icon-link" href="#additional"></a>Additional</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>key</th><th>command</th></tr></thead><tbody><tr><td>M-j</td><td>lispyville-drag-forward</td></tr><tr><td>M-k</td><td>lispyville-drag-backward</td></tr><tr><td>M-J</td><td>lispy-join</td></tr><tr><td>M-s</td><td>lispy-splice</td></tr><tr><td>M-S</td><td>lispy-split</td></tr><tr><td>M-r</td><td>lispy-raise-sexp</td></tr><tr><td>M-R</td><td>lispyville-raise-list</td></tr><tr><td>M-t</td><td>transpose-sexps</td></tr><tr><td>M-v</td><td>lispy-convolute-sexp</td></tr></tbody></table>
+<h4 id="additional-insert"><a aria-hidden="true" class="anchor-heading icon-link" href="#additional-insert"></a>Additional Insert</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>key</th><th>command</th></tr></thead><tbody><tr><td>M-i</td><td>lispyville-insert-at-beginning-of-list</td></tr><tr><td>M-a</td><td>lispyville-insert-at-end-of-list</td></tr><tr><td>M-o</td><td>lispyville-open-below-list</td></tr><tr><td>M-O</td><td>lispyville-open-above-list</td></tr></tbody></table></div></div><div style="padding-left:10px;padding-right:10px" class="ant-col ant-col-xs-0 ant-col-md-6"><div><div class=""><div class="ant-anchor-wrapper dendron-toc" style="max-height:calc(100vh - 64px);z-index:1"><div class="ant-anchor"><div class="ant-anchor-ink"><span class="ant-anchor-ink-ball"></span></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#doom-emacs-lispyville-config" title="Doom Emacs Lispyville config">Doom Emacs Lispyville config</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#relevant-shortcuts" title="Relevant shortcuts">Relevant shortcuts</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#operators-normal" title="Operators Normal">Operators Normal</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#c-w" title="c-w">c-w</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#preffify-insert" title="Preffify Insert">Preffify Insert</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#atom-movement" title="Atom Movement">Atom Movement</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#slurpbarf" title="Slurp/Barf">Slurp/Barf</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#additional" title="Additional">Additional</a></div><div class="ant-anchor-link"><a class="ant-anchor-link-title" href="#additional-insert" title="Additional Insert">Additional Insert</a></div></div></div></div></div></div></div></div></div></main><div class="ant-divider ant-divider-horizontal" role="separator"></div><footer class="ant-layout-footer" style="padding:0 24px 24px"></footer></section></section></section></section></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"note":{"id":"e75c468f-ccc0-4533-b9ef-22ce0f9b0ef5","title":"Lispyville","desc":"","updated":1620457987525,"created":1619348502245,"custom":{},"fname":"emacs.packages.lispyville","type":"note","vault":{"fsPath":"vault"},"contentHash":"32f55d6f419e842fbe08ba3127db6564","links":[],"anchors":{"doom-emacs-lispyville-config":{"type":"header","text":"Doom Emacs Lispyville config","value":"doom-emacs-lispyville-config","line":13,"column":0,"depth":2},"relevant-shortcuts":{"type":"header","text":"Relevant shortcuts","value":"relevant-shortcuts","line":32,"column":0,"depth":3},"operators-normal":{"type":"header","text":"Operators Normal","value":"operators-normal","line":34,"column":0,"depth":4},"c-w":{"type":"header","text":"c-w","value":"c-w","line":50,"column":0,"depth":4},"preffify-insert":{"type":"header","text":"Preffify Insert","value":"preffify-insert","line":56,"column":0,"depth":4},"atom-movement":{"type":"header","text":"Atom Movement","value":"atom-movement","line":64,"column":0,"depth":4},"slurpbarf":{"type":"header","text":"Slurp/Barf","value":"slurpbarf","line":73,"column":0,"depth":4},"additional":{"type":"header","text":"Additional","value":"additional","line":80,"column":0,"depth":4},"additional-insert":{"type":"header","text":"Additional Insert","value":"additional-insert","line":94,"column":0,"depth":4}},"children":[],"parent":"050t5udpsti56amlslxviiu","data":{}},"body":"\u003ch1 id=\"lispyville\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#lispyville\"\u003e\u003c/a\u003eLispyville\u003c/h1\u003e\n\u003cblockquote\u003e\n\u003cp\u003elispyville.el’s main purpose is to provide a lisp-editing environment suited towards evil users. It can serve as a minimal layer on top of lispy-mode for better integration with evil, but it does not require use of lispy’s keybinding style. The provided commands allow for editing lisp in normal state and will work even without lispy-mode enabled. If you are just looking for a way to prevent evil’s operators from unbalancing parentheses, you can enable lispyville-mode in your configuration and just ignore the rest of its features.\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/noctuid/lispyville\"\u003enoctuid/lispyville\u003c/a\u003e\u003c/p\u003e\n\u003ch2 id=\"doom-emacs-lispyville-config\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#doom-emacs-lispyville-config\"\u003e\u003c/a\u003eDoom Emacs Lispyville config\u003c/h2\u003e\n\u003cpre class=\"language-elisp\"\u003e\u003ccode class=\"language-elisp\"\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token car\"\u003euse-package!\u003c/span\u003e lispyville\n  \u003cspan class=\"token lisp-property property\"\u003e:when\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token car\"\u003efeaturep!\u003c/span\u003e \u003cspan class=\"token lisp-property property\"\u003e:editor\u003c/span\u003e evil\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token lisp-property property\"\u003e:hook\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token car\"\u003elispy-mode\u003c/span\u003e \u003cspan class=\"token punctuation\"\u003e.\u003c/span\u003e lispyville-mode\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token lisp-property property\"\u003e:init\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token keyword\"\u003esetq\u003c/span\u003e lispyville-key-theme\n        \u003cspan class=\"token punctuation\"\u003e'(\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token car\"\u003eoperators\u003c/span\u003e normal\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n          c-w\n          \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token car\"\u003eprettify\u003c/span\u003e insert\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n          \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token car\"\u003eatom-movement\u003c/span\u003e \u003cspan class=\"token boolean\"\u003et\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n          slurp/barf-lispy\n          additional\n          additional-insert\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"token lisp-property property\"\u003e:config\u003c/span\u003e\n  \u003cspan class=\"token punctuation\"\u003e(\u003c/span\u003e\u003cspan class=\"token car\"\u003elispyville-set-key-theme\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\u003cspan class=\"token punctuation\"\u003e)\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3 id=\"relevant-shortcuts\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#relevant-shortcuts\"\u003e\u003c/a\u003eRelevant shortcuts\u003c/h3\u003e\n\u003ch4 id=\"operators-normal\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#operators-normal\"\u003e\u003c/a\u003eOperators Normal\u003c/h4\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003ekey\u003c/th\u003e\u003cth\u003ecommand\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-yank]\u003c/td\u003e\u003ctd\u003elispyville-yank\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-delete]\u003c/td\u003e\u003ctd\u003elispyville-delete\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-change]\u003c/td\u003e\u003ctd\u003elispyville-change\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-yank-line]\u003c/td\u003e\u003ctd\u003elispyville-yank-line\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-delete-line]\u003c/td\u003e\u003ctd\u003elispyville-delete-line\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-change-line]\u003c/td\u003e\u003ctd\u003elispyville-change-line\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-delete-char]\u003c/td\u003e\u003ctd\u003elispyville-delete-char-or-splice\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-delete-backward-char]\u003c/td\u003e\u003ctd\u003elispyville-delete-char-or-splice-backwards\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-substitute]\u003c/td\u003e\u003ctd\u003elispyville-substitute\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-change-whole-line]\u003c/td\u003e\u003ctd\u003elispyville-change-whole-line\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-join]\u003c/td\u003e\u003ctd\u003elispyville-join\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003ch4 id=\"c-w\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#c-w\"\u003e\u003c/a\u003ec-w\u003c/h4\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003ekey\u003c/th\u003e\u003cth\u003ecommand\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-delete-backward-word]\u003c/td\u003e\u003ctd\u003elispyville-delete-backward-word\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003ch4 id=\"preffify-insert\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#preffify-insert\"\u003e\u003c/a\u003ePreffify Insert\u003c/h4\u003e\n\u003cp\u003eWill prettify when making changes in insert mode. Note that prettify won't be triggered when changes are made from normal mode e.g. deleting a line.\u003c/p\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003ekey\u003c/th\u003e\u003cth\u003ecommand\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-indent]\u003c/td\u003e\u003ctd\u003elispyville-prettify\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003ch4 id=\"atom-movement\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#atom-movement\"\u003e\u003c/a\u003eAtom Movement\u003c/h4\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003ekey\u003c/th\u003e\u003cth\u003ecommand\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-forward-WORD-begin]\u003c/td\u003e\u003ctd\u003elispyville-forward-atom-begin\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-forward-WORD-end]\u003c/td\u003e\u003ctd\u003elispyville-forward-atom-end\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-backward-WORD-begin]\u003c/td\u003e\u003ctd\u003elispyville-backward-atom-begin\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e[remap evil-backward-WORD-end]\u003c/td\u003e\u003ctd\u003elispyville-backward-atom-end\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003ch4 id=\"slurpbarf\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#slurpbarf\"\u003e\u003c/a\u003eSlurp/Barf\u003c/h4\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003ekey\u003c/th\u003e\u003cth\u003ecommand\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003e\u003e\u003c/td\u003e\u003ctd\u003elispyville-slurp\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003e\u0026#x3C;\u003c/td\u003e\u003ctd\u003elispyville-barf\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003ch4 id=\"additional\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#additional\"\u003e\u003c/a\u003eAdditional\u003c/h4\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003ekey\u003c/th\u003e\u003cth\u003ecommand\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003eM-j\u003c/td\u003e\u003ctd\u003elispyville-drag-forward\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eM-k\u003c/td\u003e\u003ctd\u003elispyville-drag-backward\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eM-J\u003c/td\u003e\u003ctd\u003elispy-join\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eM-s\u003c/td\u003e\u003ctd\u003elispy-splice\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eM-S\u003c/td\u003e\u003ctd\u003elispy-split\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eM-r\u003c/td\u003e\u003ctd\u003elispy-raise-sexp\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eM-R\u003c/td\u003e\u003ctd\u003elispyville-raise-list\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eM-t\u003c/td\u003e\u003ctd\u003etranspose-sexps\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eM-v\u003c/td\u003e\u003ctd\u003elispy-convolute-sexp\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e\n\u003ch4 id=\"additional-insert\"\u003e\u003ca aria-hidden=\"true\" class=\"anchor-heading icon-link\" href=\"#additional-insert\"\u003e\u003c/a\u003eAdditional Insert\u003c/h4\u003e\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\u003ctable\u003e\u003cthead\u003e\u003ctr\u003e\u003cth\u003ekey\u003c/th\u003e\u003cth\u003ecommand\u003c/th\u003e\u003c/tr\u003e\u003c/thead\u003e\u003ctbody\u003e\u003ctr\u003e\u003ctd\u003eM-i\u003c/td\u003e\u003ctd\u003elispyville-insert-at-beginning-of-list\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eM-a\u003c/td\u003e\u003ctd\u003elispyville-insert-at-end-of-list\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eM-o\u003c/td\u003e\u003ctd\u003elispyville-open-below-list\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eM-O\u003c/td\u003e\u003ctd\u003elispyville-open-above-list\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e","noteIndex":{"id":"wn8PE1RhG0znK1alrGFYv","title":"Welcome","desc":"","updated":1647739693733,"created":1631901573363,"custom":{"nav_order":0,"permalink":"/"},"fname":"root","type":"note","vault":{"fsPath":"vault"},"contentHash":"25f6a870234e6662373e3b363ac6e7ff","links":[],"anchors":{},"children":["9nbHM9DXYJiw0wOL5EHqu","49nbdlbyhuggwhb17c4ckrc","etnjoq40t5e9gp3i9i0ebg4","SEWMNyq5ejB4Uu2o5gD1F","30970790-4080-4f49-a9e6-d3ea9f8a2f5e","oGtULAvsKCL7IqVaNh9x5","kxlbgahdm89suj3rh234zd2","haa2RJrh1FmtvgDrCgMuO","sHUgvR09969GI1KByYETE","6y2lfHzDgTsk4Jrl7vL24","D6TMhnzbxXgM6H69SHyDd","9itq04txzxzb62nmstlovti","4nqbPU2WajRDXAXqSDnwo","5acd228c-faa2-4c6c-8fed-6abd55a1e819","2pquOIrwpkRIflevQW2UU","fe3d08bb-d6f0-4d4b-9a4d-3eae285c8f70","phaz4bx38xr32daxmt0npt5","b0k4g697aehphlpejqdd6hm","jriu7nrk5w8o38yu17adio4","g7ydg6006fa1pyg4364yi0q"],"parent":null,"data":{},"body":"\nThese are my public notes!\n\n\u003e This website is generated by a Dendron template. For more information, see the [template README file](https://github.com/dendronhq/template.publish.github-action/).\n\n"},"collectionChildren":null,"customHeadContent":null,"config":{"version":5,"dev":{"enablePreviewV2":true},"commands":{"lookup":{"note":{"selectionMode":"extract","confirmVaultOnCreate":false,"leaveTrace":false,"bubbleUpCreateNew":true,"fuzzThreshold":0.2,"vaultSelectionModeOnCreate":"smart"}},"insertNote":{"initialValue":"templates"},"insertNoteLink":{"aliasMode":"none","enableMultiSelect":false},"insertNoteIndex":{"enableMarker":false},"randomNote":{},"copyNoteLink":{},"templateHierarchy":"template"},"workspace":{"vaults":[{"fsPath":"vault"}],"journal":{"dailyDomain":"daily","name":"journal","dateFormat":"y.MM.dd","addBehavior":"childOfDomain"},"scratch":{"name":"scratch","dateFormat":"y.MM.dd.HHmmss","addBehavior":"asOwnDomain"},"graph":{"zoomSpeed":1,"createStub":false},"enableAutoCreateOnDefinition":false,"enableXVaultWikiLink":false,"enableRemoteVaultInit":true,"workspaceVaultSyncMode":"noCommit","enableAutoFoldFrontmatter":true,"maxPreviewsCached":10,"maxNoteLength":204800,"task":{"name":"","dateFormat":"","addBehavior":"childOfCurrent","statusSymbols":{"":" ","wip":"w","done":"x","assigned":"a","moved":"m","blocked":"b","delegated":"l","dropped":"d","pending":"y"},"prioritySymbols":{"H":"high","M":"medium","L":"low"},"todoIntegration":false,"createTaskSelectionType":"selection2link","taskCompleteStatus":["done","x"]},"enableUserTags":true,"enableHashTags":true,"dendronVersion":"0.86.1","enableEditorDecorations":true,"enableHandlebarTemplates":true,"enableFullHierarchyNoteTitle":false,"enableSmartRefs":false},"preview":{"enableFMTitle":true,"enableNoteTitleForLink":true,"enableMermaid":true,"enablePrettyRefs":true,"enableKatex":true,"automaticallyShowPreview":false,"enableFrontmatterTags":true,"enableHashesForFMTags":false},"publishing":{"enableFMTitle":true,"enableNoteTitleForLink":true,"enableMermaid":true,"enablePrettyRefs":true,"enableKatex":true,"assetsPrefix":"/notes","copyAssets":true,"siteHierarchies":["root"],"enableSiteLastModified":true,"siteRootDir":"docs","siteUrl":"https://kamholtz.github.io","enableFrontmatterTags":true,"enableHashesForFMTags":false,"enableRandomlyColoredTags":true,"duplicateNoteBehavior":{"action":"useVault","payload":["vault"]},"writeStubs":false,"seo":{"title":"whomst'd've","description":"Personal knowledge space"},"github":{"enableEditLink":true,"editLinkText":"Edit this page on GitHub","editBranch":"main","editViewMode":"tree"},"enablePrettyLinks":true,"enableTaskNotes":true,"siteFaviconPath":"favicon.ico","siteIndex":"root"}}},"__N_SSG":true},"page":"/notes/[id]","query":{"id":"e75c468f-ccc0-4533-b9ef-22ce0f9b0ef5"},"buildId":"kBUqGaMzZHk_Y8dfP2rlV","assetPrefix":"/notes","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>

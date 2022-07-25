@@ -1,0 +1,35 @@
+<h1 id="crontab"><a aria-hidden="true" class="anchor-heading icon-link" href="#crontab"></a>Crontab</h1>
+<h2 id="viewing-logs"><a aria-hidden="true" class="anchor-heading icon-link" href="#viewing-logs"></a>Viewing logs</h2>
+<p><code>grep CRON /var/log/syslog</code></p>
+<p><a href="https://askubuntu.com/questions/56683/where-is-the-cron-crontab-log">Where is the cron / crontab log?</a></p>
+<h2 id="starting-an-node-project-on-boot"><a aria-hidden="true" class="anchor-heading icon-link" href="#starting-an-node-project-on-boot"></a>Starting an node project on boot</h2>
+<p><a href="https://unix.stackexchange.com/questions/441624/how-to-start-node-js-app-on-machine-boot-by-creating-a-boot-service">How to start node.js app on machine boot by creating a boot service</a></p>
+<blockquote>
+<p>Edit crontab run the following replacing the "USER" with your desired runtime user for the node process. If you choose a different user other than yourself, you will have to run this with sudo.</p>
+<p>$ crontab -u USER -e</p>
+<p>Once in the editor add the following line:</p>
+<p><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">@reboot (Private)</a> /usr/local/bin/forever start /your/path/to/your/index.js else</p>
+<p><a title="Private" href="https://wiki.dendron.so/notes/hfyvYGJZQiUwQaaxQO27q.html" target="_blank" class="private">@reboot (Private)</a> sh /your/path/to/your/startApp.sh</p>
+<p>Save &#x26; confirm file is saved by check command of #1 again</p>
+<p>Note: In my opinion, you should use the full path in crontab file to prevent issues</p>
+</blockquote>
+<h2 id="troubleshooting"><a aria-hidden="true" class="anchor-heading icon-link" href="#troubleshooting"></a>Troubleshooting</h2>
+<h3 id="reboot-job-runs-but-nothing-happens"><a aria-hidden="true" class="anchor-heading icon-link" href="#reboot-job-runs-but-nothing-happens"></a>Reboot job runs but nothing happens</h3>
+<p>It seems that if the output is not redirected somewhere then cronjob does not run. However this may have also been fixed by installing <a href="/notes/notes/17001499-c262-4a2c-b212-65599e3188d6">Postfix</a></p>
+<pre class="language-sh"><code class="language-sh">@reboot /home/pi/repos/presence-detector-cljs-deploy/start.sh 1> /home/pi/repos/presence-detector-cljs-deploy/cron-out 2> /home/pi/repos/presence-detector-cljs-deploy/cron-err
+</code></pre>
+<h4 id="redirecting-stdout-and-stderr-within-cron"><a aria-hidden="true" class="anchor-heading icon-link" href="#redirecting-stdout-and-stderr-within-cron"></a>Redirecting stdout and stderr within cron</h4>
+<ul>
+<li><code>1></code> is stdout</li>
+<li><code>2></code> is stderr</li>
+</ul>
+<p>In the context of <code>@reboot</code> within crontab, the first part indicating time intervals can be ignored.</p>
+<p><code>33 3 * * * /path/to/some_job.sh 1> /dev/null 2> /other/path/to/some_job.err</code></p>
+<p><a href="https://superuser.com/questions/122246/how-can-i-view-results-of-my-cron-jobs">How can I view results of my cron jobs?</a></p>
+<h4 id="installing-postfix"><a aria-hidden="true" class="anchor-heading icon-link" href="#installing-postfix"></a>Installing postfix</h4>
+<p><code>sudo apt-get install postfix</code></p>
+<p>Notice the comment:</p>
+<blockquote>
+<p>It is worth pointing out that for use with cron (that is if you don't want to actually send email outwards) during the installation procedure you should answer to configure for local use only. – steffen Oct 27 '17 at 10:16</p>
+</blockquote>
+<p><a href="https://askubuntu.com/questions/222512/cron-info-no-mta-installed-discarding-output-error-in-the-syslog">"(CRON) info (No MTA installed, discarding output)" error in the syslog</a></p>

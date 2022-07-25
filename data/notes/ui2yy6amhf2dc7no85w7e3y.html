@@ -1,0 +1,22 @@
+<h1 id="triggers"><a aria-hidden="true" class="anchor-heading icon-link" href="#triggers"></a>Triggers</h1>
+<h2 id="home-assistant-developer-docs---implementation-in-python"><a aria-hidden="true" class="anchor-heading icon-link" href="#home-assistant-developer-docs---implementation-in-python"></a>Home Assistant Developer Docs - Implementation in Python</h2>
+<p><a href="https://developers.home-assistant.io/docs/device_automation_trigger/">Device Triggers | Home Assistant Developer Docs</a></p>
+<ul>
+<li>
+<p>Device triggers are automation triggers that are tied to a specific device and an event or state change. Examples are "light turned on" or "water detected".</p>
+</li>
+<li>
+<p>To add support for Device Triggers, an integration needs to have a <code>device_trigger.py</code> and:</p>
+<ul>
+<li>Define a <code>TRIGGER_SCHEMA</code>: A dictionary that represents a trigger, such as a device and an event type</li>
+<li>Create triggers: Create dictionaries containing the device or entity and supported events or state changes as defined by the schema.</li>
+<li>Attach triggers: Associate a trigger config with an event or state change, e.g. a message fired on the event bus.</li>
+<li>Add text and translations: Give each trigger a human readable name.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<strong>Backlinks</strong>
+<ul>
+<li><a href="/notes/notes/oBfzI1lAvoh15EkLluGjY">On off Switch</a></li>
+</ul>
