@@ -2,7 +2,7 @@
 id: s6kym6fv2no7tp1ez8x0ewn
 title: Vim Chrome Devtools
 desc: ''
-updated: 1658115002451
+updated: 1658550213762
 created: 1658109969372
 ---
 
@@ -40,3 +40,4 @@ C:\Program Files (x86)\Microsoft\Edge\Application> .\msedge.exe --remote-debuggi
 
 - Perhaps this really only works with `Chrome` and not just browsers using the chrome engine.
   - [x] Tested on chrome instead. I did not receive an error about the connection being rejected on `:ChromeDevToolsConnect` but also did not see confirmation
+  - `C:\Program Files\Google\Chrome\Application> .\chrome.exe --remote-debugging-port=9222`
